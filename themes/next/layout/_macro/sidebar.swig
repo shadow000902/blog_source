@@ -91,14 +91,26 @@
           </div>
         {% endif %}
 
-        <div class="links-of-author motion-element">
+        {# Blogroll #}
+        <div class="links-of-blogroll motion-element">
           {% if theme.links %}
+<<<<<<< HEAD
             <p class="site-author-name">{{ theme.links_title }}</p>
             {% for name, link in theme.links %}
               <span class="links-of-author-item">
                 <a href="{{ link }}" target="_blank" rel="external nofollow">{{ name }}</a>
               </span>
             {% endfor %}
+=======
+            <div class="links-of-blogroll-title">{{ theme.links_title }}</div>
+            <ul class="links-of-blogroll-list">
+              {% for name, link in theme.links %}
+                <li class="links-of-blogroll-item">
+                  <a href="{{ link }}" target="_blank">{{ name }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+>>>>>>> iissnan/master
           {% endif %}
         </div>
 
