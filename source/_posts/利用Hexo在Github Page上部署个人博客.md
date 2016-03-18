@@ -74,3 +74,18 @@ hexo deploy         # 部署本地静态网页到github上，以便在shadow0009
 {% asset_img 设置域名解析.png 设置域名解析 %}
 3. 修改域名提供商下的域名DNS服务器为github提供的DNS：
 {% asset_img 修改域名提供商下的域名DNS服务器.png 修改域名提供商下的域名DNS服务器 %}
+
+### 七、插件
+1. 插件基本命令
+1.1 安装插件：                                   npm install 插件名 --save
+1.2 卸载插件：                                   npm uninstall 插件名 --save
+1.3 更新插件和博客框架（需要在 E:\hexo 目录下）：     npm update
+它实质上是通过项目根目录下 package.json 文件更新各大组件
+2. 必备插件
+2.1 支持RSS：             npm install hexo-generator-feed --save
+2.2 生成站点地图：         npm install hexo-generator-sitemap --save
+2.3 生成百度站点地图：      npm install hexo-generator-baidu-sitemap --save
+2.4 HTML 压缩：           npm install hexo-html-minifier --save
+2.5 JavaScript 压缩：     npm install hexo-uglify --save
+2.6 CSS 压缩插件：        npm install hexo-clean-css --save
+2.7 SEO优化：             npm install hexo-generator-seo-friendly-sitemap
