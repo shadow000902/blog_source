@@ -89,3 +89,10 @@ hexo deploy         # 部署本地静态网页到github上，以便在shadow0009
 2.5 JavaScript 压缩：     npm install hexo-uglify --save
 2.6 CSS 压缩插件：        npm install hexo-clean-css --save
 2.7 SEO优化：             npm install hexo-generator-seo-friendly-sitemap
+
+### 八、统计功能
+[为hexo博客添加访问次数统计功能](http://ibruce.info/2015/04/04/busuanzi/)
+
+### 九、附加
+[Hexo你的博客](http://ibruce.info/2013/11/22/hexo-your-blog/)
+

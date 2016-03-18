@@ -19,4 +19,10 @@
   </a>
 </div>
 
+<span id="busuanzi_container_site_uv">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+</span>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
 {% block footer %}{% endblock %}
