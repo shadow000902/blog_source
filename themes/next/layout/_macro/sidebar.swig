@@ -95,6 +95,7 @@
         <div class="links-of-blogroll motion-element">
           {% if theme.links %}
 <<<<<<< HEAD
+<<<<<<< HEAD
             <p class="site-author-name">{{ theme.links_title }}</p>
             {% for name, link in theme.links %}
               <span class="links-of-author-item">
@@ -102,6 +103,8 @@
               </span>
             {% endfor %}
 =======
+=======
+>>>>>>> iissnan/master
             <div class="links-of-blogroll-title">{{ theme.links_title }}</div>
             <ul class="links-of-blogroll-list">
               {% for name, link in theme.links %}
@@ -110,6 +113,9 @@
                 </li>
               {% endfor %}
             </ul>
+<<<<<<< HEAD
+>>>>>>> iissnan/master
+=======
 >>>>>>> iissnan/master
           {% endif %}
         </div>
