@@ -1,7 +1,7 @@
 ---
 title: Android常用ADB命令
 date: 2016-03-16 09:52:16
-tags: [Android, ADB]
+tags: [android, adb]
 ---
 
 1. 安装APK(如果加 -r 参数，保留已设定数据，重新安装filename.apk)

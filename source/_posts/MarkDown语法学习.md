@@ -1,7 +1,7 @@
 ---
 title: MarkDown语法学习
 date: 2016-03-12 21:38:45
-tags: MarkDown
+tags: markdown
 ---
 
 ### 一、标题

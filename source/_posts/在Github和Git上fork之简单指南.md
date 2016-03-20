@@ -1,7 +1,7 @@
 ---
 title: 在Github和Git上fork之简单指南
 date: 2016-03-12 15:47:52
-tags: [Github,Git]
+tags: [github,git]
 ---
 以我的经验来看，刚接触Git和GitHub时，最困扰的一件事情就是尝试解决下面的问题：**在Git和GitHub上，我能做什么？**
 Git教程往往不会解决这个问题，因为它集中篇幅来教你Git命令和概念，并且不认为你会使用GitHub。[GitHub帮助教程](https://help.github.com/)一定程度上弥补了这一缺陷，但是它每篇文章的关注点都较为狭隘，而且没有提供关于"Git vs GitHub"问题的概念性概述。

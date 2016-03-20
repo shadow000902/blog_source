@@ -1,7 +1,7 @@
 ---
 title: Android-Studio使用
 date: 2016-03-13 00:19:58
-tags: [Android-Studio, robotium]
+tags: [android-studio, robotium]
 ---
 
 ## 一、 离线升级Android-Studio

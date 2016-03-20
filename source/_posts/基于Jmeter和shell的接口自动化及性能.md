@@ -1,7 +1,7 @@
 ---
 title: 基于Jmeter和shell的接口自动化及性能
 date: 2016-03-14 19:41:36
-tags: [Jmeter, 接口, 自动化]
+tags: [jmeter, 接口, 自动化]
 ---
 
 #### 1. 主要目标
