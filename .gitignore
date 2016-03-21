@@ -6,7 +6,7 @@ node_modules/
 public/
 .deploy*/
 .idea/workspace.xml
-/.idea/libraries
+.idea/libraries
 .git/
 .iml
 .xml
