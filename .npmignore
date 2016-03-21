@@ -5,7 +5,8 @@ db.json
 node_modules/
 public/
 .deploy*/
-.idea/
+.idea/workspace.xml
+.idea/libraries
 .git/
 .iml
 .xml
