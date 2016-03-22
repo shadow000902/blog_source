@@ -9,3 +9,4 @@ public/
 .git/
 *.iml
 *.xml
+.idea/workspace.xml
