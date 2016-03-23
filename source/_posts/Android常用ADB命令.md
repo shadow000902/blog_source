@@ -43,7 +43,7 @@ logcat -v time > /mnt/sdcard/aa.txt 2>&1 & (离线抓取log保存在手机)
 ``` bash
 adb shell
 ```
-9. 启动activity
+9. 启动activity（可能需要root权限）
 ``` bash
 adb shell am start -n 包名/包名+类名（-n 类名,-a action,-d date,-m MIME-TYPE,-c category,-e 扩展数据,等） （cn.highing.hichat/.ui.MainActivity）
 ```
