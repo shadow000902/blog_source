@@ -29,53 +29,59 @@ find_elements_by_link_text(self, link_text)         # Usage: driver.find_element
 find_element_by_partial_link_text(self, link_text)  # Usage: driver.find_element_by_partial_link_text('Sign')
 find_elements_by_partial_link_text(self, link_text) # Usage: driver.find_elements_by_partial_link_text('Sign')
 ```
-5. 通过name定位元素
+5. 通过name定位元素（被accessibility_id替代）
 ``` python
 find_element_by_name(self, name)                    # Usage: driver.find_element_by_name('foo')
 find_elements_by_name(self, name)                   # Usage: driver.find_elements_by_name('foo')
 ```
-6. 通过tag_name定位元素
+6. 通过accessibility_id定位元素
+``` python
+find_element_by_accessibility_id(self, id)          # Usage: driver.find_element_by_accessibility_id('id')
+find_elements_by_accessibility_id(self, id)         # Usage: driver.find_elements_by_accessibility_id('id')
+```
+7. 通过tag_name定位元素（被class_name替代）
 ``` python
 find_element_by_tag_name(self, name)                # Usage: driver.find_element_by_tag_name('foo')
 find_elements_by_tag_name(self, name)               # Usage: driver.find_elements_by_tag_name('foo')
 ```
-7. 通过class_name定位元素
+8. 通过class_name定位元素
 ``` python
 find_element_by_class_name(self, name)              # Usage: driver.find_element_by_class_name('foo')
 find_elements_by_class_name(self, name)             # Usage: driver.find_elements_by_class_name('foo')
 ```
-8. 通过css_selector定位元素
+9. 通过css_selector定位元素
 ``` python
 find_element_by_css_selector(self, css_selector)    # Usage: driver.find_element_by_css_selector('#foo')
 find_elements_by_css_selector(self, css_selector)   # Usage: driver.find_elements_by_css_selector('#foo')
 ```
-
-
-9. 截取当前窗口的截图，如果有写入错误会返回False，其它返回True
+10. 截取当前窗口的截图，如果有写入错误会返回False，其它返回True
 ``` python
 get_screenshot_as_file(self, filename)              # Usage: driver.get_screenshot_as_file('c:/foo.png')
 ```
-10. 获取当前屏幕的分辨率（长和宽）
+11. 获取当前屏幕的分辨率（长和宽）
 ``` python
 get_window_size(self, windowHandle='current')       # Usage: driver.get_window_size()
 ```
-11. 获取当前页面的网址
+12. 获取当前页面的网址
 ``` python
 current_url(self)                                   # Usage: driver.current_url
 ```
-12. 获取当前页面的源
+13. 获取当前页面的源
 ``` python
 page_source(self)                                   # driver.page_source
 ```
-13. 关闭当前窗口
+14. 关闭当前窗口
 ``` python
 close(self)                                         # driver.close()
 ```
-14. 退出脚本运行并关闭每个相关的窗口连接
+15. 退出脚本运行并关闭每个相关的窗口连接
 ``` python
 quit(self)                                          # driver.quit()
 ```
-
+16. 切换webview与native
+``` python
+driver.switch_to.context("WEBVIEW")
+```
 
 ### 二、操作        # python-client/appium/webdriver/webdriver.py
 1. 从元素origin_el滚动至元素destination_el
