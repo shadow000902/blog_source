@@ -193,11 +193,11 @@ duoshuo_shortname: shadow
 # Baidu Share
 # Available value:
 #    button | slide
-baidushare: true
+baidushare: false
 ##  type: button
 
 # Share
-jiathis: true
+jiathis: false
 #add_this_id:
 
 # Share
@@ -222,7 +222,7 @@ duoshuo_share: true
 duoshuo_info:
   ua_enable: true
   admin_enable: false
-  user_id: 0
+  user_id: 436785
   #admin_nickname: ROOT
 
 

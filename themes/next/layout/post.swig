@@ -13,7 +13,7 @@
   <div id="posts" class="posts-expand">
     {{ post_template.render(page) }}
 
-    <div class="post-spread">
+    <div class="ds-share-icons-16">
       {% if theme.jiathis %}
         {% include '_partials/share/jiathis.swig' %}
       {% elseif theme.baidushare %}
