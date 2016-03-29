@@ -1,10 +1,11 @@
 ---
-title: Android常用ADB命令
-date: 2016-03-16 09:52:16
+title: 常用Adb命令列表
+date: 2016-03-16 22:37:41
 tags: [android, adb]
 ---
 
-1. 安装APK(如果加 -r 参数，保留已设定数据，重新安装filename.apk)
+
+1. 安装APK（如果加 -r 参数，保留已设定数据，重新安装filename.apk）
 ``` bash
 adb install XXX.apk
 adb install -r XXX.apk
@@ -12,7 +13,7 @@ adb install -r XXX.apk
 
 <!--more-->
 
-2. 卸载APK(如果加 -k 参数，为卸载软件但是保留配置和缓存文件)
+2. 卸载APK（如果加 -k 参数，为卸载软件但是保留配置和缓存文件）
 ``` bash
 adb uninstall 包名(如：cn.highing.hichat)
 adb uninstall -k 包名(如：cn.highing.hichat)
