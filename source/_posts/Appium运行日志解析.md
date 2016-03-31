@@ -85,6 +85,8 @@ info: Client User-Agent string: Python-urllib/3.5
 info: [debug] No appActivity desired capability or server param. Parsing from apk.
 info: [debug] No appPackage desired capability or server param. Parsing from apk.
 info: [debug] Using local app from desired caps: E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk
+
+# 根据测试代码setUp()进行初始化，在http服务器上建立一个session对象
 info: [debug] Creating new appium session b3868a3e-3d5e-484a-8202-8b8612591e1b
 info: Starting android appium
 info: [debug] Getting Java version
@@ -104,12 +106,16 @@ info: [debug] Using fast reset? true
 info: [debug] Preparing device for session
 info: [debug] Checking whether app is actually present
 info: Retrieving device
+
+# 开始调用adb，找到连接上的设备，设置设备id
 info: [debug] Trying to find a connected android device
 info: [debug] Getting connected devices...
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe devices
 info: [debug] 1 device(s) connected
 info: Found device 0721b62c00e1a31f
 info: [debug] Setting device id to 0721b62c00e1a31f
+
+# 等待设备准备好响应命令
 info: [debug] Waiting for device to be ready and to respond to shell commands (timeout = 5)
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f wait-for-device
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "echo 'ready'"
@@ -128,6 +134,8 @@ appium_apk_tools.jar" "stringsFromApk" "E:\Appium\sample-code\apps\ApiDemos\bin\
 Tao Yi\AppData\Local\Temp\io.appium.android.apis"
 info: [debug] Reading strings from converted strings.json
 info: [debug] Setting language to default
+
+# 将生成的apk属性信息文件strings.json存到了设备目录下
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f push "C:\\Users\\Tao Yi
 \\AppData\\Local\\Temp\\io.appium.android.apis\\strings.json" /data/local/tmp
 info: [debug] Checking whether aapt is present
@@ -215,6 +223,8 @@ info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: 1
 info: [debug] [BOOTSTRAP] [debug] Socket opened on port 4724
 info: [debug] [BOOTSTRAP] [debug] Appium Socket Server Ready
 info: [debug] [BOOTSTRAP] [debug] Loading json...
+
+# 唤醒设备
 info: [debug] Waking up device if it's not alive
 info: [debug] Pushing command to appium work queue: ["wake",{}]
 info: [debug] [BOOTSTRAP] [debug] json loading complete.
@@ -237,6 +247,8 @@ info: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action"
 params":{"compressLayout":false}}
 info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
 info: [debug] [BOOTSTRAP] [debug] Got command action: compressedLayoutHierarchy
+
+# 获取设备API版本
 info: [debug] Getting device API level
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "getprop ro.build
 .version.sdk"
@@ -247,9 +259,13 @@ ndroid.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000 -n i
 m.android.apis.ApiDemos"
 info: [debug] Waiting for pkg "io.appium.android.apis" and activity "io.appium.android.apis.ApiDemos" to be fo
 cused
+
+# 获取当前的包名和activity名
 info: [debug] Getting focused package and activity
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "dumpsys window w
 indows"
+
+# 获取安卓版本
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "getprop ro.build
 .version.release"
 info: [debug] Device is at release version 6.0
@@ -271,6 +287,8 @@ alse,"warnings":{},"desired":{"platformVersion":"6.0","app":"E:\\Appium\\sample-
 Demos-debug.apk","platformName":"Android","deviceName":"Nexus 5"},"app":"E:\\Appium\\sample-code\\apps\\ApiDem
 os\\bin\\ApiDemos-debug.apk","platformName":"Android","deviceName":"0721b62c00e1a31f"},"sessionId":"b3868a3e-3
 d5e-484a-8202-8b8612591e1b"}
+
+# 开始执行用例
 info: --> POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element {"using":"accessibility id","sessi
 onId":"b3868a3e-3d5e-484a-8202-8b8612591e1b","value":"Graphics"}
 info: [debug] Waiting up to 0ms for condition
@@ -416,8 +434,7 @@ lue":{"ELEMENT":"16"},"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"}
 info: --> DELETE /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b {}
 info: Shutting down appium session
 info: [debug] Pressing the HOME button
-info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "input keyevent 3
-"
+info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "input keyevent 3"
 info: [debug] Stopping logcat capture
 info: [debug] Logcat terminated with code null, signal SIGTERM
 info: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"shutdown"}
@@ -444,6 +461,9 @@ info: [debug] Responding to client with success: {"status":0,"value":null,"sessi
 -8b8612591e1b"}
 info: <-- DELETE /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b 200 1101.263 ms - 76 {"status":0,"value"
 :null,"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"}
+# 第一个test执行完毕，结束工作完毕
+
+新的test开始执行
 info: --> POST /wd/hub/session {"desiredCapabilities":{"platformVersion":"6.0","app":"E:\\Appium\\sample-code\
 \apps\\ApiDemos\\bin\\ApiDemos-debug.apk","platformName":"Android","deviceName":"Nexus 5"}}
 info: Client User-Agent string: Python-urllib/3.5
