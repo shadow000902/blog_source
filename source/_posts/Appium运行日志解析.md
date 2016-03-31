@@ -4,9 +4,10 @@ date: 2016-03-31 11:10:40
 tags: [appium]
 ---
 
-### Appium运行
+### 一、Appium脚本/python代码     //android_simple.py
 
-1. Appium脚本/python代码     //android_simple.py
+
+<!--more-->
 
 ``` python
 import os
@@ -70,7 +71,7 @@ if __name__ == '__main__':
 ```
 
 
-2. Appium运行日志
+### 二、Appium运行日志解析
 
 ``` bash
 C:\Users\Tao Yi\AppData\Roaming\npm\node_modules\.bin>appium
