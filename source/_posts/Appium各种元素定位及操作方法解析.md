@@ -1,6 +1,7 @@
 ---
 title: Appium-Python各种元素定位及操作方法解析
 date: 2016-03-27 16:39:50
+categories: [Appium]
 tags: [appium, python]
 ---
 

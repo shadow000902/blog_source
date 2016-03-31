@@ -1,7 +1,8 @@
 ---
 title: adb连接夜神模拟器
 date: 2016-03-21 00:04:06
-tags: adb
+categories: [Adb]
+tags: [adb]
 ---
 
 ### 一、准备工作

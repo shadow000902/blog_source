@@ -1,7 +1,8 @@
 ---
 title: Android-Studio连接夜神模拟器
 date: 2016-03-14 12:25:46
-tags: android-studio
+categories: [AS]
+tags: [android-studio]
 ---
 
 1. 安装并启动夜神模拟器

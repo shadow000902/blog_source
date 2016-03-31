@@ -1,7 +1,8 @@
 ---
 title: 上传本地代码到Github
 date: 2016-03-18 14:54:16
-tags: github
+categories: [Github]
+tags: [github]
 ---
 
 ### 一、准备工作
