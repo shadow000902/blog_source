@@ -7,6 +7,9 @@ tags: [appium]
 
 1. 下载[Appium客户端](http://appium.io/)
 2. 安装Appium客户端到电脑，查看目录如图：
+
+<!--more-->
+
 {% asset_img Appium安装目录结构.png Appium安装目录结构 %}
 3. 完整解压其中的node_modules.7z文件，如图所示：
 {% asset_img node_modules目录结构.png node_modules目录结构 %}
