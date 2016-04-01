@@ -78,23 +78,27 @@ if __name__ == '__main__':
 C:\Users\Tao Yi\AppData\Roaming\npm\node_modules\.bin>appium
 info: Welcome to Appium v1.4.16 (REV ae6877eff263066b26328d457bd285c0cc62430d)
 
-# 启动一个http服务器：0.0.0.0:4723
+# 启动REST http服务器，默认监听本地4723端口，用于接收客户端（Test Case+Selenium/Appium Driver)发过来的JSON格式的命令指示
 info: Appium REST http interface listener started on 0.0.0.0:4723
 info: Console LogLevel: debug
+
+# 根据客户端提供的capabilities指示建立一个Android Sesision用于跟客户端保持后续通信
 info: --> POST /wd/hub/session {"desiredCapabilities":{"platformVersion":"6.0","app":"E:\\Appium\\sample-code\
 \apps\\ApiDemos\\bin\\ApiDemos-debug.apk","platformName":"Android","deviceName":"Nexus 5"}}
 info: Client User-Agent string: Python-urllib/3.5
 info: [debug] No appActivity desired capability or server param. Parsing from apk.
 info: [debug] No appPackage desired capability or server param. Parsing from apk.
 info: [debug] Using local app from desired caps: E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk
-
-# 根据测试代码setUp()进行初始化，在http服务器上建立一个session对象
 info: [debug] Creating new appium session b3868a3e-3d5e-484a-8202-8b8612591e1b
 info: Starting android appium
+
+# 获取jdk、adb信息
 info: [debug] Getting Java version
 info: Java version is: 1.8.0_45
 info: [debug] Checking whether adb is present
 info: [debug] Using adb from E:\android-sdk\platform-tools\adb.exe
+
+# 使用工具“aapt dump badging ApiDemos-debug.apk"来获得ApiDemos-debug的packageName和launchable activityName，注意示例代码中是没有指定这个两个capabilities的
 info: [debug] Parsing package and activity from app manifest
 info: [debug] Checking whether aapt is present
 info: [debug] Using aapt from E:\android-sdk\build-tools\android-4.4W\aapt.exe
@@ -180,13 +184,13 @@ info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00
 .appium.android.apis"
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "pm clear io.appi
 um.android.apis"
-info: [debug] Forwarding system:4724 to device:4724
 
-# 端口映射，发给appium httpserver的内容，经过httpserver后直接发给设备
+# 建立Appium Server到目标机器上的端口转发
+info: [debug] Forwarding system:4724 to device:4724
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f forward tcp:4724 tcp:47
 24
 
-# 往设备上push一个AppiumBootstrap.jar文件
+# 往设备上push一个AppiumBootstrap.jar文件，这是目标机器上通过uiautomator工具（框架）运行的服务端，用于接受处理client端发送过来的命令
 info: [debug] Pushing appium bootstrap to device...
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f push "C:\\Users\\Tao Yi
 \\AppData\\Roaming\\npm\\node_modules\\appium\\build\\android_bootstrap\\AppiumBootstrap.jar" /data/local/tmp/
@@ -202,14 +206,14 @@ info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00
 i\AppData\Roaming\npm\node_modules\appium\build\unlock_apk\unlock_apk-debug.apk"
 info: Starting App
 
-# kill掉所有的uiautomator进程
+# kill掉所有的uiautomator进程，保证uiautomator没有在跑
 info: [debug] Attempting to kill all 'uiautomator' processes
 info: [debug] Getting all processes with 'uiautomator'
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "ps 'uiautomator'
 "
 info: [debug] No matching processes found
 
-# 执行bootstrap
+# 通过adb把目标机器上的AppiumBootStrap跑起来
 info: [debug] Running bootstrap
 info: [debug] spawning: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell uiautomator runtest Ap
 piumBootstrap.jar -c io.appium.android.bootstrap.Bootstrap -e pkg io.appium.android.apis -e disableAndroidWatc
@@ -256,18 +260,16 @@ info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00
 .version.sdk"
 info: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":false}
 info: [debug] Device is at API Level 23
+
+# 通过adb在目标机器上 Launch ApiDemos应用
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "am start -S -a a
 ndroid.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000 -n io.appium.android.apis/io.appiu
 m.android.apis.ApiDemos"
 info: [debug] Waiting for pkg "io.appium.android.apis" and activity "io.appium.android.apis.ApiDemos" to be fo
 cused
-
-# 获取当前的包名和activity名
 info: [debug] Getting focused package and activity
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "dumpsys window w
 indows"
-
-# 获取安卓版本
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "getprop ro.build
 .version.release"
 info: [debug] Device is at release version 6.0
@@ -275,6 +277,8 @@ info: [debug] Device launched! Ready for commands
 info: [debug] Setting command timeout to the default of 60 secs
 info: [debug] Appium session started with sessionId b3868a3e-3d5e-484a-8202-8b8612591e1b
 info: <-- POST /wd/hub/session 303 30932.362 ms - 74
+
+# 通知PC端目标应用已经在目标机器启动成功
 info: --> GET /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b {}
 info: [debug] Responding to client with success: {"status":0,"value":{"platform":"LINUX","browserName":"Androi
 d","platformVersion":"6.0","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"database
@@ -290,7 +294,7 @@ Demos-debug.apk","platformName":"Android","deviceName":"Nexus 5"},"app":"E:\\App
 os\\bin\\ApiDemos-debug.apk","platformName":"Android","deviceName":"0721b62c00e1a31f"},"sessionId":"b3868a3e-3
 d5e-484a-8202-8b8612591e1b"}
 
-# 开始执行用例
+# 定位菜单按钮：Bootstrap通过的UIAutomator的UISelector类根据Text获得菜单按钮的ID并返回给客户端
 info: --> POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element {"using":"accessibility id","sessi
 onId":"b3868a3e-3d5e-484a-8202-8b8612591e1b","value":"Graphics"}
 info: [debug] Waiting up to 0ms for condition
@@ -306,6 +310,8 @@ info: [debug] [BOOTSTRAP] [debug] Using: UiSelector[DESCRIPTION=Graphics, INSTAN
 info: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":{"ELEMENT":"1"}}
 info: [debug] Responding to client with success: {"status":0,"value":{"ELEMENT":"1"},"sessionId":"b3868a3e-3d5
 e-484a-8202-8b8612591e1b"}
+
+# BootStrap执行“点击”命令
 info: <-- POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element 200 344.090 ms - 87 {"status":0,"v
 alue":{"ELEMENT":"1"},"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"}
 info: --> POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element/1/click {"sessionId":"b3868a3e-3d5
@@ -433,10 +439,14 @@ info: [debug] Responding to client with success: {"status":0,"value":{"ELEMENT":
 5e-484a-8202-8b8612591e1b"}
 info: <-- POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element 200 21.357 ms - 88 {"status":0,"va
 lue":{"ELEMENT":"16"},"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"}
+
+# 测试完成，删除session，目标机器模拟点击Home按钮把目标应用放在后台
 info: --> DELETE /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b {}
 info: Shutting down appium session
 info: [debug] Pressing the HOME button
 info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "input keyevent 3"
+
+# 关闭logcat
 info: [debug] Stopping logcat capture
 info: [debug] Logcat terminated with code null, signal SIGTERM
 info: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"shutdown"}
@@ -455,6 +465,8 @@ info: [debug] [UIAUTOMATOR STDOUT] Test results for WatcherResultPrinter=.
 info: [debug] [UIAUTOMATOR STDOUT] Time: 5.738
 info: [debug] [UIAUTOMATOR STDOUT] OK (1 test)
 info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: -1
+
+# 关闭Uiautomator进程
 info: [debug] Sent shutdown command, waiting for UiAutomator to stop...
 info: [debug] UiAutomator shut down normally
 info: [debug] Cleaning up android objects
