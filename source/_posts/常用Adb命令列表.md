@@ -88,7 +88,7 @@ cat /proc/kmsg > /mnt/sdcard/kmsg.txt 2>&1 &
 netstat -ano|findstr 80                                 # windows 查找占用80端口的进程
 netstat -aonp |grep ":80[ ]\+"|awk -F" " {'print $0'}   # linux 查找占用80端口的进程
 netstat -aonp |grep "^[a-z]\+[ ]\+0[ ]\+0[ ]\+[0-9\.]\+:80[ ]\+"|awk -F" " {'print $0'}                 # 优化后
-netstat -anp |grep "^[a-z]\+[ ]\+0[ ]\+0[ ]\+[0-9\.]\+:80[ ]\+"|awk -F" " {'print $7'}|cut -d"/" -f1    # 只显示pid
+netstat -aonp |grep "^[a-z]\+[ ]\+0[ ]\+0[ ]\+[0-9\.]\+:80[ ]\+"|awk -F" " {'print $7'}|cut -d"/" -f1    # 只显示pid
 ```
 19. monkey命令
 ``` bash
