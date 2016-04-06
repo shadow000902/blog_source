@@ -5,7 +5,6 @@ categories: [Adb]
 tags: [android, adb]
 ---
 
-
 1. 安装APK（如果加 -r 参数，保留已设定数据，重新安装filename.apk）
 ``` bash
 adb install XXX.apk
@@ -76,17 +75,20 @@ adb forward tcp:5555 tcp:8000
 ```
 16. 查看最上层的Activity名字
 ``` bash
-linux: adb shell dumpsys activity | grep "mFocusedActivity"
-windows: adb shell dumpsys activity | findstr "mFocusedActivity"
-         adb shell dumpsys window windows | grep -E "mCurrentFlcus|mFocuseApp"
+adb shell dumpsys activity | grep "mFocusedActivity"                        # linux
+adb shell dumpsys activity | findstr "mFocusedActivity"                     # windows
+adb shell dumpsys window windows | grep -E "mCurrentFlcus|mFocuseApp"       # windows
 ```
 17. 抓取重启的log
 ``` bash
 cat /proc/kmsg > /mnt/sdcard/kmsg.txt 2>&1 &
 ```
-18. 查找占用指定端口的pid（进程id）
+18. 查找占用指定端口的pid（进程id）（查找电脑被占用的端口，不是手机）
 ``` bash
-netstat -ano|findstr <指定端口号>
+netstat -ano|findstr 80                                 # windows 查找占用80端口的进程
+netstat -aonp |grep ":80[ ]\+"|awk -F" " {'print $0'}   # linux 查找占用80端口的进程
+netstat -aonp |grep "^[a-z]\+[ ]\+0[ ]\+0[ ]\+[0-9\.]\+:80[ ]\+"|awk -F" " {'print $0'}                 # 优化后
+netstat -anp |grep "^[a-z]\+[ ]\+0[ ]\+0[ ]\+[0-9\.]\+:80[ ]\+"|awk -F" " {'print $7'}|cut -d"/" -f1    # 只显示pid
 ```
 19. monkey命令
 ``` bash
