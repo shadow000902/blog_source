@@ -5,6 +5,10 @@ categories: [Appium]
 tags: [appium]
 ---
 
+appium命令帮助
+
+<!--more-->
+
 ``` bash
 C:\Users\shadow>appium -h
 usage: main.js [-h] [-v] [--shell] [--ipa IPA] [-a ADDRESS] [-p PORT]
