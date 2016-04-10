@@ -30,6 +30,7 @@ pip install selenium    # pip install selenium -i http://pypi.douban.com/simple 
 pip install Appium-Python-Client
 ```
 至此，需要的软件和环境都已经安装完毕，下面就可以开始去运行sample-code的脚本了
+
 ### 二、执行脚本
 1. 编辑sample-code中的python脚本，以适应自己的机器运行
 脚本存放位置：
