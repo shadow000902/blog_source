@@ -1,5 +1,5 @@
 ---
-title: Adb进阶应用
+title: 第一章：程序之道
 date: 2016-05-02 18:20:00
 categories: [Think Python 2E]
 tags: [python]

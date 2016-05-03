@@ -1,6 +1,6 @@
 ---
-title: Adb进阶应用
-date: 2016-05-02 18:20:00
+title: 第五章：条件和递归
+date: 2016-05-02 18:24:00
 categories: [Think Python 2E]
 tags: [python]
 ---

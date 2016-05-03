@@ -1,6 +1,6 @@
 ---
-title: Adb进阶应用
-date: 2016-05-02 18:20:00
+title: 第十五章：类和对象
+date: 2016-05-02 18:34:00
 categories: [Think Python 2E]
 tags: [python]
 ---

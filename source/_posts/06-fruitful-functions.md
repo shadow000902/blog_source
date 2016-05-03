@@ -1,6 +1,6 @@
 ---
-title: Adb进阶应用
-date: 2016-05-02 18:20:00
+title: 第六章：有返回值的函数
+date: 2016-05-02 18:25:00
 categories: [Think Python 2E]
 tags: [python]
 ---

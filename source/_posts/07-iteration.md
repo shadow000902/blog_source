@@ -1,6 +1,6 @@
 ---
-title: Adb进阶应用
-date: 2016-05-02 18:20:00
+title: 第七章：迭代
+date: 2016-05-02 18:26:00
 categories: [Think Python 2E]
 tags: [python]
 ---

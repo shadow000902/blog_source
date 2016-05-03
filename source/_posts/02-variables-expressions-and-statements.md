@@ -1,6 +1,6 @@
 ---
-title: Adb进阶应用
-date: 2016-05-02 18:20:00
+title: 第二章：变量、表达式和语句
+date: 2016-05-02 18:21:00
 categories: [Think Python 2E]
 tags: [python]
 ---

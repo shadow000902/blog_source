@@ -1,6 +1,6 @@
 ---
-title: Adb进阶应用
-date: 2016-05-02 18:20:00
+title: 第四章：案例研究：接口设计
+date: 2016-05-02 18:23:00
 categories: [Think Python 2E]
 tags: [python]
 ---
