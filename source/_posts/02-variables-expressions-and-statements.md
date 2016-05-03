@@ -13,9 +13,11 @@ tags: [python]
 赋值语句
 ---------------------
 
+<!--more-->
+
+
 \ **赋值语句（assignment statement）**\ 会新建变量，并为这个变量赋值。
 
-::
 
     >>> message = 'And now for something completely different'
     >>> n = 17
@@ -29,10 +31,7 @@ tags: [python]
 diagram）**\ ，因为它展示了每个变量所处的状态（可以把其看成是变量的心理状态）。
 图2-1展示了前面例子的结果。
 
-.. figure:: figs/state2.png
-   :alt: 状态图。
-
-   图2-1：状态图。
+{% asset_img state.png 图2-1：状态图 %}
 
 
 变量名
