@@ -12,6 +12,9 @@ tags: [python]
 那么现在是阅读第二十一章的好时机。
 但是不必急着马上读，什么时候感兴趣了再去读即可。
 
+<!--more-->
+
+
 本章是一个案例研究，同时给出了一些习题，
 目的是启发你思考如何选择数据结构，并练习数据结构使用。
 
@@ -30,7 +33,7 @@ tags: [python]
 其包括空格、制表符、新行等等，以及名为 ``punctuation`` 的字符串，
 其包括标点字符。试试能否让Python说脏话：
 
-::
+
 
     >>> import string
     >>> string.punctuation
@@ -83,7 +86,7 @@ tags: [python]
 每次调用 ``random`` ，你获得一个长序列中的下一个数。
 举个例子，运行此循环：
 
-::
+
 
     import random
 
@@ -94,7 +97,7 @@ tags: [python]
 函数 ``randint`` 接受参数 ``low`` 和 ``high`` ，
 返回一个 ``low`` 和 ``high`` 之间的整数（两个都包括）。
 
-::
+
 
     >>> random.randint(5, 10)
     5
@@ -103,7 +106,7 @@ tags: [python]
 
 你可以使用 ``choice`` ，从一个序列中随机选择一个元素：
 
-::
+
 
     >>> t = [1, 2, 3]
     >>> random.choice(t)
@@ -121,7 +124,7 @@ tags: [python]
 并从该对象中返回一个随机值，其选择概率和值出现的频率成正比。
 例如：
 
-::
+
 
     >>> t = ['a', 'a', 'b']
     >>> hist = histogram(t)
@@ -140,7 +143,7 @@ tags: [python]
 
 下面这个程序将读取一个文件，并建立文件中单词的直方图：
 
-::
+
 
     import string
 
@@ -176,28 +179,28 @@ tags: [python]
 
 我们可以通过累加直方图中的频率，来统计文件中的单词总数：
 
-::
+
 
     def total_words(hist):
         return sum(hist.values())
 
 不同单词的数量恰好是词典中项的数目：
 
-::
+
 
     def different_words(hist):
         return len(hist)
 
 这是打印结果的代码：
 
-::
+
 
     print('Total number of words:', total_words(hist))
     print('Number of different words:', different_words(hist))
 
 结果是：
 
-::
+
 
     Total number of words: 161080
     Number of different words: 7214
@@ -210,7 +213,7 @@ tags: [python]
 下面的函数接受一个直方图并且返回一个
 单词-频率的元组列表：
 
-::
+
 
     def most_common(hist):
         t = []
@@ -224,7 +227,7 @@ tags: [python]
 每一个元组中，频率在前，所以这个列表是按照频率排序。
 下面是输出最常用的十个单词的循环：
 
-::
+
 
     t = most_common(hist)
     print('The most common words are:')
@@ -234,7 +237,7 @@ tags: [python]
 这里我通过关键词参数 ``sep`` ，让 ``print`` 使用一个制表符（Tab）而不是空格键作为分隔符，
 所以第二行将对齐。下面是对小说*《Emma》*的分析结果：
 
-::
+
 
     The most common words are:
     to      5242
@@ -258,7 +261,7 @@ tags: [python]
 程序员也可以自己定义具有可选实参的函数。
 例如，下面就是一个打印直方图中最常见单词的函数。
 
-::
+
 
     def print_most_common(hist, num=10):
         t = most_common(hist)
@@ -271,13 +274,13 @@ value）**\ 是10。
 
 如果你只提供了一个实参:
 
-::
+
 
     print_most_common(hist)
 
 \ ``num``\ 将使用默认值。如果你你提供两个实参：
 
-::
+
 
     print_most_common(hist, 20)
 
@@ -296,7 +299,7 @@ value）**\ 是10。
 其包括 ``d1`` 中的所有没出现在 ``d2`` 中的键。
 由于并不真正关心值是什么，我们将它们都设为 ``None`` 。
 
-::
+
 
     def subtract(d1, d2):
         res = dict()
@@ -309,7 +312,7 @@ value）**\ 是10。
 我们可以使用\ ``process_file``\ 来为 ``words.txt`` 构建一个直方图，
 然后使用 ``subtract`` ：
 
-::
+
 
     words = process_file('words.txt')
     diff = subtract(hist, words)
@@ -320,7 +323,7 @@ value）**\ 是10。
 
 这是针对小说\ *《Emma》*\ 的部分运行结果：
 
-::
+
 
     Words in the book that aren't in the word list:
     rencontre jane's blanche woodhouses disingenuousness 
@@ -345,7 +348,7 @@ Python　提供了一个叫做集合（set）的数据结构，支持许多常�
 如果想从直方图中随机选择一个单词，最简单的算法是创建一个列表，
 其中根据其出现的频率，每个单词都有相应个数的拷贝，然后从该列表中选择单词：
 
-::
+
 
     def random_word(h):
         t = []
@@ -387,7 +390,7 @@ Python　提供了一个叫做集合（set）的数据结构，支持许多常�
 
 如果你从书中随机选择单词，那么你会大致了解其使用的词汇，但可能不会得到一个完整的句子：
 
-::
+
 
     this the small regard harriet which knightley's it most things
 
@@ -489,7 +492,7 @@ Programming》* 一书中的示例。
 使用元组，你不能追加或删除元素，
 但是你能使用加号运算符来形成一个新的元组：
 
-::
+
 
     def shift(prefix, word):
         return prefix[1:] + (word,)
@@ -630,11 +633,11 @@ Programming》* 一书中的示例。
 Zipf定律(\ http://en.wikipedia.org/wiki/Zipf's_law \)描述了自然语言中秩和单词出现频率的关系。特别是，它预测对于秩为 :math:`r` 的单词，
 其出现的频率 :math:`f` 是：
 
-.. math:: f = c r^{-s}
+.. math f = c r^{-s}
 
 其中，:math:`s`　和　:math:`c` 是依赖于语言和文本的参数。如果在上述等式两边取对数的话，你可以得到：
 
-.. math:: \log f = \log c - s \log r
+.. math \log f = \log c - s \log r
 
 因此，如果绘出 log :math:`f`　和　log :math:`r`　的图像，你可以得到一条以　:math:`-s`　为斜率、以　:math:`c`　为截距的直线。
 

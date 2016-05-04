@@ -13,6 +13,9 @@ tags: [python]
 程序员定义的类来组织代码和数据。
 面向对象编程是一个很大的话题，讲完需要一些章节。
 
+<!--more-->
+
+
 本章的示例代码可以在\ http://thinkpython2.com/code/Point1.py \ 获取；
 练习题的答案可以在\ http://thinkpython2.com/code/Point1_soln.py \ 获取。
 
@@ -37,7 +40,7 @@ tags: [python]
 
 程序员自定义类型( A programmer-defined type )也被称作\ **类（class）**\ 。 像这样定义一个对象：
 
-::
+
 
     class Point:
         """Represents a point in 2-D space."""
@@ -48,7 +51,7 @@ tags: [python]
 
 定义一个叫做 ``Point`` 的类将创建了一个\ **类对象（class object）**\ 。
 
-::
+
 
     >>> Point
     <class '__main__.Point'>
@@ -58,7 +61,7 @@ tags: [python]
 类对象就像是一个用来创建对象的工厂。
 要创建一个点，你可以像调用函数那样调用 ``Point`` 。
 
-::
+
 
     >>> blank = Point()
     >>> blank
@@ -79,7 +82,7 @@ tags: [python]
 
 你可以使用点标记法向一个实例进行赋值操作：
 
-::
+
 
     >>> blank.x = 3.0
     >>> blank.y = 4.0
@@ -93,19 +96,14 @@ tags: [python]
 
 下面这张图展示了这些赋值操作的结果。说明一个对象及其属性的状态图叫做\ **对象图（object diagram）**\ ；见图\ :ref:`fig.point`\ 。
 
-.. _fig.point:
-
-.. figure:: figs/point.png
-   :alt: 图15-1：对象图
-
-   图15-1：对象图
+{% asset_img point.png 图15-1：对象图 %}
 
 变量 ``blank`` 引用了一个 ``Point`` 类，这个类拥有了两个属性。
 每个属性都引用了一个浮点数。
 
 你可以使用相同的语法读取一个属性的值：
 
-::
+
 
     >>> blank.y
     4.0
@@ -119,7 +117,7 @@ tags: [python]
 
 你可以在任何表达式中使用点标记法。例如：
 
-::
+
 
     >>> '(%g, %g)' % (blank.x, blank.y)
     '(3.0, 4.0)'
@@ -129,7 +127,7 @@ tags: [python]
 
 你可以将一个实例作为参数传递。例如：
 
-::
+
 
     def print_point(p):
         print('(%g, %g)' % (p.x, p.y))
@@ -137,7 +135,7 @@ tags: [python]
 \ ``print_point``\ 接受一个点作为参数，打印出其在数学中的表示方法。
 调用它的时候，你可以将 ``blank`` 作为参数传递：
 
-::
+
 
     >>> print_point(blank)
     (3.0, 4.0)
@@ -166,7 +164,7 @@ tags: [python]
 
 下面是类的定义：
 
-::
+
 
     class Rectangle:
         """Represents a rectangle.
@@ -180,7 +178,7 @@ tags: [python]
 
 为了描述一个矩形，你需要实例化一个 ``Rectangle`` 对象，并且为它的属性赋值：
 
-::
+
 
     box = Rectangle()
     box.width = 100.0
@@ -193,12 +191,7 @@ tags: [python]
 “前往 ``box`` 所引用的对象，找到叫做 ``corner`` 的属性；
 然后前往 ``corner`` 所引用的对象，找到叫做 ``x`` 的属性。”
 
-.. _fig.rectangle:
-
-.. figure:: figs/rectangle.png
-   :alt: 图15-2：对象图
-
-   图15-2：对象图
+{% asset_img rectangle.png 图15-2：对象图 %}
 
 \ :ref:`fig.rectangle`\ 展示了这个对象的状态。
 一个对象作为另一个对象的属性叫做\ **嵌套（embedded）**\ 。
@@ -209,7 +202,7 @@ tags: [python]
 函数可以返回实例。例如，\ ``find_center``\ 接受一个 ``Rectangle`` 作为参数，
 返回一个 ``Point`` ，代表了这个 ``Rectangle`` 的中心坐标：
 
-::
+
 
     def find_center(rect):
         p = Point()
@@ -219,7 +212,7 @@ tags: [python]
 
 下面这个例子将 ``box`` 作为参数传递，然后将返回的 ``Point`` 赋值给 ``center``：
 
-::
+
 
     >>> center = find_center(box)
     >>> print_point(center)
@@ -232,7 +225,7 @@ tags: [python]
 你可以通过给一个对象的属性赋值来改变这个对象的状态。
 例如，要改变一个矩形的大小而不改变它的位置，你可以修改 ``width`` 和 ``height`` 的值：
 
-::
+
 
     box.width = box.width + 50
     box.height = box.height + 100
@@ -241,7 +234,7 @@ tags: [python]
 例如，\ ``grow_rectangle``\ 接受一个 ``Rectangle`` 对象和两个数字，
 \ ``dwidth``\ 和 ``dheight`` ，并将其加到矩形的宽度和高度上：
 
-::
+
 
     def grow_rectangle(rect, dwidth, dheight):
         rect.width += dwidth
@@ -249,7 +242,7 @@ tags: [python]
 
 下面的例子展示了具体效果：
 
-::
+
 
     >>> box.width, box.height
     (150.0, 300.0)
@@ -274,7 +267,7 @@ tags: [python]
 通常用复制对象的方法取代为对象起别名。
 \ ``copy``\ 模块拥有一个叫做 ``copy`` 的函数，可以复制任何对象：
 
-::
+
 
     >>> p1 = Point()
     >>> p1.x = 3.0
@@ -285,7 +278,7 @@ tags: [python]
 
 \ ``p1``\ 和 ``p2`` 拥有相同的数据，但是它们并不是同一个 ``Point`` 对象。
 
-::
+
 
     >>> print_point(p1)
     (3, 4)
@@ -305,7 +298,7 @@ tags: [python]
 如果你使用 ``copy.copy`` 来复制一个 ``Rectangle`` ，
 你会发现它仅仅复制了 ``Rectangle`` 对象，但没有复制嵌套的 ``Point`` 对象。
 
-::
+
 
     >>> box2 = copy.copy(box)
     >>> box2 is box
@@ -313,12 +306,7 @@ tags: [python]
     >>> box2.corner is box.corner
     True
 
-.. _fig.rectangle2:
-
-.. figure:: figs/rectangle2.png
-   :alt: 图15-3：对象图
-
-   图15-3：对象图
+{% asset_img rectangle2.png 图15-3：对象图 %}
 
 \ :ref:`fig.rectangle2`\ 展示了相应的对象图。 这个操作叫做\ **浅复制（shallow
 copy）**\ ，因为它仅复制了对象以及其包含的引用， 但未复制嵌套的对象。
@@ -333,7 +321,7 @@ copy）**\ ，因为它仅复制了对象以及其包含的引用， 但未复�
 甚至可以复制\ *这个对象所引用的对象*\ 所引用的对象，等等。
 没错！这个操作叫做\ **深复制（deep copy）**\ 。
 
-::
+
 
     >>> box3 = copy.deepcopy(box)
     >>> box3 is box
@@ -353,7 +341,7 @@ copy）**\ ，因为它仅复制了对象以及其包含的引用， 但未复�
 当你开始学习对象的时候，你可能会遇到一些新的异常。
 如果你访问一个不存在的属性，你会得到 ``Attributeerror`` 的错误提示：
 
-::
+
 
     >>> p = Point()
     >>> p.x = 3
@@ -364,7 +352,7 @@ copy）**\ ，因为它仅复制了对象以及其包含的引用， 但未复�
 
 如果你不确定一个对象的类型，你可以询问：
 
-::
+
 
     >>> type(p)
     <class '__main__.Point'>
@@ -372,7 +360,7 @@ copy）**\ ，因为它仅复制了对象以及其包含的引用， 但未复�
 
 你也可以用 ``isinstance`` 来检查某个对象是不是某个类的实例。
 
-::
+
 
     >>> isinstance(p, Point)
     True
@@ -380,7 +368,7 @@ copy）**\ ，因为它仅复制了对象以及其包含的引用， 但未复�
 
 如果你不确定一个对象是否拥有某个属性， 你可以使用内置函数 ``hasattr`` 检查：
 
-::
+
 
     >>> hasattr(p, 'x')
     True
@@ -394,7 +382,7 @@ copy）**\ ，因为它仅复制了对象以及其包含的引用， 但未复�
 
 你也可以使用 ``try``　语句来检查某个对象是不是有你需要的属性:
 
-::
+
 
     try:
         x = p.x

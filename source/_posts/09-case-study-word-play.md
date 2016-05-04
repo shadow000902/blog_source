@@ -12,7 +12,9 @@ tags: [python]
 例如，我们将找出英文中最长的回文单词，以及字符按照字符表顺序出现的单词。
 另外，我还将介绍另一种程序开发方法：简化为之前已解决的问题。
 
-.. _wordlist:
+
+<!--more-->
+
 
 读取单词列表
 -------------------------------
@@ -28,13 +30,13 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
 该文件是纯文本，因此你可以用一个文本编辑器打开它，但是你也可以从Python中读取它。
 内建函数 ``open`` 接受文件名作为形参，并返回一个 **文件对象（file object）** ，你可以使用它读取该文件。
 
-::
+
 
     >>> fin = open('words.txt')
 
 \ ``fin``\ 是输入文件对象的一个常用名。该文件对象提供了几个读取方法，
 包括 ``readline`` ，其从文件中读取字符直到碰到新行，并将结果作为字符串返回：
-::
+
 
     >>> fin.readline()
     'aa\r\n'
@@ -46,7 +48,7 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
 此文件对象跟踪它在文件中的位置，
 所以如果你再次调用readline，你获得下一个单词：
 
-::
+
 
     >>> fin.readline()
     'aah\r\n'
@@ -55,7 +57,7 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
 下一个单词是“aah”，它是一个完全合法的单词， 所以不要那样看我。
 或者，如果空格困扰了你，我们可以用字符串方法 ``strip`` 删掉它：
 
-::
+
 
     >>> line = fin.readline()
     >>> word = line.strip()
@@ -66,7 +68,7 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
 你也可以将文件对象用做for循环的一部分。
 此程序读取 ``words.txt`` 并打印每个单词，每行一个：
 
-::
+
 
     fin = open('words.txt')
     for line in fin:
@@ -135,7 +137,7 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
 前一节的所有习题有一个共同点；都可以用在\ :ref:`search`\ 一节中看到的搜索模式解决。
 举一个最简单的例子：
 
-::
+
 
     def has_no_e(word):
         for letter in word:
@@ -153,7 +155,7 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
 
 \ ``avoid``\　是一个更通用的\ ``has_no_e``\ 函数，但是结构是相同的：
 
-::
+
 
     def avoids(word, forbidden):
         for letter in word:
@@ -166,7 +168,7 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
 
 除了检测条件相反以外，下面\ ``uses_only``\ 函数与上面的函数很像：
 
-::
+
 
     def uses_only(word, available):
         for letter in word: 
@@ -181,7 +183,7 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
 除了将 ``word`` 与所要求的字符的角色进行了调换之外，
 下面的\ ``uses_all``\ 函数也是类似的。
 
-::
+
 
     def uses_all(word, required):
         for letter in required: 
@@ -195,7 +197,7 @@ Ward收集并贡献给公众的列表，这也是Moby词典项目的一部分
 你可能已经意识到\ ``uses_all``\ 是前面已经解决的问题的一个实例，
 你可能会写成：
 
-::
+
 
     def uses_all(word, required):
         return uses_only(required, word)
@@ -214,7 +216,7 @@ previously solved problem）**\ 的程序开发方法的一个示例，
 对于下面的\ ``is_abecedarian``\ ，我们必须比较邻接的字符，
 用 ``for`` 循环来写的话有点棘手。
 
-::
+
 
     def is_abecedarian(word):
         previous = word[0]
@@ -226,7 +228,7 @@ previously solved problem）**\ 的程序开发方法的一个示例，
 
 一种替代方法是使用递归：
 
-::
+
 
     def is_abecedarian(word):
         if len(word) <= 1:
@@ -237,7 +239,7 @@ previously solved problem）**\ 的程序开发方法的一个示例，
 
 另一中方法是使用 ``while`` 循环：
 
-::
+
 
     def is_abecedarian(word):
         i = 0
@@ -262,7 +264,7 @@ previously solved problem）**\ 的程序开发方法的一个示例，
 下面是\ ``is_palindrome``\ 函数的一种版本（详见\ :ref:`palindrome`\ ）
 ，其中使用了两个索引；一个从最前面开始并往前上， 另一个从最后面开始并往下走。
 
-::
+
 
     def is_palindrome(word):
         i = 0
@@ -278,7 +280,7 @@ previously solved problem）**\ 的程序开发方法的一个示例，
 
 或者，我们可以把问题简化为之前已经解决的问题，这样来写:
 
-::
+
 
     def is_palindrome(word):
         return is_reverse(word, word)

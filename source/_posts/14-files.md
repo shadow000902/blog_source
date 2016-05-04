@@ -10,6 +10,9 @@ tags: [python]
 
 本章将介绍“持久（persistent）”程序的概念，即永久储存数据的程序，并说明如何使用不同种类的永久存储形式，例如文件和数据库。
 
+
+<!--more-->
+
 持久化
 -----------
 
@@ -37,7 +40,7 @@ tags: [python]
 
 要写入一个文件，你必须在打开文件时设置第二个参数来为 ``'w'`` 模式：
 
-::
+
 
     >>> fout = open('output.txt', 'w')
 
@@ -46,7 +49,7 @@ tags: [python]
 
 \ ``open``\ 会返回一个文件对象，该对象提供了操作文件的方法。``write`` 方法将数据写入文件。
 
-::
+
 
     >>> line1 = "This here's the wattle,\n"
     >>> fout.write(line1)
@@ -54,7 +57,7 @@ tags: [python]
 
 返回值是被写入字符的个数。文件对象将跟踪自身的位置，所以下次你调用 ``write`` 的时候，它会在文件末尾添加新的数据。
 
-::
+
 
     >>> line2 = "the emblem of our land.\n"
     >>> fout.write(line2)
@@ -62,7 +65,7 @@ tags: [python]
 
 完成文件写入后，你应该关闭文件。
 
-::
+
 
     >>> fout.close()
 
@@ -74,7 +77,7 @@ tags: [python]
 \ ``write``\ 的参数必须是字符串，所以如果想要在文件中写入其它值，
 我们需要先将它们转换为字符串。最简单的法是使用 ``str`` ：
 
-::
+
 
     >>> x = 52
     >>> fout.write(str(x))
@@ -86,7 +89,7 @@ tags: [python]
 
 例如，格式化序列 ``'%d'`` 意味着第二个运算数应该被格式化为一个十进制整数：
 
-::
+
 
     >>> camels = 42
     >>> '%d' % camels
@@ -96,7 +99,7 @@ tags: [python]
 
 一个格式化序列可以出现在字符串中的任何位置，所以可以将一个值嵌入到一个语句中：
 
-::
+
 
     >>> 'I have spotted %d camels.' % camels
     'I have spotted 42 camels.'
@@ -106,7 +109,7 @@ tags: [python]
 
 下面的例子中使用 ``'%d'`` 来格式化一个整数， ``'%g'`` 来格式化一个浮点数，以及 ``'%s'`` 来格式化一个字符串：
 
-::
+
 
     >>> 'In %d years I have spotted %g %s.' % (3, 0.1, 'camels')
     'In 3 years I have spotted 0.1 camels.'
@@ -114,7 +117,7 @@ tags: [python]
 元组中元素的个数必须等于字符串中格式化序列的个数。
 同时，元素的类型也必须符合对应的格式化序列：
 
-::
+
 
     >>> '%d %d %d' % (1, 2)
     TypeError: not enough arguments for format string
@@ -135,7 +138,7 @@ tags: [python]
 
 \ ``os``\ 模块提供了操作文件和目录的函数（“os”代表“operating system”）。``os.getcwd`` 返回当前目录的名称：
 
-::
+
 
     >>> import os
     >>> cwd = os.getcwd()
@@ -151,21 +154,21 @@ tags: [python]
 
 一个以 ``/`` 开头的路径和当前目录无关，叫做 **绝对路径（absolute path）**。要获得一个文件的绝对路径，你可以使用 ``os.path.abspath`` ：
 
-::
+
 
     >>> os.path.abspath('memo.txt')
     '/home/dinsdale/memo.txt'
 
 \ ``os.path``\ 还提供了其它函数来对文件名和路径进行操作。例如，``os.path.exists`` 检查一个文件或者目录是否存在：
 
-::
+
 
     >>> os.path.exists('memo.txt')
     True
 
 如果存在，可以通过 ``os.path.isdir`` 检查它是否是一个目录：
 
-::
+
 
     >>> os.path.isdir('memo.txt')
     False
@@ -176,14 +179,14 @@ tags: [python]
 
 \ ``os.listdir``\ 返回给定目录下的文件列表（以及其它目录）。
 
-::
+
 
     >>> os.listdir(cwd)
     ['music', 'photos', 'memo.txt']
 
 接下来演示下以上函数的使用。下面的例子“遍历”一个目录，打印所有文件的名字，并且针对其中所有的目录递归的调用自身。
 
-::
+
 
     def walk(dirname):
         for name in os.listdir(dirname):
@@ -206,21 +209,21 @@ os模块提供了一个叫做 ``walk`` 的函数，和我们上面写的类似�
 试图读写文件时，很多地方可能会发生错误。如果你试图打开一个不存在的文件夹，
 会得到一个输入输出错误（IOError）：
 
-::
+
 
     >>> fin = open('bad_file')
     IOError: [Errno 2] No such file or directory: 'bad_file'
 
 如果你没有权限访问一个文件：
 
-::
+
 
     >>> fout = open('/etc/passwd', 'w')
     PermissionError: [Errno 13] Permission denied: '/etc/passwd'
 
 如果你试图打开一个目录来读取，你会得到：
 
-::
+
 
     >>> fin = open('/home')
     IsADirectoryError: [Errno 21] Is a directory: '/home'
@@ -230,7 +233,7 @@ os模块提供了一个叫做 ``walk`` 的函数，和我们上面写的类似�
 更好的办法是在问题出现的时候才去处理，而这正是 ``try`` 语句做的事情。
 它的语法类似 ``if...else`` 语句：
 
-::
+
 
     try:
         fin = open('bad_file')
@@ -258,7 +261,7 @@ Python 从 ``try`` 子句（clause）开始执行。
 
 打开数据库和打开其它文件的方法类似：
 
-::
+
 
     >>> import dbm
     >>> db = dbm.open('captions', 'c')
@@ -268,13 +271,13 @@ Python 从 ``try`` 子句（clause）开始执行。
 
 当你创建一个新项时，``dbm`` 将更新数据库文件。
 
-::
+
 
     >>> db['cleese.png'] = 'Photo of John Cleese.'
 
 当你访问某个项时，``dbm`` 将读取文件：
 
-::
+
 
     >>> db['cleese.png']
     b'Photo of John Cleese.'
@@ -285,7 +288,7 @@ Python 从 ``try`` 子句（clause）开始执行。
 
 如果你对已有的键再次进行赋值，``dbm`` 将把旧的值替换掉：
 
-::
+
 
     >>> db['cleese.png'] = 'Photo of John Cleese doing a silly walk.'
     >>> db['cleese.png']
@@ -293,14 +296,14 @@ Python 从 ``try`` 子句（clause）开始执行。
 
 一些字典方法，例如 ``keys`` 和 ``items`` ，不适用于数据库对象，但是 ``for`` 循环依然适用：
 
-::
+
 
     for key in db:
         print(key, db[key])
 
 与其它文件一样，当你完成操作后需要关闭文件：
 
-::
+
 
     >>> db.close()
 
@@ -314,7 +317,7 @@ Python 从 ``try`` 子句（clause）开始执行。
 
 \ ``pickle.dumps``\ 读取一个对象作为参数，并返回一个字符串表示（``dumps`` 是“dump string”的缩写）：
 
-::
+
 
     >>> import pickle
     >>> t = [1, 2, 3]
@@ -323,7 +326,7 @@ Python 从 ``try`` 子句（clause）开始执行。
 
 这个格式对人类来说不是很直观，但是对 ``pickle`` 来说很容易去解释。``pickle.loads`` （“load string”）可以重建对象：
 
-::
+
 
     >>> t1 = [1, 2, 3]
     >>> s = pickle.dumps(t1)
@@ -333,7 +336,7 @@ Python 从 ``try`` 子句（clause）开始执行。
 
 尽管新对象和旧对象有相同的值，但它们（一般来说）不是同一个对象：
 
-::
+
 
     >>> t1 == t2
     True
@@ -358,7 +361,7 @@ shell通常提供浏览文件系统和启动程序的命令。
 例如，Unix 命令 ``ls -l`` 将以详细格式显示当前目录下的内容。
 你可以使用 ``os.popen`` 来启动 ``ls`` ：
 
-::
+
 
     >>> cmd = 'ls -l'
     >>> fp = os.popen(cmd)
@@ -366,13 +369,13 @@ shell通常提供浏览文件系统和启动程序的命令。
 实参是一个包含shell命令的字符串。返回值是一个行为类似已打开文件的对象。
 你可以使用 ``readline`` 来每次从 ``ls`` 进程的输出中读取一行，或者使用 ``read`` 来一次读取所有内容：
 
-::
+
 
     >>> res = fp.read()
 
 当你完成操作后，像关闭一个文件一样关闭管道：
 
-::
+
 
     >>> stat = fp.close()
     >>> print(stat)
@@ -385,7 +388,7 @@ shell通常提供浏览文件系统和启动程序的命令。
 
 你可以使用一个管道来从 Python 中运行 ``md5sum`` ，并得到计算结果：
 
-::
+
 
     >>> filename = 'book.tex'
     >>> cmd = 'md5sum ' + filename
@@ -403,7 +406,7 @@ shell通常提供浏览文件系统和启动程序的命令。
 任何包含 Python 代码的文件，都可以作为模块被导入。
 例如，假设你有包含以下代码的文件 ``wc.py`` ：
 
-::
+
 
     def linecount(filename):
         count = 0
@@ -416,21 +419,21 @@ shell通常提供浏览文件系统和启动程序的命令。
 如果你运行这个程序，它将读取自身并打印文件的行数，结果是 7 。
 你也可以这样导入模块：
 
-::
+
 
     >>> import wc
     7
 
 现在你有了一个模块对象 ``wc`` ：
 
-::
+
 
     >>> wc
     <module 'wc' from 'wc.py'>
 
 这个模块对象提供了 ``linecount`` 函数：
 
-::
+
 
     >>> wc.linecount('wc.py')
     7
@@ -442,7 +445,7 @@ shell通常提供浏览文件系统和启动程序的命令。
 
 作为模块的程序通常写成以下结构：
 
-::
+
 
     if __name__ == '__main__':
         print(linecount('wc.py'))
@@ -462,7 +465,7 @@ shell通常提供浏览文件系统和启动程序的命令。
 
 当你读写文件时，可能会遇到空白带来的问题。这些问题会很难调试，因为空格、制表符和换行符通常是看不见的：
 
-::
+
 
     >>> s = '1 2\t 3\n 4'
     >>> print(s)
@@ -471,7 +474,7 @@ shell通常提供浏览文件系统和启动程序的命令。
 
 内建函数 ``repr`` 可以用来解决这个问题。它接受任意一个对象作为参数，然后返回一个该对象的字符串表示。对于空白符号，它将用反斜杠序列表示：
 
-::
+
 
     >>> print(repr(s))
     '1 2\t 3\n 4'

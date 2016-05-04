@@ -10,12 +10,15 @@ tags: [python]
 
 这章的中心话题是能够根据程序的状态执行不同命令的if语句。但是首先我想介绍两个新的运算符 : 地板除（floor division）和求余（modulus）。
 
+
+<!--more-->
+
 地板除和求余
 --------------
 
 **地板除** 运算符(floor division operator) ``//`` 先做除法，然后将结果保留到整数。例如，如果一部电影时长105 分钟，你可能想知道这代表着多少小时。传统的除法操作会返回一个浮点数：
 
-::
+
 
     >>> minutes = 105
     >>> minutes / 60
@@ -23,7 +26,7 @@ tags: [python]
 
 但是，用小时做单位的时候，我们通常并不写出小数部分。地板除丢弃除法运算结果的小数部分，返回整数个小时:
 
-::
+
 
     >>> minutes = 105
     >>> hours = minutes // 60
@@ -33,7 +36,7 @@ tags: [python]
 
 如果你希望得到余数，你可以从除数中减去一个小时也就是60分钟:
 
-::
+
 
     >>> remainder = minutes - hours * 60
     >>> remainder
@@ -41,7 +44,7 @@ tags: [python]
 
 另一个方法就是使用 **求余运算符(modulus operator)**  ``%`` ，它会将两个数相除，返回余数。
 
-::
+
 
     >>> remainder = minutes % 60
     >>> remainder
@@ -61,7 +64,7 @@ tags: [python]
 下面的例子使用 ``==`` 运算符。它比较两个运算数，
 如果它们相等，则结果为 ``True`` ，否则结果为 ``False`` 。
 
-::
+
 
     >>> 5 == 5
     True
@@ -70,7 +73,7 @@ tags: [python]
 
 ``True`` 和 ``False`` 是属于bool类型的特殊值；它们不是字符串。
 
-::
+
 
     >>> type(True)
     <class 'bool'>
@@ -79,7 +82,7 @@ tags: [python]
 
 ``==`` 运算符是\ **关系运算符（relational operators）**\ 之一； 其他关系运算符还有：
 
-::
+
 
           x != y               # x 不等于 y
           x > y                # x 大于 y
@@ -105,7 +108,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 严格来讲，逻辑运算符的运算数应该是布尔表达式，
 但是Python并不严格要求。任何非0的数字都被解释成为真（ ``True`` ）。
 
-::
+
 
     >>> 42 and True
     True
@@ -119,7 +122,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 **条件语句（Conditional statements）**\ 给予了我们这一能力。
 最简单的形式是 ``if`` 语句：
 
-::
+
 
     if x > 0:
         print('x is positive')
@@ -134,7 +137,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 有时候，一条语句都没有的语句体也是有用的（通常是为你还没写的代码占一个位子）。
 这种情况下，你可以使用 ``pass`` 语句，它什么也不做。
 
-::
+
 
     if x < 0:
         pass          # 待完成：需要处理负数值！
@@ -145,7 +148,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 ``if`` 语句的第二种形式是\ **二选一执行（alternative execution）**\ ，
 此时有两个可能的选择，由条件决定执行哪一个。 语法看起来是这样：
 
-::
+
 
     if x % 2 == 0:
         print('x is even')
@@ -163,7 +166,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 有时有超过两个可能的情况，于是我们需要多于两个的分支。
 表示像这样的计算的方法之一是\ **链式条件（chained conditional）**\ ：
 
-::
+
 
     if x < y:
         print('x is less than y')
@@ -176,7 +179,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 ``elif`` 语句的数目没有限制。如果有一个 ``else`` 从句，
 它必须是在最后，但这个语句并不是必须。
 
-::
+
 
     if choice == 'a':
         draw_a()
@@ -194,7 +197,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 
 一个条件可以嵌到另一个里面。我们可以这样写前一节的例子：
 
-::
+
 
     if x == y:
         print('x and y are equal')
@@ -213,7 +216,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 逻辑运算符通常是一个简化嵌套条件语句的方法。
 例如，我们可以用一个单一条件重写下面的代码：
 
-::
+
 
     if 0 < x:
         if x < 10:
@@ -222,14 +225,14 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 只有我们通过了两个条件检测的时候，print语句才被执行，
 因此我们可以用 ``and`` 运算符得到相同的效果：
 
-::
+
 
     if 0 < x and x < 10:
         print('x is a positive single-digit number.')
 
 对于这样的条件，Python 提供了一种更加简洁的写法。
 
-::
+
 
     if 0 < x < 10:
         print('x is a positive single-digit number.')
@@ -244,7 +247,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 这样的好处可能并不是那么明显，但它实际上成为了程序能做到的最神奇的事情之一。
 例如，看一下这个程序：
 
-::
+
 
     def countdown(n):
         if n <= 0:
@@ -258,7 +261,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 
 如果我们像这样调用该函数会发生什么呢？
 
-::
+
 
     >>> countdown(3)
 
@@ -280,7 +283,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 
 然后你回到\ ``__main__``\ 中。因此整个输出类似于：
 
-::
+
 
     3
     2
@@ -293,7 +296,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 
 再举一例，我们可以写一个函数，其打印一个字符串n次。
 
-::
+
 
     def print_n(s, n):
         if n <= 0:
@@ -324,10 +327,7 @@ y`` 为假，也就是说x小于或等于y， 则 ``not (x > y)`` 为真。
 
 .. _fig.stack2:
 
-.. figure:: figs/stack2.png
-   :alt: 图5-1：堆栈图
-
-   图5-1：堆栈图
+{% asset_img stack2.png 图5-1：堆栈图 %}
 
 通常，堆栈的顶部是\ ``__main__``\ 栈帧。
 因为我们在\ ``__main__``\ 中没有创建任何变量，也没有传递任何实参给它，
@@ -348,7 +348,7 @@ n=0的栈底，被称作\ **基础情形（base case）**\ 。
 并且程序永远不会终止。这被称作\ **无限递归（infinite recursion）**\ ，
 通常这不是一个好主意。下面是一个最简单的无限递归程序：
 
-::
+
 
     def recurse():
         recurse()
@@ -356,7 +356,7 @@ n=0的栈底，被称作\ **基础情形（base case）**\ 。
 在大多数编程环境里，一个具有无限递归的程序并非永远不会终止。
 当达到最大递归深度时，Python会报告一个错误信息：
 
-::
+
 
       File "<stdin>", line 2, in recurse
       File "<stdin>", line 2, in recurse
@@ -382,7 +382,7 @@ n=0的栈底，被称作\ **基础情形（base case）**\ 。
 Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并等待用户输入。
 当用户按下回车键(Return or Enter)，程序恢复执行，\ ``input``\ 以字符串形式返回用户键入的内容。在Python 2中，这个函数的名字叫\ ``raw_input``\ 。
 
-::
+
 
     >>> text = input()
     What are you waiting for?
@@ -392,7 +392,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 在从用户那儿获得输入之前，打印一个提示告诉用户输入什么是个好办法。
 \ ``input``\ 接受提示语作为实参。
 
-::
+
 
     >>> name = input('What...is your name?\n')
     What...is your name?
@@ -406,7 +406,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 
 如果你期望用户键入一个整型数，那么你可以试着将返回值转化为 ``int`` ：
 
-::
+
 
     >>> prompt = 'What...is the airspeed velocity of an unladen swallow?\n'
     >>> speed = input(prompt)
@@ -417,7 +417,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 
 但是，如果用户输入不是数字构成的字符串，你会获得一个错误：
 
-::
+
 
     >>> speed = input(prompt)
     What...is the airspeed velocity of an unladen swallow?
@@ -439,7 +439,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 语法错误通常很容易被找到，但也有一些需要注意的地方。
 空白分隔符错误很棘手，因为空格和制表符是不可见的，而且我们习惯于忽略它们。
 
-::
+
 
     >>> x = 5
     >>>  y = 6
@@ -456,7 +456,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 公式是\ :math:`SNR_{db} = 10 \log_{10} (P_{signal} / P_{noise})`\ 。
 在Python中，你可能会写出这样的代码：
 
-::
+
 
     import math
     signal_power = 9
@@ -467,7 +467,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 
 但是，当你运行它的时候， 你却获得一个异常。
 
-::
+
 
     Traceback (most recent call last):
       File "snr.py", line 5, in ?
@@ -538,7 +538,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 ``time`` 模块提供了一个可以返回当前格林威治标准时间的函数，名字也是time。这里的格林威治标准时间用纪元(the epoch)以来的秒数表示，
 纪元是一个任意的参考点。在 Unix 系统中，纪元是1970年1月1号。
 
-::
+
 
     >>> import time
     >>> time.time()
@@ -551,14 +551,14 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 
 费马大定理（Fermat’s Last Theorem ）称，没有任何整型数\ :math:`a`\ 、\ :math:`b`\ 和\ :math:`c`\ 能够使
 
-.. math:: a^n + b^n = c^n
+.. math a^n + b^n = c^n
 
 对于任何大于2的\ :math:`n`\ 成立。
 
 #. 写一个名为\ ``check_fermat``\ 的函数，接受四个形参——a，b，c以及n
    ——检查费马大定理是否成立。 如果\ :math:`n`\ 大于2且等式
 
-   .. math:: a^n + b^n = c^n
+   .. math a^n + b^n = c^n
    
    成立，程序应输出“Holy smokes, Fermat was wrong!”。 否则程序应输出“No,
    that doesn’t work.”。
@@ -587,7 +587,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 
 下面程序的输出是什么？画出展示程序每次打印输出时的堆栈图。
 
-::
+
 
     def recurse(n, s):
         if n == 0:
@@ -608,7 +608,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 
 阅读如下的函数，看看你能否看懂它是做什么的。然后运行它（见第四章的例子）。
 
-::
+
 
     def draw(t, length, n):
         if n == 0:
@@ -625,10 +625,7 @@ Python 提供了一个内建函数 ``input`` ，可以暂停程序运行，并�
 习题 5-６
 ^^^^^^^^^^^^^^^
 
-.. figure:: figs/koch.png
-   :alt: 图5-2：科赫曲线（Koch Curve）。
-   
-   图5-2：科赫曲线（Koch Curve）。
+{% asset_img koch.png 图5-2：科赫曲线（Koch Curve） %}
 
 科赫曲线（Koch Curve）是一个看起来类似图5-2的不规则碎片几何体（fractal）。要画一个长度为\ :math:`x`\ 的科赫曲线，你只需要：
 

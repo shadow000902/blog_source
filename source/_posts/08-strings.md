@@ -12,13 +12,16 @@ tags: [python]
 它是其他值的一个有序的集合。在这章中，你将学习怎么去访问字符串里的字符， 同时你也会学习到字符串提供的一些方法。
 
 
+
+<!--more-->
+
 字符串是一个序列
 ----------------------
 
 字符串是由字符组成的序列。 你可以用括号运算符一次访问一个字符：
 
 
-::
+
 
     >>> fruit = 'banana'
     >>> letter = fruit[1]
@@ -29,7 +32,7 @@ tags: [python]
 
 但是你可能不会获得你期望的东西：
 
-::
+
 
     >>> letter
     'a'
@@ -37,7 +40,7 @@ tags: [python]
 对于大多数人，``'banana'`` 的第一个字母是b而不是a。
 但是对于计算机科学家，索引是从字符串起点开始的位移量F(offset)，第一个字母的位移量就是0。
 
-::
+
 
     >>> letter = fruit[0]
     >>> letter
@@ -48,7 +51,7 @@ tags: [python]
 
 你可以使用一个包含变量名和运算符的表达式作为索引：
 
-::
+
 
     >>> i = 1
     >>> fruit[i]
@@ -58,7 +61,7 @@ tags: [python]
 
 索引值必须使用整数。 否则你会得到:
 
-::
+
 
     >>> letter = fruit[1.5]
     TypeError: string indices must be integers
@@ -68,7 +71,7 @@ len
 
 \ ``len``\ 是一个内建函数，其返回字符串中的字符数量：
 
-::
+
 
     >>> fruit = 'banana'
     >>> len(fruit)
@@ -76,7 +79,7 @@ len
 
 为了获得一个字符串的最后一个字符，你可能会尝试像这样操作：
 
-::
+
 
     >>> length = len(fruit)
     >>> last = fruit[length]
@@ -85,7 +88,7 @@ len
 出现IndexError的原因，是在 ``'banana'`` 中没有索引为6的字母。 由于我们从0开始计数，六个字母的编号是0到5。
 为了获得最后一个字符，你必须将 ``length`` 减一：
 
-::
+
 
     >>> last = fruit[length-1]
     >>> last
@@ -101,7 +104,7 @@ len
 然后继续直到结束。 这种处理模式被称作 **遍历(traversal)** 。 编写遍历的方法之一是使用
 while循环：
 
-::
+
 
     index = 0
     while index < len(fruit):
@@ -118,7 +121,7 @@ while循环：
 
 编写遍历的另一种方法是使用for循环：
 
-::
+
 
     for letter in fruit:
         print(letter)
@@ -130,7 +133,7 @@ while循环：
 Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输出这些名字：
 
 
-::
+
 
     prefixes = 'JKLMNOPQ'
     suffix = 'ack'
@@ -140,7 +143,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 输出是：
 
-::
+
 
     Jack
     Kack
@@ -159,7 +162,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 字符串的一个片段被称作 **切片(slice)** 。 选择一个切片的操作类似于选择一个字符：
 
-::
+
 
     >>> s = 'Monty Python'
     >>> s[0:5]
@@ -170,17 +173,12 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 \ ``[n:m]``\ 操作符返回从第n个字符到第m个字符的字符串片段，包括第一个，但是不包括最后一个。
 这个行为违反直觉，但是将指向两个字符之间的索引， 想象成 \ :ref:`fig.banana`\ 中那样或许有帮助。
 
-.. _fig.banana:
-
-.. figure:: figs/banana.png
-   :alt: 图8-1：切片索引
-
-   图8-1：切片索引
+{% asset_img banana.png 图8-1：切片索引 %}
 
 如果你省略第一个索引(冒号前面的值)，切片起始于字符串头部。 如果你省略第二个索引，切片一直
 到字符串结尾：
 
-::
+
 
     >>> fruit = 'banana'
     >>> fruit[:3]
@@ -191,7 +189,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 如果第一个索引大于或等于第二个，结果是\ **空字符串（empty string）**\ ，
 用两个引号表示：
 
-::
+
 
     >>> fruit = 'banana'
     >>> fruit[3:3]
@@ -206,7 +204,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 你会很想在赋值语句的左边使用 ``[]``， 来改变字符串的一个字符。 例如:
 
-::
+
 
     >>> greeting = 'Hello， world!'
     >>> greeting[0] = 'J'
@@ -218,7 +216,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 出现此错误的原因是字符串是 **不可变的(immutable)** ，这意味着你不能改变一个已存在的字符串。
 你最多只能创建一个新的字符串，在原有字符串的基础上略有变化：
 
-::
+
 
     >>> greeting = 'Hello， world!'
     >>> new_greeting = 'J' + greeting[1:]
@@ -235,7 +233,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 下面的函数起什么作用?
 
-::
+
 
     def find(word， letter):
         index = 0
@@ -265,7 +263,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 下面的程序计算字母a在字符串中出现的次数：
 
-::
+
 
     word = 'banana'
     count = 0
@@ -287,7 +285,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 不过使用的不是函数语法 ``upper(word)`` ， 而是方法的语法 ``word.upper()`` 。
 
-::
+
 
     >>> word = 'banana'
     >>> new_word = word.upper()
@@ -301,7 +299,7 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 事实上，有一个被称为 ``find`` 的字符串方法， 与我们之前写的函数极其相似：
 
-::
+
 
     >>> word = 'banana'
     >>> index = word.find('a')
@@ -312,21 +310,21 @@ Jack、Kack、Lack、Mack、Nack、Ouack、Pack和Quack。此循环按顺序输�
 
 事实上，``find`` 方法比我们的函数更通用；它还可以查找子字符串，而不仅仅是字符:
 
-::
+
 
     >>> word.find('na')
     2
 
 \ ``find``\ 默认从字符串的首字母开始查找， 它还可以接受第二个实参，即从何处开始的索引。
 
-::
+
 
     >>> word.find('na'， 3)
     4
 
 这是一个 **可选参数(optional argument)** 的例子；``find`` 也可以接受结束查找的索引作为第三个实参：
 
-::
+
 
     >>> name = 'bob'
     >>> name.find('b'， 1， 2)
@@ -339,7 +337,7 @@ in运算符
 
 单词 ``in`` 是一个布尔运算符，接受两个字符串。如果第一个作为子串出现在第二个中，则返回True：
 
-::
+
 
     >>> 'a' in 'banana'
     True
@@ -348,7 +346,7 @@ in运算符
 
 例如，下面的函数打印所有既出现在 ``word1`` 中，也出现在 ``word2`` 中的字母：
 
-::
+
 
     def in_both(word1， word2):
         for letter in word1:
@@ -360,7 +358,7 @@ in运算符
 
 如果你比较 ``'apples'`` 和 ``'oranges'``，你会得到下面的结果：
 
-::
+
 
     >>> in_both('apples'， 'oranges')
     a
@@ -373,14 +371,14 @@ in运算符
 关系运算符也适用于字符串。可以这样检查两个字符串是否相等：
 
 
-::
+
 
     if word == 'banana':
         print('All right， bananas.')
 
 其它的关系运算符对于按字母序放置单词也很有用：
 
-::
+
 
     if word < 'banana':
         print('Your word， ' + word + '， comes before banana.')
@@ -391,7 +389,7 @@ in运算符
 
 Python处理大写和小写字母的方式和人不同。所有的大写字母出现在所有小写字母之前，所以：
 
-::
+
 
     Your word，Pineapple，comes before banana.
 
@@ -404,7 +402,7 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 
 当你使用索引遍历序列中的值时，正确地指定遍历的起始和结束点有点困难。下面是一个用来比较两个单词的函数，如果一个单词是另一个的倒序，则返回 ``True`` ， 但其中有两个错误：
 
-::
+
 
     def is_reverse(word1， word2):
         if len(word1) != len(word2):
@@ -427,7 +425,7 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 
 如果我们用单词“pots”和“stop”测试该函数，我们期望返回 ``True`` ， 但是却得到一个IndexError：
 
-::
+
 
     >>> is_reverse('pots'， 'stop')
     ...
@@ -437,7 +435,7 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 
 为了调试该类错误， 我第一步是在错误出现的行之前，打印索引的值。
 
-::
+
 
         while j > 0:
             print(i， j)        # 这里添加打印语句
@@ -449,7 +447,7 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 
 现在，当我再次运行该程序时，将获得更多的信息：
 
-::
+
 
     >>> is_reverse('pots'， 'stop')
     0 4
@@ -460,7 +458,7 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 
 如果我解决了这个错误，然后运行程序， 将获得如下输出:
 
-::
+
 
     >>> is_reverse('pots'， 'stop')
     0 3
@@ -470,12 +468,7 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 
 这次我们获得了正确的答案，但是看起来循环只运行了三次，这很奇怪。画栈图可以帮我们更好的理解发生了什么。在第一次迭代期间， ``is_reverse`` 的栈帧如\ :ref:`fig.state4`\ 所示。
 
-.. _fig.state4:
-
-.. figure:: figs/state4.png
-   :alt: 图8-2：堆栈图
-
-   图8-2：堆栈图
+{% asset_img state4.png 图8-2：堆栈图 %}
 
 
 我对堆栈图做了些调整，重新排列了栈帧中的变量，增加了虚线来说明 ``i`` 和 ``j`` 的值表示 ``word1`` 和 ``word2`` 中的字符。
@@ -541,13 +534,13 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 
 一个字符串切片可以接受指定步长的第三个索引; 也就是连续字符间空格的个数。步长为2，意味着每隔一个字符；步长为3，意味着每隔两个字符，以此类推。
 
-::
+
 
     >>> fruit = 'banana'
     >>> fruit[0:5:2]
     'bnn'
 
-步长为-1就是从单词的尾部开始进行， 所以切片 ``[::-1]`` 生成一个倒序的字符串。
+步长为-1就是从单词的尾部开始进行， 所以切片 ``[-1]`` 生成一个倒序的字符串。
 
 利用这个惯用法（idiom），将习题6-3中 ``is_palindrome`` 函数改写为一行代码版。
 
@@ -557,7 +550,7 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 下面这些函数，都是 *用于* 检查一个字符串是否包含一些小写字母的，但是其中至少有一些是错误的函数。
 检查每个函数，描述这个函数实际上做了什么(假设形参是字符串)。
 
-::
+
 
     def any_lowercase1(s):
         for c in s:
@@ -606,7 +599,7 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 你可能想用内置函数 ``ord`` ，它可以将字符转化成数值代码，还有 ``chr`` ， 它可以将数值代码转
 化成字符. 字母表的字母以字母表顺序编码，例如：
 
-::
+
 
     >>> ord('c') - ord('a')
     2

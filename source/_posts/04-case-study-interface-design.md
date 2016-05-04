@@ -12,6 +12,9 @@ tags: [python]
 
 本章会介绍 ``turtle`` 模块，它可以让你使用海龟图形（turtle graphics）绘制图像。大部分的Python安装环境下都包含了这个模块，但是如果你是在PythonAnywhere上运行Python的，你将无法运行本章中的代码示例（至少在我写这章时是做不到的）。
 
+
+<!--more-->
+
 如果你已经在自己的电脑上安装了Python，那么不会有问题。如果没有，现在就是安装Python的好时机。我在 http://tinyurl.com/thinkpython2e 这个页面上发布了相关指南。
 
 本章的示例代码可以从\ http://thinkpython2.com/code/polygon.py \ 获得。
@@ -21,7 +24,7 @@ turtle模块
 
 打开Python解释器，输入以下代码，检查你是否安装了 ``turltle`` 模块：
 
-::
+
 
     >>> import turtle
     >>> bob = turtle.Turtle()
@@ -30,7 +33,7 @@ turtle模块
 
 新建一个名叫  ``mypolygon.py`` 的文件，输入以下代码：
 
-::
+
 
     import turtle
     bob = turtle.Turtle()
@@ -39,7 +42,7 @@ turtle模块
 
 ``turtle`` 模块（小写的t）提供了一个叫作 ``Turtle`` 的函数（大写的T），这个函数会创建一个 ``Turtle`` 对象，我们将其赋值给名为 ``bob`` 的变量。打印 ``bob`` 的话，会输出下面这样的结果：
 
-::
+
 
     <turtle.Turtle object at 0xb7bfbf4c>
 
@@ -49,7 +52,7 @@ turtle模块
 
 创建了一个 ``Turtle`` 对象之后，你可以调用 **方法（method）** 来在窗口中移动该对象。方法与函数类似，但是其语法略有不同。例如，要让海龟向前走：
 
-::
+
 
     bob.fd(100)
 
@@ -63,7 +66,7 @@ turtle模块
 
 如果要画一个直角（right angle），请在程序中添加以下代码（放在创建 ``bob`` 之后，调用 ``mainloop`` 之前）：
 
-::
+
 
     bob.fd(100)
     bob.lt(90)
@@ -80,7 +83,7 @@ turtle模块
 
 很有可能你刚才写了像下面这样的一个程序：
 
-::
+
 
     bob.fd(100)
     bob.lt(90)
@@ -96,14 +99,14 @@ turtle模块
 我们可以利用一个 ``for`` 语句，以更简洁的代码来做相同的事情。
 将下面的示例代码加入 ``mypolygon.py`` ，并重新运行：
 
-::
+
 
     for i in range(4):
         print('Hello!')
 
 你应该会看到如下输出：
 
-::
+
 
     Hello!
     Hello!
@@ -115,7 +118,7 @@ turtle模块
 
 下面是一个画正方形的 ``for`` 语句：
 
-::
+
 
     for i in range(4):
         bob.fd(100)
@@ -172,7 +175,7 @@ for语句的语法和函数定义类似。
 第一个练习要求你将画正方形的代码放到一个函数定义中,然后调用该函数，
 将海龟作为形参传递给它。下面是一个解法：
 
-::
+
 
     def square(t):
         for i in range(4):
@@ -189,7 +192,7 @@ for语句的语法和函数定义类似。
 那么既然这样，为什么不将形参命名为 ``bob`` 呢？ 因为 ``t`` 可以是任何海龟而不仅仅是 ``bob`` ，
 也就是说你可以创建第二只海龟，并且将它作为实参传递给 ``square`` ：
 
-::
+
 
     alice = Turtle()
     square(alice)
@@ -204,7 +207,7 @@ for语句的语法和函数定义类似。
 
 下一个练习是给 ``square`` 增加一个 ``length`` 形参。下面是一个解法：
 
-::
+
 
     def square(t, length):
         for i in range(4):
@@ -220,7 +223,7 @@ for语句的语法和函数定义类似。
 下一个练习也是泛化。泛化之后不再是只能画一个正方形，``polygon`` 可以画任意的正多边形。
 下面是一个解法：
 
-::
+
 
     def polygon(t, n, length):
         angle = 360 / n
@@ -237,7 +240,7 @@ for语句的语法和函数定义类似。
 如果一个函数有几个数字实参，很容易忘记它们是什么或者它们的顺序。在这种情况下，
 在实参列表中加入形参的名称是通常是一个很好的办法：
 
-::
+
 
     polygon(bob, n=7, length=70)
 
@@ -253,7 +256,7 @@ for语句的语法和函数定义类似。
 下一个练习是编写接受半径r作为形参的 ``circle`` 函数。
 下面是一个使用 ``polygon`` 画一个50边形的简单解法：
 
-::
+
 
     import math
 
@@ -284,7 +287,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 
 与其把接口弄乱，不如根据周长（circumference）选择一个合适的n值：
 
-::
+
 
     def circle(t, r):
         circumference = 2 * math.pi * r
@@ -306,7 +309,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 一种替代方案是从复制 ``polygon`` 开始，
 然后将它转化为 ``arc`` 。最后的函数看上去可像这样：
 
-::
+
 
     def arc(t, r, angle):
         arc_length = 2 * math.pi * r * angle / 360
@@ -324,7 +327,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 但是这样 ``polygon`` 就不再是一个合适的名字了！
 让我们称这个更通用的函数为 ``polyline`` ：
 
-::
+
 
     def polyline(t, n, length, angle):
         for i in range(n):
@@ -333,7 +336,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 
 现在，我们可以用 ``polyline`` 重写 ``polygon`` 和 ``arc`` ：
 
-::
+
 
     def polygon(t, n, length):
         angle = 360.0 / n
@@ -348,7 +351,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 
 最后，我们可以用 ``arc`` 重写 ``circle`` ：
 
-::
+
 
     def circle(t, r):
         arc(t, r, 360)
@@ -391,7 +394,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 \ **文档字符串（docstring）**\ 是位于函数开始位置的一个字符串，
 解释了函数的接口（“doc”是“documentation”的缩写）。 下面是一个例子：
 
-::
+
 
     def polyline(t, n, length, angle):
         """Draws n line segments with the given length and
@@ -485,10 +488,7 @@ n就不太合适，因为它是关于 **如何** 画圆的细节。
 习题 4-2
 ^^^^^^^^^^^^^^^
 
-.. figure:: figs/flowers.png
-   :alt: 使用Turtle绘制的花朵。
-
-   图4-1：使用Turtle绘制的花朵。
+{% asset_img flowers.png 图4-1：使用Turtle绘制的花朵 %}
 
 编写比较通用的一个可以画出像图4-1中那样花朵的函数集。
 
@@ -499,10 +499,7 @@ http://thinkpython2.com/code/polygon.py.
 习题 4-3
 ^^^^^^^^^^^^^^^
 
-.. figure:: figs/pies.png
-   :alt: 图4-2：使用Turtle画的饼状图。
-
-   图4-2：使用Turtle画的饼状图。
+{% asset_img pies.png 图4-2：使用Turtle画的饼状图 %}
 
 编写比较通用的一个可以画出图4-2中那样图形的函数集，。
 

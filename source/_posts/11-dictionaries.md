@@ -11,6 +11,9 @@ tags: [python]
 本章介绍另一个内建数据类型：字典(dictionary)。
 字典是Python中最优秀的特性之一；许多高效、优雅的算法即以此为基础。
 
+
+<!--more-->
+
 字典即映射
 --------------------
 
@@ -27,7 +30,7 @@ tags: [python]
 \ ``dict``\ 函数生成一个不含任何项的新字典。
 由于 ``dict`` 是内建函数名，你应该避免使用它来命名变量。
 
-::
+
 
     >>> eng2sp = dict()
     >>> eng2sp
@@ -35,7 +38,7 @@ tags: [python]
 
 花括号 ``{}`` 表示一个空字典。你可以使用方括号向字典中增加项：
 
-::
+
 
     >>> eng2sp['one'] = 'uno'
 
@@ -43,7 +46,7 @@ tags: [python]
 这行代码创建一个新项，将键 ``'one'`` 映射至值 ``'uno'``。
 如果我们再次打印该字典，会看到一个以冒号分隔的键值对：
 
-::
+
 
     >>> eng2sp
     {'one': 'uno'}
@@ -51,13 +54,13 @@ tags: [python]
 输出的格式同样也是输入的格式。
 例如，你可以像这样创建一个包含三个项的字典：
 
-::
+
 
     >>> eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
 
 但是，如果你打印 ``eng2sp`` ，结果可能会让你感到意外： 
 
-::
+
 
     >>> eng2sp
     {'one': 'uno', 'three': 'tres', 'two': 'dos'}
@@ -67,7 +70,7 @@ tags: [python]
 
 但这没有关系，因为字典的元素不使用整数索引来索引，而是用键来查找对应的值：
 
-::
+
 
     >>> eng2sp['two']
     'dos'
@@ -76,14 +79,14 @@ tags: [python]
 
 如果键不存在字典中，会抛出一个异常：
 
-::
+
 
     >>> eng2sp['four']
     KeyError: 'four'
 
 \ ``len``\ 函数也适用于字典；它返回键值对的个数：
 
-::
+
 
     >>> len(eng2sp)
     3
@@ -91,7 +94,7 @@ tags: [python]
 \ ``in``\ 操作符也适用于字典；它可以用来检验字典中是否存在某个 *键* （仅仅有这个值还不够）。
 
 
-::
+
 
     >>> 'one' in eng2sp
     True
@@ -100,7 +103,7 @@ tags: [python]
 
 想要知道字典中是否存在某个值，你可以使用 ``values`` 方法，它返回值的集合，然后你可以使用 ``in`` 操作符来验证：
 
-::
+
 
     >>> vals = eng2sp.values()
     >>> 'uno' in vals
@@ -137,7 +140,7 @@ tags: [python]
 
 代码可能是这样的：
 
-::
+
 
     def histogram(s):
         d = dict()
@@ -155,7 +158,7 @@ tags: [python]
 
 下面是运行结果：
 
-::
+
 
     >>> h = histogram('brontosaurus')
     >>> h
@@ -166,7 +169,7 @@ tags: [python]
 字典类有一个 ``get`` 方法，接受一个键和一个默认值作为参数。
 如果字典中存在该键，则返回对应值；否则返回传入的默认值。例如：
 
-::
+
 
     >>> h = histogram('a')
     >>> h
@@ -184,7 +187,7 @@ tags: [python]
 在 ``for`` 循环中使用字典会遍历其所有的键。
 例如，下面的 ``print_hist`` 会打印所有键与对应的值：
 
-::
+
 
     def print_hist(h):
         for c in h:
@@ -192,7 +195,7 @@ tags: [python]
 
 输出类似：
 
-::
+
 
     >>> h = histogram('parrot')
     >>> print_hist(h)
@@ -205,7 +208,7 @@ tags: [python]
 重申一遍，字典中的键是无序的。
 如果要以确定的顺序遍历字典，你可以使用内建方法 ``sorted``：
 
-::
+
 
     >>> for key in sorted(h):
     ...     print(key, h[key])
@@ -229,7 +232,7 @@ tags: [python]
 
 下面这个函数接受一个值并返回映射到该值的第一个键：
 
-::
+
 
     def reverse_lookup(d, v):
         for k in d:
@@ -245,7 +248,7 @@ tags: [python]
 
 下面是一个成功逆向查找的例子：
 
-::
+
 
     >>> h = histogram('parrot')
     >>> key = reverse_lookup(h, 2)
@@ -254,7 +257,7 @@ tags: [python]
 
 和一个失败的例子：
 
-::
+
 
     >>> key = reverse_lookup(h, 3)
     Traceback (most recent call last):
@@ -266,7 +269,7 @@ tags: [python]
 
 \ ``raise``\ 语句接受一个详细的错误信息作为可选的实参。 例如：
 
-::
+
 
     >>> raise LookupError('value does not appear in the dictionary')
     Traceback (most recent call last):
@@ -286,7 +289,7 @@ tags: [python]
 
 下面是一个倒转字典的函数：
 
-::
+
 
     def invert_dict(d):
         inverse = dict()
@@ -305,7 +308,7 @@ tags: [python]
 
 举个例子：
 
-::
+
 
     >>> hist = histogram('parrot')
     >>> hist
@@ -314,12 +317,7 @@ tags: [python]
     >>> inverse
     {1: ['a', 'p', 't', 'o'], 2: ['r']}
 
-.. _fig.dict1:
-
-.. figure:: figs/dict1.png
-   :alt: 图11-1：状态图
-
-   图11-1：状态图
+{% asset_img dict1.png 图11-1：状态图 %}
 
 \ :ref:`fig.dict1`\ 是关于 ``hist`` 与 ``inverse`` 的状态图。字典用标有类型dict的方框表示，方框中是键值对。如果值是整数、浮点数或字符串，
 我就把它们画在方框内部，但我通常把列表画在方框外面，目的只是为了不让图表变复杂。
@@ -328,7 +326,7 @@ tags: [python]
 如本例所示，列表可以作为字典中的值，但是不能是键。
 下面演示了这样做的结果：
 
-::
+
 
     >>> t = [1, 2, 3]
     >>> d = dict()
@@ -367,12 +365,7 @@ tags: [python]
 
 要理解其原因，思考 \ :ref:`fig.fibonacci`\ ，它展示了当 ``n=4`` 时 ``fibonacci`` 的 **调用图（call graph）** ：
 
-.. _fig.fibonacci:
-
-.. figure:: figs/fibonacci.png
-   :alt: 图11-2：调用图
-
-   图11-2：调用图
+{% asset_img fibonacci.png 图11-2：调用图 %}
 
 调用图中列出了一系列函数栈帧，每个栈帧之间通过线条与调用它的函数栈帧相连。
 在图的顶端，``n=4`` 的 ``fibonacci`` 调用 ``n=3`` 和 ``n=2`` 的 ``fibonacci`` 。
@@ -385,7 +378,7 @@ tags: [python]
 存储之前计算过的值以便今后使用，它被称作 **备忘录（memo）** 。
 下面是使用备忘录（memoized）的 ``fibonacci`` 的实现： 
 
-::
+
 
     known = {0:0, 1:1}
 
@@ -415,7 +408,7 @@ tags: [python]
 全局变量普遍用作 **标记（flag）**； 也就是说明（标记）一个条件是否为真的布尔变量。
 例如，一些程序使用一个被称作 ``verbose`` 的标记来控制输出的丰富程度：
 
-::
+
 
     verbose = True
 
@@ -426,7 +419,7 @@ tags: [python]
 如果你试图对一个全局变量重新赋值，结果可能出乎意料。
 下面的例子本应该记录函数是否已经被调用过了： 
 
-::
+
 
     been_called = False
 
@@ -439,7 +432,7 @@ tags: [python]
 
 要在函数内对全局变量重新赋值，你必须在使用之前 **声明(declare)** 该全局变量：
 
-::
+
 
     been_called = False
 
@@ -452,7 +445,7 @@ tags: [python]
 
 下面是一个试图更新全局变量的例子： 
 
-::
+
 
     count = 0
 
@@ -461,14 +454,14 @@ tags: [python]
 
 一旦运行，你会发现：
 
-::
+
 
     UnboundLocalError: local variable 'count' referenced before assignment
 
 Python默认 ``count`` 是局部变量，在这个假设下，你这是在未写入任何东西前就试图读取。
 解决方法还是声明 ``count`` 是全局变量。
 
-::
+
 
     def example3():
         global count
@@ -476,7 +469,7 @@ Python默认 ``count`` 是局部变量，在这个假设下，你这是在未写
 
 如果全局变量是可变的，你可以不加声明地修改它：
 
-::
+
 
     known = {0:0, 1:1}
 
@@ -486,7 +479,7 @@ Python默认 ``count`` 是局部变量，在这个假设下，你这是在未写
 因此你可以增加、删除和替代全局列表或者字典的元素，
 但是如果你想对变量重新赋值，你必须声明它： 
 
-::
+
 
     def example5():
         global known
