@@ -5,9 +5,6 @@ categories: [Think Python 2E]
 tags: [python]
 ---
 
-第十一章：字典
-===================
-
 本章介绍另一个内建数据类型：字典(dictionary)。
 字典是Python中最优秀的特性之一；许多高效、优雅的算法即以此为基础。
 

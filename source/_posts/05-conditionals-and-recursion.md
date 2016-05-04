@@ -5,9 +5,6 @@ categories: [Think Python 2E]
 tags: [python]
 ---
 
-第五章：条件和递归
-=====================
-
 这章的中心话题是能够根据程序的状态执行不同命令的if语句。但是首先我想介绍两个新的运算符 : 地板除（floor division）和求余（modulus）。
 
 

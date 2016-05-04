@@ -5,9 +5,6 @@ categories: [Think Python 2E]
 tags: [python]
 ---
 
-第三章：函数
-=============
-
 在编程的语境下，\ **函数（function）**\ 指的是一个有命名的、执行某个计算的语句序列（sequence of statements）。
 在定义一个函数的时候，你需要指定函数的名字和语句序列。
 之后，你可以通过这个名字“调用（call）”该函数。
