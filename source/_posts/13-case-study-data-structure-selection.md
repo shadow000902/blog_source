@@ -650,10 +650,8 @@ Zipf定律(\ http://en.wikipedia.org/wiki/Zipf's_law \)描述了自然语言中�
 **贡献者**
 ^^^^^^^^^^^
 
-#. 翻译：`@iphyer`_
-#. 校对：`@bingjin`_
-#. 参考：`@carfly`_
+#. 翻译：[@iphyer](https://github.com/iphyer)
+#. 校对：[@bingjin](https://github.com/bingjin)
+#. 参考：[@carfly](https://github.com/carfly)
 
-.. _@iphyer: https://github.com/iphyer
-.. _@bingjin: https://github.com/bingjin
-.. _@carfly: https://github.com/carfly
+

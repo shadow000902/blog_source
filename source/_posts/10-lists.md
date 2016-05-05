@@ -841,10 +841,7 @@ Python为列表提供了一些方法. 例如, ``append`` 添加一个新元素�
 **贡献者**
 ^^^^^^^^^^^
 
-#. 翻译：`@obserthinker`_
-#. 校对：`@bingjin`_
-#. 参考：`@carfly`_
+#. 翻译：[@iphyer](https://github.com/iphyer)
+#. 校对：[@bingjin](https://github.com/bingjin)
+#. 参考：[@carfly](https://github.com/carfly)
 
-.. _@obserthinker: https://github.com/obserthinker
-.. _@bingjin: https://github.com/bingjin
-.. _@carfly: https://github.com/carfly

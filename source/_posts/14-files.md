@@ -585,10 +585,8 @@ shell：
 **贡献者**
 ^^^^^^^^^^^
 
-#. 翻译：`@obserthinker`_
-#. 校对：`@bingjin`_
-#. 参考：`@carfly`_
+#. 翻译：[@obserthinker](https://github.com/obserthinker)
+#. 校对：[@bingjin](https://github.com/bingjin)
+#. 参考：[@carfly](https://github.com/carfly)
 
-.. _@obserthinker: https://github.com/obserthinker
-.. _@bingjin: https://github.com/bingjin
-.. _@carfly: https://github.com/carfly   
+

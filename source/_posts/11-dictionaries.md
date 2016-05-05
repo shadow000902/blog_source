@@ -672,10 +672,7 @@ global语句：
 **贡献者**
 ^^^^^^^^^^^
 
-#. 翻译：`@theJian`_ & `@bingjin`_
-#. 校对：`@bingjin`_
-#. 参考：`@carfly`_
+#. 翻译：[@iphyer](https://github.com/iphyer)、[@bingjin](https://github.com/bingjin)
+#. 校对：[@bingjin](https://github.com/bingjin)
+#. 参考：[@carfly](https://github.com/carfly)
 
-.. _@theJian: https://github.com/thejian
-.. _@bingjin: https://github.com/bingjin
-.. _@carfly: https://github.com/carfly

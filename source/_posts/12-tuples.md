@@ -623,10 +623,8 @@ pair）”；比如，“converse”和“conserve”。
 **贡献者**
 ^^^^^^^^^^^
 
-#. 翻译：`@SeikaScarlet`_
-#. 校对：`@bingjin`_
-#. 参考：`@carfly`_
+#. 翻译：[@SeikaScarlet](https://github.com/SeikaScarlet)
+#. 校对：[@bingjin](https://github.com/bingjin)
+#. 参考：[@carfly](https://github.com/carfly)
 
-.. _@SeikaScarlet: https://github.com/SeikaScarlet
-.. _@bingjin: https://github.com/bingjin
-.. _@carfly: https://github.com/carfly   
+

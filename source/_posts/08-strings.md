@@ -609,10 +609,7 @@ Python处理大写和小写字母的方式和人不同。所有的大写字母�
 **贡献者**
 ^^^^^^^^^^^
 
-#. 翻译：`@xpgeng`_
-#. 校对：`@bingjin`_
-#. 参考：`@carfly`_
+#. 翻译：[@iphyer](https://github.com/iphyer)
+#. 校对：[@bingjin](https://github.com/bingjin)
+#. 参考：[@carfly](https://github.com/carfly)
 
-.. _@xpgeng: https://github.com/xpgeng
-.. _@bingjin: https://github.com/bingjin
-.. _@carfly: https://github.com/carfly
