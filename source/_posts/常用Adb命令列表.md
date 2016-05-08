@@ -144,3 +144,7 @@ adb shell am start -W -n 包名/包名+类名
 ``` bash
 adb shell pm clear cn.highing.hichat
 ```
+32. 获取设备当前显示的所有分辨率信息
+```
+adb shell dumpsys window displays
+```
