@@ -5,7 +5,7 @@ categories: [Appium]
 tags: [appium]
 ---
 
-### 一、正常安装Appium
+### 一、命令行正常安装Appium
 1. 安装node.js
 2. 使用node.js安装Appium
 
@@ -15,6 +15,12 @@ tags: [appium]
 npm install -g appium                                           # -g 全局参数
 或者
 npm --registry http://registry.cnpmjs.org install -g appium     # 推荐这种,npm的国内镜像
+```
+3. 修改Appium安装源方法
+```
+npm config get registry                                         # 查看当前npm的镜像源地址
+npm congif set registry=https://registry.npm.taobao.org/        # 替换npm源为淘宝的npm镜像源
+npm config get registry                                         # 查看镜像源是否替换成功
 ```
 
 ### 二、异常安装Appium方法
@@ -28,7 +34,12 @@ npm --registry http://registry.cnpmjs.org install -g appium     # 推荐这种,n
 5. 在sdk、jdk、python、环境变量设置好的情况下，CMD进入node_modules/.bin下，就可以直接命令行运行appium：
 {% asset_img Appium正常运行.png Appium正常运行 %}
 
-### 三、Appium应用所附加需要的
+### 三、源码安装
+1. 下载源代码
+2. 编译运行
+
+
+### 四、Appium应用所附加需要的
 1. JDK
 2. SDK
 3. python

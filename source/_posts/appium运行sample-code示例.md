@@ -31,7 +31,40 @@ pip install Appium-Python-Client
 ```
 至此，需要的软件和环境都已经安装完毕，下面就可以开始去运行sample-code的脚本了
 
-### 二、执行脚本
+### 二、运行Appium
+1. 默认方式运行appium
+``` bash
+C:\Users\shadow>appium
+[Appium] Welcome to Appium v1.5.0
+[Appium] Appium REST http interface listener started on 0.0.0.0:4723
+```
+默认运行在本地ip的4723端口，每次运行用例都会重置app
+
+2. 指定方式运行appium
+``` bash
+C:\Users\shadow>appium -a 127.0.0.1 -p 4723 -U 8XV5T15A20009865 --no-reset
+[Appium] Welcome to Appium v1.5.0
+[Appium] Non-default server args:
+[Appium]   address: '127.0.0.1'
+[Appium]   udid: '8XV5T15A20009865'
+[Appium]   noReset: true
+[Appium] Deprecated server args:
+[Appium]   -U,--udid => --default-capabilities '{"udid":"8XV5T15A20009865"}'
+[Appium]   --no-reset => --default-capabilities '{"noReset":true}'
+[Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
+[Appium]   udid: '8XV5T15A20009865'
+[Appium]   noReset: true
+[Appium] Appium REST http interface listener started on 127.0.0.1:4723
+```
+
+``` bash
+-a 127.0.0.1                                                    # 指定服务器
+-p 4723                                                         # 指定端口
+-U 8XV5T15A20009865                                             # 指定设备，U指设备的udid
+--no-reset                                                      # 直接运行app，而不重置app
+```
+
+### 三、执行脚本
 1. 编辑sample-code中的python脚本，以适应自己的机器运行
 脚本存放位置：
 在安装appium的时候，同时就下载好了示例脚本和需要的apk文件，存放在C:\Users\shadow\AppData\Roaming\npm\node_modules\appium\sample-code目录中
