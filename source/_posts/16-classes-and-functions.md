@@ -10,6 +10,8 @@ tags: [python]
 本章的代码示例可以从 http://thinkpython2.com/code/Time1.py 下载。练习的答案可以从 http://thinkpython2.com/code/Time1_soln.py 下载。
 
 
+<!--more-->
+
 时间
 --------
 
