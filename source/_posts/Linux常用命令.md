@@ -11,6 +11,8 @@ tags: [linux]
 
 3. ps(process status)
 
+<!--more-->
+
 4. kill
 
 5. shutdown
