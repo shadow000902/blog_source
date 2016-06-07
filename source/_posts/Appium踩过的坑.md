@@ -12,6 +12,13 @@ tags: [appium]
 2. 等待操作
 2.1 尽量不要使用sleep方法
 2.2 使用``implicitly_wait(1000)``方法，**隐性等待/如果一个无素没有出现都会默认等待你所设定的时间，直到超时或者元素出现**
+2.3 ``WebDriverWait()``，同样也是 webdirver 提供的方法。**在设置时间内，默认每隔一段时间检测一次当前。页面元素是否存在，如果超过设置时间检测不到则抛出异常。**
+``` python
+from selenium.webdriver.support.ui import WebDriverWait
+element = WebDriverWait(driver, 10).until(lambda x: x.find_element_by_id(“someId”))
+is_disappeared = WebDriverWait(driver, 30, 1, (ElementNotVisibleException)).
+until_not(lambda x: x.find_element_by_id(“someId”).is_displayed())
+```
 
 3. 元素无法定位
 3.1 使用元素坐标点定位，有两种点击方法，一种是``tap([(100, 20), (100, 60), (100, 100)], 500)``，还有一种是使用``swipe(630, 320, 630, 320, 500)``方法
@@ -43,3 +50,8 @@ if self.driver.current_activity == ".ui.GuideActivity":
     except:
         x失败的话，做这里的事
 ```
+6. 断言
+
+
+7. appium运行结果报告
+
