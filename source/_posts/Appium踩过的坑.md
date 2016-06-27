@@ -46,15 +46,22 @@ action2.moveTo(el_3).release().perform()
 ````
 
 5. 异常处理
-````
+```
 if self.driver.current_activity == ".ui.GuideActivity":
     try:
         做x这件事
     except:
         x失败的话，做这里的事
-````
+```
 6. 断言
 
 
 7. appium运行结果报告
+
+
+8. appium设置不使用appium只带的输入法
+``` python
+des.setCapability("unicodeKeyboard", "True")
+des.setCapability("resetKeyboard", "True")
+```
 

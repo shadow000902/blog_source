@@ -1,8 +1,8 @@
 ---
 title: MAC系统导入HTMLTestRunner
 date: 2016-06-19 17:07:36
-categories: [Hexo]
-tags: [hexo]
+categories: [Python]
+tags: [python, 自动化测试报告]
 ---
 
 1. 下载：[HTMLTestRunner.py](http://tungwaiyip.info/software/HTMLTestRunner_0_8_2/HTMLTestRunner.py) & [test_HTMLTestRunner.py](http://tungwaiyip.info/software/HTMLTestRunner_0_8_2/test_HTMLTestRunner.py)
