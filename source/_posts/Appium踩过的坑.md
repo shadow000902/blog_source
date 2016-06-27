@@ -65,3 +65,15 @@ des.setCapability("unicodeKeyboard", "True")
 des.setCapability("resetKeyboard", "True")
 ```
 
+9. 一定不要搞错启动activity
+启动时的activity一般都是叫``SplashActivity``
+``` python
+def setUp(self):
+    desired_caps = {}
+    desired_caps['platformName'] = 'Android'
+    desired_caps['platformVersion'] = '6.0'
+    desired_caps['deviceName'] = 'Nexus 5'
+    desired_caps['appPackage'] = 'com.souche.fengche'  # 被测App的包名
+    desired_caps['appActivity'] = 'com.souche.fengche.ui.activity.SplashActivity'  # 启动时的Activity
+    # desired_caps['app'] = PATH('/Users/taoyi/Downloads/dasouche.apk')
+```
