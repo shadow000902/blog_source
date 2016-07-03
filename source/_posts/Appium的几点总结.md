@@ -178,3 +178,22 @@ async.series([
     this.setActualCapabilities.bind(this)
   ], function (err) {
 ````
+
+##### 七、一台Mac电脑同时跑多个IOS appium服务
+```
+iOS appium A服务：appium -p 4723 --tmp /tmp/tmp4723
+iOS appium B服务：appium -p 4724 --tmp /tmp/tmp4724
+```
+注意：tmp参数必不可少，否则会出现跑脚本时不断切换服务器切换不到另外一台服务器的问题
+
+##### 八、Android appium服务器执行自动化脚本一个多小时总是报FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - process out of memory内存溢出
+通过调整\Appium\node_modules.bin\appium.cmd中的--max-old-space-size内存限制大小参数值
+```
+@IF EXIST "%~dp0\node.exe" (
+  "%~dp0\node.exe"  "%~dp0\..\appium\bin\appium.js" %*
+) ELSE (
+  node --max-old-space-size=2047 --gc-global  "%~dp0\..\appium\bin\appium.js" %*
+)
+```
+注：--max-old-space-size参数值设置超过2047，如2048启动appium服务器也会报FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - process out of memory
+查看了相关资料，原来是Node V8做了内存限制，限制了JavaScript所能使用的内存（64位为1.9GB，32位为1GB），暂时还不明白它为啥要做此限制。
