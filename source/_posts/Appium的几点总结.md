@@ -8,23 +8,23 @@ tags: [appium]
 ##### 一、建立session时常用命令
 ```` python
 DesiredCapabilities cap = new DesiredCapabilities();
-cap.SetCapability("browserName", ""); // web 浏览器名称（'Safari' ,'Chrome'等）。如果对应用进行自动化测试，这个关键字的值应为空。
-cap.SetCapability("platformName", "Android");//你要测试的手机操作系统
-cap.SetCapability("platformVersion", "4.4");//手机操作系统版本
-cap.SetCapability("automationName", "selendroid");  //你想使用的自动化测试引擎：Appium (默认) 或 Selendroid
-cap.SetCapability("deviceName", " Android Emulator"); //使用的手机类型或模拟器类型，真机时输入Android Emulator或者手机型号
-cap.SetCapability("udid", udid); //连接的物理设备的唯一设备标识,Android可以不设置
+cap.SetCapability("browserName", "");                                                           // web 浏览器名称（'Safari' ,'Chrome'等）。如果对应用进行自动化测试，这个关键字的值应为空。
+cap.SetCapability("platformName", "Android");                                                   //你要测试的手机操作系统
+cap.SetCapability("platformVersion", "4.4");                                                    //手机操作系统版本
+cap.SetCapability("automationName", "selendroid");                                              //你想使用的自动化测试引擎：Appium (默认) 或 Selendroid
+cap.SetCapability("deviceName", " Android Emulator");                                           //使用的手机类型或模拟器类型，真机时输入Android Emulator或者手机型号
+cap.SetCapability("udid", udid);                                                                //连接的物理设备的唯一设备标识,Android可以不设置
 
-cap.SetCapability("newCommandTimeout", "300");  //设置收到下一条命令的超时时间,超时appium会自动关闭session ,默认60秒
-cap.SetCapability("unicodeKeyboard", "True");//支持中文输入，会自动安装Unicode 输入法。默认值为 false
-cap.SetCapability("resetKeyboard", "True"); //在设定了 unicodeKeyboard 关键字的 Unicode 测试结束后，重置输入法到原有状态
+cap.SetCapability("newCommandTimeout", "300");                                                  //设置收到下一条命令的超时时间,超时appium会自动关闭session ,默认60秒
+cap.SetCapability("unicodeKeyboard", "True");                                                   //支持中文输入，会自动安装Unicode 输入法。默认值为 false
+cap.SetCapability("resetKeyboard", "True");                                                     //在设定了 unicodeKeyboard 关键字的 Unicode 测试结束后，重置输入法到原有状态
 
-cap.SetCapability("'app'", "D:\\AndroidAutomation\\AndroidAutoTest\\app\\zhongchou.apk");  //未安装应用时，设置app的路径
+cap.SetCapability("'app'", "D:\\AndroidAutomation\\AndroidAutoTest\\app\\zhongchou.apk");       //未安装应用时，设置app的路径
 
 //手机已安装app，直接从手机启动app，上面路径不设置
-cap.SetCapability("appPackage", "com.nbbank");  //你要启动的Android 应用对应的Activity名称|比如`MainActivity`, `.Settings`|
-cap.SetCapability("appActivity", "com.nbbank.ui.ActivityShow");  //你想运行的Android应用的包名
-cap.SetCapability("appWaitActivity", "com.nbbank.ui.ActivityLogo");  //你想要等待启动的Android Activity名称|比如`SplashActivity`|
+cap.SetCapability("appPackage", "com.nbbank");                                                  //你要启动的Android 应用对应的Activity名称|比如`MainActivity`, `.Settings`|
+cap.SetCapability("appActivity", "com.nbbank.ui.ActivityShow");                                 //你想运行的Android应用的包名
+cap.SetCapability("appWaitActivity", "com.nbbank.ui.ActivityLogo");                             //你想要等待启动的Android Activity名称|比如`SplashActivity`|
 
 Uri serverUri = new Uri("http://127.0.0.1:4723/wd/hub");
 driver = new AndroidDriver<IWebElement>(serverUri, cap, TimeSpan.FromSeconds(180));
@@ -36,30 +36,30 @@ driver = new AndroidDriver<IWebElement>(serverUri, cap, TimeSpan.FromSeconds(180
 ##### 二、driver常用方法及注意事项
 1. 常用方法
 ```` python
-driver.HideKeyboard();//隐藏键盘
-driver.BackgroundApp(60);//60秒后把当前应用放到后台去
-driver.LockDevice(3); //锁定屏幕
+driver.HideKeyboard();                                                                  //隐藏键盘
+driver.BackgroundApp(60);                                                               //60秒后把当前应用放到后台去
+driver.LockDevice(3);                                                                   //锁定屏幕
 
 //在当前应用中打开一个 activity 或者启动一个新应用并打开一个 activity
 driver.StartActivity("com.iwobanas.screenrecorder.pro", "com.iwobanas.screenrecorder.RecorderActivity");
-driver.OpenNotifications();//打开下拉通知栏 只能在 Android 上使用
-driver.IsAppInstalled("com.example.android.apis-");//检查应用是否已经安装
-driver.InstallApp("path/to/my.apk");//安装应用到设备中去
-driver.RemoveApp("com.example.android.apis");//从设备中删除一个应用
-driver.ShakeDevice();//模拟设备摇晃
-driver.CloseApp();//关闭应用
-driver.LaunchApp();//根据服务关键字 (desired capabilities) 启动会话 (session) 。请注意这必须在设定 autoLaunch=false 关键字时才能生效。这不是用于启动指定的 app/activities
-driver.ResetApp();//应用重置
-driver.GetContexts();//列出所有的可用上下文
-driver.GetContext();//列出当前上下文
-driver.SetContext("name");//将上下文切换到默认上下文
-driver.GetAppStrings();//获取应用的字符串
-driver.KeyEvent(176);//给设备发送一个按键事件:keycode
-driver.GetCurrentActivity();//获取当前 activity。只能在 Android 上使用
-//driver.Pinch(25, 25);//捏屏幕 (双指往内移动来缩小屏幕)
-//driver.Zoom(100, 200);//放大屏幕 (双指往外移动来放大屏幕)
-driver.PullFile("Library/AddressBook/AddressBook.sqlitedb");//从设备中拉出文件
-driver.PushFile("/data/local/tmp/file.txt", "some data for the file");//推送文件到设备中去
+driver.OpenNotifications();                                                             //打开下拉通知栏 只能在 Android 上使用
+driver.IsAppInstalled("com.example.android.apis-");                                     //检查应用是否已经安装
+driver.InstallApp("path/to/my.apk");                                                    //安装应用到设备中去
+driver.RemoveApp("com.example.android.apis");                                           //从设备中删除一个应用
+driver.ShakeDevice();                                                                   //模拟设备摇晃
+driver.CloseApp();                                                                      //关闭应用
+driver.LaunchApp();                                                                     //根据服务关键字 (desired capabilities) 启动会话 (session) 。请注意这必须在设定 autoLaunch=false 关键字时才能生效。这不是用于启动指定的 app/activities
+driver.ResetApp();                                                                      //应用重置
+driver.GetContexts();                                                                   //列出所有的可用上下文
+driver.GetContext();                                                                    //列出当前上下文
+driver.SetContext("name");                                                              //将上下文切换到默认上下文
+driver.GetAppStrings();                                                                 //获取应用的字符串
+driver.KeyEvent(176);                                                                   //给设备发送一个按键事件:keycode
+driver.GetCurrentActivity();                                                            //获取当前 activity。只能在 Android 上使用
+//driver.Pinch(25, 25);                                                                 //捏屏幕 (双指往内移动来缩小屏幕)
+//driver.Zoom(100, 200);                                                                //放大屏幕 (双指往外移动来放大屏幕)
+driver.PullFile("Library/AddressBook/AddressBook.sqlitedb");                            //从设备中拉出文件
+driver.PushFile("/data/local/tmp/file.txt", "some data for the file");                  //推送文件到设备中去
 
 driver.FindElement(By.Name(""));
 driver.FindElementById("id");
@@ -90,12 +90,12 @@ driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));
 ##### 四、drive.KeyEvent(int )的使用：
 可使用KeyEvent发送键盘数据，比如退格，Enter键等
 ```` python
-driver.KeyEvent(3);   //KEYCODE_HOME 按键Home 3
-driver.KeyEvent(26);  //KEYCODE_POWER 电源键 26
-driver.KeyEvent(67);  //KEYCODE_DEL 退格键 67
-driver.KeyEvent(66);  //KEYCODE_ENTER 回车键
-driver.KeyEvent(122); //KEYCODE_MOVE_HOME 光标移动到开始
-driver.KeyEvent(123); //KEYCODE_MOVE_END 光标移动到末尾
+driver.KeyEvent(3);         //KEYCODE_HOME 按键Home 3
+driver.KeyEvent(26);        //KEYCODE_POWER 电源键 26
+driver.KeyEvent(67);        //KEYCODE_DEL 退格键 67
+driver.KeyEvent(66);        //KEYCODE_ENTER 回车键
+driver.KeyEvent(122);       //KEYCODE_MOVE_HOME 光标移动到开始
+driver.KeyEvent(123);       //KEYCODE_MOVE_END 光标移动到末尾
 ````
 
 ##### 五、坐标操作
@@ -126,13 +126,13 @@ double elementHight = element.Size.Height;                              //获取
         /// <param name="sTime">滑动次数</param>
         public void SwipeAToB(string A, string B,string sDuration,string sTime)
         {
-            startX = elmentA.Location.X + elmentA.Size.Width / 2;  //元素A的中心横坐标
-            startY = elmentA.Location.Y + elmentA.Size.Height / 2; //元素A的中心纵坐标
-            endX = elmentB.Location.X + elmentB.Size.Width / 2;    //元素B的中心横坐标
-            endY = elmentB.Location.Y + elmentB.Size.Height / 2;   //元素B的中心纵坐标
+            startX = elmentA.Location.X + elmentA.Size.Width / 2;                           //元素A的中心横坐标
+            startY = elmentA.Location.Y + elmentA.Size.Height / 2;                          //元素A的中心纵坐标
+            endX = elmentB.Location.X + elmentB.Size.Width / 2;                             //元素B的中心横坐标
+            endY = elmentB.Location.Y + elmentB.Size.Height / 2;                            //元素B的中心纵坐标
 
-            duration = string.IsNullOrEmpty(sDuration) ? 1500 : int.Parse(sDuration); //持续时间为空时，默认设置为1500毫秒
-            time = string.IsNullOrEmpty(sTime) ? 1500 : int.Parse(sTime); //滑动次数为空时，默认设置为滑动1次
+            duration = string.IsNullOrEmpty(sDuration) ? 1500 : int.Parse(sDuration);       //持续时间为空时，默认设置为1500毫秒
+            time = string.IsNullOrEmpty(sTime) ? 1500 : int.Parse(sTime);                   //滑动次数为空时，默认设置为滑动1次
 
             for (int i = 0; i < time; i++)
             {
