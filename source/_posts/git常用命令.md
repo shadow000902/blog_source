@@ -39,3 +39,10 @@ git checkout master             # 切换到主干道
 git merge experiment            # 合并分支到主干道
 git branch -d experiment        # -d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”
 ```
+
+### 四、撤销一次已经提交到Github的内容
+```
+git reset --hard HEAD~1
+git push --force
+```
+该命令执行后，会隐藏掉Github库中的被撤销掉的记录，但是指定到该被隐藏掉的记录来访问，依旧可以访问。

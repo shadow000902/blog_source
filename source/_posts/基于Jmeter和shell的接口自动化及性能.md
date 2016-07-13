@@ -251,12 +251,12 @@ from email.mime.base import MIMEBase
 from email.header import Header
 
 today = datetime.date.today()
-sender = 'taoyi@highing.cn'
-receiverlist = ["taoyi@highing.cn","526077432@qq.com"]
+sender = '526077432@qq.com'
+receiverlist = ["526077432@qq.com"]
 subject = '%s %s' % ('用户端自动化性能测试报告',today)
-smtpserver = 'smtp.exmail.qq.com'
-username = 'taoyi@highing.cn'
-password = 'TaoYi620120'
+smtpserver = 'smtp.qq.com'
+username = '526077432@qq.com'
+password = 'XXXXXX'
 f = open('index.html',"r")
 content = f.read()
 
@@ -264,7 +264,7 @@ content = f.read()
 msg = MIMEMultipart()
 msg.attach(MIMEText(content,'html','utf-8'))
 
-msg['From'] = 'taoyi@highing.cn'
+msg['From'] = '526077432@qq.com'
 msg['to'] = ','.join(receiverlist)
 msg['Subject'] = subject
 
