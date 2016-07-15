@@ -33,11 +33,11 @@ tags: [linux]
 
 13. cat
 
-14. chmod(change mode)
+14. chmod(change mode)    # 更改文件／文件夹权限
 
-15. chown(change owner)
+15. chown(change owner)   # 更改文件／文件夹所有者
 
-16. cd(change directory)
+16. cd(change directory)  # 进入某目录
 
 17. df(disk free)
 
@@ -49,10 +49,15 @@ tags: [linux]
 
 21. mkdir(make directories)
 
-22. rmdir(remove directory)
+22. rmdir(remove directory) －R
 
 23. fdisk
 
 24. telnet
 
 25. ifconfig
+
+26. tail
+```
+tail -f catalina.out      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
+```

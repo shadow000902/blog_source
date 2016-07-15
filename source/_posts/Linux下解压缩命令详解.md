@@ -19,3 +19,8 @@ tar -zxvf android-sdk_r24.4.1-linux.tgz   ＃解压到当前目录
 xz -d XXX.tar.xz
 tar xvf XXX.tar
 ```
+4. XXX.tgz & XXX.tar.gz
+```
+gunzip XXX.tgz
+tar xvf XXX.tar
+```
