@@ -59,5 +59,9 @@ tags: [linux]
 
 26. tail
 ```
-tail -f catalina.out      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
+tail -f catalina.out | grep request      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
+```
+27. scp     # 本地文件传输到服务器
+```
+scp -P 22 /opt/appium1.5.3.zip username@IP:/opt/
 ```

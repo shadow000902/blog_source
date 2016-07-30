@@ -186,7 +186,7 @@ id: 30 or "10.1in WXGA (Tablet)"
 
 3、创建AVD模拟器
 ```
-android create avd -n TestDevices01 -t 1 -b armeabi-v7a
+android create avd -n TestDevices001 -t 1 -b armeabi-v7a
 ```
 
 ```
@@ -197,6 +197,7 @@ android create avd -n TestDevices01 -t 1 -b armeabi-v7a
 -f --force          # 强制创建（覆盖已存在的AVD）
 -s --skin           # 新的AVD的皮肤
 -b --abi            # 例如android-24里面的abi有armeabi-v7a/x86/x86_64，此时就需要指定，如果只有一个abi，则不需要指定
+```
 
 4、查看AVD是否创建成功
 ```
@@ -206,8 +207,8 @@ android list avd
 ```
 TaoYi-Mac:~ taoyi$ android list avd
 Available Android Virtual Devices:
-    Name: TestDevices01
-    Path: /Users/taoyi/.android/avd/TestDevices01.avd
+    Name: TestDevices001
+    Path: /Users/taoyi/.android/avd/TestDevices001.avd
   Target: Android 6.0 (API level 23)
  Tag/ABI: default/armeabi-v7a
     Skin: WVGA800
@@ -215,7 +216,7 @@ Available Android Virtual Devices:
 
 5、启动AVD
 ```
-TaoYi-Mac:~ taoyi$ emulator -avd TestDevices01
+TaoYi-Mac:~ taoyi$ emulator -avd TestDevices001
 emulator: WARNING: Increasing RAM size to 1024MB
 emulator: WARNING: Classic qemu does not support SMP. The hw.cpu.ncore option from your config file is ignored.
 Creating filesystem with parameters:
@@ -232,7 +233,23 @@ Creating filesystem with parameters:
 Created filesystem with 11/4224 inodes and 1302/16896 blocks
 ```
 
+```
+TaoYi-Mac:~ taoyi$ emulator  -port 5676  -avd TestDevices001  -no-window -no-skin -no-audio -no-boot-anim &
+sh: 1: glxinfo: not found
+emulator: WARNING: Increasing RAM size to 1024MB
+sh: 1: glxinfo: not found
+emulator: WARNING: Classic qemu does not support SMP. The hw.cpu.ncore option from your config file is ignored.
+
+Your emulator is out of date, please update by launching Android Studio:
+ - Start Android Studio
+ - Select menu "Tools > Android > SDK Manager"
+ - Click "SDK Tools" tab
+ - Check "Android SDK Tools" checkbox
+ - Click "OK"
+```
+
+
 6、删除AVD
 ```
-android delete avd -n TsetDevices01
+android delete avd -n TestDevices001
 ```

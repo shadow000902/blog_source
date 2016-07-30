@@ -19,7 +19,7 @@ npm --registry http://registry.cnpmjs.org install -g appium     # 推荐这种,n
 3. 修改Appium安装源方法
 ```
 npm config get registry                                         # 查看当前npm的镜像源地址
-npm congif set registry=https://registry.npm.taobao.org/        # 替换npm源为淘宝的npm镜像源
+npm config set registry=https://registry.npm.taobao.org/        # 替换npm源为淘宝的npm镜像源
 npm config get registry                                         # 查看镜像源是否替换成功
 ```
 
@@ -56,3 +56,4 @@ pip install selenium -i http://pypi.douban.com/simple       # 使用国内地址
 ```
 pip install Appium-Python-Client
 ```
+6. 安装appium遇到的问题解决
