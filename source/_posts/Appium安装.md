@@ -65,13 +65,90 @@ pip install selenium -i http://pypi.douban.com/simple       # 使用国内地址
 ```
 pip install Appium-Python-Client
 ```
-6. 安装appium遇到的问题解决
+6. 安装和使用``appium``遇到的问题解决
+6.1 安装后无法使用
+```
+Appium will not work if used or installed with sudo
+error: Appium will not work if used or installed with sudo. Please rerun/install as a non-root user. If you had to install Appium using `sudo npm install -g appium`, the solution is to reinstall Node using a method (Homebrew, for example) that doesn't require sudo to install global npm packages.
+
+[1]+  Exit 1                  appium
+```
+该问题显示appium不能使用root用户来安装，不然无法运行，所以需要卸载用root用户安装的appium，该用一般用户来安装
+**解决方案**
+1、改变``node``的所有者
+```
+cd /usr/local/lib
+sudo chown -R taoyi node_modules
+```
+2、卸载``appium``
+```
+npm -g uninstall appium
+```
+3、重新安装``appium``
+```
+npm -g install appium
+```
+4、启动``appium``
+```
+appium &
+```
+6.2 安装中遇到权限问题无法安装
+```
+npm ERR!  { [Error: EACCES, symlink '/lib/node_modules/appium/bin/appium.js']
+npm ERR!   errno: 3,
+npm ERR!   code: 'EACCES',
+npm ERR!   path: '/lib/node_modules/appium/bin/appium.js' }
+npm ERR!
+npm ERR! Please try running this command again as root/Administrator.
+```
+**解决方案**
+1、修改目录权限
+```
+sudo chmod 777 /usr/local/lib/node_modules -R
+```
+2、安装依旧有相同的问题
+查看/lib/node_modules目录，我们发现并没有/lib/node_modules/appium/bin/appium.js文件。显然，该文件是安装时生成的，因此问题应该出在安装起npm上，查看npm相关文档我们发现日志中提到的符号链接的路径是可以修改的，因此，解决权限问题可以将该符号链接修改到用户有权限的目录中。
+3、**解决方案**
+执行以下命令修改符号链接路径
+```
+npm config set prefix '~/.npm-packages'
+```
+将新路径添加到环境变量
+```
+vim ~/.bashrc  
+# 在文件中添加以下内容
+export PATH="$PATH:$HOME/.npm-packages/bin"
+```
+使环境变量生效
+```
+source .bashrc
+```
+6.3 ``appium``启动问题
+``appium``启动时可能会遇到下列问题
+```
+XXX@XXX:~$ appium
+error: uncaughtException: fn must be a function
+See http://goo.gl/916lJJ
+date=Sat Nov 21 2015 10:37:25 GMT+0800 (HKT), pid=2504, uid=501, gid=20, cwd=/usr/local/lib/node_modules/appium, execPath=/usr/local/bin/node, version=v0.10.34, argv=[node, /usr/local/bin/appium], rss=103559168, heapTotal=86062080, heapUsed=56309664, loadavg=[1.6328125, 1.86767578125, 1.81103515625], uptime=39552, trace=[column=15, file=/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/node_modules/bluebird/js/main/promisify.js, function=Function.Promise.promisify, line=268, method=Promise.promisify, native=false, column=13, file=lib/fs.js, function=, line=46, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=11, file=/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/build/lib/tempdir.js, function=, line=12, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=19, file=/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/build/index.js, function=, line=11, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=42, file=lib/proxy.js, function=, line=2, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=17, file=/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/build/index.js, function=, line=9, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=28, file=lib/chromedriver.js, function=, line=3, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false], stack=[TypeError: fn must be a function, , See http://goo.gl/916lJJ, , at Function.Promise.promisify (/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/node_modules/bluebird/js/main/promisify.js:268:15), at Object.<anonymous> (lib/fs.js:46:13), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.<anonymous> (/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/build/lib/tempdir.js:12:11), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.<anonymous> (/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/build/index.js:11:19), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.<anonymous> (lib/proxy.js:2:42), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.<anonymous> (/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/build/index.js:9:17), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.<anonymous> (lib/chromedriver.js:3:28), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32)]
+```
+google我们发现问题是``node.js``版本太低导致。
+使用``apt-get``安装的node版本还是``0.10.46``
+所以需要以源码方式安装，下载``0.12.15``的源码包
+```
+wget XXX/node-v0.12.15.tar.gz
+tar xvf node-v0.12.15.tar.gz
+cd node-v0.12.15
+make
+make install
+```
+之后再运行``appium``就可以正常启动了
+
 
 7. 注意点
 **安装appium需要首先安装相匹配的``node``和``npm``，如第一点中所述**
 这一点至关重要，否则总是会遇到各种各样乱七八糟的问题。
 
-8. appium1.4.16版本安装成功日志
+8. ``appium1.4.16``版本安装成功日志
 ```
 XXX@XXX:~$ npm -g install appium@1.4.16
 npm WARN optional dep failed, continuing udidetect@1.0.7
