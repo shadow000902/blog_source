@@ -8,6 +8,9 @@ tags: [linux]
 1. mv
 
 2. cp(copy)
+```
+cp -r /opt/android/tools /opt/      # -r 复制文件夹
+```
 
 3. ps(process status)
 
@@ -32,6 +35,11 @@ tags: [linux]
 12. git
 
 13. cat
+```
+1.一次显示整个文件:cat filename
+2.从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件.
+3.将几个文件合并为一个文件:cat file1 file2 > file
+```
 
 14. chmod(change mode)    # 更改文件／文件夹权限
 

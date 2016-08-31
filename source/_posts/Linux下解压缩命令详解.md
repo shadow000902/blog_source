@@ -23,4 +23,6 @@ tar xvf XXX.tar
 ```
 gunzip XXX.tgz
 tar xvf XXX.tar
+or
+tar xvf XXX.tar.gz
 ```

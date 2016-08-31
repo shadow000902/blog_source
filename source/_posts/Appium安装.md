@@ -32,7 +32,7 @@ npm config set registry=https://registry.npm.taobao.org/        # 替换npm源�
 npm config get registry                                         # 查看镜像源是否替换成功
 ```
 
-### 二、异常安装Appium方法
+### 二、异常安装Appium方法（windows下）
 1. 下载[Appium客户端](http://appium.io/)
 2. 安装Appium客户端到电脑，查看目录如图：
 {% asset_img Appium安装目录结构.png Appium安装目录结构 %}
@@ -104,7 +104,7 @@ npm ERR! Please try running this command again as root/Administrator.
 **解决方案**
 1、修改目录权限
 ```
-sudo chmod 777 /usr/local/lib/node_modules -R
+sudo chmod -R 777 /usr/local/lib/node_modules
 ```
 2、安装依旧有相同的问题
 查看/lib/node_modules目录，我们发现并没有/lib/node_modules/appium/bin/appium.js文件。显然，该文件是安装时生成的，因此问题应该出在安装起npm上，查看npm相关文档我们发现日志中提到的符号链接的路径是可以修改的，因此，解决权限问题可以将该符号链接修改到用户有权限的目录中。
@@ -121,7 +121,7 @@ export PATH="$PATH:$HOME/.npm-packages/bin"
 ```
 使环境变量生效
 ```
-source .bashrc
+source ~/.bashrc
 ```
 6.3 ``appium``启动问题
 ``appium``启动时可能会遇到下列问题
@@ -301,4 +301,114 @@ appium@1.4.16 /usr/local/lib/node_modules/appium
 └── appium-chromedriver@2.3.2 (is-os@1.0.0, q@1.4.1, ps-node@0.0.4, source-map-support@0.3.3, rimraf@2.4.3, request-promise@0.4.3, appium-logger@1.1.7, lodash@3.10.1, request@2.65.0, babel-runtime@5.5.5, asyncbox@2.3.1, teen_process@1.5.1, appium-jsonwp-proxy@1.4.1)
 XXX@XXX:~$ appium -v
 1.4.16
+```
+9. ``Mac``成功安装``Appium1.5.3``版本［我有翻墙，不知道不翻墙行不行］
+```
+Last login: Mon Aug 15 14:28:23 on ttys003
+➜  ~ appium -v
+1.5.3
+➜  ~ npm -v
+3.9.3
+➜  ~ node -v
+v6.2.1
+➜  ~ npm -g install appium
+loadRequestedDeps → netwo ▀ ╢████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╟
+^C
+➜  ~ npm -g install appium --registry=http://registry.npm.taobao.org
+/usr/local/bin/appium -> /usr/local/lib/node_modules/appium/build/lib/main.js
+/usr/local/bin/authorize-ios -> /usr/local/lib/node_modules/appium/node_modules/.bin/authorize-ios
+
+> fsevents@1.0.14 install /usr/local/lib/node_modules/appium/node_modules/fsevents
+> node-pre-gyp install --fallback-to-build
+
+[fsevents] Success: "/usr/local/lib/node_modules/appium/node_modules/fsevents/lib/binding/Release/node-v48-darwin-x64/fse.node" is installed via remote
+- ansi@0.3.1 node_modules/appium/node_modules/fsevents/node_modules/ansi
+- pseudomap@1.0.2 node_modules/appium/node_modules/fsevents/node_modules/aws4/node_modules/lru-cache/node_modules/pseudomap
+- yallist@2.0.0 node_modules/appium/node_modules/fsevents/node_modules/aws4/node_modules/lru-cache/node_modules/yallist
+- lru-cache@4.0.1 node_modules/appium/node_modules/fsevents/node_modules/aws4/node_modules/lru-cache
+- balanced-match@0.3.0 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match
+- concat-map@0.0.1 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map
+- brace-expansion@1.1.3 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion
+- minimatch@3.0.0 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch
+- lodash.tostring@4.1.2 node_modules/appium/node_modules/fsevents/node_modules/lodash.tostring
+- lodash.repeat@4.0.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.repeat
+- lodash.padstart@4.2.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.padstart
+- lodash.padend@4.2.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.padend
+- lodash.pad@4.1.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.pad
+- abbrev@1.0.7 node_modules/appium/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/nopt/node_modules/abbrev
+- nopt@3.0.6 node_modules/appium/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/nopt
+- wrappy@1.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/inflight/node_modules/wrappy
+- inherits@2.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/inherits
+- balanced-match@0.3.0 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match
+- concat-map@0.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map
+- brace-expansion@1.1.3 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion
+- minimatch@3.0.0 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch
+- wrappy@1.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/once/node_modules/wrappy
+- once@1.3.3 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/once
+- inflight@1.0.4 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/inflight
+- path-is-absolute@1.0.0 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/path-is-absolute
+- glob@7.0.3 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob
+/usr/local/lib
+└─┬ appium@1.5.3
+  └─┬ fsevents@1.0.14
+    ├── nan@2.4.0
+    └─┬ node-pre-gyp@0.6.29
+      ├─┬ nopt@3.0.6
+      │ └── abbrev@1.0.9
+      ├─┬ npmlog@3.1.2
+      │ ├── console-control-strings@1.1.0
+      │ ├─┬ gauge@2.6.0
+      │ │ ├── aproba@1.0.4
+      │ │ ├── has-color@0.1.7
+      │ │ ├── has-unicode@2.0.1
+      │ │ ├── object-assign@4.1.0
+      │ │ ├── signal-exit@3.0.0
+      │ │ ├─┬ string-width@1.0.1
+      │ │ │ ├─┬ code-point-at@1.0.0
+      │ │ │ │ └── number-is-nan@1.0.0
+      │ │ │ └── is-fullwidth-code-point@1.0.0
+      │ │ └── wide-align@1.1.0
+      │ └── set-blocking@2.0.0
+      ├─┬ request@2.73.0
+      │ ├── aws4@1.4.1
+      │ ├─┬ bl@1.1.2
+      │ │ └── readable-stream@2.0.6
+      │ ├─┬ har-validator@2.0.6
+      │ │ └── pinkie-promise@2.0.1
+      │ ├─┬ http-signature@1.1.1
+      │ │ ├── jsprim@1.3.0
+      │ │ └─┬ sshpk@1.8.3
+      │ │   ├── assert-plus@1.0.0
+      │ │   ├── dashdash@1.14.0
+      │ │   ├─┬ getpass@0.1.6
+      │ │   │ └── assert-plus@1.0.0
+      │ │   └── tweetnacl@0.13.3
+      │ ├─┬ mime-types@2.1.11
+      │ │ └── mime-db@1.23.0
+      │ ├── oauth-sign@0.8.2
+      │ ├── qs@6.2.0
+      │ └── tunnel-agent@0.4.3
+      ├─┬ rimraf@2.5.3
+      │ └─┬ glob@7.0.5
+      │   ├── fs.realpath@1.0.0
+      │   ├── inflight@1.0.5
+      │   ├─┬ minimatch@3.0.2
+      │   │ └─┬ brace-expansion@1.1.5
+      │   │   ├── balanced-match@0.4.2
+      │   │   └── concat-map@0.0.1
+      │   └── path-is-absolute@1.0.0
+      ├── semver@5.2.0
+      ├─┬ tar@2.2.1
+      │ ├── block-stream@0.0.9
+      │ └─┬ fstream@1.0.10
+      │   └── graceful-fs@4.1.4
+      └─┬ tar-pack@3.1.4
+        ├── fstream-ignore@1.0.5
+        ├─┬ once@1.3.3
+        │ └── wrappy@1.0.2
+        └─┬ readable-stream@2.1.4
+          ├── buffer-shims@1.0.0
+          └── process-nextick-args@1.0.7
+
+➜  ~
 ```
