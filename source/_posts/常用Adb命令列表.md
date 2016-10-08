@@ -38,7 +38,15 @@ adb pull 设备文件 本地路径
 ``` bash
 adb logcat
 adb logcat -v time
-logcat -v time > /mnt/sdcard/aa.txt 2>&1 & (离线抓取log保存在手机)
+logcat -v time > /mnt/sdcard/aa.txt 2>&1 &                                  # 离线抓取log保存在手机
+adb logcat -b main -v threadtime > /sdcard/main.log                         # 抓取应用程序的日志
+adb logcat -b radio -v threadtime > /sdcard/radio.log                       # 抓取跟 radio/telephony 相关的信息
+adb logcat -b events -v threadtime > /sdcard/events.log                     # 抓取系统事件日志，如触屏事件
+adb logcat -b kernel > /sdcard/kernel.log                                   # 抓取kernel log
+adb shell dmesg > /sdcard/dmesg.log                                         # 导出当前缓存的 kernel log
+adb shell kmsgcat                                                           # 实时查看kernel log
+adb shell cat /proc/kmsg > kernel.log                                       # 抓取 printk生成的内核消息
+adb shell tcpdump -s 10000 -w /sdcard/tcpip.pcap                            # 抓取 TCP/IP协议相关的日志
 ```
 8. 进入shell模式
 ``` bash

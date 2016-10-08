@@ -20,3 +20,8 @@ android list sdk --all
 ```
 android update sdk -u --all --filter 1,2,3,5
 ```
+
+4. 更新已安装的``SDK``
+```
+android update sdk --no-ui
+```
