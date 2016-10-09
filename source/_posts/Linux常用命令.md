@@ -13,6 +13,9 @@ cp -r /opt/android/tools /opt/      # -r 复制文件夹
 ```
 
 3. ps(process status)
+```
+ps -ef | grep tomcat
+```
 
 <!--more-->
 
