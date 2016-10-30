@@ -117,6 +117,31 @@ tags: [Appium, Maven, Jenkins]
 2. 持续集成结果展示：
 {% asset_img Excel测试报告.png Excel测试报告 %}
 
+五、备注：appium源码安装
+1. 安装cnpm
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+2. 下载源代码
+```
+git clone https://github.com/appium/appium.git
+```
+3. 编译安装
+```
+cd appium               # 进入appium源码目录
+cnpm install            # 执行安装
+```
+4. 用``cnpm link``命令将``appium link``到系统，可以忽略``warn``
+```
+cnpm link
+```
+5. 查看安装结果
+```
+appium -v
+
+➜  appium git:(master) appium -v
+1.6.0-beta3
+```
 
 
 

@@ -98,7 +98,8 @@ hexo deploy         # 部署本地静态网页到github上，以便在shadow0009
 [Hexo你的博客](http://ibruce.info/2013/11/22/hexo-your-blog/)
 
 ### 十、问题解决
-执行任何一条含``hexo``的命令都会报以下错误：
+
+1. 执行任何一条含``hexo``的命令都会报以下错误：
 ```
 { Error: Cannot find module './build/Release/DTraceProviderBindings'
     at Function.Module._resolveFilename (module.js:440:15)
@@ -170,3 +171,47 @@ openssl: 1.0.2h
 ```
 即：
 安装``dtrace-provider``后，就解决了报错的问题。
+
+2. 执行每条命令都会报以下错误：
+```
+➜  blog_source git:(master) ✗ hexo -v
+ERROR Plugin load failed: hexo-generator-baidu-sitemap
+ReferenceError: hexo is not defined
+    at Object.<anonymous> (/usr/local/git_projects/blog_source/node_modules/hexo-generator-baidu-sitemap/baidusitemap.js:4:10)
+    at Module._compile (module.js:541:32)
+    at Object.Module._extensions..js (module.js:550:10)
+    at Module.load (module.js:458:32)
+    at tryModuleLoad (module.js:417:12)
+    at Function.Module._load (module.js:409:3)
+    at Module.require (module.js:468:17)
+    at require (/usr/local/git_projects/blog_source/node_modules/hexo/lib/hexo/index.js:213:21)
+    at /usr/local/git_projects/blog_source/node_modules/hexo-generator-baidu-sitemap/index.js:6:38
+    at /usr/local/git_projects/blog_source/node_modules/hexo/lib/hexo/index.js:229:12
+    at tryCatcher (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:502:31)
+    at Promise._settlePromise (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:559:18)
+    at Promise._settlePromise0 (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:604:10)
+    at Promise._settlePromises (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:683:18)
+    at Promise._fulfill (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:628:18)
+    at Promise._resolveCallback (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:423:57)
+    at Promise._settlePromiseFromHandler (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:514:17)
+    at Promise._settlePromise (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:559:18)
+    at Promise._settlePromise0 (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:604:10)
+    at Promise._settlePromises (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:683:18)
+    at Promise._fulfill (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:628:18)
+```
+
+解决方法：
+``if your hexo version is 2.x.x, you should install as follow:``
+```
+npm install hexo-generator-baidu-sitemap@0.0.8 --save
+```
+``if your hexo version is 3.x.x, you should install as follow:``
+```
+npm install hexo-generator-baidu-sitemap@0.1.1 --save
+```
+``Maybe response is "hexo is not definded",then you should:``
+```
+cd node_modules/hexo-generator-baidu-sitemap/
+npm install
+```

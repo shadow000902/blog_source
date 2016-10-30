@@ -77,3 +77,10 @@ def setUp(self):
     desired_caps['appActivity'] = 'com.souche.fengche.ui.activity.SplashActivity'  # 启动时的Activity
     # desired_caps['app'] = PATH('/Users/taoyi/Downloads/dasouche.apk')
 ```
+
+10. 拖动操作解析
+```
+public void DragAndDrop(By dragElement, By dropElement)
+```
+``dragElement`` *起点元素，不要用输入框，尽量用不可点击的显示型元素*
+``dropElement`` *终点元素，不要用输入框，尽量用不可点击的显示型元素*

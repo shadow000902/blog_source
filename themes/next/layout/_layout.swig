@@ -11,7 +11,7 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="{{ config.language }}">
+<body itemscope itemtype="//schema.org/WebPage" lang="{{ config.language }}">
 
   {% include '_scripts/third-party/analytics.swig' %}
 
@@ -23,7 +23,7 @@
   <div class="{{ container_class }} {% block page_class %}{% endblock %} ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
       <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
     </header>
 
@@ -71,9 +71,13 @@
   {% include '_scripts/third-party/mathjax.swig' %}
   {% include '_scripts/third-party/lean-analytics.swig' %}
   {% include '_scripts/baidu-push.swig' %}
+<<<<<<< HEAD
   {% if theme.leancloud_visitors.enable %}
     {% include '_scripts/third-party/lean-analytics.swig' %}
   {% endif %}
+=======
+  {% include '_scripts/third-party/schedule.swig' %}
+>>>>>>> iissnan/master
 
 </body>
 </html>

@@ -43,9 +43,114 @@ npm config get registry                                         # 查看镜像�
 5. 在sdk、jdk、python、环境变量设置好的情况下，CMD进入node_modules/.bin下，就可以直接命令行运行appium：
 {% asset_img Appium正常运行.png Appium正常运行 %}
 
-### 三、源码安装
-1. 下载源代码
-2. 编译运行
+### 三、⭐️源码安装
+1. 安装cnpm
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+npm WARN deprecated has-color@0.1.7: Renamed to supports-color. If you're using chalk, upgrade to the latest version. https://github.com/chalk/supports-color
+/usr/local/bin/cnpm -> /usr/local/lib/node_modules/cnpm/bin/cnpm
+/usr/local/bin/cnpm-check -> /usr/local/lib/node_modules/cnpm/bin/cnpm-check
+/usr/local/bin/cnpm-sync -> /usr/local/lib/node_modules/cnpm/bin/cnpm-sync
+/usr/local/bin/cnpm-user -> /usr/local/lib/node_modules/cnpm/bin/cnpm-user
+/usr/local/bin/cnpm-doc -> /usr/local/lib/node_modules/cnpm/bin/cnpm-doc
+/usr/local/bin/cnpm-web -> /usr/local/lib/node_modules/cnpm/bin/cnpm-web
+/usr/local/bin/cnpm-search -> /usr/local/lib/node_modules/cnpm/bin/cnpm-search
+/usr/local/lib
+├── abbrev@1.0.9
+├── aproba@1.0.4
+├─┬ cnpm@4.3.2
+│ ├── auto-correct@1.0.0
+│ ├── bagpipe@0.3.5
+│ ├── colors@1.1.2
+│ ├─┬ commander@2.9.0
+│ │ └── graceful-readlink@1.0.1
+...
+```
+2. 下载源代码
+```
+git clone https://github.com/appium/appium.git
+
+➜  ~ git clone https://github.com/appium/appium.git
+
+Cloning into 'appium'...
+remote: Counting objects: 38266, done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 38266 (delta 0), reused 0 (delta 0), pack-reused 38261
+Receiving objects: 100% (38266/38266), 34.97 MiB | 150.00 KiB/s, done.
+Resolving deltas: 100% (24501/24501), done.
+Checking connectivity... done.
+```
+3. 编译安装
+```
+cd appium               # 进入appium源码目录
+cnpm install            # 执行安装
+
+➜  appium git:(master) cnpm install
+appium-logger@^2.1.0 installed at node_modules/.2.1.0@appium-logger
+appium-windows-driver@^0.x installed at node_modules/.0.2.0@appium-windows-driver
+argparse@^1.0.7 installed at node_modules/.1.0.9@argparse
+asyncbox@^2.3.1 existed at node_modules/.2.3.1@asyncbox
+babel-runtime@=5.8.24 existed at node_modules/.5.8.24@babel-runtime
+bluebird@^2.10.2 existed at node_modules/.2.11.0@bluebird
+continuation-local-storage@^3.1.7 existed at node_modules/.3.2.0@continuation-local-storage
+appium-base-driver@^2.0.19 installed at node_modules/.2.0.19@appium-base-driver
+lodash@^4.13.1 existed at node_modules/.4.16.4@lodash
+npmlog@^2.0.4 existed at node_modules/.2.0.4@npmlog
+request-promise@^1.0.2 existed at node_modules/.1.0.2@request-promise
+source-map-support@^0.4.0 existed at node_modules/.0.4.3@source-map-support
+teen_process@^1.7.1 existed at node_modules/.1.7.1@teen_process
+date-utils@^1.2.21 existed at node_modules/.1.2.21@date-utils
+appium-xcuitest-driver@^2.0.25 installed at node_modules/.2.0.27@appium-xcuitest-driver
+install gulp-jshint from remote https://github.com/appium/gulp-jshint/archive/master.tar.gz, may be very slow, please keep patience
+appium-support@^2.3.3 installed at node_modules/.2.3.3@appium-support
+winston@^2.2.0 installed at node_modules/.2.2.0@winston
+...
+```
+4. 用``cnpm link``命令将``appium link``到系统，可以忽略``warn``
+```
+cnpm link
+
+➜  appium git:(master) cnpm link
+npm WARN deprecated tough-cookie@2.2.2: ReDoS vulnerability parsing Set-Cookie https://nodesecurity.io/advisories/130
+npm WARN deprecated minimatch@3.0.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated minimatch@1.0.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm WARN deprecated lodash@2.4.2: lodash@<3.0.0 is no longer maintained. Upgrade to lodash@^4.0.0.
+npm WARN skippingAction Module is inside a symlinked module: not running add isarray@0.0.1 node_modules/appium-gulp-plugins/node_modules/gulp-jshint/node_modules/isarray
+npm WARN skippingAction Module is inside a symlinked module: not running update lodash@2.4.2 node_modules/appium-gulp-plugins/node_modules/gulp-jshint/node_modules/lodash
+npm WARN skippingAction Module is inside a symlinked module: not running add readable-stream@1.0.34 node_modules/appium-gulp-plugins/node_modules/gulp-jshint/node_modules/readable-stream
+npm WARN skippingAction Module is inside a symlinked module: not running update through2@0.6.5 node_modules/appium-gulp-plugins/node_modules/gulp-jshint/node_modules/through2
+npm WARN skippingAction Module is inside a symlinked module: not running add array-uniq@1.0.2 node_modules/gulp-nsp/node_modules/gulp-util/node_modules/array-uniq
+npm WARN skippingAction Module is inside a symlinked module: not running add ansi-styles@2.2.1 node_modules/appium-gulp-plugins/node_modules/gulp-nsp/node_modules/nsp/node_modules/chalk/node_modules/ansi-styles
+
+...
+npm WARN skippingAction Module is inside a symlinked module: not running add inherits@2.0.1 node_modules/through2/node_modules/readable-stream/node_modules/inherits
+npm WARN skippingAction Module is inside a symlinked module: not running add process-nextick-args@1.0.6 node_modules/through2/node_modules/readable-stream/node_modules/process-nextick-args
+npm WARN skippingAction Module is inside a symlinked module: not running remove hoek@2.16.3 node_modules/topo/node_modules/hoek
+npm WARN skippingAction Module is inside a symlinked module: not running remove replace-ext@0.0.1 node_modules/vinyl/node_modules/replace-ext
+npm WARN skippingAction Module is inside a symlinked module: not running remove jshint@2.5.10 node_modules/gulp-jshint/node_modules/jshint
+
+> appium@1.6.0-beta3 prepublish /Users/taoyi/appium
+> gulp prepublish
+
+[00:30:52] Using gulpfile ~/appium/gulpfile.js
+[00:30:52] Starting 'prepublish'...
+[00:30:52] Starting 'clean'...
+[00:30:52] Finished 'clean' after 26 ms
+[00:30:52] Starting 'transpile'...
+[00:30:54] Finished 'transpile' after 2.13 s
+[00:30:54] Starting 'fixShrinkwrap'...
+Could not find shrinkwrap; skipping fixing shrinkwrap. (Original error: Cannot find module './npm-shrinkwrap.json')
+/usr/local/bin/appium -> /usr/local/lib/node_modules/appium/build/lib/main.js
+/usr/local/lib/node_modules/appium -> /Users/taoyi/appium
+```
+5. 查看安装结果
+```
+appium -v
+
+➜  appium git:(master) appium -v
+1.6.0-beta3
+```
 
 ### 四、安装指定版本的appium
 ```
