@@ -25,28 +25,27 @@ until_not(lambda x: x.find_element_by_id(“someId”).is_displayed())
 3. 元素无法定位
 3.1 使用元素坐标点定位，有两种点击方法，一种是``tap([(100, 20), (100, 60), (100, 100)], 500)``，还有一种是使用``swipe(630, 320, 630, 320, 500)``方法
 3.2 使用``class_name``来定位：
-```` python
+``` python
 checkboxes = self.driver.find_elements_by_class_name('android.widget.CheckBox')     # 获取页面class_name为android.widget.CheckBox的所有元素，形成一个list
 checkboxes[0].click()                                                               # 指定元素进行操作
 checkboxes[1].click()                                                               # 指定元素进行操作
-````
+```
 
 4. 长按操作
-````
+``` python
 action1 = TouchAction(self.driver)
 el_3 = self.driver.find_element_by_id('cn.highing.hichat:id/topic_voice_send')
 action1.long_press(el_3).wait(10000).perform()
-````
+```
 
-
-````
+``` python
 action2 = TouchAction(self.driver)
 el_3 = self.driver.find_element_by_id('cn.highing.hichat:id/topic_voice_send')
 action2.moveTo(el_3).release().perform()
-````
+```
 
 5. 异常处理
-```
+``` python
 if self.driver.current_activity == ".ui.GuideActivity":
     try:
         做x这件事
@@ -59,14 +58,14 @@ if self.driver.current_activity == ".ui.GuideActivity":
 7. appium运行结果报告
 
 
-8. appium设置不使用appium只带的输入法
+8. ``appium``设置不使用``appium``只带的输入法
 ``` python
 des.setCapability("unicodeKeyboard", "True")
 des.setCapability("resetKeyboard", "True")
 ```
 
-9. 一定不要搞错启动activity
-启动时的activity一般都是叫``SplashActivity``
+9. 一定不要搞错启动``activity``
+启动时的``activity``一般都是叫``SplashActivity``
 ``` python
 def setUp(self):
     desired_caps = {}
@@ -79,8 +78,30 @@ def setUp(self):
 ```
 
 10. 拖动操作解析
-```
+``` java
 public void DragAndDrop(By dragElement, By dropElement)
 ```
 ``dragElement`` *起点元素，不要用输入框，尽量用不可点击的显示型元素*
 ``dropElement`` *终点元素，不要用输入框，尽量用不可点击的显示型元素*
+
+11. 滑动操作
+``` python
+def swipe_to_up(self):
+    """
+    从下往上滑动
+    :return: None
+    """
+    window_size = self.get_size()
+    width = window_size.get("width")
+    height = window_size.get("height")
+    self.driver.swipe(width / 2, height * 3 / 4, width / 2, height / 4, 500)
+```
+
+``` java
+public void SwipeToUp(int during) {
+	int width = driver.manage().window().getSize().width;
+	int height = driver.manage().window().getSize().height;
+	driver.swipe(width / 2, height * 3 / 4, width / 2, height / 4, during);
+	logger.info("向上滑动屏幕的3/4");
+}
+```
