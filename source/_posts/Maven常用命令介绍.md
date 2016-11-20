@@ -11,6 +11,9 @@ tags: [maven]
 
 3. ``mvn package``
 
+<!--more-->
+
+
 4. ``mvn package -Dmaven.test.skip=ture``
 
 5. ``mvn test``

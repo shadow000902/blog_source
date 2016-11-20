@@ -10,6 +10,8 @@ tags: [appcrawler]
 TaoYi-Mac:~ taoyi$  appium --session-override -p 4730 --no-reset
 ```
 
+<!--more-->
+
 2. 运行appcrawler，执行测试
 ```
 TaoYi-Mac:appcrawler taoyi$ java -jar appcrawler-1.2.1.jar -a /usr/local/TestGroupCode/appcrawler/fengche.apk

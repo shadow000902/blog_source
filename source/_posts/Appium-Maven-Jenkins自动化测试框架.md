@@ -12,6 +12,8 @@ tags: [Appium, Maven, Jenkins]
 4. ``Jenkins slave``设置
 5. ``Android SDK``安装
 
+<!--more-->
+
 二、环境可用的情况
 1. ``adb -devices``命令可用
 2. ``appium --session-override``服务可用

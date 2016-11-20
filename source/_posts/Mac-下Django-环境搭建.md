@@ -13,6 +13,9 @@ tags: [django, python, postgresql]
 ```
 brew install postgresql -v
 ```
+
+<!--more-->
+
 2.1 初始化数据库
 ```
 initdb /usr/local/var/postgres -E utf8

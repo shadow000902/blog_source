@@ -12,6 +12,8 @@ tags: [linux]
 cp -r /opt/android/tools /opt/      # -r 复制文件夹
 ```
 
+<!--more-->
+
 3. ps(process status)
 ```
 ps -ef | grep tomcat

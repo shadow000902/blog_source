@@ -14,6 +14,9 @@ sudo apt-get install python-setuptools m2crypto
 pip install shadowsocks
 sudo apt install shadowsocks                                            # ubuntu 16.04的安装方法
 ```
+
+<!--more-->
+
 2. 启动``shadowsocks``
 安装好后，在本地需要用到``sslocal``，
 使用方法：``sslocal -c`` 后面加上我们的``json``配置文件，或者像下面这样直接命令参数写上运行.

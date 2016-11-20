@@ -7,11 +7,14 @@ tags: [mac, ssh]
 系统自带终端的ssh是标准的OpenSSH client
 
 如果需要克隆会话功能，可以通过配置打开。
-```
+``` bash
 vim ~/.ssh/config
 ```
+
+<!--more-->
+
 把一下内容：
-```
+``` bash
 Host *
     ControlMaster auto
     ControlPath ~/.ssh/%h-%p-%r
