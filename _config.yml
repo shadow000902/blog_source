@@ -28,13 +28,9 @@ code_dir: downloads/code
 i18n_dir: :lang   # 国际化文件夹
 skip_render:
 
-
-
-
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
 #google_site_verification:
-
 
 # Google Analytics
 #google_analytics:
