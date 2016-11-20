@@ -105,3 +105,90 @@ public void SwipeToUp(int during) {
 	logger.info("向上滑动屏幕的3/4");
 }
 ```
+
+12. ``Appium``（客户端版）解决每次运行``Android``，都安装``Appium Setting``和``Unlock``的方法
+``Appium Setting``安装包路径：
+```
+/usr/local/lib/node_modules/appium/node_modules/appium-android-driver/node_modules/io.appium.settings/bin/settings_apk-debug.apk
+```
+``Unlock``安装包路径：
+```
+/usr/local/lib/node_modules/appium/node_modules/appium-android-driver/node_modules/appium-unlock/bin/unlock_apk-debug.apk
+```
+解决方法，修改下面两个文件
+文件1地址：
+``` bash
+/usr/local/lib/node_modules/appium/node_modules/appium-android-driver/lib/android-helpers.js
+```
+文件位置：
+``` js
+helpers.initDevice = async function (adb, opts) {
+  await adb.waitForDevice();
+
+  await helpers.ensureDeviceLocale(adb, opts.language, opts.locale);
+  await adb.startLogcat();
+  let defaultIME;
+  if (opts.unicodeKeyboard) {
+    defaultIME = await helpers.initUnicodeKeyboard(adb);
+  }
+//  await helpers.pushSettingsApp(adb);                                         # 注释掉
+//  await helpers.pushUnlock(adb);                                              # 注释掉
+  return defaultIME;
+};
+```
+文件2地址：
+``` bash
+/usr/local/lib/node_modules/appium/node_modules/appium-android-driver/build/lib/android-helpers.js
+```
+文件位置：
+``` js
+helpers.initDevice = function callee$0$0(adb, opts) {
+  var defaultIME;
+  return _regeneratorRuntime.async(function callee$0$0$(context$1$0) {
+    while (1) switch (context$1$0.prev = context$1$0.next) {
+      case 0:
+        context$1$0.next = 2;
+        return _regeneratorRuntime.awrap(adb.waitForDevice());
+
+      case 2:
+        context$1$0.next = 4;
+        return _regeneratorRuntime.awrap(helpers.ensureDeviceLocale(adb, opts.language, opts.locale));
+
+      case 4:
+        context$1$0.next = 6;
+        return _regeneratorRuntime.awrap(adb.startLogcat());
+
+      case 6:
+        defaultIME = undefined;
+
+        if (!opts.unicodeKeyboard) {
+          context$1$0.next = 11;
+          break;
+        }
+
+        context$1$0.next = 10;
+        return _regeneratorRuntime.awrap(helpers.initUnicodeKeyboard(adb));
+
+      case 10:
+        defaultIME = context$1$0.sent;
+
+      case 11:
+        context$1$0.next = 13;
+        return _regeneratorRuntime.awrap(helpers.pushSettingsApp(adb));
+        // return context$1$0.abrupt('return', defaultIME);                     # 添加新的 return，相当于跳过该步骤
+
+      case 13:
+        context$1$0.next = 15;
+        return _regeneratorRuntime.awrap(helpers.pushUnlock(adb));
+        // return context$1$0.abrupt('return', defaultIME);                     # 添加新的 return，相当于跳过该步骤
+
+      case 15:
+        return context$1$0.abrupt('return', defaultIME);
+
+      case 16:
+      case 'end':
+        return context$1$0.stop();
+    }
+  }, null, this);
+};
+```
