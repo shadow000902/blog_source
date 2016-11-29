@@ -107,6 +107,7 @@ public void SwipeToUp(int during) {
 ```
 
 12. ``Appium``（客户端版）解决每次运行``Android``，都安装``Appium Setting``和``Unlock``的方法
+同 “Appium的几点总结” 的``六``
 ``Appium Setting``安装包路径：
 ```
 /usr/local/lib/node_modules/appium/node_modules/appium-android-driver/node_modules/io.appium.settings/bin/settings_apk-debug.apk
