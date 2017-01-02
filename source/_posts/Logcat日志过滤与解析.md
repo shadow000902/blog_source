@@ -6,7 +6,7 @@ tags: [logcat, adb]
 ---
 
 1. ``logcat``指定``某APP``輸出``ERROR``以上級別的日誌，``显示同一个进程的所有输出``
-``` java
+```java
 #!/bin/sh  
 echo 本腳本實現顯示指定包名APP的ERROR以上級別的日誌，建議崩潰之後，重新開啓此腳本  
 package_name=$1  

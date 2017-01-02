@@ -7,7 +7,7 @@ tags: [appium, webview]
 现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。
 
 1. 查看所有context
-``` java
+```java
 Set<String> contextNames = driver.getContextHandles();
 System.print(contextNames);
 ```
@@ -15,7 +15,7 @@ System.print(contextNames);
 <!--more-->
 
 结果包含目前所有打开的app
-``` java
+```java
 [NATIVE_APP, WEBVIEW_com.test.android, WEBVIEW_com.estrongs.android.pop, WEBVIEW_com.xxxxx.sjj]
 ```
 
@@ -25,7 +25,7 @@ WEBVIEW_com.test.android 是我的被测应用打开的WebView
 
 2. 切换到WebView
 我们可以通过context方法切换到指定的应用
-``` java
+```java
 <pre name="code" class="java">driver.context("WEBVIEW_com.test.android");
 driver.findElementByID("wd");
 ```
@@ -34,13 +34,13 @@ driver.findElementByID("wd");
 3. 切换到NativeApp
 测试完web应用，需要操作原生应用的时候就需要切换回NATIVE_APP
 我们可以通过context方法切换到原生应用
-``` java
+```java
 <pre name="code" class="java">driver.context("NATIVE_APP");
 ```
 这样之后的操作就都是原生应用的操作了
 
 4. DEMO
-``` java
+```java
     /**
      * Switch to NATIVE_APP or WEBVIEW
      * @param sWindow window name

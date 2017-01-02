@@ -48,7 +48,7 @@ python ride.py
 ```
 
 6. 遇到ride无法启动的问题
-``` python
+```python
 Python 2.7.11 |Anaconda 4.0.0 (64-bit)| (default, Feb 16 2016, 09:58:36) [MSC v.1500 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 Anaconda is brought to you by Continuum Analytics.

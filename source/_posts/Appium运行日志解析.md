@@ -10,7 +10,7 @@ tags: [appium]
 
 <!--more-->
 
-``` python
+```python
 import os
 from time import sleep
 

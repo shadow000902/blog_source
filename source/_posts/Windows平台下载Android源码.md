@@ -25,7 +25,7 @@ git checkout android-6.0.1_r1                                       # 下载需�
 
 ### 二、使用python脚本批量下载
 1. download-src.py脚本
-``` python
+```python
 import xml.dom.minidom
 import os
 from subprocess import call

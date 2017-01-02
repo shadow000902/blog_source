@@ -70,7 +70,7 @@ C:\Users\shadow>appium -a 127.0.0.1 -p 4723 -U 8XV5T15A20009865 --no-reset
 在安装appium的时候，同时就下载好了示例脚本和需要的apk文件，存放在C:\Users\shadow\AppData\Roaming\npm\node_modules\appium\sample-code目录中
 
 脚本如下(截取了配置部分)：
-``` python
+```python
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)

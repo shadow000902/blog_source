@@ -81,12 +81,12 @@ baz | baz  | baz
 ___
 
 ### 十一、代码区块
-``` java
+```java
 		print ("I like jianshu! ")
 ```
 ###### 正常代码
 
-``` java
+```java
 	// 是否有手势密码
 	private boolean isHasGesture() {
 		if (HiApplcation.getInstance().getUser() == null

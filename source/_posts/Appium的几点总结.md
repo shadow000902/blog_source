@@ -6,7 +6,7 @@ tags: [appium]
 ---
 
 ##### 一、建立session时常用命令
-```` python
+````python
 DesiredCapabilities cap = new DesiredCapabilities();
 cap.SetCapability("browserName", "");                                                           // web 浏览器名称（'Safari' ,'Chrome'等）。如果对应用进行自动化测试，这个关键字的值应为空。
 cap.SetCapability("platformName", "Android");                                                   //你要测试的手机操作系统
@@ -35,7 +35,7 @@ driver = new AndroidDriver<IWebElement>(serverUri, cap, TimeSpan.FromSeconds(180
 
 ##### 二、driver常用方法及注意事项
 1. 常用方法
-```` python
+````python
 driver.HideKeyboard();                                                                  //隐藏键盘
 driver.BackgroundApp(60);                                                               //60秒后把当前应用放到后台去
 driver.LockDevice(3);                                                                   //锁定屏幕
@@ -73,7 +73,7 @@ driver.FindElementByXPath("//*[@name='62']");
 ##### 三、等待页面加载策略
 1. 显性等待：调用selenium的方法， 需要添加WebDriver.Support引用
     显性等待是指在代码进行下一步操作之前等待某一个条件的发生。最不好的情况是使用Thread.sleep()去设置一段确认的时间去等待。但为什么说最不好呢？因为一个元素的加载时间有长有短，你在设置sleep的时间之前要自己把握长短，太短容易超时，太长浪费时间。selenium webdriver提供了一些方法帮助我们等待正好需要等待的时间
-```` python
+````python
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         element = wait.Until<IWebElement>((d) =>
         {
@@ -83,13 +83,13 @@ driver.FindElementByXPath("//*[@name='62']");
 
 2. 隐性等待：设置时间不易过长，设置为500或1000即可
     隐性等待是指当要查找元素，而这个元素没有马上出现时，告诉WebDriver查询Dom一定时间。默认值是0,但是设置之后，这个时间将在WebDriver对象实例整个生命周期都起作用。
-```` python
+````python
 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));
 ````
 
 ##### 四、drive.KeyEvent(int )的使用：
 可使用KeyEvent发送键盘数据，比如退格，Enter键等
-```` python
+````python
 driver.KeyEvent(3);         //KEYCODE_HOME 按键Home 3
 driver.KeyEvent(26);        //KEYCODE_POWER 电源键 26
 driver.KeyEvent(67);        //KEYCODE_DEL 退格键 67
@@ -100,7 +100,7 @@ driver.KeyEvent(123);       //KEYCODE_MOVE_END 光标移动到末尾
 
 ##### 五、坐标操作
 为防止不同手机分辨率不同带来的影响，要避免使用固定的坐标，可以用以下方式获取元素的坐标
-```` python
+````python
 double Screen_X = driver.Manage().Window.Size.Width;                    //获取手机屏幕宽度
 double Screen_Y = driver.Manage().Window.Size.Height;                   //获取手机屏幕高度
 double startX = element.Location.X;                                     //获取元素的起点坐标，即元素最左上角点的横坐标
@@ -112,7 +112,7 @@ double elementHight = element.Size.Height;                              //获取
 在封装“滑动”、“ TouchAction”等操作时可以用以上方法来获取坐标进行操作。
 
 **示例：分装两个元素之间的滑动**
-```` python
+````python
         IWebElement elmentA = null;
         IWebElement elmentB = null;
         int startX = 0, startY = 0, endX = 0, endY = 0;
@@ -144,11 +144,11 @@ double elementHight = element.Size.Height;                              //获取
 
 ##### 六、取消重新安装unlock和setting
 注销如下代码：
-```` python
+````python
     Appium\node_modules\appium\lib\devices\android\android.js
 ````
 
-```` python
+````python
 async.series([
     this.initJavaVersion.bind(this),
     this.initAdb.bind(this),

@@ -238,7 +238,7 @@ h3 {
 
 #### 4.6 发送测试结果邮件 sendmail.py
 
-``` python
+```python
 #!/usr/bin/env python
 #coding: utf-8
 import string
