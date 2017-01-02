@@ -14,7 +14,7 @@ keywords: "Hexo, NexT"
 rss: /atom.xml
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2015
 
 # icon between year and author @Footer
 authoricon: heart
@@ -71,9 +71,9 @@ icon-font: foo
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -94,13 +94,13 @@ font:
   global:
     # external: true will load this font family from host.
     external: true
-    family: Lato
+    family: Monda
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6)
   # Fallback to `global` font settings.
   headings:
     external: true
-    family:
+    family: Roboto Slab
 
   # Font settings for posts
   # Fallback to `global` font settings.
@@ -119,8 +119,8 @@ font:
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family:
-    size:
+    family: Monaco
+    size: 11
 
 
 
@@ -143,9 +143,9 @@ social:
 #  email: shadow000902@gmail.com     ## e.g. shadow000902@gmail.com
   twitter: https://twitter.com/shadow000902   ## e.g. shadow000902 for https://twitter.com/shadow000902
   facebook: https://facebook.com/shadow000902  ## e.g. shadow000902 for https://facebook.com/shadow000902
-  linkedin: https://www.linkedin.com/in/shadow000902  ## e.g. shadow000902 for https://www.linkedin.com/in/shadow000902
-  google-plus: https://plus.google.com/u/0/+Taoyi   ## e.g.  for https://plus.google.com/u/0/+Taoyi, the "" is needed!
-  stack-overflow: http://stackoverflow.com/users/4210385/shadow ## e.g. 4210385 for http://stackoverflow.com/users/4210385/shadow
+#  linkedin: https://www.linkedin.com/in/shadow000902  ## e.g. shadow000902 for https://www.linkedin.com/in/shadow000902
+#  google-plus: https://plus.google.com/u/0/+Taoyi   ## e.g.  for https://plus.google.com/u/0/+Taoyi, the "" is needed!
+#  stack-overflow: http://stackoverflow.com/users/4210385/shadow ## e.g. 4210385 for http://stackoverflow.com/users/4210385/shadow
  ## if you set them, the corresponding  share button will show on the footer
 
 
@@ -164,9 +164,9 @@ social_icons:
 #  email: email
   facebook: facebook
 #  jianshu: jianshu
-  linkedin: linkedin
-  google-plus: google-plus
-  stack-overflow: stack-overflow
+#  linkedin: linkedin
+#  google-plus: google-plus
+#  stack-overflow: stack-overflow
 
 
 # Sidebar Avatar
@@ -266,7 +266,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night bright
 
 
 # ---------------------------------------------------------------
@@ -338,9 +338,9 @@ google_analytics: UA-18711495-2
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
   ua_enable: true
-  admin_enable: false
+  admin_enable: true
   user_id: 436785
-  #admin_nickname: ROOT
+  admin_nickname: shadow
 
 
 # Facebook SDK Support.
