@@ -5,7 +5,7 @@ categories: [测试报告]
 tags: [测试报告]
 ---
 
-###一、安装MongoDB数据库
+### 一、安装MongoDB数据库
 1. 下载[MongoDB](https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.4.1.tgz)
 2. 安装``MongoDB``
 ```bash
@@ -61,7 +61,7 @@ mongod          # 默认方式启动
 2017-01-22T00:25:25.022+0800 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
 ```
 
-###二、安装ExtentX服务
+### 二、安装ExtentX服务
 1. 下载``ExtentX``代码
 ```bash
 git clone https://github.com/anshooarora/extentx.git
@@ -105,7 +105,7 @@ user:       root
 password:   password
 ```
 
-###三、测试框架集成extent测试报告框架
+### 三、测试框架集成extent测试报告框架
 1. ``pom.xml``文件中增加依赖
 ```xml
 <dependency>
