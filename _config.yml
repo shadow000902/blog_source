@@ -120,6 +120,8 @@ feed:
 #sitemap
 sitemap:
   path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 
 ## Themes: https://hexo.io/themes/
 theme: next
