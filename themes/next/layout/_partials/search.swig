@@ -6,4 +6,8 @@
   {% include 'search/tinysou.swig' %}
 {% elseif theme.local_search.enable %}
   {% include 'search/localsearch.swig' %}
+<!-- 增加下面语句 -->
+{% elseif theme.algolia_search %}
+  {% include 'search/algolia.swig' %}
+<!-- 增加结束 -->
 {% endif %}

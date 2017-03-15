@@ -70,7 +70,16 @@ leancloud_visitors:
 # Tencent analytics ID
 # tencent_analytics:
 
-
+algolia:
+  applicationID: '0HPI7IYB5V'
+  apiKey: 'c41b4c8f05b63867c231cd2ef194a34f'
+  adminApiKey: 'dbb0d7d98ccc80045798269262d29ab5'
+  indexName: 'Hexo_search'
+  chunkSize: 5000
+  fields:
+    - title
+    - slug
+    - content:strip
 
 
 # Writing 写作配置

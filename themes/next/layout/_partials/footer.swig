@@ -20,6 +20,9 @@
   </a>
 </div>
 
+<link href="{{ url_for(theme.css) }}/_algolia/algolia.styl" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ url_for(theme.js) }}/src/algolia.js"></script>
+
 <span id="busuanzi_container_site_uv">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您是本站的第 <span id="busuanzi_value_site_uv"></span> 位访问者
 </span>
