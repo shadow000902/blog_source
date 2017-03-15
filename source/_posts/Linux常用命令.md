@@ -8,14 +8,14 @@ tags: [linux]
 1. mv
 
 2. cp(copy)
-```
+```bash
 cp -r /opt/android/tools /opt/      # -r 复制文件夹
 ```
 
 <!--more-->
 
 3. ps(process status)
-```
+```bash
 ps -ef | grep tomcat
 ```
 
@@ -40,10 +40,10 @@ ps -ef | grep tomcat
 12. git
 
 13. cat
-```
-1.一次显示整个文件:cat filename
-2.从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件.
-3.将几个文件合并为一个文件:cat file1 file2 > file
+```markdown
+一次显示整个文件:cat filename
+从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件.
+将几个文件合并为一个文件:cat file1 file2 > file
 ```
 
 14. chmod(change mode)    # 更改文件／文件夹权限
@@ -71,15 +71,15 @@ ps -ef | grep tomcat
 25. ifconfig
 
 26. tail
-```
+```bash
 tail -f catalina.out | grep request      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
 ```
 27. scp     # 本地文件传输到服务器
-```
+```bash
 scp -P 22 /opt/appium1.5.3.zip username@IP:/opt/
 ```
 28. sed     #
-```
+```markdown
 [root@www ~]# sed [-nefr] [动作]
 选项与参数：
 -n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
@@ -100,47 +100,143 @@ p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -
 s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！
 ```
 28.1 以行为单位删除
-```
+```bash
 nl ~/test.txt | sed '2,5d'                         # 删除2～5行
 nl ~/test.txt | sed '2d'                           # 删除第2行
 nl ~/test.txt | sed '3,$d'                         # 删除3到最后一行
 ```
 28.2 以行为单位新增
-```
+```bash
 nl ~/test.txt | sed '2a drink tea'                 # 在第二行后即第三行加上“drink tea”
 nl ~/test.txt | sed '2i drink tea'                 # 在第二行前即第二行加上“drink tea”
 nl ~/test.txt | sed '2a drink tea or ......\'      # 在第二行后加上两行，每一行之间都必须要以反斜杠『 \ 』来进行新行的添加
 ```
 28.3 以行为单位替换
-```
+```bash
 nl ~/test.txt | sed '2,5c No 2-5 number'           # 将第2-5行的内容取代成为『No 2-5 number
 nl ~/test.txt | sed -n '5,7p'                      # 列出 ~/test.txt 文件内的第 5-7 行
 ```
 28.4 数据的搜索并显示
-```
+```bash
 nl ~/test.txt | sed '/root/p'                      # 如果root找到，除了输出所有行，还会输出匹配行
 nl ~/test.txt | sed -n '/root/p'                   # 只打印包含root的行
 ```
 28.5 数据的搜索并删除
-```
+```bash
 nl ~/test.txt | sed '/root/d'                      # 删除包含root的行，其他行输出
 ```
 28.6 数据的搜索并执行命令
-```
+```bash
 nl ~/test.txt | sed -n '/root/{s/bash/blueshell/;p}'       # 找到root对应的行，执行后面花括号中的一组命令，每个命令之间用分号分隔，这里把bash替换为blueshell，再输出这行
 nl ~/test.txt | sed -n '/root/{s/bash/blueshell/;p;q}'     # 最后的q是退出
 ```
 28.7 **数据的搜索并替换**
-```
+```bash
 sed 's/要被取代的字串/新的字串/g'
 ```
 28.8 多点编辑
-```
+```bash
 nl ~/test.txt | sed -e '3,$d' -e 's/bash/blueshell/'       # -e表示多点编辑，一条sed命令，删除/etc/passwd第三行到末尾的数据，并把bash替换为blueshell
 ```
 28.9 **直接修改文件内容**
 ``sed``可以直接修改文件的内容，不必使用管道命令或数据流重导向
-```
+```bash
 sed -i 's/\.$/\!/g' test.txt                               # 将 test.txt 内每一行结尾若为 . 则换成 ! sed 的『 -i 』选项可以直接修改文件内容
 sed -i '$a # This is a test' test.txt                      # 在 test.txt 最后一行加入『# This is a test』 $代表的是最后一行，而a的动作是新增
+```
+29. touch           # 创建文件（夹）命令
+
+29.1 使用文件名作为参数，可以同时创建多个文件。当目标文件已经存在时，将更新该文件的时间标记，否则将创建指定名称的空文件。
+```bash
+touch file1 file2
+```
+29.2 创建新的目录
+```bash
+[root@localhost home]# mkdir dir1
+[root@localhost home]# mkdir dir2/dir
+mkdir: 无法创建目录"dir2/dir": 没有那个文件或目录
+[root@localhost home]# mkdir -p dir2/dir                    # -p 确保目录名称存在，不存在的就建一个
+[root@localhost home]#
+```
+29.3 同时创建多级目录
+```bash
+[root@localhost home]# ls
+justin lost+found t
+[root@localhost home]# mkdir -p {dir1,dir2/{dir3,dir4}}
+[root@localhost home]# ls
+dir1 dir2 justin lost+found t
+[root@localhost home]# ls dir2
+dir3 dir4
+[root@localhost home]#
+```
+
+30. rmdir            # 删除文件（夹）命令
+```bash
+[root@localhost home]# mkdir -p {dir1,dir2/dir3}            # -p 当子目录被删除后也成为空目录的话，则顺便一并删除
+[root@localhost home]# ls
+dir1 dir2 justin lost+found t
+[root@localhost home]# rmdir dir1
+[root@localhost home]# rmdir dir2
+rmdir: 删除 "dir2"失败: 目录非空
+[root@localhost home]# rmdir -p dir2/dir3/
+[root@localhost home]# ls
+justin lost+found t
+[root@localhost home]#
+```
+
+31. 更改文件（夹）权限
+31.1 更改所有者权限
+```bash
+sudo chmod 600 ××× #（只有所有者有读和写的权限）
+sudo chmod 644 ××× #（所有者有读和写的权限，组用户只有读的权限）
+sudo chmod 700 ××× #（只有所有者有读和写以及执行的权限）
+sudo chmod 666 ××× #（每个人都有读和写的权限）
+sudo chmod 777 ××× #（每个人都有读和写以及执行的权限）
+```
+```markdown
+sudo chmod -（代表类型）[×××（所有者）×××（组用户）×××（其他用户）]           # xxx为一个二进制组合
+```
+其中×××指文件名（也可以是文件夹名，不过要在chmod后加-ld）。
+三位数的每一位都表示一个用户类型的权限设置。取值是0～7，即二进制的[000]~[111]。
+这个三位的二进制数的每一位分别表示读、写、执行权限。
+如000表示三项权限均无，而100表示只读。这样，我们就有了下面的对应：
+```bash
+0 [000] 无任何权限
+4 [100] 只读权限
+6 [110] 读写权限
+7 [111] 读写执行权限
+```
+31.2 更改文件（夹）权限
+```bash
+chmod [-cfvR] [--help] [--version] mode file...
+mode : 权限设定字串, 格式如下 : [ugoa...][[+-=][rwxX]...][,...]
+```
+```markdown
+u 表示该档案的拥有者，
+g 表示与该档案的拥有者属于同一个群体(group)者，
+o 表示其他以外的人，
+a 表示这三者皆是。 
++ 表示增加权限、- 表示取消权限、= 表示唯一设定权限。 
+r 表示可读取，w 表示可写入，x 表示可执行，X 表示只有当该档案是个子目录或者该档案已经被设定过为可执行。 
+-c : 若该档案权限确实已经更改，才显示其更改动作 
+-f : 若该档案权限无法被更改也不要显示错误讯息 
+-v : 显示权限变更的详细资料 
+-R : 对目前目录下的所有档案与子目录进行相同的权限变更(即以递回的方式逐个变更) 
+--help : 显示辅助说明 
+--version : 显示版本 
+```
+31.3 文件（夹）的权限
+```markdown
+-rw------- (600) -- 只有属主有读写权限。 
+-rw-r--r-- (644) -- 只有属主有读写权限；而属组用户和其他用户只有读权限。 
+-rwx------ (700) -- 只有属主有读、写、执行权限。 
+-rwxr-xr-x (755) -- 属主有读、写、执行权限；而属组用户和其他用户只有读、执行权限。 
+-rwx--x--x (711) -- 属主有读、写、执行权限；而属组用户和其他用户只有执行权限。 
+-rw-rw-rw- (666) -- 所有用户都有文件读、写权限。这种做法不可取。 
+-rwxrwxrwx (777) -- 所有用户都有读、写、执行权限。更不可取的做法。 
+```
+以下是对目录的两个普通设定: 
+```markdown
+drwx------ (700) - 只有属主可在目录中读、写。 
+drwxr-xr-x (755) - 所有用户可读该目录，但只有属主才能改变目录中的内容。
 ```
