@@ -1,8 +1,8 @@
 $(document).ready(function () {
   var algoliaSettings = CONFIG.algolia;
   var isAlgoliaSettingsValid = algoliaSettings.applicationID &&
-    algoliaSettings.apiKey &&
-    algoliaSettings.indexName;
+                               algoliaSettings.apiKey &&
+                               algoliaSettings.indexName;
   if (!isAlgoliaSettingsValid) {
     window.console.error('Algolia Settings are invalid.');
     return;
