@@ -432,7 +432,7 @@ busuanzi_count:
 
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
-baidu_push: false
+baidu_push: true
 
 # Google Calendar
 # Share your recent schedule to others via calendar page
@@ -440,7 +440,7 @@ baidu_push: false
 # API Documentation:
 # https://developers.google.com/google-apps/calendar/v3/reference/events/list
 calendar:
-  enable: false
+  enable: true
   calendar_id: <required>
   api_key: <required>
   orderBy: startTime
@@ -457,10 +457,9 @@ algolia_search:
   hits:
     per_page: 10
   labels:
-    input_placeholder: 输入关键字
+    input_placeholder: 请输入关键字
     hits_empty: "没有找到与【${query}】相关的内容"
     hits_stats: "${hits} 条记录，共耗时 ${time} ms"
-
 
 
 # Local search

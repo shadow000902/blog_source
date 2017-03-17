@@ -117,8 +117,24 @@ pagination_dir: page
 
 # Extensions  扩展
 Plugins:
-  hexo-generate-feed
+  hexo-algolia
+  hexo-algoliasearch
+  hexo-clean-css
+  hexo-deployer-git
+  hexo-generator-archive
+  hexo-generator-baidu-sitemap
+  hexo-generator-category
+  hexo-generator-feed
+  hexo-generator-index
+  hexo-generator-seo-friendly-sitemap
   hexo-generator-sitemap
+  hexo-generator-tag
+  hexo-html-minifier
+  hexo-renderer-ejs
+  hexo-renderer-marked
+  hexo-renderer-stylus
+  hexo-server
+  hexo-uglify
 
 #Feed Atom
 feed:

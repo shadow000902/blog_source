@@ -75,7 +75,6 @@
   {% include '_scripts/third-party/tinysou.swig' %}
   {% include '_scripts/third-party/localsearch.swig' %}
   {% include '_scripts/third-party/mathjax.swig' %}
-  {% include '_scripts/third-party/lean-analytics.swig' %}
   {% include '_scripts/baidu-push.swig' %}
   {% if theme.leancloud_visitors.enable %}
     {% include '_scripts/third-party/lean-analytics.swig' %}
@@ -86,7 +85,7 @@
   {% if theme.exturl %}
     {% include '_scripts/third-party/exturl.swig' %}
   {% endif %}
-  {% if theme.algolia_search %}
+  {% if theme.algolia_search.enable %}
     {% include '_scripts/third-party/algolia.swig' %}
   {% endif %}
 </body>
