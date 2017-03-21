@@ -20,13 +20,14 @@ git config -global user.email "you@example.com"
 ``` bash
 git init                        # 初始化当前所在目录的这个项目
 git status                      # 查看项目状态
-git add ..                      # 给目前的项目制作一个快照snapshot（快照只是登记留名，快照不等于记录在案，git管快照叫做索引index）
+git add .                       # 给目前的项目制作一个快照snapshot（快照只是登记留名，快照不等于记录在案，git管快照叫做索引index）
 git commit                      # 将快照里登记的内容永久写入git仓库
 git commit -a                   # 直接提交所有修改，省去了``git add``和``git diff``和``git commit``的工序
                                 # 无法把新增文件或文件夹加入进来，所以，如果你新增了文件或文件夹，那么就要老老实实的先``git add ..``，再``git commit``
+git push                        # 把更新推送到远程分支
 git log -p                      # git不但会给出开发日志，而且会显示每个开发版本的代码区别所在
 ```
-总结：先``git add``修改过的文件，再``git diff``并``git status``查看确认，然后``git commit``提交，然后输入开发日志，最后``git log``再次确认。
+总结：先``git add``修改过的文件，再``git diff``并``git status``查看确认，然后``git commit``提交，然后输入开发日志，然后``git push``推送到远程分支，最后``git log``再次确认。
 
 ### 三、创建分支
 

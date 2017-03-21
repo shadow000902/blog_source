@@ -74,7 +74,19 @@ python ride.py
 ride.py已经自动加入到了环境变量下面
 可以直接通过运行``ride.py``执行
 
-6. 遇到ride无法启动的问题【Windows】
+6. 安装robotframework-appiumlibrary
+``` bash
+pip install robotframework-appiumlibrary
+```
+
+7. 安装robotframework-selenium2library
+``` bash
+pip install robotframework-selenium2library
+```
+
+8. 问题解决
+
+8.1 遇到ride无法启动的问题【Windows】
 ```bash
 Python 2.7.11 |Anaconda 4.0.0 (64-bit)| (default, Feb 16 2016, 09:58:36) [MSC v.1500 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
@@ -94,12 +106,20 @@ http://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/
 rm -rf ~/.robotframework/
 ```
 
-7. 安装robotframework-appiumlibrary
-``` bash
-pip install robotframework-appiumlibrary
+8.2 mac 强制安装 wxpython2.8.12.1
+下载[wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg](https://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg/download)；打开得到``wxPython2.8-osx-unicode-universal-py2.7.pkg``；右键显示包内容，再得到``wxPython2.8-osx-unicode-universal-py2.7.pax.gz``和``postflight``；解压``wxPython2.8-osx-unicode-universal-py2.7.pax.gz``，再得到``/usr/local/lib/wxPython-unicode-2.8.12.1``，把该文件夹放入系统的``/usr/local/lib/``中，切换到``postflight``目录，运行命令``sudo ./postflight``，安装好wxpython2.8.12.1。
+执行``ride.py``提示：
+```bash
+python should be executed in 32-bit mode with wxPython on OSX.
+```
+是因为wxpython是32位的，而我们安装的是64位的。
+输入以下命令强制执行32位：
+```bash
+defaults write com.apple.versioner.python Prefer-32-Bit -bool yes
 ```
 
-8. 安装robotframework-selenium2library
-``` bash
-pip install robotframework-selenium2library
+8.3 ride 一次使用后再次打开崩溃的问题
+因为用``pip install robotframework-ride``安装的``ride``是1.5.2.1版本，会出现这个问题，所以安装指定的1.5.2版本
+```bash
+pip install robotframework-ride==1.5.2
 ```

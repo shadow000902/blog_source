@@ -27,7 +27,7 @@ java -jar re-sign.jar
 ```
 
 3. 把应用拖放到窗口进行重签名
-{% asset_img 重签名工具使用.png 重签名工具使用.png %}
+{% asset_img 重签名工具使用.png 重签名工具使用 %}
 
 重签名成功
 {% asset_img 重签名成功.png 重签名成功 %}
