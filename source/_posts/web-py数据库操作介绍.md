@@ -12,12 +12,12 @@ tags: [web.py, 数据库]
 
 <!--more-->
 
-{% asset_img 初始化密码.png 初始化密码 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/初始化密码.png)
 
 2. 启动本机上的MySQL
-{% asset_img 启动MySQL-1.png 启动MySQL-1 %}
-{% asset_img 启动MySQL-2.png 启动MySQL-2 %}
-{% asset_img 启动MySQL-3.png 启动MySQL-3 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/启动MySQL-1.png)
+![](http://o6lw1c1bf.bkt.clouddn.com/启动MySQL-2.png)
+![](http://o6lw1c1bf.bkt.clouddn.com/启动MySQL-3.png)
 
 3. 修改MySQL默认密码
 

@@ -122,4 +122,4 @@ password:   password
     </listeners>
 ```
 3. 加载报告插件
-{% asset_img 报告插件存放位置.png 报告插件存放位置 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/报告插件存放位置.png)

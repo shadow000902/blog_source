@@ -13,11 +13,11 @@ tags: [robot-framework]
 
 ### 二、认识ride
 1. ride主界面
-{% asset_img ride主界面.png ride主界面 %}
-{% asset_img 测试套件设置.png 测试套件设置 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/ride主界面.png)
+![](http://o6lw1c1bf.bkt.clouddn.com/测试套件设置.png)
 
 ### 三、编写简单的robotframework测试用例
-{% asset_img 登录测试用例.png 登录测试用例 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/登录测试用例.png)
 
 ### 四、后续巩固点
 1. 元素定位

@@ -27,10 +27,10 @@ java -jar re-sign.jar
 ```
 
 3. 把应用拖放到窗口进行重签名
-{% asset_img 重签名工具使用.png 重签名工具使用 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/重签名工具使用.png)
 
 重签名成功
-{% asset_img 重签名成功.png 重签名成功 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/重签名成功.png)
 ```bash
 ➜  .android java -jar re-sign.jar                   
 Running jarsigner

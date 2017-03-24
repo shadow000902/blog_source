@@ -14,7 +14,7 @@ Git教程往往不会解决这个问题，因为它集中篇幅来教你Git命�
 
 <!--more-->
 
-{% asset_img github.jpg github %}
+![](http://o6lw1c1bf.bkt.clouddn.com/github.gif)
 
 **本篇指南使用两张简单的图表，来教会你fork的两种主要工作流程。** 我并不打算涉及任何代码，但是在结论中，我会把你需要使用的代码的链接给你。
 
@@ -22,7 +22,7 @@ Git教程往往不会解决这个问题，因为它集中篇幅来教你Git命�
 
 现在有这样一种情形：有一个叫做Joe的程序猿写了一个游戏程序，而你可能要去改进它。并且Joe将他的代码放在了GitHub仓库上。下面是你要做的事情：
 
-{% asset_img ForkandUpdate.png Fork and Update %}
+![](http://o6lw1c1bf.bkt.clouddn.com/ForkandUpdate.png)
 
 **fork并且更新GitHub仓库的图表演示**
 
@@ -44,7 +44,7 @@ Git教程往往不会解决这个问题，因为它集中篇幅来教你Git命�
 
 Joe和其余贡献者已经对这个项目做了一些修改，而你将在他们的修改的基础上，还要再做一些修改。在你开始之前，你最好"同步你的fork"，以确保在最新的复制版本里工作。下面是你要做的：
 
-{% asset_img 同步一个fork.png 同步GitHub fork的图表示意图 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/同步一个fork.png)
 
 1. **从Joe的仓库中取出那些变化的文件**：这是Git操作，使用该命令让你可以从Joe的仓库获取最新的文件。
 

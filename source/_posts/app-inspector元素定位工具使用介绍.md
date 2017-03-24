@@ -50,7 +50,7 @@ app-inspector -u YOUR-DEVICE-ID
   ...
 ```
 浏览器查看结果如图：
-{% asset_img app-inspector获取IOS元素示例.png app-inspector获取IOS元素示例 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/app-inspector获取IOS元素示例.png)
 
 ANDROID启动成功
 ```bash
@@ -71,4 +71,4 @@ return: {"data":{"value":true,"status":0},"success":true}
   ···
 ```
 浏览器查看结果如图：
-{% asset_img app-inspector获取ANDROID元素示例.png app-inspector获取ANDROID元素示例 %}
+![](http://o6lw1c1bf.bkt.clouddn.com/app-inspector获取ANDROID元素示例.png)

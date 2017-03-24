@@ -34,9 +34,7 @@ hexo new photo "photoPostName"
 
 ### 插入本地图片
 
-```
-{% asset_img tree.jpg This is an example image %}
-```
+![](http://o6lw1c1bf.bkt.clouddn.com/tree.jpg)
 
 
 More info: [Writing](https://hexo.io/docs/writing.html)

@@ -29,7 +29,7 @@ tags: [markdown]
 
 ### 四、链接和图片
 [简书](www.jianshu.com)
-{% asset_img tree.jpg This is an example image %}
+![This is an example image](http://o6lw1c1bf.bkt.clouddn.com/tree.jpg)
 
 ### 五、引用
 > 一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。

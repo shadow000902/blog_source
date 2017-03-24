@@ -71,31 +71,11 @@
 
   {% include '_scripts/boostrap.swig' %}
 
-<<<<<<< HEAD
-  {% include '_scripts/third-party/comments.swig' %}
-  {% include '_scripts/third-party/tinysou.swig' %}
-  {% include '_scripts/third-party/localsearch.swig' %}
-  {% include '_scripts/third-party/mathjax.swig' %}
-  {% include '_scripts/baidu-push.swig' %}
-  {% if theme.leancloud_visitors.enable %}
-    {% include '_scripts/third-party/lean-analytics.swig' %}
-  {% endif %}
-  {% include '_scripts/third-party/schedule.swig' %}
-  {% include '_components/algolia-search/assets.swig' %}
-
-  {% if theme.exturl %}
-    {% include '_scripts/third-party/exturl.swig' %}
-  {% endif %}
-  {% if theme.algolia_search.enable %}
-    {% include '_scripts/third-party/algolia.swig' %}
-  {% endif %}
-=======
   {% include '_third-party/comments/index.swig' %}
   {% include '_third-party/search/index.swig' %}
   {% include '_third-party/analytics/lean-analytics.swig' %}
   {% include '_third-party/seo/baidu-push.swig' %}
   {% include '_third-party/mathjax.swig' %}
   {% include '_third-party/exturl.swig' %}
->>>>>>> iissnan/master
 </body>
 </html>
