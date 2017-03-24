@@ -5,30 +5,30 @@ categories: [Robot-Framework]
 tags: [robot-framework]
 ---
 
-1. 安装python环境。
+#### 安装python环境。
 由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是[Anaconda2](https://www.continuum.io/downloads)，它自身就包含较多的python库，比较好用。
 
 <!--more-->
 
-2. 安装Appium。如果安装过程中遇到问题，还请看[Appium安装](http://shadow000902.space/2016/03/31/Appium安装/)
-```
+#### 安装Appium。如果安装过程中遇到问题，还请看[Appium安装](http://shadow000902.space/2016/03/31/Appium安装/)
+```bash
 npm install appium -g
 ```
 
-2. 安装Robot Framework
-2.1 源码安装。[下载地址](https://pypi.python.org/pypi/robotframework)
-``` bash
+#### 安装Robot Framework
+##### 源码安装。[下载地址](https://pypi.python.org/pypi/robotframework)
+```bash
 cd .../robotframework/
 python setup.py install
 ```
-2.2 通过pip安装
-``` bash
+##### 通过pip安装
+```bash
 pip install robotframework
 ```
 
-3. 安装wxPython。[下载地址](http://www.wxpython.org/download.php)
-3.1 windows环境：exe文件，正常安装
-3.2 **mac环境**：``brew``安装，修改源码
+#### 安装wxPython。[下载地址](http://www.wxpython.org/download.php)
+##### windows环境：exe文件，正常安装
+##### **mac环境**：``brew``安装，修改源码
 ```bash
 brew install wxpython                   # 使用Homebrew安装wxpython
 ```
@@ -52,41 +52,41 @@ try:
     wxversion.select(supported_versions)
     import wx
 ```
-4. 安装ride。
+#### 安装ride。
 RIDE 是Robot Framework 测试数据的编辑器。它使测试用例的创建、运行、测试项目的组织可以在图形界面下完成。
-4.1 源码安装。[下载地址](https://pypi.python.org/pypi/robotframework-ride)
-``` bash
+##### 源码安装。[下载地址](https://pypi.python.org/pypi/robotframework-ride)
+```bash
 cd .../robotframework-ride/
 python setup.py install
 ```
-4.2 通过pip安装
-``` bash
+##### 通过pip安装
+```bash
 pip install robotframework-ride
 ```
 
-5. 命令行启动ride
-5.1 Windows
+#### 命令行启动ride
+##### Windows
 定位到ride安装的位置，`C:\Anaconda2\Scripts\`
-``` bash
+```bash
 python ride.py
 ```
-5.2 mac
+##### mac
 ride.py已经自动加入到了环境变量下面
 可以直接通过运行``ride.py``执行
 
-6. 安装robotframework-appiumlibrary
-``` bash
+#### 安装robotframework-appiumlibrary
+```bash
 pip install robotframework-appiumlibrary
 ```
 
-7. 安装robotframework-selenium2library
-``` bash
+#### 安装robotframework-selenium2library
+```bash
 pip install robotframework-selenium2library
 ```
 
-8. 问题解决
+#### 问题解决
 
-8.1 遇到ride无法启动的问题【Windows】
+##### 遇到ride无法启动的问题【Windows】
 ```bash
 Python 2.7.11 |Anaconda 4.0.0 (64-bit)| (default, Feb 16 2016, 09:58:36) [MSC v.1500 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
@@ -106,7 +106,7 @@ http://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/
 rm -rf ~/.robotframework/
 ```
 
-8.2 mac 强制安装 wxpython2.8.12.1
+##### mac 强制安装 wxpython2.8.12.1
 下载[wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg](https://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/wxPython2.8-osx-unicode-2.8.12.1-universal-py2.7.dmg/download)；打开得到``wxPython2.8-osx-unicode-universal-py2.7.pkg``；右键显示包内容，再得到``wxPython2.8-osx-unicode-universal-py2.7.pax.gz``和``postflight``；解压``wxPython2.8-osx-unicode-universal-py2.7.pax.gz``，再得到``/usr/local/lib/wxPython-unicode-2.8.12.1``，把该文件夹放入系统的``/usr/local/lib/``中，切换到``postflight``目录，运行命令``sudo ./postflight``，安装好wxpython2.8.12.1。
 执行``ride.py``提示：
 ```bash
@@ -118,7 +118,7 @@ python should be executed in 32-bit mode with wxPython on OSX.
 defaults write com.apple.versioner.python Prefer-32-Bit -bool yes
 ```
 
-8.3 ride 一次使用后再次打开崩溃的问题
+##### ride 一次使用后再次打开崩溃的问题
 因为用``pip install robotframework-ride``安装的``ride``是1.5.2.1版本，会出现这个问题，所以安装指定的1.5.2版本
 ```bash
 pip install robotframework-ride==1.5.2
