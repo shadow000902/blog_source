@@ -5,24 +5,24 @@ categories: [Ubuntu, 局域网]
 tags: [ubuntu]
 ---
 
-1. 安装``ssh``
+##### 安装``ssh``
 ```
 sudo apt-get install openssh-server
 ```
 
-2. 查看``ssh``服务是否启动
+##### 查看``ssh``服务是否启动
 ```
 ps -ef | grep ssh
 ```
 
 <!--more-->
 
-3. 如果``ssh``服务没有启动，启动``ssh``服务
+##### 如果``ssh``服务没有启动，启动``ssh``服务
 ```
 service ssh start
 ```
 
-4. 修改``ssh``配置文件
+##### 修改``ssh``配置文件
 ```
 sudo vim /etc/ssh/sshd_config
 ```
@@ -35,7 +35,7 @@ PermitRootLogin yes                             # 添加该行，增加一个配
 StrictModes yes
 ```
 
-5. 局域网远程访问
+##### 局域网远程访问
 ``` shell
 ssh root@192.168.0.1
 # root 远程服务器访问用户名

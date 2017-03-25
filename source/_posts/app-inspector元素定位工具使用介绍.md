@@ -5,7 +5,7 @@ categories: [App-inspector]
 tags: [app-inspector]
 ---
 
-1. 前置安装配置，包括如下：
+##### 前置安装配置，包括如下：
 ```bash
 info AppiumDoctor  ✔ The Node.js binary was found at: /usr/local/bin/node
 info AppiumDoctor  ✔ Node version is 6.9.0
@@ -25,16 +25,16 @@ info AppiumDoctor  ✔ Bin directory of $JAVA_HOME is set
 
 <!--more-->
 
-2. 安装app-inspector
+##### 安装app-inspector
 ```bash
 npm install -g app-inspector
 ```
-3. 获取设备UDID
+##### 获取设备UDID
 ```bash
 adb devices                 # android
 xcrun simctl list           # IOS
 ```
-3. 启动app-inspector
+##### 启动app-inspector
 ```bash
 app-inspector -u YOUR-DEVICE-ID
 ```

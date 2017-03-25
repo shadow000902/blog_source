@@ -5,13 +5,13 @@ categories: [Adb]
 tags: [adb]
 ---
 
-### 一、准备工作
+#### 准备工作
 1. 需要adb，电脑当然要有Android-sdk，且配置了~/Android-sdk/platform-tools/的环境变量，以便adb可以在任意位置使用
 2. 安装[夜神模拟器](http://www.yeshen.com/)
 
 <!--more-->
 
-### 二、实际步骤
+#### 实际步骤
 其实很简单：
 1. 打开夜神模拟器
 2. 打开CMD命令窗口，输入
@@ -21,7 +21,7 @@ adb connect 127.0.0.1:62001
 结果如下图就说明连接成功了
 ![](http://o6lw1c1bf.bkt.clouddn.com/adb%20connected.png)
 
-### 三、注意点
+#### 注意点
 网上很多说，CMD到夜神模拟器的安装位置~/Nox/bin/下，输入：
 ``` bash
 box_adb.exe connect 127.0.0.1:62001

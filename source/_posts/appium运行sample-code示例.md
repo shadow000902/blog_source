@@ -5,7 +5,7 @@ categories: [Appium]
 tags: [appium]
 ---
 
-### 一、准备工作
+#### 准备工作
 0. android-sdk，jdk，python啥的就不说了，自己解决
 1. 安装node.js
 2. 安装appium
@@ -31,7 +31,7 @@ pip install Appium-Python-Client
 ```
 至此，需要的软件和环境都已经安装完毕，下面就可以开始去运行sample-code的脚本了
 
-### 二、运行Appium
+#### 运行Appium
 1. 默认方式运行appium
 ``` bash
 C:\Users\shadow>appium
@@ -64,8 +64,8 @@ C:\Users\shadow>appium -a 127.0.0.1 -p 4723 -U 8XV5T15A20009865 --no-reset
 --no-reset                                                      # 直接运行app，而不重置app
 ```
 
-### 三、执行脚本
-1. 编辑sample-code中的python脚本，以适应自己的机器运行
+#### 执行脚本
+##### 编辑sample-code中的python脚本，以适应自己的机器运行
 脚本存放位置：
 在安装appium的时候，同时就下载好了示例脚本和需要的apk文件，存放在C:\Users\shadow\AppData\Roaming\npm\node_modules\appium\sample-code目录中
 
@@ -92,7 +92,7 @@ class ComplexAndroidTests(unittest.TestCase):
         self.driver.quit()
 ```
 
-2. 运行脚本
+##### 运行脚本
 2.1 打开appium
 ``` bash
 C:\Users\shadow>appium
@@ -129,7 +129,7 @@ C:\Anaconda3\lib\site-packages\selenium\webdriver\remote\errorhandler.py:194: We
 ```
 
 appium下的结果：
-``` bash
+```bash
 shadow@shadow MINGW64 ~/Desktop
 $ appium
 [Appium] Welcome to Appium v1.5.0

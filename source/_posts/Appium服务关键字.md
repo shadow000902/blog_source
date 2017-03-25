@@ -6,7 +6,7 @@ tags: [appium]
 ---
 
 
-## Appium 服务关键字
+#### Appium 服务关键字
 
 <expand_table>
 
@@ -31,7 +31,7 @@ tags: [appium]
 
 <!--more-->
 
-### Android特有
+#### Android特有
 
 <expand_table>
 
@@ -66,7 +66,7 @@ tags: [appium]
 |`noSign`| 跳过检查和对应用进行 debug 签名的步骤。只能在使用 UiAutomator 时使用，使用 selendroid 是不行。默认值 `false` | `true` 或 `false`|
 |`ignoreUnimportantViews`| 调用 uiautomator 的函数 `setCompressedLayoutHierarchy()`。由于 Accessibility 命令在忽略部分元素的情况下执行速度会加快，这个关键字能加快测试执行的速度。被忽略的元素将不能够被找到，因此这个关键字同时也被实现成可以随时改变的 *设置 ( settings ) * 。默认值 `false` | `true` 或 `false`
 
-### iOS特有
+#### iOS特有
 
 <expand_table>
 

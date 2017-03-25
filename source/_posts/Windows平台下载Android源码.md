@@ -5,13 +5,13 @@ categories: [Android]
 tags: [android, 源码]
 ---
 
-### 零、准备工作
+#### 准备工作
 1. 需要[git](https://git-scm.com/download/)软件，自行下载安装
 2. 需要[python](https://www.python.org/)环境，自行下载安装
 
 <!--more-->
 
-### 一、使用git手动下载android源码
+#### 使用git手动下载android源码
 1. 自行新建用来存放android源码的文件夹，如android-source，即目录D:/android-source
 2. 依次执行如下命令：
 ``` bash
@@ -23,8 +23,8 @@ git checkout android-6.0.1_r1                                       # 下载需�
 ```
 3. 等待完成就下载完了所有对应版本的android源码，manifest/default.xml文件中记录的就是android6.0.1系统各个模块的路径.
 
-### 二、使用python脚本批量下载
-1. download-src.py脚本
+#### 使用python脚本批量下载
+##### download-src.py脚本
 ```python
 import xml.dom.minidom
 import os
@@ -57,5 +57,5 @@ for node in root.getElementsByTagName("project"):
     cmd = prefix + node.getAttribute("name") + suffix
     call(cmd)
 ```
-2. 执行此脚本的前提是已经执行了git checkout，选择好了要下载的Android源码版本，如果你的manifest文件不是D:/manifest/default.xml，还要把里面的git.exe的路经修改成你的安装路径，请自行修改脚本
-3. 执行这个脚本之后，就开始自动下载了
+##### 执行此脚本的前提
+已经执行了git checkout，选择好了要下载的Android源码版本，如果你的manifest文件不是D:/manifest/default.xml，还要把里面的git.exe的路经修改成你的安装路径，请自行修改脚本，执行这个脚本之后，就开始自动下载了

@@ -5,10 +5,10 @@ categories: [Linux]
 tags: [linux]
 ---
 
-1、提升Android原生模拟器速度的方法
+##### 提升Android原生模拟器速度的方法
 在Android SDK Manager中勾选中Inter X86 Emulator Accelerator (HAXM installer)，然后安装它
 
-2、查看支持的模拟器Android版本号
+##### 查看支持的模拟器Android版本号
 ```
 android list
 ```
@@ -184,7 +184,7 @@ id: 30 or "10.1in WXGA (Tablet)"
     OEM : Generic
 ```
 
-3、创建AVD模拟器
+##### 创建AVD模拟器
 ```
 android create avd -n TestDevices001 -t 1 -b armeabi-v7a
 ```
@@ -199,7 +199,7 @@ android create avd -n TestDevices001 -t 1 -b armeabi-v7a
 -b --abi            # 例如android-24里面的abi有armeabi-v7a/x86/x86_64，此时就需要指定，如果只有一个abi，则不需要指定
 ```
 
-4、查看AVD是否创建成功
+##### 查看AVD是否创建成功
 ```
 android list avd
 ```
@@ -214,7 +214,7 @@ Available Android Virtual Devices:
     Skin: WVGA800
 ```
 
-5、启动AVD
+##### 启动AVD
 ```
 TaoYi-Mac:~ taoyi$ emulator -avd TestDevices001
 emulator: WARNING: Increasing RAM size to 1024MB
@@ -249,7 +249,7 @@ Your emulator is out of date, please update by launching Android Studio:
 ```
 
 
-6、删除AVD
+##### 删除AVD
 ```
 android delete avd -n TestDevices001
 ```

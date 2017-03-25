@@ -5,7 +5,7 @@ categories: [Adb, Log]
 tags: [android, adb, log]
 ---
 
-###### 一、 实时日志抓取
+#### 实时日志抓取
 1. 抓取应用程序的日志
 ```
 logcat -b main -v threadtime > /sdcard/main.log
@@ -48,7 +48,7 @@ adb shell cat /proc/kmsg > kernel.log
 adb shell tcpdump -s 10000 -w /sdcard/tcpip.pcap
 ```
 
-###### 二、状态Log
+#### 状态Log
 1. 获取系统状态信息，如手机的内存信息、CPU信息、缓存等
 ```
 adb shell dumpstate > /sdcard/dumpstate.log
@@ -85,7 +85,7 @@ adb shell cat /proc/meminfo
 adb shell cat /proc/vmstate
 ```
 
-###### 三、Log分析
+#### Log分析
 1. ``Exception``
 有没有捕获异常
 

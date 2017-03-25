@@ -5,8 +5,8 @@ categories: [Linux]
 tags: [linux, shadowsocks]
 ---
 
-##### 一、安装shadowsocks命令行程序，配置命令
-1. ``python`` ``pip``安装``shadowsocks``
+#### 安装shadowsocks命令行程序，配置命令
+##### ``python`` ``pip``安装``shadowsocks``
 ```
 sudo apt-get update
 sudo apt-get install python-pip
@@ -17,7 +17,7 @@ sudo apt install shadowsocks                                            # ubuntu
 
 <!--more-->
 
-2. 启动``shadowsocks``
+##### 启动``shadowsocks``
 安装好后，在本地需要用到``sslocal``，
 使用方法：``sslocal -c`` 后面加上我们的``json``配置文件，或者像下面这样直接命令参数写上运行.
 ```
@@ -47,7 +47,7 @@ sslocal -s 11.22.33.44 -p 50003 -k "123456" -l 1080 -t 600 -m aes-256-cfb
 sslocal -c /home/user/shadowsocks.json
 ```
 
-##### 二、安装shadowsocks GUI图形界面程序
+#### 安装shadowsocks GUI图形界面程序
 在``ubuntu``上可以通过``PPA``源码安装
 ```
 sudo add-apt-repository ppa:hzwhuang/ss-qt5

@@ -5,11 +5,11 @@ categories: [重签名]
 tags: [重签名, re-sign.jar]
 ---
 
-### 一、下载 re-sign.jar
+#### 下载 re-sign.jar
 [下载地址](http://download.csdn.net/download/christopher_lv/8569477)
 
-### 二、应用 re-sign.jar
-1. 把 re-sign.jar 放到 .android 文件夹下
+#### 应用 re-sign.jar
+##### 把 re-sign.jar 放到 .android 文件夹下
 
 <!--more-->
 
@@ -20,13 +20,13 @@ total 216
 -rw-r--r--@  1 taoyi  staff    47K  3  4 22:35 re-sign.jar
 ```
 
-2. 运行 re-sign.jar
+##### 运行 re-sign.jar
 ```bash
 cd .android
 java -jar re-sign.jar
 ```
 
-3. 把应用拖放到窗口进行重签名
+##### 把应用拖放到窗口进行重签名
 ![](http://o6lw1c1bf.bkt.clouddn.com/重签名工具使用.png)
 
 重签名成功

@@ -5,21 +5,21 @@ categories: [Robot-Framework]
 tags: [robot-framework]
 ---
 
-### 一、前提
+#### 前提
 1. 安装好robotframework、wxPython、robotframework-ride、robotframework-appiumlibrary
 2. 安装并配置好了Appium运行环境
 
 <!--more-->
 
-### 二、认识ride
+#### 认识ride
 1. ride主界面
 ![](http://o6lw1c1bf.bkt.clouddn.com/ride主界面.png)
 ![](http://o6lw1c1bf.bkt.clouddn.com/测试套件设置.png)
 
-### 三、编写简单的robotframework测试用例
+#### 编写简单的robotframework测试用例
 ![](http://o6lw1c1bf.bkt.clouddn.com/登录测试用例.png)
 
-### 四、后续巩固点
+#### 后续巩固点
 1. 元素定位
 2. Settings中的各个设置项学习及使用
 3. 测试用例的管理

@@ -5,8 +5,8 @@ categories: [Appium]
 tags: [appium]
 ---
 
-### 一、命令行正常安装Appium
-1. 安装node.js
+#### 命令行正常安装Appium
+##### 安装node.js
 ```
 XXX@XXX:~$ node -v                                              # 安装[0.10.46](https://nodejs.org/dist/v0.10.46/node-v0.10.46.tar.gz)版本的node
 v0.10.46
@@ -16,7 +16,7 @@ XXX@XXX:~$ appium -v
 1.4.16
 ```
 
-2. 使用node.js安装Appium
+##### 使用node.js安装Appium
 
 <!--more-->
 
@@ -25,14 +25,14 @@ npm install -g appium                                           # -g 全局参�
 或者
 npm --registry http://registry.cnpmjs.org install -g appium     # 推荐这种,npm的国内镜像
 ```
-3. 修改Appium安装源方法
+##### 修改Appium安装源方法
 ```
 npm config get registry                                         # 查看当前npm的镜像源地址
 npm config set registry=https://registry.npm.taobao.org/        # 替换npm源为淘宝的npm镜像源
 npm config get registry                                         # 查看镜像源是否替换成功
 ```
 
-### 二、异常安装Appium方法（windows下）
+#### 异常安装Appium方法（windows下）
 1. 下载[Appium客户端](http://appium.io/)
 2. 安装Appium客户端到电脑，查看目录如图：
 ![](http://o6lw1c1bf.bkt.clouddn.com/Appium安装目录结构.png)
@@ -43,8 +43,8 @@ npm config get registry                                         # 查看镜像�
 5. 在sdk、jdk、python、环境变量设置好的情况下，CMD进入node_modules/.bin下，就可以直接命令行运行appium：
 ![](http://o6lw1c1bf.bkt.clouddn.com/Appium正常运行.png)
 
-### 三、⭐️源码安装
-1. 安装cnpm
+#### ⭐️源码安装
+##### 安装cnpm
 ```
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
@@ -67,7 +67,7 @@ npm WARN deprecated has-color@0.1.7: Renamed to supports-color. If you're using 
 │ │ └── graceful-readlink@1.0.1
 ...
 ```
-2. 下载源代码
+##### 下载源代码
 ```
 git clone https://github.com/appium/appium.git
 
@@ -81,7 +81,7 @@ Receiving objects: 100% (38266/38266), 34.97 MiB | 150.00 KiB/s, done.
 Resolving deltas: 100% (24501/24501), done.
 Checking connectivity... done.
 ```
-3. 编译安装
+##### 编译安装
 ```
 cd appium               # 进入appium源码目录
 cnpm install            # 执行安装
@@ -107,7 +107,7 @@ appium-support@^2.3.3 installed at node_modules/.2.3.3@appium-support
 winston@^2.2.0 installed at node_modules/.2.2.0@winston
 ...
 ```
-4. 用``cnpm link``命令将``appium link``到系统，可以忽略``warn``
+##### 用``cnpm link``命令将``appium link``到系统，可以忽略``warn``
 ```
 cnpm link
 
@@ -144,7 +144,7 @@ Could not find shrinkwrap; skipping fixing shrinkwrap. (Original error: Cannot f
 /usr/local/bin/appium -> /usr/local/lib/node_modules/appium/build/lib/main.js
 /usr/local/lib/node_modules/appium -> /Users/taoyi/appium
 ```
-5. 查看安装结果
+##### 查看安装结果
 ```
 appium -v
 
@@ -152,13 +152,13 @@ appium -v
 1.6.0-beta3
 ```
 
-### 四、安装指定版本的appium
+#### 安装指定版本的appium
 ```
 npm install -g appium@1.4.16
 ```
 该方法应对ubuntu系统无法安装上appium@1.5.3的问题，问题原因未知
 
-### 五、Appium应用所附加需要的
+#### Appium应用所附加需要的
 1. JDK
 2. SDK
 3. python
@@ -170,8 +170,8 @@ pip install selenium -i http://pypi.douban.com/simple       # 使用国内地址
 ```
 pip install Appium-Python-Client
 ```
-6. 安装和使用``appium``遇到的问题解决
-6.1 安装后无法使用
+#### 安装和使用``appium``遇到的问题解决
+##### 安装后无法使用
 ```
 Appium will not work if used or installed with sudo
 error: Appium will not work if used or installed with sudo. Please rerun/install as a non-root user. If you had to install Appium using `sudo npm install -g appium`, the solution is to reinstall Node using a method (Homebrew, for example) that doesn't require sudo to install global npm packages.
@@ -197,7 +197,7 @@ npm -g install appium
 ```
 appium &
 ```
-6.2 安装中遇到权限问题无法安装
+##### 安装中遇到权限问题无法安装
 ```
 npm ERR!  { [Error: EACCES, symlink '/lib/node_modules/appium/bin/appium.js']
 npm ERR!   errno: 3,
@@ -228,7 +228,7 @@ export PATH="$PATH:$HOME/.npm-packages/bin"
 ```
 source ~/.bashrc
 ```
-6.3 ``appium``启动问题
+##### ``appium``启动问题
 ``appium``启动时可能会遇到下列问题
 ```
 XXX@XXX:~$ appium
@@ -249,11 +249,11 @@ make install
 之后再运行``appium``就可以正常启动了
 
 
-7. 注意点
+1. 注意点
 **安装appium需要首先安装相匹配的``node``和``npm``，如第一点中所述**
 这一点至关重要，否则总是会遇到各种各样乱七八糟的问题。
 
-8. ``appium1.4.16``版本安装成功日志
+2. ``appium1.4.16``版本安装成功日志
 ```
 XXX@XXX:~$ npm -g install appium@1.4.16
 npm WARN optional dep failed, continuing udidetect@1.0.7
@@ -407,7 +407,7 @@ appium@1.4.16 /usr/local/lib/node_modules/appium
 XXX@XXX:~$ appium -v
 1.4.16
 ```
-9. ``Mac``成功安装``Appium1.5.3``版本［我有翻墙，不知道不翻墙行不行］
+#### ``Mac``成功安装``Appium1.5.3``版本［我有翻墙，不知道不翻墙行不行］
 ```
 Last login: Mon Aug 15 14:28:23 on ttys003
 ➜  ~ appium -v

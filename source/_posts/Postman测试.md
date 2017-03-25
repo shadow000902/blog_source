@@ -5,22 +5,22 @@ categories: [接口测试]
 tags: [postman]
 ---
 
-### 一、postman录制web接口请求
+#### postman录制web接口请求
 1. 在chrome中安装插件Interceptor，设置如图：
 
 <!--more-->
 
-![chrome中Interceptor设置](http://o6lw1c1bf.bkt.clouddn.com/chrome%E4%B8%ADInterceptor%E8%AE%BE%E7%BD%AE.png)
+![](http://o6lw1c1bf.bkt.clouddn.com/chrome中Interceptor设置.png)
 
 2. 在postman中设置如图：
-![chrome中Interceptor设置](http://o6lw1c1bf.bkt.clouddn.com/chrome%E4%B8%ADInterceptor%E8%AE%BE%E7%BD%AE.png)
+![](http://o6lw1c1bf.bkt.clouddn.com/chrome中Interceptor设置.png)
 
 3. 设置好之后，在chrome中请求接口，就会录制到postman的history中，如图：
-![录制下的web请求](http://o6lw1c1bf.bkt.clouddn.com/%E5%BD%95%E5%88%B6%E4%B8%8B%E7%9A%84web%E8%AF%B7%E6%B1%82.png)
+![](http://o6lw1c1bf.bkt.clouddn.com/录制下的web请求.png)
 录制好的请求就可以“save to collection”，以便后续测试使用。
 
-### 二、postman基本功能
-![postman界面介绍](http://o6lw1c1bf.bkt.clouddn.com/postman%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D.png)
+#### postman基本功能
+![](http://o6lw1c1bf.bkt.clouddn.com/postman界面介绍.png)
 1. Collections：在Postman中，Collection类似文件夹，可以把同一个项目的请求放在一个Collection里方便管理和分享，Collection里面也可以再建文件夹。如果做API文档的话，可以每个API对应一条请求，如果要把各种输入都测到的话，就需要每条测试一条请求了。这里我新建了一个example用于介绍整个流程，五个API对应五条请求。这个Collection可以通过https://www.getpostman.com/collections/96b64a7c604072e1e4ee导入你自己的Postman中。
 2. 上面的黑字注册是请求的名字，如果有Request description的话会显示在这下面。下面的蓝字是保存起来的请求结果，点击可以载入某次请求的参数和返回值。我会用这个功能给做客户端的同事展示不同情况下的各种返回值。保存请求的按钮在15.
 3. 选择HTTP Method的地方，各种常见的不常见的非常全。
@@ -40,27 +40,27 @@ tags: [postman]
 17. 测试执行的结果，一共几个测试，通过几个。
 这个界面就是免费版的主要内容，和其他API测试工具相比，已经足够好用。如果要使用自动化测试，需要购买9.99美金的Jetpacks，暂时不想购买的话可以试一下Team版Postman。现在是可以免费试用的，不但拥有Jetpacks的功能，还能与其他账户同步Collection。
 
-### 三、测试工具
+#### 测试工具
 测试工具主要包括三部分，在发起请求之前运行的Pre-request，在收到应答之后运行的Test，和一次运行所有请求的Collection Runner
 
-1. Pre-request
+##### Pre-request
 ![](http://o6lw1c1bf.bkt.clouddn.com/Pre-request界面.png)
 
 Pre-request和Test用的语言都是JavaScript，Postman在一个沙盒里执行代码，提供给用户的库和函数可以在这里查看。而常用的功能都可以通过右边的Code Snippets实现，点击就可以插入到代码区域。
 可以看到Pre-request里常用的功能就两种，（设置/清除）环境变量和全局变量。这条请求的pre-request就是在注册之前生成一个字符串作为随机用户名。
-postman.setEnvironmentVariable("random_username", ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).slice(-4));
+postman.setEnvironmentVariable("random_username", ("0000" + (Math.random()\*Math.pow(36,4) << 0).toString(36)).slice(-4));
 其他用法还包括在发起请求之前获取当前的时间戳放在参数里：
 postman.setEnvironmentVariable("unixtime_now", Math.round(newDate().getTime()/1000));
 当然也可以用来生成校验串。总之，在发请求之前需要手动修改的东西，都可以考虑用脚本自动实现。
 
-2. Test
+##### Test
 ![](http://o6lw1c1bf.bkt.clouddn.com/Test界面.png)
 
 和Pre-request相比，Test的Snippets就丰富多了，例如检查状态码、检查响应串、验证JSON、检查header、限制应答时间。
 如果需要将服务器响应的数据保存下来，用在后面的请求里，也需要在这一步做。
 在图中的Test里，我首先检查了状态码为200，然后解析返回的JSON，把环境变量里的token设为JSON里的token。
 
-3. Collection Runner
+##### Collection Runner
 当编写了很多测试之后，就可以使用Collection Runner来自动运行整个Collection了，入口就在主界面最上面一行的Runner。选好Collection、Environment，如果有需要还可以载入JSON和CSV作为数据源。点击Start Test Run，就可以看到结果了。
 ![](http://o6lw1c1bf.bkt.clouddn.com/Collection-Runner界面.png)
 
@@ -68,11 +68,11 @@ postman.setEnvironmentVariable("unixtime_now", Math.round(newDate().getTime()/10
 ***
 P.S.postmanexample.sinaapp.com这个网站是真实存在的，可以Import我上传的Collection(https://www.getpostman.com/collections/96b64a7c604072e1e4ee)到你自己的Postman中，并设置环境变量url为http://postmanexample.sinaapp.com/index.php，就能运行这个Collection看效果了。
 
-### 四、导入及导出collection
+#### 导入及导出collection
 postman中生成的测试用例集可以进行导入和导出操作，还能从别人分享的链接导入测试用例集。
-1. 导出collection
+##### 导出collection
 在测试集文件夹的菜单按钮里，可以看到下载的按钮，还有分享按钮，分享会生成一条链接（https://www.getpostman.com/collections/6a0bf29198d978afa069）
 
-2. 导入collection
+##### 导入collection
 ![](http://o6lw1c1bf.bkt.clouddn.com/导入collection.png)
 可以从文件导入，也可以从别人分享的链接导入测试用例集。

@@ -5,13 +5,13 @@ categories: [Appium]
 tags: [appium]
 ---
 
-1. 每次运行测试，app都会重新安装
+##### 每次运行测试，app都会重新安装
 1.1 在case里不要设置app的安装路径，只要设置``desired_caps['appPackage']``（app的包名）和``desired_caps['appActivity']``（启动时的activity）即可
 1.2 在启动appium的时候，加上``--no-reset``参数
 
 <!--more-->
 
-2. 等待操作
+##### 等待操作
 2.1 尽量不要使用sleep方法
 2.2 使用``implicitly_wait(1000)``方法，**隐性等待/如果一个无素没有出现都会默认等待你所设定的时间，直到超时或者元素出现**
 2.3 ``WebDriverWait()``，同样也是 webdirver 提供的方法。**在设置时间内，默认每隔一段时间检测一次当前。页面元素是否存在，如果超过设置时间检测不到则抛出异常。**
@@ -22,7 +22,7 @@ is_disappeared = WebDriverWait(driver, 30, 1, (ElementNotVisibleException)).
 until_not(lambda x: x.find_element_by_id(“someId”).is_displayed())
 ```
 
-3. 元素无法定位
+##### 元素无法定位
 3.1 使用元素坐标点定位，有两种点击方法，一种是``tap([(100, 20), (100, 60), (100, 100)], 500)``，还有一种是使用``swipe(630, 320, 630, 320, 500)``方法
 3.2 使用``class_name``来定位：
 ```python
@@ -31,7 +31,7 @@ checkboxes[0].click()                                                           
 checkboxes[1].click()                                                               # 指定元素进行操作
 ```
 
-4. 长按操作
+##### 长按操作
 ```python
 action1 = TouchAction(self.driver)
 el_3 = self.driver.find_element_by_id('cn.highing.hichat:id/topic_voice_send')
@@ -44,7 +44,7 @@ el_3 = self.driver.find_element_by_id('cn.highing.hichat:id/topic_voice_send')
 action2.moveTo(el_3).release().perform()
 ```
 
-5. 异常处理
+##### 异常处理
 ```python
 if self.driver.current_activity == ".ui.GuideActivity":
     try:
@@ -52,19 +52,19 @@ if self.driver.current_activity == ".ui.GuideActivity":
     except:
         x失败的话，做这里的事
 ```
-6. 断言
+##### 断言
 
 
-7. appium运行结果报告
+##### appium运行结果报告
 
 
-8. ``appium``设置不使用``appium``只带的输入法
+##### ``appium``设置不使用``appium``只带的输入法
 ```python
 des.setCapability("unicodeKeyboard", "True")
 des.setCapability("resetKeyboard", "True")
 ```
 
-9. 一定不要搞错启动``activity``
+##### 一定不要搞错启动``activity``
 启动时的``activity``一般都是叫``SplashActivity``
 ```python
 def setUp(self):
@@ -77,14 +77,14 @@ def setUp(self):
     # desired_caps['app'] = PATH('/Users/taoyi/Downloads/dasouche.apk')
 ```
 
-10. 拖动操作解析
+##### 拖动操作解析
 ```java
 public void DragAndDrop(By dragElement, By dropElement)
 ```
 ``dragElement`` *起点元素，不要用输入框，尽量用不可点击的显示型元素*
 ``dropElement`` *终点元素，不要用输入框，尽量用不可点击的显示型元素*
 
-11. 滑动操作
+##### 滑动操作
 ```python
 def swipe_to_up(self):
     """
@@ -106,7 +106,7 @@ public void SwipeToUp(int during) {
 }
 ```
 
-12. ``Appium``（客户端版）解决每次运行``Android``，都安装``Appium Setting``和``Unlock``的方法
+##### ``Appium``（客户端版）解决每次运行``Android``，都安装``Appium Setting``和``Unlock``的方法
 同 “Appium的几点总结” 的``六``
 ``Appium Setting``安装包路径：
 ```

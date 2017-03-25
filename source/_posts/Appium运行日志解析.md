@@ -5,7 +5,7 @@ categories: [Appium]
 tags: [appium]
 ---
 
-### 一、Appium脚本/python代码     //android_simple.py
+#### Appium脚本/python代码     //android_simple.py
 
 
 <!--more-->
@@ -72,7 +72,7 @@ if __name__ == '__main__':
 ```
 
 
-### 二、Appium运行日志解析
+#### Appium运行日志解析
 
 ``` bash
 C:\Users\Tao Yi\AppData\Roaming\npm\node_modules\.bin>appium

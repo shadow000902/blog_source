@@ -5,27 +5,27 @@ categories: [Jmeter]
 tags: [jmeter, 接口, 自动化]
 ---
 
-#### 1. 主要目标
+#### 主要目标
 由于接口数量较多，测试人员在功能测试中比较难覆盖到所有的接口，该教程主要用于对服务端所有接口做遍历测试，修改线程数及单用例执行时间后还可用作接口性能测试。
 
-#### 2. 实现流程
+#### 实现流程
 自动化的场景模拟真实手工测试，操作步骤和手工测试一样。
 
 <!--more-->
 
 ![](http://o6lw1c1bf.bkt.clouddn.com/测试流程图.png)
 
-#### 3. 准备工作
+#### 准备工作
 1. 系统环境：CentOS
 2. 测试工具：[apache-jmeter-2.13](http://jmeter.apache.org/download_jmeter.cgi)
 3. 运行环境：[JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 4. Python环境
 5. 服务器监控：[nmon](http://nmon.sourceforge.net/pmwiki.php?n=Site.Download)
 
-#### 4. 具体实现
-##### 4.1 自动化脚本文件管理
+#### 具体实现
+##### 自动化脚本文件管理
 
-``` bash
+```bash
 [root@root ~]# cd ..
 [root@root /]# cd data
 [root@root data]# cd loadtest/
@@ -43,8 +43,8 @@ drwxr-xr-x 2 root root  4096 Mar  5 21:13 report
 drwxr-xr-x 2 root root  4096 Mar 14 18:05 testcase              # 测试用例存放文件夹
 ```
 
-##### 4.2 主流程脚本 MainThreadScript.sh
-``` sh
+##### 主流程脚本 MainThreadScript.sh
+```sh
 #/bin/bash
 
 source /etc/profile
@@ -91,17 +91,17 @@ sleep 1
 python sendmail.py
 ```
 
-##### 4.3 服务器监控
+##### 服务器监控
 服务器日志收集方面，使用nmon监控工具，因为它可以后台收集结果保存到文件。由于每个用例只执行30秒，所以只需要监控30秒，每5秒监控一次，对应命令：
-``` bash
+```bash
 nmon -f -t -s5 -c60 -F /data/test.nmon
 ```
 每个测试用例执行完后再读取这个结果文件，获取有用的信息。
 当前只统计了磁盘IO和CPU的占用率信息，原始文件保存在本地目录，如果需要，可以手动改查找到。
 
-###### 服务器监控脚本 monitor.sh
+##### 服务器监控脚本 monitor.sh
 
-``` sh
+```sh
 #!/bin/bash
 #读取监控服务器列表
 SERVERLIST=`cat serverlist`
@@ -128,8 +128,8 @@ done
 ```
 将用例执行结果和监控结果都汇总到summary.txt里，方面后续生成html格式的报告
 
-#### 4.4 生成html报告 genHTML.sh
-``` sh
+##### 生成html报告 genHTML.sh
+```sh
 #!/bin/sh
 >index.html
 echo "<html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/><title>用户端自动化性能测试报告</title>">>index.html
@@ -147,13 +147,20 @@ cat <<EOF
                            }
                            </script>
 EOF
+)>>index.html
+echo "</head><body><h1>用户端自动化性能测试报告</h1><hr size="1">">>index.html
 sum=`cat summary.txt | wc -l`
 sucess=`cat summary.txt|grep pass |grep -v grep|wc -l`
+fail=`expr $sum - $sucess`
+rate=`echo "$sucess $sum"|awk '{printf("%.2f%%",$1/$2*100)}'`
 (
 cat <<EOF
 <table><tr><td>
 <h2>结果汇总</h2>
 <table width="60%" cellspacing="2" cellpadding="5" border="0" class="details" align="left">
+<tr><th>总接口数</th><th>成功接口数</th><th>失败接口数</th><th>测试通过率</th></tr>
+<tr align="center"><td>$sum</td><td>$sucess</td><td>$fail</td><td>$rate</td></tr>
+</tr></table>
 </td></tr>
 EOF
 )>>index.html
@@ -173,13 +180,13 @@ do
   echo $line | awk '{if($7=="pass"){print "<tr><td>"$1"</td><td>"$2"</td><td>"$3"</td><td>"$4"</td><td>"$5"</td><td>"$6"</td><td class=\"Pass\">"$7"</td></tr>"}else{print "<tr><td>"$1"</td><td>"$2"</td><td>"$3"</td><td>"$4"</td><td>"$5"</td><td>"$6"</td><td class=\"Failure\">"$7"</td></tr>"}}'>>index.html
 done
 echo "</tr></table></td></tr>">>index.html
-echo "<table><tr><td><font color="red"><b>测试结果pass标准：tps>5且事务成功率>99%</b></font><td></tr><tr><td><h2><a href=\"javascript:show_detail(detail)\">详细结果查>看附件</a></h2></td></tr></table>">>index.html
+echo "<table><tr><td><font color="red"><b>测试结果pass标准：tps>10000且事务成功率>90%</b></font><td></tr><tr><td><h2><a href=\"javascript:show_detail(detail)\">详细结果查看附件</a></h2></td></tr></table>">>index.html
 #echo "<div class=\"page_details_expanded\" id=\"detail\" style=\"display:none;\" width=\"95%\">">>index.html
 (
 cat <<EOF
 <table width="95%" cellspacing="2" cellpadding="5" border="0" class="details" align="left" id="detail" style="display:none">
 <tr valign="top">
-<th>测试接口</th><th>每秒请求数tps</th><th>平均响应时间(ms)</th><th>总事务数</th><th>失败事务数</th><th>成功率</th><th>测试结果</th><th>nginx服务器cpu</th><th>nginx服>务器io</th><th>web服务器cpu</th><th>web服务器io</th><th>service服务器cpu</th><th>service服务器io</th><th>主数据库服务器cpu</th><th>主数据库服务器io</th><th>从数据库服>务器cpu</th><th>从数据库服务器io</th>
+<th>测试接口</th><th>每秒请求数tps</th><th>平均响应时间(ms)</th><th>总事务数</th><th>失败事务数</th><th>成功率</th><th>测试结果</th><th>nginx服务器cpu</th><th>nginx服务器io</th><th>web服务器cpu</th><th>web服务器io</th><th>service服务器cpu</th><th>service服务器io</th><th>主数据库服务器cpu</th><th>主数据库服务器io</th><th>从数据库服务器cpu</th><th>从数据库服务器io</th>
 </tr>
 <tr valign="top" class="">
 EOF
@@ -197,8 +204,8 @@ done
 echo "</tr></table></td></tr></table></body></html>">>index.html
 ```
 
-#### 4.5 html样式 style.css
-``` html
+##### html样式 style.css
+```html
 <style type="text/css">
 body {
         font:normal 68% verdana,arial,helvetica;
@@ -236,7 +243,7 @@ h3 {
 </style>
 ```
 
-#### 4.6 发送测试结果邮件 sendmail.py
+#### 发送测试结果邮件 sendmail.py
 
 ```python
 #!/usr/bin/env python
@@ -284,16 +291,14 @@ smtp.sendmail(msg['From'],msg['to'],msg.as_string())
 smtp.quit()
 ```
 
-#### 4.7 Jmeter测试用例编写
+#### Jmeter测试用例编写
 我目前使用的方法：
 1. 使用Jmeter的GUI客户端进行编写，填写各个参数另存为新的jmx用例文件。
 2. 分析jmx文件，直接修改jmx文件中的各个参数，另存为新的jmx用例文件。
 实践起来还是GUI客户端比较快捷，但是依旧存在问题：如果服务器IP或者域名变化，所有的用例就得重新编辑一遍，非常耗时且繁琐。
 所以还是需要去研究一个更加快捷的jmx用例管理和修改的方法。
 
-#### 4.8 SSH免密码登录
-
-
+#### SSH免密码登录
 
 
 本文参考至testerhome文章：[https://testerhome.com/topics/4264](https://testerhome.com/topics/4264)
