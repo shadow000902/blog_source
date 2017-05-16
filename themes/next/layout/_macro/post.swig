@@ -26,9 +26,9 @@
 
         {# Not to show title for quote posts that do not have a title #}
         {% if not (is_index and post.type === 'quote' and not post.title) %}
-          <{% if theme.seo %}h2{% else %}h1{% endif %} class="post-title" itemprop="name headline">
-            {# Link posts #}
-            {% if post.link %}
+          <{% if theme.seo %}h2{% else %}h1{% endif %} class="post-title" itemprop="name headline">{#
+          #}{# Link posts #}{#
+          #}{% if post.link %}
               {% if post.sticky > 0 %}
                 {{ post.sticky }}
                 <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
@@ -39,21 +39,19 @@
                 {{ post.title or post.link }}
                 <i class="fa fa-external-link"></i>
               </a>
-            {% else %}
-              {% if is_index %}
+            {% else %}{#
+            #}{% if is_index %}
                 {% if post.sticky > 0 %}
                   <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
                     <i class="fa fa-thumb-tack"></i>
                   </span>
                 {% endif %}
-                <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">
-                  {{ post.title | default(__('post.untitled'))}}
-                </a>
-              {% else %}
-                {{ post.title }}
-              {% endif %}
-            {% endif %}
-          </{% if theme.seo %}h2{% else %}h1{% endif %}>
+                <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">{#
+                #}{{ post.title | default(__('post.untitled'))}}{#
+              #}</a>{#
+            #}{% else %}{{ post.title }}{% endif %}{#
+          #}{% endif %}{#
+        #}</{% if theme.seo %}h2{% else %}h1{% endif %}>
         {% endif %}
 
         <div class="post-meta">
@@ -209,6 +207,7 @@
           {% if theme.post_wordcount.wordcount or theme.post_wordcount.min2read %}
             <div class="post-wordcount">
               {% if theme.post_wordcount.wordcount %}
+                <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-file-word-o"></i>
                 </span>
@@ -248,8 +247,7 @@
       </header>
     {% endif %}
 
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body{% if theme.han %} han-init-context{% endif %}" itemprop="articleBody">
 
       {# Gallery support #}
       {% if post.photos and post.photos.length %}
