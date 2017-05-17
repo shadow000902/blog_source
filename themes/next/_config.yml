@@ -323,16 +323,16 @@ han: false
 baidu_analytics: b2e7edb34a402c6fa45e71e2a2456518
 
 # Duoshuo ShortName
-duoshuo_shortname: shadow
+# duoshuo_shortname:
 
 # Disqus
 disqus:
   enable: false
-  shortname:
+  shortname: shadow000902
   count: true
 
 # Hypercomments
-#hypercomments_id:
+hypercomments_id: 90954
 
 # Gentie productKey
 #gentie_productKey:
@@ -366,10 +366,10 @@ jiathis: false
 # Share
 #jiathis:
 # Warning: JiaThis does not support https.
-#add_this_id:
+add_this_id: ra-591af85feb91bba8
 
 # Share
-duoshuo_share: true
+# duoshuo_share:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
