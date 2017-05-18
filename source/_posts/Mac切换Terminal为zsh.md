@@ -39,6 +39,9 @@ chsh -s /bin/zsh
 ```
 重启一下 Terminal 之后，就生效了。
 
+##### 效果如图
+![](http://o6lw1c1bf.bkt.clouddn.com/Terminal效果图.png)
+
 ##### 如果使用 fino-time 主题
 如果使用该主题的话，会遇到一个错误：
 ```bash
