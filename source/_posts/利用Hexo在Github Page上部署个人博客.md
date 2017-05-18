@@ -172,3 +172,17 @@ npm install hexo-generator-baidu-sitemap@0.1.1 --save
 cd node_modules/hexo-generator-baidu-sitemap/
 npm install
 ```
+
+##### ERROR Asset render failed: lib/canvas-ribbon/canvas-ribbon.js
+这个错主要是安装了 JS 压缩的插件引起的
+所以要做的就是卸载所有相关的插件。
+
+##### 博客部署很慢的问题解决
+这个还是 JS 压缩引起的。
+所以主要做的还是卸载所有相关的插件：
+```bash
+npm uninstall hexo-uglify
+npm uninstall uglify
+npm uninstall uglify-js
+```
+卸载该插件后，60篇博客，部署时间大概在30s左右，generate时间在10~20s，比之前的5~6min好了不知道多少。

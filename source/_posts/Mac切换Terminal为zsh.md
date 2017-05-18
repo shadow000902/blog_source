@@ -38,3 +38,27 @@ source ~/.bash_profile
 chsh -s /bin/zsh
 ```
 重启一下 Terminal 之后，就生效了。
+
+##### 如果使用 fino-time 主题
+如果使用该主题的话，会遇到一个错误：
+```bash
+zsh: command not found: rvm-prompt
+╭─taoyi at TaoYi-Mac in ~ using ‹› 17-05-18 - 20:44:28
+╰─○ 
+```
+每次一条命令前都会有这条报错。
+主要原因就是该主题依赖于``rvm-prompt``，这样的话，就需要安装上该组件。
+安装步骤：
+```bash
+brew install gnupg gnupg2
+```
+
+```bash
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable
+```
+在``~/.zshrc``文件中加入支持：
+```bash
+alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
+```
+这样后，就完美了，不会再有这个报错了。
