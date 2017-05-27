@@ -30,6 +30,50 @@ ps -ef | grep tomcat
 7. top
 
 8. grep
+8.1 在文件中查找单词
+```bash
+grep shadow /etc/hosts
+```
+8.2 在多个文件中查找单词
+```bash
+grep shadow /etc/hosts /etc/hosts1
+```
+8.3 列出包含指定单词的文件的文件名
+```bash
+grep -l shadow /etc/hosts /etc/hosts1 /etc/hosts2 /etc/hosts3
+```
+8.4 在文件中查找指定单词并显示匹配行的行号
+```bash
+grep -n shadow /etc/hosts /etc/hosts1
+```
+8.5 输出不包含指定单词的行
+```bash
+grep -v shadow /etc/hosts
+```
+8.6 输出所有以指定单词开头的行
+```bash
+grep ^ shadow /etc/hosts
+```
+8.7 输出所有以指定单词结尾的行
+```bash
+grep shadow$ /etc/hosts
+```
+8.8 参数递归地查找指定单词
+```bash
+grep -r shadow /etc/hosts
+```
+8.9 查找文件中所有的空行
+```bash
+grep ^$ /etc/hosts
+```
+8.10 同时查找多个单词
+```bash
+grep -e shadow -e shadows /etc/hosts
+```
+8.11 计算匹配到的单词的数量
+```bash
+grep -c -f shadow /etc/hosts
+```
 
 9. unzip
 
@@ -40,7 +84,7 @@ ps -ef | grep tomcat
 12. git
 
 13. cat
-```markdown
+```bash
 一次显示整个文件:cat filename
 从键盘创建一个文件:cat > filename 只能创建新文件,不能编辑已有文件.
 将几个文件合并为一个文件:cat file1 file2 > file
@@ -62,7 +106,12 @@ ps -ef | grep tomcat
 
 21. mkdir(make directories)
 
-22. rmdir(remove directory) －R
+22. rm
+```bash
+rm -f 					# 直接删除文件，无需确认
+rm -r 					# 删除文件夹，需要确认
+rm -rf 					# 直接删除目录及其中的全部文件，无需确认
+```
 
 23. fdisk
 
@@ -239,4 +288,28 @@ r 表示可读取，w 表示可写入，x 表示可执行，X 表示只有当该
 ```markdown
 drwx------ (700) - 只有属主可在目录中读、写。 
 drwxr-xr-x (755) - 所有用户可读该目录，但只有属主才能改变目录中的内容。
+```
+
+32. 查看目录剩余空间大小
+32.1 df -hl             # 查看磁盘剩余空间
+```bash
+文件系统       容量    已用   可用                      已用%          挂载点
+Filesystem   Size   Used  Avail Capacity iused      ifree %iused  Mounted on
+/dev/disk1  112Gi   91Gi   21Gi    82% 1900939 4293066340    0%   /
+```
+32.2 
+```bash
+df -h              # 查看每个根路径的分区大小
+du -sh [目录名]     # 返回该目录的大小
+du -sm [文件夹]     # 返回该文件夹总M数
+df --help          # 查看更多功能
+du --help          # 查看更多功能
+```
+32.3
+```bash
+du -sh xmldb/
+du -sm * | sort -n      # 统计当前目录大小并按大小排序
+du -sk * | grep taoyi   # 查看一个人的大小
+du -m | cut "/" -f 2    # 查看第二个/字符前的文字
+wc [-lmw]               # -l: 多少行；-m: 多少字符；-w: 多少字
 ```
