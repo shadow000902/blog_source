@@ -158,10 +158,17 @@ adb shell dumpsys window displays
 ```
 33. 查看内存限制
 ```bash
-➜  ~ adb shell getprop | grep heapgrowthlimit               # 查看单个应用程序最大内存限制
+➜  ~ adb shell getprop | grep heapgrowthlimit               		# 查看单个应用程序最大内存限制
 [dalvik.vm.heapgrowthlimit]: [192m]
-➜  ~ adb shell getprop | grep dalvik.vm.heapstartsize       # 应用启动后分配的初始内存
+➜  ~ adb shell getprop | grep dalvik.vm.heapstartsize       		# 应用启动后分配的初始内存
 [dalvik.vm.heapstartsize]: [16m]
-➜  ~ adb shell getprop | grep dalvik.vm.heapsize            # 单个java虚拟机最大的内存限制
+➜  ~ adb shell getprop | grep dalvik.vm.heapsize            		# 单个java虚拟机最大的内存限制
 [dalvik.vm.heapsize]: [512m]
+```
+34. 服务器（远程）文件上传下载
+```bash
+scp username@servername:/path/filename /tmp/local_destination		# 下载文件
+scp -r username@servername:remote_dir/ /tmp/local_dir				# 下载文件夹
+scp /path/local_filename username@servername:/path					# 上传文件
+scp  -r /tmp/local_dir username@servername:remote_dir				# 上传文件夹
 ```
