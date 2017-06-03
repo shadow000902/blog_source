@@ -86,9 +86,9 @@ hexo deploy         # 部署本地静态网页到github上，以便在shadow0009
 2.1 支持RSS：             npm install hexo-generator-feed --save
 2.2 生成站点地图：         npm install hexo-generator-sitemap --save
 2.3 生成百度站点地图：      npm install hexo-generator-baidu-sitemap --save
-2.4 HTML 压缩：           npm install hexo-html-minifier --save
-2.5 JavaScript 压缩：     npm install hexo-uglify --save
-2.6 CSS 压缩插件：         npm install hexo-clean-css --save
+~~2.4 HTML 压缩：           npm install hexo-html-minifier --save~~
+~~2.5 JavaScript 压缩：     npm install hexo-uglify --save~~
+~~2.6 CSS 压缩插件：         npm install hexo-clean-css --save~~
 2.7 SEO优化：             npm install hexo-generator-seo-friendly-sitemap --save
 
 #### 统计功能
