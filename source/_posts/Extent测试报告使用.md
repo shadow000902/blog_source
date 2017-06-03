@@ -104,4 +104,4 @@ password:   password
     </listeners>
 ```
 ##### 加载报告插件
-![](http://o6lw1c1bf.bkt.clouddn.com/报告插件存放位置.png)
+{% asset_img 报告插件存放位置.png 报告插件存放位置 %}

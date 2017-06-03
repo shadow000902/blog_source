@@ -13,7 +13,7 @@ tags: [jmeter, 接口, 自动化]
 
 <!--more-->
 
-![](http://o6lw1c1bf.bkt.clouddn.com/测试流程图.png)
+{% asset_img 测试流程图.png 测试流程图 %}
 
 #### 准备工作
 1. 系统环境：CentOS

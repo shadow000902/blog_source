@@ -19,7 +19,7 @@ tags: [adb]
 adb connect 127.0.0.1:62001
 ```
 结果如下图就说明连接成功了
-![](http://o6lw1c1bf.bkt.clouddn.com/adb%20connected.png)
+{% asset_img adb-connected.png adb-connected %}
 
 #### 注意点
 网上很多说，CMD到夜神模拟器的安装位置~/Nox/bin/下，输入：

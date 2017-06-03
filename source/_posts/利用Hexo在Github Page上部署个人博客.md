@@ -28,7 +28,7 @@ hexo server
 ```
 现在用浏览器访问：http://localhost:4000/，效果如下图
 
-![](http://o6lw1c1bf.bkt.clouddn.com/默认模板效果.jpg)
+{% asset_img 默认模板效果.jpg 默认模板效果 %}
 
 如果要停止 hexo 服务：在 Git Bash 下按 Ctrl + C 即可
 
@@ -72,9 +72,9 @@ hexo deploy         # 部署本地静态网页到github上，以便在shadow0009
 #### 绑定域名
 1. 在E:/hexo/source下新建一个CNAME文件，把自己申请的域名（比如我申请的：shadow000902.space）填写在该文件里保存
 2. 在[DNSPOD](https://www.dnspod.cn/)网站里，设置域名解析：
-![](http://o6lw1c1bf.bkt.clouddn.com/设置域名解析.png)
+{% asset_img 设置域名解析.png 设置域名解析 %}
 3. 修改域名提供商下的域名DNS服务器为github提供的DNS：
-![](http://o6lw1c1bf.bkt.clouddn.com/修改域名提供商下的域名DNS服务器.jpg)
+{% asset_img 修改域名提供商下的域名DNS服务器.jpg 修改域名提供商下的域名DNS服务器 %}
 
 #### 插件
 ##### 插件基本命令

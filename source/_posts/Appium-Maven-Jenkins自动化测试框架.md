@@ -22,7 +22,7 @@ tags: [Appium, Maven, Jenkins]
 #### 框架介绍
 框架主要以``appium``测试框架为基础，用maven进行依赖的管理，以及编译执行测试。
 ##### 框架目录结构
-![](http://o6lw1c1bf.bkt.clouddn.com/目录结构.png)
+{% asset_img 目录结构.png 目录结构 %}
 ```
 ├── data                                                                    # 项目测试数据存放位置
 │   ├── login.xls
@@ -117,7 +117,7 @@ tags: [Appium, Maven, Jenkins]
     ``Jenkins``上配置好安卓测试环境，包括本地配置的所有环境。
 由于大风车有``Native Library``，导致无法在``X86``的模拟器上安装，而且``arm``的模拟器奇慢，所以选择在安卓真机上执行测试。在执行测试前要确保指定的设备与运行持续集成的服务器通讯正常。
 ##### 持续集成结果展示：
-![](http://o6lw1c1bf.bkt.clouddn.com/Excel测试报告.png)
+{% asset_img Excel测试报告.png Excel测试报告 %}
 
 #### 备注：appium源码安装
 ##### 安装cnpm

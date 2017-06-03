@@ -35,13 +35,13 @@ npm config get registry                                         # 查看镜像�
 #### 异常安装Appium方法（windows下）
 1. 下载[Appium客户端](http://appium.io/)
 2. 安装Appium客户端到电脑，查看目录如图：
-![](http://o6lw1c1bf.bkt.clouddn.com/Appium安装目录结构.png)
+{% asset_img Appium安装目录结构.png Appium安装目录结构 %}
 3. 完整解压其中的node_modules.7z文件，如图所示：
-![](http://o6lw1c1bf.bkt.clouddn.com/node_modules目录结构.png)
+{% asset_img node_modules目录结构.png node_modules目录结构 %}
 4. 在node_modules/.bin文件夹中就有可以在CMD中运行的appium批处理文件：
-![](http://o6lw1c1bf.bkt.clouddn.com/Appium运行批处理文件.png)
+{% asset_img Appium运行批处理文件.png Appium运行批处理文件 %}
 5. 在sdk、jdk、python、环境变量设置好的情况下，CMD进入node_modules/.bin下，就可以直接命令行运行appium：
-![](http://o6lw1c1bf.bkt.clouddn.com/Appium正常运行.png)
+{% asset_img Appium正常运行.png Appium正常运行 %}
 
 #### ⭐️源码安装
 ##### 安装cnpm

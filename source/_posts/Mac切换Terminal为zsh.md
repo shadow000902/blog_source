@@ -33,7 +33,7 @@ source ~/.bash_profile
 ```
 
 ##### 优化 terminal 样式
-![](http://o6lw1c1bf.bkt.clouddn.com/终端样式修改.png)
+{% asset_img 终端样式修改.png 终端样式修改 %}
 
 ##### 切换 Terminal 到 zsh
 ```bash
@@ -42,7 +42,7 @@ chsh -s /bin/zsh
 重启一下 Terminal 之后，就生效了。
 
 ##### 效果如图
-![](http://o6lw1c1bf.bkt.clouddn.com/Terminal效果图.png)
+{% asset_img Terminal效果图.png Terminal效果图 %}
 
 ##### 如果使用 fino-time 主题
 如果使用该主题的话，会遇到一个错误：
