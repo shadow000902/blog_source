@@ -8,12 +8,12 @@ tags: [postman]
 #### postman录制web接口请求
 1. 在chrome中安装插件Interceptor，设置如图：
 
+{% asset_img chrome中Interceptor设置.png chrome中Interceptor设置 %}
+
 <!--more-->
 
-{% asset_img chrome中Interceptor设置.png chrome中Interceptor设置 %}
-
 2. 在postman中设置如图：
-{% asset_img chrome中Interceptor设置.png chrome中Interceptor设置 %}
+{% asset_img Postman中Interceptor设置.png Postman中Interceptor设置 %}
 
 3. 设置好之后，在chrome中请求接口，就会录制到postman的history中，如图：
 {% asset_img 录制下的web请求.png 录制下的web请求 %}
