@@ -14,7 +14,7 @@
       {% if theme.alipay %}
         <div id="alipay" style="display: inline-block">
           <img id="alipay_qr" src="{{ theme.alipay }}" alt="{{ theme.author }} Alipay"/>
-          <p>支付宝打赏</p>
+          <p>支付宝&微信打赏</p>
         </div>
       {% endif %}
     </div>
