@@ -12,7 +12,7 @@ sudo /usr/local/mysql/support-files/mysql.server stop
 sudo /usr/local/mysql/support-files/mysql.server restart
 ```
 
-    <!--more-->
+<!--more-->
 
 2. 登录MySQL数据库
 ```bash

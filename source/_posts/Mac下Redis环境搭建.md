@@ -17,7 +17,7 @@ sudo make test
 sudo make install
 ```
 
-    <!--more-->
+<!--more-->
 
 
 ##### 配置Redis

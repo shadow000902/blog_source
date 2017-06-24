@@ -13,7 +13,7 @@ tar -zxvf mongodb-osx-x86_64-3.4.1.tgz
 mv mongodb-osx-x86_64-3.4.1 /opt/mongodb-3.4.1/
 ```
 
-    <!--more-->
+<!--more-->
 
 3. 把``MongoDB``加入环境变量
 ```bash

@@ -30,7 +30,7 @@ Uri serverUri = new Uri("http://127.0.0.1:4723/wd/hub");
 driver = new AndroidDriver<IWebElement>(serverUri, cap, TimeSpan.FromSeconds(180));
 ```
 
-    <!--more-->
+<!--more-->
 
 #### driver常用方法及注意事项
 ##### 常用方法

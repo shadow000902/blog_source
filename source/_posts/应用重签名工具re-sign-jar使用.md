@@ -11,7 +11,7 @@ tags: [重签名, re-sign.jar]
 #### 应用 re-sign.jar
 ##### 把 re-sign.jar 放到 .android 文件夹下
 
-    <!--more-->
+<!--more-->
 
 ```bash
 ➜  .android ll

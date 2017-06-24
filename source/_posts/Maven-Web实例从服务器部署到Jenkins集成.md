@@ -13,7 +13,7 @@ tags: [jenkins]
 	配置JDK：建议放到用户可操作的目录下，如：/home/test/devtool/jdk1.8.0_91
 	配置MVN：建议放到用户可操作的目录下，如：/home/test/devtool/apache-maven-3.3.9
 
-    <!--more-->
+<!--more-->
 
 ```bash
 test@test-devtesting-00001:~/devtool$ ll

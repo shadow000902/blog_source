@@ -8,7 +8,7 @@ tags: [github]
 #### 准备工作
 安装github for windows客户端
 
-    <!--more-->
+<!--more-->
 
 #### 上传代码
 1. 在自己的github账户上创建一个新的仓库（repository）

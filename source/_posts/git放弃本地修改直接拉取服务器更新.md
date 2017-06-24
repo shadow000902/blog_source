@@ -12,7 +12,7 @@ git reset --hard origin/master
 
 OR If you are on some other branch
 
-    <!--more-->
+<!--more-->
 
 ``` git
 git reset --hard origin/your_branch

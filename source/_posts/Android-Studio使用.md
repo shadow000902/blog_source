@@ -13,14 +13,13 @@ tags: [android-studio, robotium]
 java -classpath 离线安装包位置完整路径 com.intellij.updater.Runner install android-studio安装位置
 ```
 
-    <!--more-->
+<!--more-->
 
 ##### 示例
 
 ``` bash
 C:\Users\shadow>java -classpath C:\QMDownload\AI-141.2456560-143.2609919-patch-win.jar  com.intellij.updater.Runner install C:\android-studio
 ```
-    <!--more-->
 
 #### Gradle sync failed：
 Unable to load class 'org.codehaus.groovy.runtime.typehandling.ShortTypeHandling'.

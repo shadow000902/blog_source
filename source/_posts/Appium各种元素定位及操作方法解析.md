@@ -13,7 +13,7 @@ find_element_by_id(self, id_)                       # Usage: driver.find_element
 find_elements_by_id(self, id_)                      # Usage: driver.find_elements_by_id('foo')
 ```
 
-    <!--more-->
+<!--more-->
 
 ##### 通过xpath(相对路径)定位元素
 ```python

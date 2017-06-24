@@ -13,7 +13,7 @@ git config -global user.name "Your name"
 git config -global user.email "you@example.com"
 ```
 
-    <!--more-->
+<!--more-->
 
 #### 使用
 

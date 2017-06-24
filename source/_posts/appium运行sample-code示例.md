@@ -13,7 +13,7 @@ tags: [appium]
 npm install -g appium   # npm --registry http://registry.cnpmjs.org install -g appium (推荐这种,npm的国内镜像)
 ```
 
-    <!--more-->
+<!--more-->
 
 3. 检查appium运行环境是否可用
 ``` bash

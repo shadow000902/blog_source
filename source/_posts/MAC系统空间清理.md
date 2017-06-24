@@ -16,7 +16,7 @@ cd /System/Library/Speech/
 sudo rm -rf Voices/*
 ```
 
-    <!--more-->
+<!--more-->
 
 3. 删除所有系统日志——可以节省出100MB-2GB硬盘空间
 ```

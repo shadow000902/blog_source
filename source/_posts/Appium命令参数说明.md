@@ -7,7 +7,7 @@ tags: [appium]
 
 appium命令帮助
 
-    <!--more-->
+<!--more-->
 
 ``` bash
 C:\Users\shadow>appium -h

@@ -14,7 +14,7 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 $ hexo new "My New Post"
 ```
 
-    <!--more-->
+<!--more-->
 
 ### Create a new photo post   新建照片文章
 
@@ -27,7 +27,7 @@ hexo new photo "photoPostName"
 
 ```
 以上是摘要
-    <!--more-->
+<!--more-->
 以下是余下全文
 ```
 

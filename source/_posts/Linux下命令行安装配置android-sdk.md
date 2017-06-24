@@ -11,7 +11,7 @@ wget https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
 tar -zxvf android-sdk_r24.4.1-linux.tgz
 ```
 
-    <!--more-->
+<!--more-->
 
 2. 查看可用的SDK组件
 ```
