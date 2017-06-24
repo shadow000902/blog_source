@@ -1,5 +1,5 @@
 ---
-title: Mac上MySQL的简单实用
+title: Mac上MySQL的简单使用
 date: 2017-06-03 17:20:13
 categories: [MySQL]
 tags: [mysql]
@@ -12,7 +12,7 @@ sudo /usr/local/mysql/support-files/mysql.server stop
 sudo /usr/local/mysql/support-files/mysql.server restart
 ```
 
-<!--more-->
+    <!--more-->
 
 2. 登录MySQL数据库
 ```bash

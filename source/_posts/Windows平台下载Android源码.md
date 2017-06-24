@@ -9,7 +9,7 @@ tags: [android, 源码]
 1. 需要[git](https://git-scm.com/download/)软件，自行下载安装
 2. 需要[python](https://www.python.org/)环境，自行下载安装
 
-<!--more-->
+    <!--more-->
 
 #### 使用git手动下载android源码
 1. 自行新建用来存放android源码的文件夹，如android-source，即目录D:/android-source

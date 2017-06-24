@@ -13,7 +13,7 @@ sudo cp ~/Downloads/HTMLTestRunner.py /Library/Python/2.7/site-packages
 sudo cp ~/Downloads/test_HTMLTestRunner.py /Library/Python/2.7/site-packages
 ```
 
-<!--more-->
+    <!--more-->
 
 3. 执行 ``import HTMLTestRunner``， 如果没有报错，则导入成功。
 

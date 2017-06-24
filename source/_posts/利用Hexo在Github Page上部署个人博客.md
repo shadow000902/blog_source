@@ -11,7 +11,7 @@ tags: [hexo, github]
 3. 安装github for windows客户端
 4. 安装hexo框架
 
-<!--more-->
+    <!--more-->
 
 #### 开始安装
 ##### 创建一个hexo安装目录，比如：E:/hexo
@@ -186,3 +186,18 @@ npm uninstall uglify
 npm uninstall uglify-js
 ```
 卸载该插件后，60篇博客，部署时间大概在30s左右，generate时间在10~20s，比之前的5~6min好了不知道多少。
+
+##### 文章加密
+```javascript
+<script>
+	if("123456"==prompt("Please input password"))
+	{
+		alert("Right"); 
+	}
+	else
+	{
+		alert("Wrong"); 
+		location="http://shadow000902.space";
+	}
+</script>
+```

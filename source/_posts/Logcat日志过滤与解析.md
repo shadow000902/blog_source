@@ -14,7 +14,7 @@ pid=`adb shell ps | grep $package_name |awk '{print $2}'`
 adb logcat -v time *:E | grep -E --color=auto $pid  
 ```
 
-<!--more-->
+    <!--more-->
 
 ##### 只显示需要的输出，白名单
 ``` bash

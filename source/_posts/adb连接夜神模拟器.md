@@ -9,7 +9,7 @@ tags: [adb]
 1. 需要adb，电脑当然要有Android-sdk，且配置了~/Android-sdk/platform-tools/的环境变量，以便adb可以在任意位置使用
 2. 安装[夜神模拟器](http://www.yeshen.com/)
 
-<!--more-->
+    <!--more-->
 
 #### 实际步骤
 其实很简单：

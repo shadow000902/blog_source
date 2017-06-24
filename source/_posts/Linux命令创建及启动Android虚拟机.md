@@ -13,7 +13,7 @@ tags: [linux]
 android list
 ```
 
-<!--more-->
+    <!--more-->
 
 显示如下：
 ```

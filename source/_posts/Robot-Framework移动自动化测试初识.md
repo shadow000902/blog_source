@@ -9,7 +9,7 @@ tags: [robot-framework]
 1. 安装好robotframework、wxPython、robotframework-ride、robotframework-appiumlibrary
 2. 安装并配置好了Appium运行环境
 
-<!--more-->
+    <!--more-->
 
 #### 认识ride
 1. ride主界面

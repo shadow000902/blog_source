@@ -15,7 +15,7 @@ pip install shadowsocks
 sudo apt install shadowsocks                                            # ubuntu 16.04的安装方法
 ```
 
-<!--more-->
+    <!--more-->
 
 ##### 启动``shadowsocks``
 安装好后，在本地需要用到``sslocal``，

@@ -17,7 +17,7 @@ sudo make test
 sudo make install
 ```
 
-<!--more-->
+    <!--more-->
 
 
 ##### 配置Redis
@@ -31,7 +31,7 @@ mkdir db
 ```bash
 cp /usr/bin/redis-* /opt/redis-stable/bin/
 ```
-结果``/opt/redis-stable/bin/``目录下的内容如下
+	结果``/opt/redis-stable/bin/``目录下的内容如下
 ```bash
 ╭─taoyi at TaoYi-Mac in /opt/redis-stable/bin using ‹› 17-06-18 - 18:06:48
 ╰─○ ll
@@ -59,7 +59,7 @@ cp /opt/redis-stable/redis.conf /opt/redis-stable/etc/
 #修改为守护模式
 daemonize yes
 #设置进程锁文件
-pidfile /usr/local/redis/redis.pid
+pidfile /opt/redis-stable/redis.pid
 #端口
 port 6379
 #客户端超时时间
@@ -67,7 +67,7 @@ timeout 300
 #日志级别
 loglevel debug
 #日志文件位置
-logfile /usr/local/redis/log-redis.log
+logfile /opt/redis-stable/log-redis.log
 #设置数据库的数量，默认数据库为0，可以使用SELECT <dbid>命令在连接上指定数据库id
 databases 8
 ##指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合
@@ -82,7 +82,7 @@ rdbcompression yes
 #指定本地数据库文件名
 dbfilename dump.rdb
 #指定本地数据库路径
-dir /usr/local/redis/db/
+dir /opt/redis-stable/db/
 #指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能
 #会在断电时导致一段时间内的数据丢失。因为 redis本身同步数据文件是按上面save条件来同步的，所以有
 #的数据会在一段时间内只存在于内存中

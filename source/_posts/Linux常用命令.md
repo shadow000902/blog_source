@@ -12,14 +12,14 @@ tags: [linux]
 cp -r /opt/android/tools /opt/      # -r 复制文件夹
 ```
 
-<!--more-->
+    <!--more-->
 
 3. ps(process status)
 ```bash
 ps -ef | grep tomcat
 ```
 
-<!--more-->
+    <!--more-->
 
 4. kill
 

@@ -10,7 +10,7 @@ tags: [android, adb]
 adb -s <serialNumber> <command>     # serialNumber: adb devices 获取的设备ID号
 ```
 
-<!--more-->
+    <!--more-->
 
 2. 无线adb连接
 ```bash

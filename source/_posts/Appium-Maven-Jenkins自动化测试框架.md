@@ -12,7 +12,7 @@ tags: [Appium, Maven, Jenkins]
 4. ``Jenkins slave``设置
 5. ``Android SDK``安装
 
-<!--more-->
+    <!--more-->
 
 #### 环境可用的情况
 1. ``adb -devices``命令可用

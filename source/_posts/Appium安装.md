@@ -18,7 +18,7 @@ XXX@XXX:~$ appium -v
 
 ##### 使用node.js安装Appium
 
-<!--more-->
+    <!--more-->
 
 ```
 npm install -g appium                                           # -g 全局参数

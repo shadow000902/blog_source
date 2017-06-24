@@ -10,7 +10,7 @@ tags: [terminal]
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 ```
 
-<!--more-->
+    <!--more-->
 
 ##### 创建新的配置
 ```bash
