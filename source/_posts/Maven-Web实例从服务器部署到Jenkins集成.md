@@ -60,7 +60,7 @@ drwxrwxr-x 16 test test  4096 Jun 23 14:52 tomcats/						# Web实例目录
 ```
 	如果只是部署在本地，也需要确保端口不冲突
 5. 编写部署的脚本``deploy.sh``，放到``tomcat``目录下
-```shell
+```bash
 #!/bin/sh
 set -m
 #set var
@@ -125,7 +125,7 @@ chmod a+x deploy.sh
 {% asset_img maven编译配置.png maven编译配置 %}
 	最后增加``Execute shell``，完成war包部署
 {% asset_img 部署代码配置.png 部署代码配置 %}
-```shell
+```bash
 #!/bin/bash
 set -o errexit
 set -o xtrace
@@ -153,7 +153,64 @@ sh ${dir_tomcat_home}/bin/startup.sh;																	# 启动tomcat，自动部
 #echo "----show pid"
 #tail -f ${dir_tomcat_home}/logs/catalina.out
 ```
+	BUID_ID是jenkins的一个特殊的运行时变量，之所以这么做，原因就是直接使用shell启动tomcat是不行的，因为jenkins进程退出后其创建的、包括其调用的脚本创建的进程都将被一起销毁
 	至此``Jenkins``项目配置完成，保存即可。
+
+	附带另一个部署脚本：
+```bash
+#!/bin/sh  
+echo "Tomcat:$1"  
+echo "Module:$2"  
+echo "++++++++++++++++++++++++++++++++"  
+pid=$(jps -v |grep $1 | grep -v 'grep $1' | awk '{print $1}')  
+#if instance is running,shutdown it!  
+if [ "$pid" ];then  
+    echo "Current instance is running,pid:$pid"  
+    echo "Shutdown now!"  
+    cd $1/bin  
+    ./shutdown.sh  
+    sleep 3s  
+fi  
+#but somethimes,shutdown operation will be failure!  
+#check status for 10 times  
+i=0  
+while [ $i -lt 10 ]  
+do  
+    pid=$(jps -v |grep $1 | grep -v 'grep $1' | awk '{print $1}')  
+    if [ "$pid" ];then  
+        sleep 1s  
+        if [ $i -ge 10 ]  
+        then  
+            kill -9 $pid  
+            break  
+        else  
+            ((i++))  
+        fi  
+    else  
+        break  
+    fi  
+done  
+#remove current application files  
+cd $1/webapps  
+rm -r -f ROOT  
+rm -f ROOT.war  
+cd $1/bin  
+cd $WORKSPACE/$2/target  
+cp ROOT.war $1/webapps  
+cd $1/bin  
+./startup.sh  
+sleep 3s  
+pid=$(jps -v |grep $1 | grep -v 'grep $1' | awk '{print $1}')  
+echo "restart ok!"  
+echo "pid:$pid"  
+echo "++++++++++++++++++++++++++++++++"  
+```
+	脚本使用的脚本：
+```bash
+BUILD_ID=dontKillMe /home/deploy.sh "<tomcat_home>" "<module_name>"
+```
+	这个脚本，就是执行“关闭tomcat”、“删除文件”、“复制文件”、“重启tomcat”过程；脚本中可以引用jenkins的一些系统变量，比如“$WORKSPACE”表示当前build项目的工作空间；此脚本接收2个参数，我们约定，第一个参数表示“tomcat home路径”，第二个参数表示“项目module名称”用于告知需要部署那个web项目（这在多modules项目中有用）。
+
 3. 执行构建
 {% asset_img 分支构建.png 分支构建 %}
 
