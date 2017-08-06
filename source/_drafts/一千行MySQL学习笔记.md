@@ -5,7 +5,7 @@ categories:
 tags:
 ---
 
-```bash
+
 /* 启动MySQL */
 net start mysql
 
@@ -1034,4 +1034,3 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...
 5. CMD命令行内的语句结束符可以为 ";", "\G", "\g"，仅影响显示结果。其他地方还是用分号结束。delimiter 可修改当前对话的语句结束符。
 6. SQL对大小写不敏感
 7. 清除已有语句：\c
-```
