@@ -4,6 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="{{ theme.android_chrome_color }}">
 
 
 {% if theme.pace %}
@@ -38,6 +39,9 @@
   <meta name="google-site-verification" content="{{ theme.google_site_verification }}" />
 {% endif %}
 
+{% if theme.bing_site_verification %}
+  <meta name="msvalidate.01" content="{{ theme.bing_site_verification }}" />
+{% endif %}
 
 {% if theme.yandex_site_verification %}
   <meta name="yandex-verification" content="{{ theme.yandex_site_verification }}" />
@@ -116,8 +120,10 @@
   var CONFIG = {
     root: '{{ theme.root }}',
     scheme: '{{ theme.scheme }}',
+    version: '{{ theme.version }}',
     sidebar: {{ theme.sidebar | json_encode }},
     fancybox: {{ theme.fancybox }},
+    tabs: {{ theme.tabs.enable }},
     motion: {{ theme.use_motion }},
     duoshuo: {
       userId: '{{ theme.duoshuo_info.user_id | default() }}',
