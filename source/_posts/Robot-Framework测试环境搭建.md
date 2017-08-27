@@ -123,3 +123,14 @@ defaults write com.apple.versioner.python Prefer-32-Bit -bool yes
 ```bash
 pip install robotframework-ride==1.5.2
 ```
+
+##### 所有的安装内容
+```bash
+pip install robotframework
+pip install robotframework-ride
+pip install robotframework-appiumlibrary
+pip install robotframework-selenium2library
+pip install robotframework-databaselibrary
+pip install requests
+pip install PyMySQL
+```

@@ -47,3 +47,32 @@ git reset --hard HEAD~1
 git push --force
 ```
 该命令执行后，会隐藏掉Github库中的被撤销掉的记录，但是指定到该被隐藏掉的记录来访问，依旧可以访问。
+
+#### GitHub更新自己fork的代码
+1. ``clone``已经``fork``到自己账号的代码
+```bash
+git clone https://github.com/shadow000902/ApiTestEngine.git
+cd ApiTestEngine
+```
+2. 查看远程分支列表
+```bash
+╭─taoyi at TaoYi-Mac in ~/git_projects/GitHub/ApiTestEngine on master✔ using ‹› 17-08-23 - 15:01:23
+╰─○ git remote -v
+debugtalk	https://github.com/debugtalk/ApiTestEngine.git (fetch)
+debugtalk	https://github.com/debugtalk/ApiTestEngine.git (push)
+origin	https://github.com/shadow000902/ApiTestEngine.git (fetch)
+origin	https://github.com/shadow000902/ApiTestEngine.git (push)
+```
+3. ``fetch``原始源代码的新版本到本地
+```bash
+git fetch debugtalk
+```
+4. 合并两个版本的代码
+```bash
+git merge debugtalk/master
+```
+5. 如果合并代码后有冲突，解决冲突
+6. 把合并好的最新的代码提交到自己的``GitHub``账号上
+```bash
+git push origin master
+```
