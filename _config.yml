@@ -156,5 +156,6 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/shadow000902/shadow000902.github.io.git
-  branch: master
+  repo:
+    github: https://github.com/shadow000902/shadow000902.github.io.git,master
+    coding: https://git.coding.net/shadow000902/shadow000902.coding.me.git,master
