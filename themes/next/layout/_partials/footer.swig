@@ -26,12 +26,6 @@
   #}{{ __('footer.powered', '<a class="theme-link" href="https://hexo.io">Hexo</a>') }}{#
 #}</div>
 
-<div class="theme-info">
-  {{ __('footer.theme') }} -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.{{ theme.scheme }}
-  </a>
-</div>
 
 <span id="busuanzi_container_site_uv">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
