@@ -76,3 +76,22 @@ git merge debugtalk/master
 ```bash
 git push origin master
 ```
+
+#### git撤销最后一次commit
+1. 使用``git log``查看``commit``记录
+```bash
+commit-id1
+commit-id2
+commit-id3
+```
+如果想要撤销``commit-id1``的话，就要选择``commit-id2``
+
+2. 使用命令撤销提交
+```bash
+git reset commit-id2				# 只是撤销提交，修改的内容不变
+```
+
+```bash
+git reset --hard commit-id2			# 撤销提交，并撤销修改的内容
+git push origin HARD --force		# 撤销后，强制提交并push到远程分支
+```
