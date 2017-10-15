@@ -345,3 +345,12 @@ du [-abcDhHklmsSx] [-L <符号连接>][-X <文件>][--block-size][--exclude=<目
 - ``–help``：显示帮助。
 - ``–version``：显示版本信息。
 - ``-0``：（杠零）表示每列出一个目录的信息，不换行，而是直接输出下一个目录的信息。
+
+33. 修改root密码
+```bash
+[root@shadow000902 /]# passwd								# 修改密码命令
+Changing password for user root.
+New password: 												# 输入新的密码
+Retype new password: 										# 确认新的密码
+passwd: all authentication tokens updated successfully.		# 成功修改密码提示
+```
