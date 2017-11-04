@@ -21,6 +21,8 @@ drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171103124216
 drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171104124212
 ```
 
+<!--more-->
+
 2. shell脚本
 ```bash
 ls -l /Users/taoyi/Desktop/test0001/ | awk '/^d/ {print $NF}' > /Users/taoyi/Desktop/test0001/dir						# 目录下的所有文件夹名称写入文件``dir``
