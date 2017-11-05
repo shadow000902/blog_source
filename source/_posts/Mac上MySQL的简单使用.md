@@ -1,7 +1,7 @@
 ---
 title: Mac上MySQL的简单使用
 date: 2017-06-03 17:20:13
-categories: [MySQL]
+categories: [DATABASE]
 tags: [mysql]
 ---
 

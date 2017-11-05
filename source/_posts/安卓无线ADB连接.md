@@ -1,7 +1,7 @@
 ---
 title: 安卓无线ADB连接
 date: 2017-11-04 22:00:31
-categories: [Adb]
+categories: [ANDROID]
 tags: [adb]
 ---
 

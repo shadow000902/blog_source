@@ -1,7 +1,7 @@
 ---
 title: Top 8 Diagrams for Understanding Java
 date: 2017-03-14 17:10:45
-categories: [Java]
+categories: [JAVA]
 tags: [java]
 ---
 

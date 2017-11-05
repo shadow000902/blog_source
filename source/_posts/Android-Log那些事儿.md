@@ -1,7 +1,7 @@
 ---
 title: Android Log那些事儿
 date: 2016-10-08 00:19:09
-categories: [Adb, Log]
+categories: [ANDROID]
 tags: [android, adb, log]
 ---
 

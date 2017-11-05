@@ -1,7 +1,7 @@
 ---
 title: Postman测试
 date: 2016-04-18 15:29:14
-categories: [接口测试]
+categories: [TOOLS]
 tags: [postman]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Linux 安装 shadowsocks
 date: 2016-10-09 19:43:52
-categories: [Linux]
+categories: [LINUX]
 tags: [linux, shadowsocks]
 ---
 

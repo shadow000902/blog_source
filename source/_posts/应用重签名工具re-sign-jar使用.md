@@ -1,7 +1,7 @@
 ---
 title: 应用重签名工具re-sign.jar使用
 date: 2017-03-05 14:46:33
-categories: [重签名]
+categories: [TOOLS]
 tags: [重签名, re-sign.jar]
 ---
 

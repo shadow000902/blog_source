@@ -1,7 +1,7 @@
 ---
 title: Windows平台下载Android源码
 date: 2016-04-26 23:22:58
-categories: [Android]
+categories: [ANDROID]
 tags: [android, 源码]
 ---
 

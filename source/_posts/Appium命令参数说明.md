@@ -1,7 +1,7 @@
 ---
 title: Appium命令参数说明
 date: 2016-04-10 22:56:03
-categories: [Appium]
+categories: [APPIUM]
 tags: [appium]
 ---
 

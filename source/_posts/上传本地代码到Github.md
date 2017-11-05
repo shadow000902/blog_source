@@ -1,7 +1,7 @@
 ---
 title: 上传本地代码到Github
 date: 2016-03-18 14:54:16
-categories: [Github]
+categories: [TIPS]
 tags: [github]
 ---
 

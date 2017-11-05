@@ -1,7 +1,7 @@
 ---
 title: Appium踩过的坑
 date: 2016-05-31 17:55:19
-categories: [Appium]
+categories: [APPIUM]
 tags: [appium]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 利用Hexo在Github Page上部署个人博客
 date: 2016-03-18 00:06:40
-categories: [Hexo]
+categories: [TOOLS]
 tags: [hexo, github]
 ---
 

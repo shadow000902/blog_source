@@ -1,7 +1,7 @@
 ---
 title: app-inspector元素定位工具使用介绍
 date: 2017-02-13 00:00:45
-categories: [App-inspector]
+categories: [TOOLS]
 tags: [app-inspector]
 ---
 

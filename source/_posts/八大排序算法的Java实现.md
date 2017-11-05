@@ -1,7 +1,7 @@
 ---
 title: 八大排序算法的Java实现
 date: 2017-01-02 14:46:07
-categories: [Java, 排序]
+categories: [JAVA]
 tags: [java, 排序]
 ---
 

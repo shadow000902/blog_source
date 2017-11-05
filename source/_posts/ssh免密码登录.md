@@ -1,7 +1,7 @@
 ---
 title: ssh免密码登录
 date: 2016-05-26 01:32:43
-categories: [SSH]
+categories: [TIPS]
 tags: [ssh]
 ---
 

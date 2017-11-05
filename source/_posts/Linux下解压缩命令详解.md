@@ -1,7 +1,7 @@
 ---
 title: Linux下解压缩命令详解
 date: 2016-07-07 00:52:04
-categories: [Linux]
+categories: [LINUX]
 tags: [linux]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Robot-Framework测试用例编写规范
 date: 2016-05-19 21:59:39
-categories: [Robot-Framework]
+categories: [ROBOTFRAMEWORK]
 tags: [robot-framework]
 ---
 

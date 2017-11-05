@@ -1,7 +1,7 @@
 ---
 title: adb进阶应用
 date: 2016-03-23 23:23:02
-categories: [Adb]
+categories: [ANDROID]
 tags: [android, adb]
 ---
 

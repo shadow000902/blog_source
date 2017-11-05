@@ -1,7 +1,7 @@
 ---
 title: git常用命令
 date: 2016-05-26 01:09:12
-categories: [Git]
+categories: [TOOLS]
 tags: [git]
 ---
 

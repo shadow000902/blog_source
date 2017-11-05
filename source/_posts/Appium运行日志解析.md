@@ -1,7 +1,7 @@
 ---
 title: Appium运行日志解析
 date: 2016-03-31 11:10:40
-categories: [Appium]
+categories: [APPIUM]
 tags: [appium]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: UBUNTU服务器设置局域网远程访问
 date: 2016-11-29 16:18:35
-categories: [Ubuntu, 局域网]
+categories: [LINUX]
 tags: [ubuntu]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: vim的基本使用
 date: 2017-03-14 23:22:02
-categories: [Vim]
+categories: [TOOLS]
 tags: [vim]
 ---
 #### 基本使用

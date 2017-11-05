@@ -1,7 +1,7 @@
 ---
 title: Robot-Framework移动自动化测试初识
 date: 2016-05-08 19:44:12
-categories: [Robot-Framework]
+categories: [ROBOTFRAMEWORK]
 tags: [robot-framework]
 ---
 

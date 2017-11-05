@@ -1,7 +1,7 @@
 ---
 title: Extent测试报告使用
 date: 2017-01-18 00:13:28
-categories: [测试报告]
+categories: [TOOLS]
 tags: [测试报告]
 ---
 

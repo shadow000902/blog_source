@@ -1,7 +1,7 @@
 ---
 title: 在Github和Git上fork之简单指南
 date: 2016-03-12 15:47:52
-categories: [Github]
+categories: [TOOLS]
 tags: [github,git]
 ---
 以我的经验来看，刚接触Git和GitHub时，最困扰的一件事情就是尝试解决下面的问题：**在Git和GitHub上，我能做什么？**

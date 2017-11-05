@@ -1,7 +1,7 @@
 ---
 title: Appium的几点总结
 date: 2016-07-01 00:28:20
-categories: [Appium]
+categories: [APPIUM]
 tags: [appium]
 ---
 

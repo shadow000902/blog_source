@@ -1,7 +1,7 @@
 ---
 title: Appium安装
 date: 2016-03-31 18:19:45
-categories: [Appium]
+categories: [APPIUM]
 tags: [appium]
 ---
 

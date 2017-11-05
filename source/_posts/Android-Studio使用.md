@@ -1,7 +1,7 @@
 ---
 title: Android-Studio使用
 date: 2016-03-13 00:19:58
-categories: [AS]
+categories: [ANDROID]
 tags: [android-studio, robotium]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Appcrawler执行
 date: 2016-07-19 16:38:41
-categories: [Appcrawler]
+categories: [TOOLS]
 tags: [appcrawler]
 ---
 

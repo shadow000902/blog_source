@@ -1,7 +1,7 @@
 ---
 title: Appium-WebView测试
 date: 2016-11-21 01:07:09
-categories: [Appium]
+categories: [APPIUM]
 tags: [appium, webview]
 ---
 现在多数App都是混合型的，有原生的也包含WebView的，appium测试的时候就需要在原生和WebView之间切换才能完成测试。

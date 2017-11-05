@@ -1,7 +1,7 @@
 ---
 title: Robot-Framework测试环境搭建
 date: 2016-05-06 14:16:53
-categories: [Robot-Framework]
+categories: [ROBOTFRAMEWORK]
 tags: [robot-framework]
 ---
 

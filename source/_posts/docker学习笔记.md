@@ -1,7 +1,7 @@
 ---
 title: docker学习笔记
 date: 2016-12-08 10:16:51
-categories: [Docker]
+categories: [TOOLS]
 tags: [docker]
 ---
 ##### 安装docker

@@ -1,7 +1,7 @@
 ---
 title: IOS打包命令
 date: 2016-09-22 18:01:49
-categories: [IOS]
+categories: [TIPS]
 tags: [IOS, 打包]
 ---
 

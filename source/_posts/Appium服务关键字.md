@@ -1,7 +1,7 @@
 ---
 title: Appium服务关键字
 date: 2016-07-01 00:08:14
-categories: [Appium]
+categories: [APPIUM]
 tags: [appium]
 ---
 

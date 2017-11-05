@@ -1,7 +1,7 @@
 ---
 title: Maven常用命令介绍
 date: 2016-09-18 15:03:14
-categories: [Maven]
+categories: [TOOLS]
 tags: [maven]
 ---
 
