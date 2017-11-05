@@ -204,7 +204,7 @@ social:
 #  tsina: 1716962871                                                        ## e.g. 1716962871  Your weibo ID,It will be used in share button.
 #  douban: https://www.douban.com/people/13880651                           ## e.g. 13880651 or your id for https://www.douban.com/people/13880651
 #  zhihu: http://www.zhihu.com/people/shadow000902                          ## e.g. shadow000902  for http://www.zhihu.com/people/shadow000902
-  email: shadow000902@gmail.com                                             ## e.g. shadow000902@gmail.com
+#  email: shadow000902@gmail.com                                             ## e.g. shadow000902@gmail.com
   twitter: https://twitter.com/shadow000902                                 ## e.g. shadow000902 for https://twitter.com/shadow000902
   facebook: https://facebook.com/shadow000902                               ## e.g. shadow000902 for https://facebook.com/shadow000902
   jianshu: http://www.jianshu.com/u/6d646c911d4a
@@ -218,7 +218,7 @@ social_icons:
 #   Icon Mappings.
 #   KeyMapsToSocalItemKey: NameOfTheIconFromFontAwesome
   github: github
-  email: envelope
+#  email: envelope
   twitter: twitter
 #  weibo: weibo
   facebook: facebook
