@@ -83,13 +83,14 @@ hexo deploy         # 部署本地静态网页到github上，以便在shadow0009
 1.3 更新插件和博客框架（需要在 E:\hexo 目录下）：     npm update
 它实质上是通过项目根目录下 package.json 文件更新各大组件
 ##### 必备插件
-2.1 支持RSS：             npm install hexo-generator-feed --save
-2.2 生成站点地图：         npm install hexo-generator-sitemap --save
-2.3 生成百度站点地图：      npm install hexo-generator-baidu-sitemap --save
-~~2.4 HTML 压缩：           npm install hexo-html-minifier --save~~
-~~2.5 JavaScript 压缩：     npm install hexo-uglify --save~~
-~~2.6 CSS 压缩插件：         npm install hexo-clean-css --save~~
-2.7 SEO优化：             npm install hexo-generator-seo-friendly-sitemap --save
+2.1 支持RSS：			npm install hexo-generator-feed --save
+2.2 生成站点地图：		npm install hexo-generator-sitemap --save
+2.3 生成百度站点地图：		npm install hexo-generator-baidu-sitemap --save
+~~2.4 HTML 压缩：		npm install hexo-html-minifier --save~~
+~~2.5 JavaScript 压缩：	npm install hexo-uglify --save~~
+~~2.6 CSS 压缩插件：		npm install hexo-clean-css --save~~
+2.7 SEO优化：			npm install hexo-generator-seo-friendly-sitemap --save
+2.8 文章字数统计			npm install hexo-wordcount --save
 
 #### 统计功能
 [为hexo博客添加访问次数统计功能](http://ibruce.info/2015/04/04/busuanzi/)
@@ -200,4 +201,15 @@ npm uninstall uglify-js
 		location="http://shadow000902.space";
 	}
 </script>
+```
+
+##### 文章字数统计
+主要代码：
+```bash
+# 字数统计
+<span class="post-count">{{ wordcount(post.content) }}</span>
+# 阅读时长预计
+<span class="post-count">{{ min2read(post.content) }}</span>
+# 总字数统计
+<span class="post-count">{{ totalcount(site, '0,0.0a') }}</span>
 ```

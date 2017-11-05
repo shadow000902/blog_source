@@ -29,11 +29,19 @@
 
 
 <span id="busuanzi_container_site_uv">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+  <span class="post-meta-divider">|</span>
+  <span class="post-meta-item-icon">
+    <i class="fa fa-users"></i>
+  </span>
+  Total <span id="busuanzi_value_site_uv"></span> viewers
 </span>
 
 <span id="busuanzi_container_site_pv">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您是第 <span id="busuanzi_value_site_pv"></span> 次访问者
+  <span class="post-meta-divider">|</span>
+  <span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+  </span>
+  Total <span id="busuanzi_value_site_pv"></span> views
 </span>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

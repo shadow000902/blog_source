@@ -25,14 +25,14 @@ post:
   created: 创建于
   modified: 更新于
   sticky: 置顶
-  posted: 发表于
-  in: 分类于
+  posted: 发表
+  in: 分类
   read_more: 阅读全文
   untitled: 未命名
   toc_empty: 此文章未包含目录
-  visitors: 阅读次数
-  wordcount: 字数统计
-  min2read: 阅读时长
+  visitors: 阅读
+  wordcount: 字数
+  min2read: 时长
   totalcount: Site words total count
   copyright:
     author: 本文作者

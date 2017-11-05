@@ -97,7 +97,7 @@
                 <span class="links-of-author-item">
                   <a href="{{ link.split('||')[0] | trim }}" target="_blank" title="{{ name }}">
                     {% if theme.social_icons.enable %}
-                      <i class="fa fa-fw fa-{{ link.split('||')[1] | trim | default('globe') }}"></i>{#
+                      <i class="fa fa-fw fa-{{ theme.social_icons[name] | default('globe') | lower }}"></i>{#
                   #}{% endif %}{#
                     #}{% if not theme.social_icons.icons_only %}{#
                       #}{{ name }}{#

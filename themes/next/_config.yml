@@ -23,9 +23,9 @@ alipay: /pay.png
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
+  small: /images/favicon.ico
+  medium: /images/favicon.ico
+  apple_touch_icon: /images/favicon.ico
   safari_pinned_tab: /images/logo.svg
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
@@ -40,7 +40,7 @@ keywords: "Hexo, NexT"
 rss: /atom.xml
 
 # Specify the date when the site was setup
-since: 2015
+# since: 2015
 
 # icon between year and author @Footer
 authoricon: heart
@@ -51,10 +51,10 @@ copyright: true
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  #since: 2015
+  since: 2015
 
   # Icon between year and copyright info.
-  icon: user
+  icon: heartbeat
 
   # If not defined, will be used `author` from Hexo main config.
   copyright:
@@ -111,6 +111,12 @@ menu:
 # Enable/Disable menu icons.
 menu_icons:
   enable: true
+  # Icon Mapping.
+  home: home
+  categories: th
+  about: user
+  archives: archive
+  tags: tags
 
 icon-font: foo
 
@@ -192,18 +198,19 @@ font:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  github: https://github.com/shadow000902    ## e.g. shadow000902 for https://github.com/shadow000902
-  weibo: http://weibo.com/1716962871     ## e.g. shadow000902 or 1716962871 for http://weibo.com/1716962871
-#  weibo_verifier: b3593ceb    ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
-#  tsina: 1716962871     ## e.g. 1716962871  Your weibo ID,It will be used in share button.
-#  douban: https://www.douban.com/people/13880651    ## e.g. 13880651 or your id for https://www.douban.com/people/13880651
-#  zhihu: http://www.zhihu.com/people/shadow000902     ## e.g. shadow000902  for http://www.zhihu.com/people/shadow000902
-#  email: shadow000902@gmail.com     ## e.g. shadow000902@gmail.com
-  twitter: https://twitter.com/shadow000902   ## e.g. shadow000902 for https://twitter.com/shadow000902
-  facebook: https://facebook.com/shadow000902  ## e.g. shadow000902 for https://facebook.com/shadow000902
-#  linkedin: https://www.linkedin.com/in/shadow000902  ## e.g. shadow000902 for https://www.linkedin.com/in/shadow000902
-#  google-plus: https://plus.google.com/u/0/+Taoyi   ## e.g.  for https://plus.google.com/u/0/+Taoyi, the "" is needed!
-#  stack-overflow: http://stackoverflow.com/users/4210385/shadow ## e.g. 4210385 for http://stackoverflow.com/users/4210385/shadow
+  github: https://github.com/shadow000902                                   ## e.g. shadow000902 for https://github.com/shadow000902
+#  weibo: http://weibo.com/1716962871                                       ## e.g. shadow000902 or 1716962871 for http://weibo.com/1716962871
+#  weibo_verifier: b3593ceb                                                 ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
+#  tsina: 1716962871                                                        ## e.g. 1716962871  Your weibo ID,It will be used in share button.
+#  douban: https://www.douban.com/people/13880651                           ## e.g. 13880651 or your id for https://www.douban.com/people/13880651
+#  zhihu: http://www.zhihu.com/people/shadow000902                          ## e.g. shadow000902  for http://www.zhihu.com/people/shadow000902
+  email: shadow000902@gmail.com                                             ## e.g. shadow000902@gmail.com
+  twitter: https://twitter.com/shadow000902                                 ## e.g. shadow000902 for https://twitter.com/shadow000902
+  facebook: https://facebook.com/shadow000902                               ## e.g. shadow000902 for https://facebook.com/shadow000902
+  jianshu: http://www.jianshu.com/u/6d646c911d4a
+#  linkedin: https://www.linkedin.com/in/shadow000902                       ## e.g. shadow000902 for https://www.linkedin.com/in/shadow000902
+#  google-plus: https://plus.google.com/u/0/+Taoyi                          ## e.g.  for https://plus.google.com/u/0/+Taoyi, the "" is needed!
+#  stack-overflow: http://stackoverflow.com/users/4210385/shadow            ## e.g. 4210385 for http://stackoverflow.com/users/4210385/shadow
  ## if you set them, the corresponding  share button will show on the footer
 
 social_icons:
@@ -211,11 +218,11 @@ social_icons:
 #   Icon Mappings.
 #   KeyMapsToSocalItemKey: NameOfTheIconFromFontAwesome
   github: github
+  email: envelope
   twitter: twitter
-  weibo: weibo
-#  email: email
+#  weibo: weibo
   facebook: facebook
-#  jianshu: jianshu
+  jianshu: university
 #  linkedin: linkedin
 #  google-plus: google-plus
 #  stack-overflow: stack-overflow
@@ -309,9 +316,9 @@ post_meta:
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
   item_text: true
-  wordcount: false
-  min2read: false
-  totalcount: false
+  wordcount: true
+  min2read: true
+  totalcount: true
   separated_meta: true
 
 # Use Lato font
@@ -323,7 +330,7 @@ use_font_lato: true
   #description: ex. subscribe to my blog by scanning my public wechat account
 
 # Reward
-#reward_comment: Donate comment here
+reward_comment: Donate here
 #wechatpay: /images/wechatpay.jpg
 #alipay: /images/alipay.jpg
 #bitcoin: /images/bitcoin.png
@@ -563,14 +570,14 @@ busuanzi_count:
   enable: false
   # custom uv span for the whole site
   site_uv: true
-  site_uv_header: <i class="fa fa-user"></i>
+  site_uv_header: <i class="fa fa-users"></i>
   site_uv_footer:
   # custom pv span for the whole site
   site_pv: true
   site_pv_header: <i class="fa fa-eye"></i>
   site_pv_footer:
   # custom pv span for one page only
-  page_pv: true
+  page_pv: false
   page_pv_header: <i class="fa fa-file-o"></i>
   page_pv_footer:
 
