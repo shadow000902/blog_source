@@ -36,7 +36,7 @@ do
 done
 
 # 删除零时写入的文件``dir``
-rm -rf /Users/taoyi/Desktop/test0001/dir																				
+rm -rf /Users/taoyi/Desktop/test0001/dir
 ```
 
 ##### kill指定name的pid
@@ -156,4 +156,18 @@ echo "versionName=${versionName}" > versionName.txt
 ``set Build Name``中加入安卓APP版本号
 ```bash
 ${PROPFILE,file="versionName.txt",property="versionName"}
+```
+
+##### 获取目录的所以csv文件并合并为一个csv文件
+```bash
+cd /Users/taoyi/git_projects/Gitlab/RF_InterfaceTest
+# 获取./Library/output/api-docs/souche/*/*.csv文件并移动到./Library目录下
+mv -f ./Library/*/*/*/*/*.csv ./Library 
+# 把所有的csv文件合并为一个together.csv文件
+cat ./Library/*.csv > together.csv
+
+rm -rf ./Library/output
+rm -rf ./Library/*.csv
+
+mv -f together.csv ./Library
 ```

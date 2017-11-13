@@ -6,13 +6,58 @@ tags: [linux]
 ---
 
 1. mv
+1.1 Moving files
+```bash
+mv test0001.txt /opt/
+```
+1.2 Moving multiple files
+```bash
+mv test0001.txt test0002.txt /opt/
+mv *.txt /opt/
+```
+1.3 Moving directory
+```bash
+mv /tmp/test0001 /opt/
+```
+
+<!--more-->
+
+1.4 Renaming files or directory
+```bash
+mv test0001.txt test0002.txt
+```
+1.5 Renaming directory
+```bash
+mv test0001 test0002
+```
+1.6 Print what happen
+```bash
+mv -v *.txt /opt/
+```
+1.7 Using interactive mode
+```bash
+mv -i *.txt /opt/
+```
+1.8 Using update option
+```bash
+mv -uv *.txt /opt/
+```
+1.9 Do not overwrite any existing file
+```bash
+mv -vn *.txt /opt/
+```
+1.10 Create backup when copying
+```bash
+mv -bv *.txt /opt/
+```
+[10 Practical mv Command Examples](https://linoxide.com/linux-command/mv-command-linux/)
+
+
 
 2. cp(copy)
 ```bash
 cp -r /opt/android/tools /opt/      # -r 复制文件夹
 ```
-
-<!--more-->
 
 3. ps(process status)
 ```bash
