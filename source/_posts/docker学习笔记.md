@@ -16,7 +16,7 @@ docker images|grep none|awk '{print $3 }'|xargs docker rmi
 ```
 这样清空掉残余的容器后，再删除images就没有异常的提示了。
 
-<!--more-->
+  <!--more-->
 
 ##### 安装``docker&boot2docker``
 ```

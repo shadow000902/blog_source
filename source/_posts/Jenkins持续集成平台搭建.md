@@ -13,7 +13,7 @@ mkdir /opt/Jenkins/tmp							# Jenkins缓存位置
 mkdir /opt/Jenkins/script						# 脚本存放位置
 ```
 
-<!--more-->
+  <!--more-->
 
 2. 下载``jenkins.war``
 [下载地址](https://jenkins.io/download/)

@@ -16,7 +16,7 @@ ${string}    set variable    taoyi is in hangzhou
 ${name}    set variable    ty
 ```
 
-<!--more-->
+  <!--more-->
 
 ##### 断言实例
 1. ``should contain``、``should not contain``、``should contain x times``

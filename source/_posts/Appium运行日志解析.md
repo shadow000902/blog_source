@@ -8,7 +8,7 @@ tags: [appium]
 #### Appium脚本/python代码     //android_simple.py
 
 
-<!--more-->
+  <!--more-->
 
 ```python
 import os

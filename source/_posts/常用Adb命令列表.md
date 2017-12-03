@@ -11,7 +11,7 @@ adb install XXX.apk
 adb install -r XXX.apk
 ```
 
-<!--more-->
+  <!--more-->
 
 2. 卸载APK（如果加 -k 参数，为卸载软件但是保留配置和缓存文件）
 ```bash

@@ -10,7 +10,7 @@ tags: [web.py, 数据库]
 ##### 本地数据库的安装[MySQL](http://dev.mysql.com/downloads/mysql/)
 安装完后，会给出一个默认密码：
 
-<!--more-->
+  <!--more-->
 
 {% asset_img 初始化密码.png 初始化密码 %}
 

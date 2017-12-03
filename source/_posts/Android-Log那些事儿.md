@@ -11,7 +11,7 @@ tags: [android, adb, log]
 logcat -b main -v threadtime > /sdcard/main.log
 ```
 
-<!--more-->
+  <!--more-->
 
 2. 抓取跟 radio/telephony 相关的信息
 ```

@@ -13,7 +13,7 @@ tags: [android-studio, robotium]
 java -classpath 离线安装包位置完整路径 com.intellij.updater.Runner install android-studio安装位置
 ```
 
-<!--more-->
+  <!--more-->
 
 ##### 示例
 

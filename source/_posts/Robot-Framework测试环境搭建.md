@@ -8,7 +8,7 @@ tags: [robot-framework]
 #### 安装python环境。
 由于Robot Framework是基于python2开发的，所以必须选择安装python2版本，不然会造成很多异常，之后需要的一些依赖python2的库也无法安装。这里我选择安装的是[Anaconda2](https://www.continuum.io/downloads)，它自身就包含较多的python库，比较好用。
 
-<!--more-->
+  <!--more-->
 
 #### 安装Appium。如果安装过程中遇到问题，还请看[Appium安装](http://shadow000902.space/2016/03/31/Appium安装/)
 ```bash
@@ -133,4 +133,16 @@ pip install robotframework-selenium2library
 pip install robotframework-databaselibrary
 pip install requests
 pip install PyMySQL
+```
+
+#### 命令行执行RF用例
+```bash
+# 执行整个项目下的所有用例
+pybot /opt/robotframework/
+# 执行某个suite中的所有用例
+pybot /opt/robotframework/rf.robot
+# 执行具体的某个用例
+pybot --test case_1 /opt/robotframework/rf.robot
+# 执行项目中指定标签的用例
+pybot --include tagName /opt/robotframework/
 ```

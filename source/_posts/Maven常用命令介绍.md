@@ -11,7 +11,7 @@ tags: [maven]
 编译源代码,生成对应的CLASS文件
 3. ``mvn package``
 打包,生成JAR文件，只能本程序用，或者拷贝到其它项目使用
-<!--more-->
+  <!--more-->
 
 
 4. ``mvn install -Dmaven.test.skip=ture``

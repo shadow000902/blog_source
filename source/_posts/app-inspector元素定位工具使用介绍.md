@@ -23,7 +23,7 @@ info AppiumDoctor  ✔ emulator exists at: /opt/android-sdk-macosx/tools/emulato
 info AppiumDoctor  ✔ Bin directory of $JAVA_HOME is set
 ```
 
-<!--more-->
+  <!--more-->
 
 ##### 安装app-inspector
 ```bash

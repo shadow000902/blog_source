@@ -15,7 +15,7 @@ sudo apt-get install openssh-server
 ps -ef | grep ssh
 ```
 
-<!--more-->
+  <!--more-->
 
 ##### 如果``ssh``服务没有启动，启动``ssh``服务
 ```

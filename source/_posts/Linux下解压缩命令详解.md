@@ -11,7 +11,7 @@ zip -r mydata.zip mydata        # 压缩mydata文件夹到mydata.zip
 unzip mydata.zip -d mydatabak   # 把mydata.zip解压到mydatabak文件夹中
 ```
 
-<!--more-->
+  <!--more-->
 
 2. tar
 ```

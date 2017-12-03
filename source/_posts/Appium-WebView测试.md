@@ -12,7 +12,7 @@ Set<String> contextNames = driver.getContextHandles();
 System.print(contextNames);
 ```
 
-<!--more-->
+  <!--more-->
 
 结果包含目前所有打开的app
 ```java

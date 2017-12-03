@@ -11,7 +11,7 @@ The following diagram shows what happens for the following code:
 String s = "abcd";
 s = s.concat("ef");
 ```
-<!--more-->
+  <!--more-->
 
 {% asset_img string-immutability.jpeg string-immutability %}
 

@@ -10,7 +10,7 @@ tags: [python]
 本章会介绍 ``turtle`` 模块，它可以让你使用海龟图形（turtle graphics）绘制图像。大部分的Python安装环境下都包含了这个模块，但是如果你是在PythonAnywhere上运行Python的，你将无法运行本章中的代码示例（至少在我写这章时是做不到的）。
 
 
-<!--more-->
+  <!--more-->
 
 如果你已经在自己的电脑上安装了Python，那么不会有问题。如果没有，现在就是安装Python的好时机。我在 http://tinyurl.com/thinkpython2e 这个页面上发布了相关指南。
 

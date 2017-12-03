@@ -11,7 +11,7 @@ tags: [mac, ssh]
 vim ~/.ssh/config
 ```
 
-<!--more-->
+  <!--more-->
 
 把一下内容：
 ``` bash

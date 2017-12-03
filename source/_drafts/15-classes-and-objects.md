@@ -10,7 +10,7 @@ tags: [python]
 程序员定义的类来组织代码和数据。
 面向对象编程是一个很大的话题，讲完需要一些章节。
 
-<!--more-->
+  <!--more-->
 
 
 本章的示例代码可以在\ http://thinkpython2.com/code/Point1.py \ 获取；

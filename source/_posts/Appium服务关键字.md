@@ -29,7 +29,7 @@ tags: [appium]
 |`fullReset`|(iOS) 删除整个模拟器目录。(Android) 通过卸载——而不是清空数据——来重置应用状态。在 Android 上，这也会在会话结束后自动清除被测应用。默认值 `false`|`true`, `false`|
 
 
-<!--more-->
+  <!--more-->
 
 #### Android特有
 

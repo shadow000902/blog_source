@@ -20,7 +20,7 @@ mv *.txt /opt/
 mv /tmp/test0001 /opt/
 ```
 
-<!--more-->
+  <!--more-->
 
 1.4 Renaming files or directory
 ```bash

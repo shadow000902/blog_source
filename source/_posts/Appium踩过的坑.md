@@ -9,7 +9,7 @@ tags: [appium]
 1.1 在case里不要设置app的安装路径，只要设置``desired_caps['appPackage']``（app的包名）和``desired_caps['appActivity']``（启动时的activity）即可
 1.2 在启动appium的时候，加上``--no-reset``参数
 
-<!--more-->
+  <!--more-->
 
 ##### 等待操作
 2.1 尽量不要使用sleep方法

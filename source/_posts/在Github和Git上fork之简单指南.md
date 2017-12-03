@@ -12,7 +12,7 @@ Git教程往往不会解决这个问题，因为它集中篇幅来教你Git命�
 2. Fork只需要很少的Git命令，但是起得作用却非常大。
 3. Fork提供了对Git和GitHub最基础的了解，有益于你之后的工作。
 
-<!--more-->
+  <!--more-->
 
 {% asset_img github.gif github %}
 

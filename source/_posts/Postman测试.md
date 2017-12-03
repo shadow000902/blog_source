@@ -10,7 +10,7 @@ tags: [postman]
 
 {% asset_img chrome中Interceptor设置.png chrome中Interceptor设置 %}
 
-<!--more-->
+  <!--more-->
 
 2. 在postman中设置如图：
 {% asset_img Postman中Interceptor设置.png Postman中Interceptor设置 %}

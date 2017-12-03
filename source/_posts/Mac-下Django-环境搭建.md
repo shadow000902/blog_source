@@ -14,7 +14,7 @@ tags: [django, python, postgresql]
 brew install postgresql -v
 ```
 
-<!--more-->
+  <!--more-->
 
 2.1 初始化数据库
 ```sql

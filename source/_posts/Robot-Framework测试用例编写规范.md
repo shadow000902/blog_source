@@ -10,7 +10,7 @@ tags: [robot-framework]
 Robotframework 的套件名称是直接从文件/目录的名字转换来的。文件的后缀名被去掉了而且下划线会被转换成空格，如果你的用到的单词都是小写的，那么开头字母会被转换成大写的。
 比如 login_test.txt 会被转换成 Login Test, DHCP_and_DNS 会被转换成 DHCP and DNS。
 
-<!--more-->
+  <!--more-->
 
 ##### 测试用例的命名
 表达你需要做什么。

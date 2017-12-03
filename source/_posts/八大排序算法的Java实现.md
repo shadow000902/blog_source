@@ -11,7 +11,7 @@ tags: [java, 排序]
 ![](http://upload-images.jianshu.io/upload_images/196518-49509183dfb68c64.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-<!--more-->
+  <!--more-->
 
 冒泡排序的**算法实现**如下:【排序后，数组从小到大排列】
 

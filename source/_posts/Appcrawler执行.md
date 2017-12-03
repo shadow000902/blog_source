@@ -10,7 +10,7 @@ tags: [appcrawler]
 TaoYi-Mac:~ taoyi$  appium --session-override -p 4730 --no-reset
 ```
 
-<!--more-->
+  <!--more-->
 
 ##### 运行appcrawler，执行测试
 ```bash

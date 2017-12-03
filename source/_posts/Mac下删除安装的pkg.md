@@ -12,7 +12,7 @@ cd ~
 [sudo] bash < <(curl -sL https://raw.github.com/mpapis/pkg_uninstaller/master/pkg-install)
 ```
 
-<!--more-->
+  <!--more-->
 
 2. 加入到环境变量
 ```bash

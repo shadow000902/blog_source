@@ -21,7 +21,7 @@ drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171103124216
 drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171104124212
 ```
 
-<!--more-->
+  <!--more-->
 
 2. shell脚本
 ```bash

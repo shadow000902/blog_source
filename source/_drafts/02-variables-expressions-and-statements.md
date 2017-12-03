@@ -10,7 +10,7 @@ tags: [python]
 赋值语句
 ---------------------
 
-<!--more-->
+  <!--more-->
 
 
 \ **赋值语句（assignment statement）**\ 会新建变量，并为这个变量赋值。

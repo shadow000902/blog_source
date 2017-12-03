@@ -11,7 +11,7 @@ tags: [hexo, github]
 3. 安装github for windows客户端
 4. 安装hexo框架
 
-<!--more-->
+  <!--more-->
 
 #### 开始安装
 ##### 创建一个hexo安装目录，比如：E:/hexo

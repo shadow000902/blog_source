@@ -14,7 +14,7 @@ GitHub上的[下载链接](https://github.com/qpython-android/qpython/releases)
 pip install --pre uiautomator2
 ```
 
-<!--more-->
+  <!--more-->
 
 3. 在手机上安装``app-uiautomator.apk``
 最新版[下载链接](https://github.com/openatx/android-uiautomator-server/releases)
