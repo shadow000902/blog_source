@@ -1,7 +1,7 @@
 ---
 title: Linux下命令行安装配置android-sdk
 date: 2016-07-07 00:05:16
-categories: [LINUX]
+categories: [Linux]
 tags: [sdk, linux]
 ---
 

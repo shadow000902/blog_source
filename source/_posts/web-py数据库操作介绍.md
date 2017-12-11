@@ -1,7 +1,7 @@
 ---
 title: web.py数据库操作介绍
 date: 2017-01-11 20:35:36
-categories: [PYTHON]
+categories: [Python]
 tags: [web.py, 数据库]
 ---
 

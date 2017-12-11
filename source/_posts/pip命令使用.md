@@ -1,7 +1,7 @@
 ---
 title: pip命令使用
 date: 2016-08-08 16:38:38
-categories: [TOOLS]
+categories: [Tools]
 tags: [pip]
 ---
 

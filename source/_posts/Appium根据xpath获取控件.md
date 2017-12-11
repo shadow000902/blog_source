@@ -1,7 +1,7 @@
 ---
 title: Appium根据xpath获取控件
 date: 2016-03-31 18:38:58
-categories: [APPIUM]
+categories: [Appium]
 tags: [appium]
 ---
 

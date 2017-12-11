@@ -1,7 +1,7 @@
 ---
 title: MAC系统空间清理
 date: 2016-11-29 18:03:51
-categories: [TIPS]
+categories: [Tips]
 tags: [mac, ]
 ---
 

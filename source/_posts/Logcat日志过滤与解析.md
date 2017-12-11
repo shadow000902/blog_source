@@ -1,7 +1,7 @@
 ---
 title: Logcat日志过滤与解析
 date: 2016-11-21 00:15:48
-categories: [ANDROID]
+categories: [Android]
 tags: [logcat, adb]
 ---
 

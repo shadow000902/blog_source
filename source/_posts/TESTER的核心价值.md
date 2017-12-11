@@ -1,7 +1,7 @@
 ---
 title: TESTER的核心价值
 date: 2017-12-08 20:04:50
-categories: [TESTTHEORY]
+categories: [TestTheory]
 tags:
 ---
 

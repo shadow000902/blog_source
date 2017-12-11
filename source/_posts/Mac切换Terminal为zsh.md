@@ -1,7 +1,7 @@
 ---
 title: Mac切换Terminal为zsh
 date: 2017-05-18 17:17:39
-categories: [TIPS]
+categories: [Tips]
 tags: [terminal]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: git放弃本地修改直接拉取服务器更新
 date: 2016-05-19 00:44:43
-categories: [TOOLS]
+categories: [Tools]
 tags: [git]
 ---
 

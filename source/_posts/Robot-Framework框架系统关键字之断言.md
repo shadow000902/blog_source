@@ -1,7 +1,7 @@
 ---
 title: Robot-Framework框架系统关键字之断言
 date: 2017-08-28 01:07:24
-categories: [ROBOTFRAMEWORK]
+categories: [RobotFramework]
 tags: [robot-framework]
 ---
 

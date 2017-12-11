@@ -1,7 +1,7 @@
 ---
 title: TESTER面试官
 date: 2017-12-10 00:42:50
-categories: [TESTTHEORY]
+categories: [TestTheory]
 tags:
 ---
 

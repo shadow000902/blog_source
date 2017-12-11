@@ -1,7 +1,7 @@
 ---
 title: Robot-Framework踩坑总结
 date: 2017-05-15 20:16:55
-categories: [ROBOTFRAMEWORK]
+categories: [RobotFramework]
 tags: [robot-framework]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Maven-Web实例从服务器部署到Jenkins集成
 date: 2017-06-24 12:48:41
-categories: [JENKINS]
+categories: [Jenkins]
 tags: [jenkins]
 ---
 

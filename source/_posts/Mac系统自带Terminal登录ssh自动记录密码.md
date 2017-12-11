@@ -1,7 +1,7 @@
 ---
 title: Mac系统自带Terminal登录ssh自动记录密码
 date: 2016-07-12 10:03:45
-categories: [TIPS]
+categories: [Tips]
 tags: [mac, ssh]
 ---
 系统自带终端的ssh是标准的OpenSSH client

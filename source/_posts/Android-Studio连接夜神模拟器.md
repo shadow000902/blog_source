@@ -1,7 +1,7 @@
 ---
 title: Android-Studio连接夜神模拟器
 date: 2016-03-14 12:25:46
-categories: [ANDROID]
+categories: [Android]
 tags: [android-studio]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Jmeter使用知识点
 date: 2016-04-09 17:08:50
-categories: [TOOLS]
+categories: [Tools]
 tags: [jmeter]
 ---
 

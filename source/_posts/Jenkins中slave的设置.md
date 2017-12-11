@@ -1,7 +1,7 @@
 ---
 title: Jenkins中slave的设置
 date: 2017-06-24 13:02:12
-categories: [JENKINS]
+categories: [Jenkins]
 tags: [jenkins]
 ---
 

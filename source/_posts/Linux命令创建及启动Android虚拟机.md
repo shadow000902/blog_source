@@ -1,7 +1,7 @@
 ---
 title: Linux命令创建及启动Android虚拟机
 date: 2016-07-14 23:56:13
-categories: [LINUX]
+categories: [Linux]
 tags: [linux]
 ---
 

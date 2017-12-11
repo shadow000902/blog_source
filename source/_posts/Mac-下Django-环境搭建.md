@@ -1,7 +1,7 @@
 ---
 title: Mac 下Django 环境搭建
 date: 2016-11-03 17:02:10
-categories: [PYTHON]
+categories: [Python]
 tags: [django, python, postgresql]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: appium运行sample-code示例
 date: 2016-03-23 00:09:35
-categories: [APPIUM]
+categories: [Appium]
 tags: [appium]
 ---
 

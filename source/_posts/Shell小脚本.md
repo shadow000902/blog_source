@@ -1,7 +1,7 @@
 ---
 title: Shell小脚本
 date: 2017-11-04 15:51:48
-categories: [TIPS]
+categories: [Tips]
 tags: [shell]
 ---
 

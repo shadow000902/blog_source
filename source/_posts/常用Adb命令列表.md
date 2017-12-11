@@ -1,7 +1,7 @@
 ---
 title: 常用Adb命令列表
 date: 2016-03-16 22:37:41
-categories: [ANDROID]
+categories: [Android]
 tags: [android, adb]
 ---
 

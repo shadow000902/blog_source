@@ -1,7 +1,7 @@
 ---
 title: MAC系统导入HTMLTestRunner
 date: 2016-06-19 17:07:36
-categories: [TIPS]
+categories: [Tips]
 tags: [python, 自动化测试报告]
 ---
 

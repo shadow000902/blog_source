@@ -1,7 +1,7 @@
 ---
 title: 八大排序算法的Python实现
 date: 2017-01-02 16:00:21
-categories: [PYTHON]
+categories: [Python]
 tags: [python, 排序]
 ---
 

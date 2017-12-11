@@ -1,7 +1,7 @@
 ---
 title: Mac下删除安装的pkg
 date: 2017-08-06 13:10:45
-categories: [TIPS]
+categories: [Tips]
 tags: [mac]
 ---
 
