@@ -17,6 +17,8 @@ pybot --test case_1 /opt/robotframework/rf.robot
 pybot --include tagName /opt/robotframework/
 ```
 
+  <!--more-->
+
 ##### IDE设置命令行执行RF用例
 ```bash
 # 执行单条用例
