@@ -134,15 +134,3 @@ pip install robotframework-databaselibrary
 pip install requests
 pip install PyMySQL
 ```
-
-#### 命令行执行RF用例
-```bash
-# 执行整个项目下的所有用例
-pybot /opt/robotframework/
-# 执行某个suite中的所有用例
-pybot /opt/robotframework/rf.robot
-# 执行具体的某个用例
-pybot --test case_1 /opt/robotframework/rf.robot
-# 执行项目中指定标签的用例
-pybot --include tagName /opt/robotframework/
-```
