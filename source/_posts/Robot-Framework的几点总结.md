@@ -22,13 +22,13 @@ pybot --include tagName /opt/robotframework/
 # 执行单条用例
 /usr/local/bin/pybot -d results -t testcase001 ./
 ```
-{% inset_img SingleTestCase.png SingleTestCase %}
+{% asset_img SingleTestCase.png SingleTestCase %}
 
 ```bash
 # 执行单个suite
 /usr/local/bin/pybot -d results testsuite001.robot
 ```
-{% inset_img TestSuite.png TestSuite %}
+{% asset_img TestSuite.png TestSuite %}
 
 ##### 指定RF用例执行后日志的保存位置
 其实上面的``-d``参数就是用来指定Log的保存位置的，默认``-d results``指定日志保存在运行命令的目录的``results``文件夹下。

@@ -136,7 +136,7 @@ drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 3. ``Publish Over SSH``【通过ssh构建项目】
 
 4. ``触发远程构建（例如，使用脚本）``
-{% inset_img 构建触发器_身份验证令牌.png 构建触发器_身份验证令牌 %}
+{% asset_img 构建触发器_身份验证令牌.png 构建触发器_身份验证令牌 %}
 设置身份验证令牌``TOKEN_NAME``，可以随意定义。
 ```bash
 # 默认参数执行远程构建
