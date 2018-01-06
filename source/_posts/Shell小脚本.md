@@ -158,7 +158,7 @@ echo "versionName=${versionName}" > versionName.txt
 ${PROPFILE,file="versionName.txt",property="versionName"}
 ```
 
-##### 获取目录的所以csv文件并合并为一个csv文件
+##### 获取目录的所有csv文件并合并为一个csv文件
 ```bash
 cd /Users/taoyi/git_projects/Gitlab/RF_InterfaceTest
 # 获取./Library/output/api-docs/souche/*/*.csv文件并移动到./Library目录下
@@ -170,4 +170,16 @@ rm -rf ./Library/output
 rm -rf ./Library/*.csv
 
 mv -f together.csv ./Library
+```
+
+##### ``Json``中的字典转化成``Robot-Framework``的参数格式
+```bash
+# ``Json``中的字典转化成``Robot-Framework``的参数格式
+# 先把需要修改的json文本写入文件，再对该文件进行操作
+# 示例："./change_Dict.sh pice"
+
+file_name=$1
+sed -ig 's/":/=/g' $file_name
+sed -ig 's/"//g' $file_name
+sed -ig 's/,/    /g' $file_name
 ```

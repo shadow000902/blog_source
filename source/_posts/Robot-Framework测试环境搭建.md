@@ -53,7 +53,7 @@ try:
     import wx
 ```
 #### 安装ride。
-RIDE 是Robot Framework 测试数据的编辑器。它使测试用例的创建、运行、测试项目的组织可以在图形界面下完成。
+RIDE 是``Robot Framework``测试数据的编辑器。它使测试用例的创建、运行、测试项目的组织可以在图形界面下完成。
 ##### 源码安装。[下载地址](https://pypi.python.org/pypi/robotframework-ride)
 ```bash
 cd .../robotframework-ride/
@@ -63,6 +63,7 @@ python setup.py install
 ```bash
 pip install robotframework-ride
 ```
+最新版本``1.5.2.1``可能会出现闪退的问题，那就需要降级，先卸载该版本，然后下载``1.5.2``版本
 
 #### 命令行启动ride
 ##### Windows
@@ -131,6 +132,8 @@ pip install robotframework-ride
 pip install robotframework-appiumlibrary
 pip install robotframework-selenium2library
 pip install robotframework-databaselibrary
+pip install robotframework-sshlibrary
+pip install robotframework-HttpLibrary
 pip install requests
 pip install PyMySQL
 ```

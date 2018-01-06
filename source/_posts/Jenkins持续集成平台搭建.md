@@ -96,6 +96,9 @@ drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 ##### 好用的Jenkins插件
 
 1. ``Build User Vars Plugin``【获取项目构建人】
+
+插件名称：``user build vars plugin``
+
 变量值表
 <html>
 <body>

@@ -171,10 +171,18 @@ rm -rf 					# 直接删除目录及其中的全部文件，无需确认
 ```bash
 tail -f catalina.out | grep request      # 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件
 ```
-27. scp     # 本地文件传输到服务器
+27. scp     # 本地文件与服务器文件交互
 ```bash
-scp -P 22 /opt/appium1.5.3.zip username@IP:/opt/
+# 从服务器下载文件
+scp username@servername:/remote_path/filename ~/local_destination
+# 上传本地文件到服务器
+scp ~/local_path/local_filename username@servername:/remote_path
+# 从服务器下载整个目录
+scp -r username@servername:/remote_path/remote_dir/ ~/local_destination
+# 上传目录到服务器
+scp  -r ~/local_dir username@servername:/remote_path/remote_dir
 ```
+
 28. sed     #
 ```markdown
 [root@www ~]# sed [-nefr] [动作]
@@ -239,6 +247,8 @@ nl ~/test.txt | sed -e '3,$d' -e 's/bash/blueshell/'       # -e表示多点编�
 ``sed``可以直接修改文件的内容，不必使用管道命令或数据流重导向
 ```bash
 sed -i 's/\.$/\!/g' test.txt                               # 将 test.txt 内每一行结尾若为 . 则换成 ! sed 的『 -i 』选项可以直接修改文件内容
+# 如果 -i 参数不生效的话，需要使用 -ig 参数
+sed -ig's/要被取代的字串/新的字串/g' test.txt
 sed -i '$a # This is a test' test.txt                      # 在 test.txt 最后一行加入『# This is a test』 $代表的是最后一行，而a的动作是新增
 ```
 29. touch           # 创建文件（夹）命令
