@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-hexo clean
-hexo generate
-hexo server
+hexo clean --debug
+hexo generate --debug
+hexo server --debug

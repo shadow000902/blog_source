@@ -102,6 +102,7 @@ drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 插件名称：``user build vars plugin``
 
 变量值表
+{% raw %}
 <html>
 	<body>
 		<table border="1">
@@ -132,11 +133,14 @@ drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 		</table>
 	</body>
 </html>
+{% endraw %}
 
 在jenkins任务中使用构建变量：注意需要勾选 "Set jenkins user build variables."
 
+
 2. ``Naginator``【任务失败重新构建插件】
 在``构建后操作``中选择``Retry build after failure``。``Fixed delay``填写每次重试的时间延迟，单位是秒。``Maximum number of successive failed builds``文本框中填写重试次数。
+
 
 3. ``Publish Over SSH``【通过ssh构建项目】
 

@@ -444,3 +444,12 @@ div.top-purple {
 颜色可选: red | blue | yellow | green | purple
 </div>
 ```
+
+#### 解决``Hexo``中的``markdown``文档使用HTML标签多出空行的问题
+```markdown
+# 表格开始前加
+{% raw %}
+html tags & content
+# 表格结尾后加
+{% endraw %}
+```
