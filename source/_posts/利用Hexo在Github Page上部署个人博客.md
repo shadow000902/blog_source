@@ -174,6 +174,52 @@ cd node_modules/hexo-generator-baidu-sitemap/
 npm install
 ```
 
+##### ``hexo generate``报错处理
+```bash
+# taoyi @ taoyi-mac in ~/git_projects/GitHub/blog_source on git:master x [18:11:36] 
+$ hexo generate
+(node:51431) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.
+INFO  Start processing
+FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
+Error: Cannot find module 'highlight.js/lib/languages/shell'
+    at Function.Module._resolveFilename (module.js:555:15)
+    at Function.Module._load (module.js:482:25)
+    at Module.require (module.js:604:17)
+    at require (internal/module.js:11:18)
+    at loadLanguage (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/node_modules/hexo-util/lib/highlight.js:93:31)
+    at tryLanguage (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/node_modules/hexo-util/lib/highlight.js:100:3)
+    at highlight (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/node_modules/hexo-util/lib/highlight.js:136:8)
+    at highlightUtil (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/node_modules/hexo-util/lib/highlight.js:22:14)
+    at /Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/lib/plugins/filter/before_post_render/backtick_code_block.js:62:15
+    at String.replace (<anonymous>)
+    at Hexo.backtickCodeBlock (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/lib/plugins/filter/before_post_render/backtick_code_block.js:15:31)
+    at Hexo.tryCatcher (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/util.js:16:23)
+    at Hexo.<anonymous> (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/method.js:15:34)
+    at /Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/lib/extend/filter.js:68:35
+    at tryCatcher (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/util.js:16:23)
+    at Object.gotValue (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/reduce.js:145:18)
+    at Object.gotAccum (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/reduce.js:134:25)
+    at Object.tryCatcher (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/promise.js:502:31)
+    at Promise._settlePromise (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/promise.js:559:18)
+    at Promise._settlePromiseCtx (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/promise.js:596:10)
+    at Async._drainQueue (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/async.js:143:12)
+    at Async._drainQueues (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/async.js:148:10)
+    at Immediate.Async.drainQueues [as _onImmediate] (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:773:18)
+    at tryOnImmediate (timers.js:734:5)
+    at processImmediate [as _immediateCallback] (timers.js:711:5)
+```
+
+解决方法：安装``highlight.js``
+```bash
+npm install highlight.js
+```
+
+
+
+
+
 ##### ERROR Asset render failed: lib/canvas-ribbon/canvas-ribbon.js
 这个错主要是安装了 JS 压缩的插件引起的
 所以要做的就是卸载所有相关的插件。
@@ -212,4 +258,140 @@ npm uninstall uglify-js
 <span class="post-count">{{ min2read(post.content) }}</span>
 # 总字数统计
 <span class="post-count">{{ totalcount(site, '0,0.0a') }}</span>
+```
+
+##### 增加文章的宽度
+编辑``blog_source/themes/next/source/css/_variables/custom.styl``文件，加入如下代码：
+
+```yaml
+// 修改成你期望的宽度
+$content-desktop = 800px
+// 当视窗超过 1600px 后的宽度
+$content-desktop-large = 1000px
+```
+
+##### 文本内容上色
+```yaml
+<span class="inline-span red">red</span>
+<span class="inline-span blue">blue</span>
+<span class="inline-span yellow">yellow</span>
+<span class="inline-span green">green</span>
+<span class="inline-span purple">purple</span>
+```
+示例：<span class="inline-span red">red</span>、<span class="inline-span blue">blue</span>、<span class="inline-span yellow">yellow</span>、<span class="inline-span green">green</span>、<span class="inline-span purple">purple</span>
+
+##### 文本段落上色
+编辑``blog_source/themes/next/source/css/_custom/custom.styl``文件，加入如下代码即可：
+
+```styl
+span.inline-span {
+    display:inline;
+    padding:.3em .4em;
+    font-size:80%;
+    font-weight:bold;
+    line-height:1;
+    color:#fff;
+    text-align:center;
+    white-space:nowrap;
+    vertical-align:baseline;
+    border-radius:.2em;
+    margin: auto .5em;
+}
+span.yellow { 
+    background-color: #f0ad4e;
+}
+span.green {
+    background-color: #5cb85c;
+}
+span.blue {
+    background-color: #2780e3;
+}
+span.purple {
+    background-color: #9954bb;
+}
+span.red {
+    background-color: #df3e3e;
+}
+div.div-border {   
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+div.left-red {
+    border-left-width: 5px;
+    border-left-color: #df3e3e;
+}
+div.left-yellow {
+    border-left-width: 5px;
+    border-left-color: #f0ad4e;
+}
+div.left-green {
+    border-left-width: 5px;
+    border-left-color: #5cb85c;
+}
+div.left-blue {
+    border-left-width: 5px;
+    border-left-color: #2780e3;
+}
+div.left-purple {
+    border-left-width: 5px;
+    border-left-color: #9954bb;
+}
+div.right-red {
+    border-right-width: 5px;
+    border-right-color: #df3e3e;
+}
+div.right-yellow {
+    border-right-width: 5px;
+    border-right-color: #f0ad4e;
+}
+div.right-green {
+    border-right-width: 5px;
+    border-right-color: #5cb85c;
+}
+div.right-blue {
+    border-right-width: 5px;
+    border-right-color: #2780e3;
+}
+div.right-purple {
+    border-right-width: 5px;
+    border-right-color: #9954bb;
+}
+div.top-red {
+    border-top-width: 5px;
+    border-top-color: #df3e3e;
+}
+div.top-yellow {
+    border-top-width: 5px;
+    border-top-color: #f0ad4e;
+}
+div.top-green {
+    border-top-width: 5px;
+    border-top-color: #5cb85c;
+}
+div.top-blue {
+    border-top-width: 5px;
+    border-top-color: #2780e3;
+}
+div.top-purple {
+    border-top-width: 5px;
+    border-top-color: #9954bb;
+}
+```
+示例：
+<div class="div-border left-red">
+这是边框带颜色的文本段落
+位置可选: left | right | top
+颜色可选: red | blue | yellow | green | purple
+</div>
+
+实现代码：
+```markdown
+<div class="div-border left-red">
+这是边框带颜色的文本段落
+位置可选: left | right | top
+颜色可选: red | blue | yellow | green | purple
+</div>
 ```

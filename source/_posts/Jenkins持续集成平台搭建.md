@@ -33,6 +33,7 @@ mkdir /opt/Jenkins/script
                     2>&1 &
 ```
 
+
 ```bash
 # 设置编码格式
 -Dfile.encoding=UTF-8
@@ -50,7 +51,8 @@ mkdir /opt/Jenkins/script
 2>&1 &
 ```
 新建脚本文件存放脚本``startJenkins.sh``，放到``script``目录下。
-执行脚本```
+执行脚本
+
 ```bash
 # 赋予可执行权限
 chmod a+x startJenkins.sh
@@ -101,34 +103,34 @@ drwxr-xr-x   3 taoyi  wheel   102B  8 16 01:44 workspace
 
 变量值表
 <html>
-<body>
-<table border="1">
-<tr>
-``<th>Variable</th>
-``<th>Description</th>
-</tr>
-<tr>
-``<td>BUILD_USER</td>
-``<td>Full name (first name + last name) </td>
-</tr>
-<tr>
-``<td>BUILD_USER_EMAIL</td>
-``<td>Email address</td>
-</tr>
-<tr>
-``<td>BUILD_USER_FIRST_NAME</td>
-``<td>First name</td>
-</tr>
-<tr>
-``<td>BUILD_USER_ID</td>
-``<td>Jenkins user ID</td>
-</tr>
-<tr>
-``<td>BUILD_USER_LAST_NAME</td>
-``<td>Last name</td>
-</tr>
-</table>
-</body>
+	<body>
+		<table border="1">
+			<tr>
+				<th>Variable</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>BUILD_USER</td>
+				<td>Full name (first name + last name) </td>
+			</tr>
+			<tr>
+				<td>BUILD_USER_EMAIL</td>
+				<td>Email address</td>
+			</tr>
+			<tr>
+				<td>BUILD_USER_FIRST_NAME</td>
+				<td>First name</td>
+			</tr>
+			<tr>
+				<td>BUILD_USER_ID</td>
+				<td>Jenkins user ID</td>
+			</tr>
+			<tr>
+				<td>BUILD_USER_LAST_NAME</td>
+				<td>Last name</td>
+			</tr>
+		</table>
+	</body>
 </html>
 
 在jenkins任务中使用构建变量：注意需要勾选 "Set jenkins user build variables."
