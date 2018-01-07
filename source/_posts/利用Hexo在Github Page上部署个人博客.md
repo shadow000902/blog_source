@@ -216,8 +216,57 @@ Error: Cannot find module 'highlight.js/lib/languages/shell'
 npm install highlight.js
 ```
 
-
-
+##### 解决``fs.SyncWriteStream``报错问题
+调试找出问题出现点
+```bash
+# taoyi @ taoyi-mac in ~/git_projects/GitHub/blog_source on git:master x [18:57:19] 
+$ hexo clean --debug                  
+10:57:38.353 DEBUG Hexo version: 3.4.4
+10:57:38.356 DEBUG Working directory: ~/git_projects/GitHub/blog_source/
+10:57:38.577 DEBUG Config loaded: ~/git_projects/GitHub/blog_source/_config.yml
+10:57:38.642 DEBUG Plugin loaded: hexo-algolia
+10:57:38.644 DEBUG Plugin loaded: hexo-algoliasearch
+10:57:38.779 DEBUG Plugin loaded: hexo-clean-css
+10:57:38.792 DEBUG Plugin loaded: hexo-deployer-git
+(node:55696) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.
+10:57:38.796 DEBUG Plugin loaded: hexo-fs
+10:57:38.816 DEBUG Plugin loaded: hexo-cli
+10:57:38.824 DEBUG Plugin loaded: hexo-generator-baidu-sitemap
+10:57:38.829 DEBUG Plugin loaded: hexo-generator-archive
+10:57:38.831 DEBUG Plugin loaded: hexo-generator-category
+10:57:38.879 DEBUG Plugin loaded: hexo-generator-feed
+10:57:38.881 DEBUG Plugin loaded: hexo-generator-index
+10:57:38.882 DEBUG Plugin loaded: hexo-generator-tag
+10:57:38.910 DEBUG Plugin loaded: hexo-generator-seo-friendly-sitemap
+10:57:38.919 DEBUG Plugin loaded: hexo-html-minifier
+10:57:38.922 DEBUG Plugin loaded: hexo-generator-sitemap
+10:57:38.924 DEBUG Plugin loaded: hexo-renderer-ejs
+10:57:38.948 DEBUG Plugin loaded: hexo-renderer-marked
+10:57:38.976 DEBUG Plugin loaded: hexo-renderer-stylus
+10:57:39.078 DEBUG Plugin loaded: hexo-server
+10:57:39.170 DEBUG Plugin loaded: hexo-wordcount
+10:57:39.177 DEBUG Script loaded: themes/next-5/scripts/tags/button.js
+10:57:39.180 DEBUG Script loaded: themes/next-5/scripts/merge-configs.js
+10:57:39.180 DEBUG Script loaded: themes/next-5/scripts/tags/center-quote.js
+10:57:39.183 DEBUG Script loaded: themes/next-5/scripts/merge.js
+10:57:39.183 DEBUG Script loaded: themes/next-5/scripts/tags/full-image.js
+10:57:39.183 DEBUG Script loaded: themes/next-5/scripts/tags/label.js
+10:57:39.184 DEBUG Script loaded: themes/next-5/scripts/tags/lazy-image.js
+10:57:39.184 DEBUG Script loaded: themes/next-5/scripts/tags/note.js
+10:57:39.185 DEBUG Script loaded: themes/next-5/scripts/tags/group-pictures.js
+10:57:39.200 DEBUG Script loaded: themes/next-5/scripts/tags/exturl.js
+10:57:39.201 DEBUG Script loaded: themes/next-5/scripts/tags/tabs.js
+10:57:39.203 INFO  Deleted database.
+10:57:39.205 DEBUG Database saved
+```
+由此可以看出，问题出现在``hexo-deployer-git``中，在其中搜索：
+```bash
+# taoyi @ taoyi-mac in ~/git_projects/GitHub/blog_source on git:master x [19:01:51] 
+$ grep -irn "SyncWriteStream" ./node_modules/hexo-deployer-git/  
+./node_modules/hexo-deployer-git//node_modules/hexo-fs/lib/fs.js:718:// exports.SyncWriteStream = fs.SyncWriteStream;
+```
+可以看到是``./node_modules/hexo-deployer-git//node_modules/hexo-fs/lib/fs.js``文件的第718行用到，直接编辑文件注释掉该行就可以解决问题，不会再报错了。
+hexo命令中，可以通过``--debug``参数看下详细的运行记录，从而定位问题。
 
 
 ##### ERROR Asset render failed: lib/canvas-ribbon/canvas-ribbon.js
@@ -234,7 +283,7 @@ npm uninstall uglify-js
 ```
 卸载该插件后，60篇博客，部署时间大概在30s左右，generate时间在10~20s，比之前的5~6min好了不知道多少。
 
-##### 文章加密
+#### 文章加密
 ```javascript
 <script>
 	if("123456"==prompt("Please input password"))
@@ -249,7 +298,7 @@ npm uninstall uglify-js
 </script>
 ```
 
-##### 文章字数统计
+#### 文章字数统计
 主要代码：
 ```bash
 # 字数统计
@@ -260,7 +309,7 @@ npm uninstall uglify-js
 <span class="post-count">{{ totalcount(site, '0,0.0a') }}</span>
 ```
 
-##### 增加文章的宽度
+#### 增加文章的宽度
 编辑``blog_source/themes/next/source/css/_variables/custom.styl``文件，加入如下代码：
 
 ```yaml
@@ -270,7 +319,7 @@ $content-desktop = 800px
 $content-desktop-large = 1000px
 ```
 
-##### 文本内容上色
+#### 文本内容上色
 ```yaml
 <span class="inline-span red">red</span>
 <span class="inline-span blue">blue</span>
@@ -280,7 +329,7 @@ $content-desktop-large = 1000px
 ```
 示例：<span class="inline-span red">red</span>、<span class="inline-span blue">blue</span>、<span class="inline-span yellow">yellow</span>、<span class="inline-span green">green</span>、<span class="inline-span purple">purple</span>
 
-##### 文本段落上色
+#### 文本段落上色
 编辑``blog_source/themes/next/source/css/_custom/custom.styl``文件，加入如下代码即可：
 
 ```styl
