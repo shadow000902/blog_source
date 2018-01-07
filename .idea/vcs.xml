@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.deploy_git" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/themes/next" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/next-5" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/themes/next-6" vcs="Git" />
   </component>
 </project>
