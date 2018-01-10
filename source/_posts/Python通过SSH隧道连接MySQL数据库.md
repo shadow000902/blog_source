@@ -34,6 +34,8 @@ tags: [ssh]
 		return data
 ```
 
+<!--more-->
+
 #### 方式二：通过``paramiko``模块
 ```python
 	def con_sshDb(self, sql):
