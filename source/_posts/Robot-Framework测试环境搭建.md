@@ -134,6 +134,8 @@ pip install robotframework-selenium2library
 pip install robotframework-databaselibrary
 pip install robotframework-sshlibrary
 pip install robotframework-HttpLibrary
+pip install robotframework-difflibrary
 pip install requests
 pip install PyMySQL
+pip install MySQL-python
 ```

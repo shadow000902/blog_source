@@ -117,6 +117,10 @@ grep -e shadow -e shadows /etc/hosts
 ```bash
 grep -c -f shadow /etc/hosts
 ```
+8.12
+```bash
+grep -irn "SyncWriteStream" ./node_modules/hexo-deployer-git/
+```
 
 9. unzip
 
