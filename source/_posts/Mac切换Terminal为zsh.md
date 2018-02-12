@@ -21,10 +21,14 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 ##### 更新新的配置文件
 如果有些环境变量配置在``~/.bash_profile``的话，需要在新的配置里进行刷新
 ```bash
+vim ~/.zshrc
+```
+
+```bash
 ...
 export ZSH=~/.oh-my-zsh/
 ...
-ZSH_THEME="fino-time"                   # 设置选择的主题。默认是robbyrussell
+ZSH_THEME="ys"                   # 设置选择的主题。默认是robbyrussell
 ...
 ...
 source $ZSH/oh-my-zsh.sh
@@ -67,3 +71,15 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 ```
 这样后，就完美了，不会再有这个报错了。
+
+##### 安装第三方插件
+1. 安装``zsh-syntax-highlighting``插件
+```bash
+cd ~/.oh-my-zsh/
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+```
+然后编辑环境变量文件``~/.zshrc``，在其中加入插件名称
+```bash
+# plugins=(git)
+plugin=(git zsh-syntax-highlighting)
+```

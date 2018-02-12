@@ -83,9 +83,12 @@ adb forward tcp:5555 tcp:8000
 ```
 16. 查看最上层的Activity名字
 ```bash
-adb shell dumpsys activity | grep "mFocusedActivity"                        # linux
-adb shell dumpsys activity | findstr "mFocusedActivity"                     # windows
-adb shell dumpsys window windows | grep -E "mCurrentFlcus|mFocuseApp"       # windows
+# Linux
+adb shell dumpsys activity | grep "mFocusedActivity"
+adb shell "dumpsys window w| grep \/|grep name=|sed 's/mSurface=Surface(name=//g'|sed 's/)//g'|sed 's/ //g'"
+# Windows
+adb shell dumpsys activity | findstr "mFocusedActivity"
+adb shell dumpsys window windows | grep -E "mCurrentFlcus|mFocuseApp"
 ```
 17. 抓取重启的log
 ```bash
@@ -132,15 +135,15 @@ adb shell dumpsys battery
 ```bash
 adb reboot bootloader
 ```
-27. 获取系统中安装的系统应用包名列表
+27. **获取系统中安装的系统应用包名列表**
 ```bash
 adb shell pm list packages -s
 ```
-28. 获取系统中安装的第三方应用包名列表
+28. **获取系统中安装的第三方应用包名列表**
 ```bash
 adb shell pm list packages -3
 ```
-29. 模糊查询应用包名
+29. **模糊查询应用包名**
 ```bash
 adb shell pm list packages qq
 ```
@@ -164,11 +167,4 @@ adb shell dumpsys window displays
 [dalvik.vm.heapstartsize]: [16m]
 ➜  ~ adb shell getprop | grep dalvik.vm.heapsize            		# 单个java虚拟机最大的内存限制
 [dalvik.vm.heapsize]: [512m]
-```
-34. 服务器（远程）文件上传下载
-```bash
-scp username@servername:/path/filename /tmp/local_destination		# 下载文件
-scp -r username@servername:remote_dir/ /tmp/local_dir				# 下载文件夹
-scp /path/local_filename username@servername:/path					# 上传文件
-scp  -r /tmp/local_dir username@servername:remote_dir				# 上传文件夹
 ```

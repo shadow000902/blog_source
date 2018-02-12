@@ -16,18 +16,33 @@ mkdir /opt/Jenkins/tmp
 mkdir /opt/Jenkins/script
 ```
 
+2. 设置``jenkins``主目录
+第一种方法是使用WEB容器工具设置``JENKINS_HOME``环境参数。
+```bash
+打开tomcat的bin目录，编辑catalina.sh文件。
+在# OS specific support.  $var _must_ be set to either true or false.上面添加：export JENKINS_HOME=""
+在引号中填入你的路径。
+```
+第二种是在环境变量中设置``JENKINS_HOME``。
+```bash
+# 编辑对应用户的终端的环境变量设置文件
+编辑profile文件：vim ~/.bashrc
+在最后加入：export JENKINS_HOME="/home/souche/jenkins/Home"
+```
+
   <!--more-->
 
-2. 下载``jenkins.war``
+3. 下载``jenkins.war``
 [下载地址](https://jenkins.io/download/)
 把下载的``war``包放入``/opt/Jenkins``目录下
 
-3. 编写启动脚本
+4. 编写启动脚本
 ```bash
 /usr/bin/java -Dfile.encoding=UTF-8 \
                     -XX:PermSize=256m -XX:MaxPermSize=512m -Xms256m -Xmx512m \
                     -Djava.io.tmpdir=/opt/Jenkins/tmp \
                     -jar /opt/Jenkins/jenkins.war \
+                    --httpListenAddress=127.0.0.1 \
                     --httpPort=8080 \
                     >> /opt/Jenkins/nohup.out \
                     2>&1 &
@@ -60,7 +75,7 @@ chmod a+x startJenkins.sh
 ./startJenkins.sh
 ```
 
-4. ``Jenkins``主目录介绍
+5. ``Jenkins``主目录介绍
 ```bash
 # jenkins主配置文件
 -rw-r--r--   1 taoyi  wheel   1.6K  8 16 01:43 config.xml
@@ -154,7 +169,7 @@ JENKINS_URL/job/JOB_NAME/build?token=TOKEN_NAME
 JENKINS_URL/job/JOB_NAME/buildWithParameters?token=TOKEN_NAME&params1=params1&...
 ```
 
-2. 常用插件汇总
+5. 常用插件汇总
 ``Build Environment Plugin``构建环境插件，可以进行构建环境比较。
 ``Build Flow Plugin``工作流插件，支持DSL脚本定义工作流
 ``Build Graph View Plugin``build Flow插件视图（安装后需要重新才能生效）

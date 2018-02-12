@@ -160,16 +160,18 @@ ${PROPFILE,file="versionName.txt",property="versionName"}
 
 ##### 获取目录的所有csv文件并合并为一个csv文件
 ```bash
-cd /Users/taoyi/git_projects/Gitlab/RF_InterfaceTest
-# 获取./Library/output/api-docs/souche/*/*.csv文件并移动到./Library目录下
-mv -f ./Library/*/*/*/*/*.csv ./Library 
+interface=$1
+# 进入脚本所在的位置
+cd /Users/taoyi/git_projects/Gitlab/RF_InterfaceTest/Library/处理接口文档
+# 获取./output/api-docs/souche/*/*.csv文件并移动到./CSV目录下
+mv -f ./*/*/*/*/*.csv ./CSV/
 # 把所有的csv文件合并为一个together.csv文件
-cat ./Library/*.csv > together.csv
-
-rm -rf ./Library/output
-rm -rf ./Library/*.csv
-
-mv -f together.csv ./Library
+cat ./CSV/*.csv > ./$interface.csv
+# 删除中间的处理文件
+rm -rf ./output
+rm -rf ./CSV/*.csv
+# 在第一行下加入表头行
+#sed -ig "" '1i\属于哪个服务,属于哪个suite,对应RF接口名称\n' ./together.csv
 ```
 
 ##### ``Json``中的字典转化成``Robot-Framework``的参数格式
@@ -183,3 +185,75 @@ sed -ig 's/":/=/g' $file_name
 sed -ig 's/"//g' $file_name
 sed -ig 's/,/    /g' $file_name
 ```
+
+##### 简单的服务器部署脚本
+```bash
+#!/bin/bash
+
+set -o errexit
+set -o xtrace
+
+dir_project_home="/home/souche/projects/topgear"
+dir_tomcat_home="/home/souche/tomcats/12001_topgear-test"
+file_war="*.war"
+file_catalina_out=${dir_tomcat_home}"/logs/catalina.out"
+
+echo "----update code from git begin"
+cd ${dir_project_home}
+git reset --hard
+git pull
+branch=$1
+if [ ! -n "$branch" ];
+then
+    git checkout master
+else
+    git checkout $branch
+fi
+echo "----update code from git end"
+
+echo "----build project begin"
+cd ${dir_project_home}
+# mvn config:load -Denv=DEV-STABLE -Dtoken=O6eq7WSKlC
+mvn clean install  -DskipTests=true
+echo "----build project end"
+
+echo "----shutdown tomcat"
+ps auxwww | grep java | grep ${dir_tomcat_home} | awk '{print $2}' | xargs kill -9 2>/dev/null;
+sleep 1s
+
+echo "----reset war file"
+rm -rf ${dir_tomcat_home}/webapps/ROOT;
+rm -rf ${dir_tomcat_home}/webapps/ROOT.war;
+cp -r ${dir_project_home}/topgear-web/target/$file_war ${dir_tomcat_home}/webapps/ROOT.war
+
+echo "----start tomcat"
+sh ${dir_tomcat_home}/bin/startup.sh;
+
+cd ${dir_tomcat_home}/logs
+tail -f catalina.out
+```
+
+##### 自动部署服务器应用
+```bash
+server_tomcat=$1    # server_tomcat 比如：12001_topgear-test
+git_repo=$2         # git_repo 比如：topgear
+nu=$3               # nu 比如：01
+
+tar -xvf apache-tomcat-9.0.4.tar.gz
+mv apache-tomcat-9.0.4 ${server_tomcat}
+cp 12001_topgear-test/deploy.sh ${server_tomcat}
+cp 12001_topgear-test/conf/server.xml ${server_tomcat}/conf/server.xml
+
+# 使用sed命令时，如果
+sed -ig "s/11001/110${nu}/g" ./${server_tomcat}/conf/server.xml
+sed -ig "s/12001/120${nu}/g" ./${server_tomcat}/conf/server.xml
+sed -ig "s/13001/130${nu}/g" ./${server_tomcat}/conf/server.xml
+sed -ig "s/14001/140${nu}/g" ./${server_tomcat}/conf/server.xml
+sed -ig "s/15001/150${nu}/g" ./${server_tomcat}/conf/server.xml
+
+sed -ig "s/topgear\"/${git_repo}\"/g" ./${server_tomcat}/deploy.sh
+sed -ig "s/12001_topgear-test/${server_tomcat}/g" ./${server_tomcat}/deploy.sh
+sed -ig "s/topgear-web/${git_repo}-web/g" ./${server_tomcat}/deploy.sh
+sed -ig 's/mvn config:load/# mvn config:load/g' ./${server_tomcat}/deploy.sh
+```
+Sed后面的表达式一般用单引号引起来``'``，当需要使用**变量**时就换用双引号``"``。
