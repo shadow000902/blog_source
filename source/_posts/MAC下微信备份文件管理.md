@@ -7,6 +7,9 @@ tags: [微信]
 
 #### 备份文件位置
 {% asset_img 备份与恢复.png 备份与恢复 %}
+
+<!--more-->
+
 默认情况下，手机端聊天记录在备份后，备份记录会被储存在如下目录：
 ```bash
 /Users/taoyi/Library/Containers/com.tencent.xinWeChat/Data/Library/Application\ Support/com.tencent.xinWeChat/2.0b4.0.9/Backup/
