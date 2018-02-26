@@ -16,6 +16,8 @@ text.upper()
 text.lower()
 ```
 
+  <!--more-->
+
 2. 对list进行排序
 ```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
@@ -81,4 +83,29 @@ print(user2 not in banned_users)
 # 返回false
 print(user1 not in banned_users)
 print(user2 in banned_users)
+```
+
+8. ``if``判断条件为``list``注意点
+在判断条件为``list``时，如果``list``为空，即记过为``false``，只有在``list``有一个元素时，才为``true``。
+```python
+requested_toppings = []
+
+if requested_toppings:
+    print('requested_toppings not empty')
+else:
+    print('requested_toppings is empty')
+```
+这里实际执行的就是``else``中的语句，因为``requested_toppings``是空的，返回的``false``。
+
+9. 多个``list``判断
+```python
+available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']
+requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
+
+for requested_topping in requested_toppings:
+    if requested_topping in available_toppings:
+        print("Adding " + requested_topping + ".")
+    else:
+        print("Sorry, we don't have " + requested_topping + ".")
+    print("\nFinished making your pizza!")
 ```

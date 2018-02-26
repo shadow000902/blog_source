@@ -233,8 +233,11 @@ cd ${dir_tomcat_home}/logs
 tail -f catalina.out
 ```
 
-##### 自动部署服务器应用
+##### **自动部署服务器应用**
 ```bash
+# 执行脚本：
+# ./new_server.sh server_tomcat git_repo nu
+
 server_tomcat=$1    # server_tomcat 比如：12001_topgear-test
 git_repo=$2         # git_repo 比如：topgear
 nu=$3               # nu 比如：01

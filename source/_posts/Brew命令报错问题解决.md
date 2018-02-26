@@ -14,7 +14,7 @@ git: error: unable to find utility "git", not a developer tool or in PATH
 clang: error: unable to find utility "clang", not a developer tool or in PATH
 ```
 
-<!--more-->
+  <!--more-->
 
 原因主要是因为``xcode-select``的位置错误，需要修改指向的位置：
 原来的位置：

@@ -20,7 +20,7 @@ print(open("file1.txt"))
 fo.close() #关闭之后数据才写到文件 中  
 ```
 
-<!--more-->
+  <!--more-->
 
 #### 读文件
 ```python
