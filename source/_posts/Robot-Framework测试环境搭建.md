@@ -125,17 +125,8 @@ defaults write com.apple.versioner.python Prefer-32-Bit -bool yes
 pip install robotframework-ride==1.5.2
 ```
 
-##### 所有的安装内容
-```bash
-pip install robotframework
-pip install robotframework-ride
-pip install robotframework-appiumlibrary
-pip install robotframework-selenium2library
-pip install robotframework-databaselibrary
-pip install robotframework-sshlibrary
-pip install robotframework-HttpLibrary
-pip install robotframework-difflibrary
-pip install requests
-pip install PyMySQL
-pip install MySQL-python
-```
+##### 切换使用``pyenv``来管理python环境后，``ride.py``无法启动
+因为安装的``ride.py``在启动时，调用了虚拟环境的``python``，但是虚拟环境的python无法启动GUI界面，所以如果需要使用``ride.py``的GUI界面，就需要从系统python安装的``ride.py``去启动。
+这样就需要使用系统的``pip``，也就是``/usr/local/bin/``目录下的``pip``来安装``ride.py``。
+然后通过``/usr/local/bin/ride.py``来启动``ride.py``。
+

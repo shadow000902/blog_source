@@ -58,6 +58,8 @@ mkdir /opt/Jenkins/script
 -Djava.io.tmpdir=/opt/Jenkins/tmp
 # 指定执行的war包
 -jar /opt/Jenkins/jenkins.war
+# 指定本地IP，可能是127.0.0.1，也可能是内网对应的IP
+--httpListenAddress=127.0.0.1
 # 指定本地端口
 --httpPort=8080
 # 指定Jenkins运行日志输出位置

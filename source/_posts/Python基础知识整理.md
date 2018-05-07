@@ -6,86 +6,68 @@ tags: [python]
 ---
 
 #### 基础方法
-1. 字符串大小写转换
+  字符串大小写转换
 ```python
-# 首字母转大写
-text.title()
-# 字符串转大写
-text.upper()
-# 字符串转小写
-text.lower()
+text.title()                # 首字母转大写
+text.upper()                # 字符串转大写
+text.lower()                # 字符串转小写
 ```
 
   <!--more-->
 
-2. 对list进行排序
+ 对list进行排序
 ```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
-# 临时性字母正序排列
-print(sorted(cars))
-# 临时性字母倒叙排列
-print(sorted(cars, reverse=True)
-# 永久性字母正序排列
-cars.sort()
-# 永久性字母倒叙排列
-cars.sort(reverse=True)
-# 默认排序
-print(cars)
+print(sorted(cars))                             # 临时性字母正序排列
+print(sorted(cars, reverse=True)                # 临时性字母倒叙排列
+cars.sort()                                     # 永久性字母正序排列
+cars.sort(reverse=True)                         # 永久性字母倒叙排列
+print(cars)                                     # 默认排序
 ```
 
-3. 访问list元素
+  访问list元素
 ```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
-# 访问第一个元素
-print(cars[0])
-# 访问倒数第一个元素，即list最后一个元素
+print(cars[0])                                  # 访问第一个元素
 # 当访问的list长度总是会变的情况下，可以使用这种方式访问list最后一个元素
-print(cars[-1])
+print(cars[-1])                                 # 访问倒数第一个元素，即list最后一个元素
 ```
 
-4. list中增删元素
+  list中增删元素
 ```python
 motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
-# 根据值删除元素
 too_expensive = 'ducati'
-motorcycles.remove(too_expensive)
-# 增加元素，元素增加到末尾
-motorcycles.append(too_expensive)
-# 指定位置插入元素
-motorcycles.insert(0, too_expensive)
-# 删除指定位置元素
-del motorcycles[1]
-# 取出list中的最后一个元素
-motorcycles.pop()
+motorcycles.remove(too_expensive)               # 根据值删除元素
+motorcycles.append(too_expensive)               # 增加元素，元素增加到末尾
+motorcycles.insert(0, too_expensive)            # 指定位置插入元素
+del motorcycles[1]                              # 删除指定位置元素
+motorcycles.pop()                               # 取出list中的最后一个元素
 print(motorcycles)
 ```
 
-5. 获取list长度
+  获取list长度
 ```python
 len(cars)
 ```
 
-6. 复制list
+  复制list
 ```python
 my_foods = ['pizza', 'falafel', 'carrot cake'] 
-# 复制整个列表以 [:] 来表示
-friend_foods = my_foods[:]
+friend_foods = my_foods[:]                      # 复制整个列表以 [:] 来表示
 ```
 
-7. 检查特定值是否在list中
+  检查特定值是否在list中
 ```python
 banned_users = ['andrew', 'carolina', 'david']
 user1 = 'andrew'
 user2 = 'and'
-# 返回true
-print(user1 in banned_users)
-print(user2 not in banned_users)
-# 返回false
-print(user1 not in banned_users)
-print(user2 in banned_users)
+print(user1 in banned_users)                    # 返回true
+print(user2 not in banned_users)                # 返回true
+print(user1 not in banned_users)                # 返回false
+print(user2 in banned_users)                    # 返回false
 ```
 
-8. ``if``判断条件为``list``注意点
+  ``if``判断条件为``list``注意点
 在判断条件为``list``时，如果``list``为空，即记过为``false``，只有在``list``有一个元素时，才为``true``。
 ```python
 requested_toppings = []
@@ -97,7 +79,7 @@ else:
 ```
 这里实际执行的就是``else``中的语句，因为``requested_toppings``是空的，返回的``false``。
 
-9. 多个``list``判断
+  多个``list``判断
 ```python
 available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']
 requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
@@ -109,3 +91,86 @@ for requested_topping in requested_toppings:
         print("Sorry, we don't have " + requested_topping + ".")
     print("\nFinished making your pizza!")
 ```
+
+  使用函数``range()``
+```python
+for value in range(1, 5):                       # 生成有序数值
+    print(value)                                # 它只会打印4个数值，最后一个数值不会打印
+num = list(range(1, 6))                         # 创建数值列表
+print(num)                                      # 结果：[1, 2, 3, 4, 5]
+
+even_num = list(range(2, 11, 2))                # 使用range()还可以指定步长
+print(even_num)                                 # 结果：[2, 4, 6, 8, 10]
+```
+
+  对数值列表执行简单的统计计算
+```python
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+min(digits)                                     # 取最小值
+max(digits)                                     # 取最大值
+sum(digits)                                     # 求总和
+```
+
+  **列表解析**
+# 复杂模式1
+```python
+squares = []
+for value in range(1, 11):
+    square = value**2
+    squares.append(square)
+print(squares)
+```
+# 较复杂模式2
+```python
+squares = []
+for value in range(1, 11):
+    squares.append(value**2)
+print(squares)
+```
+# 列表解析
+```python
+squares = [value**2 for value in range(1,11)]
+print(squares)
+```
+
+
+
+
+  ``tuple``
+
+  ``dict``
+
+  grades['']
+
+13. 是否可迭代``Iterable``
+
+14. 类似一个概念，实例才是可被CPU操作的，真实存在的东西。
+
+```python
+class People():
+    def __init__(self):
+        pass
+    def have_some_food(self):
+        print('Delicious!')
+        
+    def hava_a_drink(self):
+        print('Thanks!')
+
+if __name__ == '__main__':
+    me = People()
+    you = People()
+    me.have_some_food()
+    me.hava_a_drink()
+```
+
+15. 封装  访问限制
+
+强制__init__(self, name, come_from)的属性不能被修改：
+    __name
+    __come_from
+    
+16. 封装 将类的属性私有化
+
+17. 继承 
+
+18. 多态 多种状态，接口多种不同实现方式即为多态
