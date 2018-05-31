@@ -453,3 +453,49 @@ html tags & content
 # 表格结尾后加
 {% endraw %}
 ```
+
+#### ``npm``第三方模块升级
+局部模块管理
+```bash
+npm outdated        # 列出当前目录下的第三方模块
+```
+
+```bash
+npm install hexo            # 升级当前目录下的hexo
+```
+该方法只能单个升级模块
+
+``npm``高效升级插件``npm-check-updates``安装：
+```bash
+npm install -g npm-check-updates
+```
+使用：
+```bash
+ncu                         # 同``npm-check-updates``命令
+```
+返回结果：
+```bash
+$ ncu
+Using /Users/taoyi/git_projects/GitHub/blog_source/package.json
+⸨░░░░░░░░░░░░░░░░░░⸩ ⠴ :
+ hexo-algolia                          ^0.1.1  →  ^1.2.5
+ hexo-algoliasearch                    ^0.2.3  →  ^0.3.0
+ hexo-clean-css                         0.0.2  →   0.0.3
+ hexo-deployer-git                     ^0.1.0  →  ^0.3.1
+ hexo-generator-seo-friendly-sitemap   0.0.19  →  0.0.21
+ hexo-html-minifier                     0.0.1  →   0.0.2
+ hexo-renderer-ejs                     ^0.2.0  →  ^0.3.1
+ hexo-renderer-marked                 ^0.2.10  →  ^0.3.2
+ hexo-server                           ^0.2.2  →  ^0.3.2
+
+The following dependencies are satisfied by their declared version range, but the installed versions are behind. You can install the latest versions without modifying your package file by using npm update. If you want to update the dependencies in your package file anyway, run ncu -a.
+
+ hexo-fs                       ^0.2.2  →  ^0.2.3
+ hexo-generator-baidu-sitemap  ^0.1.1  →  ^0.1.2
+
+Run ncu with -u to upgrade package.json
+```
+升级所有的包：
+```bash
+ncu -a
+```
