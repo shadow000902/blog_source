@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '0HPI7IYB5V',
+      apiKey: 'c41b4c8f05b63867c231cd2ef194a34f',
+      indexName: 'Hexo_search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="删除目录下的除今天外的所有文件夹 目录下的文件夹规律【年月日时分秒】 12345678910# taoyi @ TaoYi-Mac in ~/Desktop/test0001 [15:54:29] $ lltotal 0drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171027121219drwxr-xr-x  3 taoyi  staff   1">
+<meta name="keywords" content="shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell小脚本">
+<meta property="og:url" content="http://shadow000902.space/2017/11/04/Shell小脚本/index.html">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="删除目录下的除今天外的所有文件夹 目录下的文件夹规律【年月日时分秒】 12345678910# taoyi @ TaoYi-Mac in ~/Desktop/test0001 [15:54:29] $ lltotal 0drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171027121219drwxr-xr-x  3 taoyi  staff   1">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-02-26T10:45:30.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shell小脚本">
+<meta name="twitter:description" content="删除目录下的除今天外的所有文件夹 目录下的文件夹规律【年月日时分秒】 12345678910# taoyi @ TaoYi-Mac in ~/Desktop/test0001 [15:54:29] $ lltotal 0drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171027121219drwxr-xr-x  3 taoyi  staff   1">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shadow'S Site" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://shadow000902.space/2017/11/04/Shell小脚本/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Shell小脚本 | Shadow'S Site</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18711495-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-18711495-2');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b2e7edb34a402c6fa45e71e2a2456518";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shadow'S Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2017/11/04/Shell小脚本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Shell小脚本
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-11-04 15:51:48" itemprop="dateCreated datePublished" datetime="2017-11-04T15:51:48+08:00">2017-11-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-02-26 18:45:30" itemprop="dateModified" datetime="2018-02-26T18:45:30+08:00">2018-02-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tips/" itemprop="url" rel="index"><span itemprop="name">Tips</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/04/Shell小脚本/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count hc-comment-count" data-xid="2017/11/04/Shell小脚本/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2017/11/04/Shell小脚本/" class="leancloud_visitors" data-flag-title="Shell小脚本">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="删除目录下的除今天外的所有文件夹"><a href="#删除目录下的除今天外的所有文件夹" class="headerlink" title="删除目录下的除今天外的所有文件夹"></a>删除目录下的除今天外的所有文件夹</h5><ol>
+<li><p>目录下的文件夹规律【年月日时分秒】</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># taoyi @ TaoYi-Mac in ~/Desktop/test0001 [15:54:29] </span></span><br><span class="line">$ ll</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171027121219</span><br><span class="line">drwxr-xr-x  3 taoyi  staff   102B 11  3 18:30 20171101124273</span><br><span class="line">drwxr-xr-x  3 taoyi  staff   102B 11  3 18:29 20171102124212</span><br><span class="line">drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171103121216</span><br><span class="line">drwxr-xr-x  3 taoyi  staff   102B 11  3 18:29 20171103124211</span><br><span class="line">drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171103124216</span><br><span class="line">drwxr-xr-x  2 taoyi  staff    68B 11  3 18:29 20171104124212</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+</li>
+<li><p>shell脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 目录下的所有文件夹名称写入文件``dir``</span></span><br><span class="line">ls -l /Users/taoyi/Desktop/test0001/ | awk <span class="string">'/^d/ &#123;print $NF&#125;'</span> &gt; /Users/taoyi/Desktop/test0001/dir</span><br><span class="line"></span><br><span class="line"><span class="comment"># `date +%Y%m%d`，获取当天的年月日</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(grep -v `date +%Y%m%d` /Users/taoyi/Desktop/test0001/dir)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="comment"># 删除目录下的文件夹</span></span><br><span class="line">    rm -rf /Users/taoyi/Desktop/test0001/<span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除零时写入的文件``dir``</span></span><br><span class="line">rm -rf /Users/taoyi/Desktop/test0001/dir</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="kill指定name的pid"><a href="#kill指定name的pid" class="headerlink" title="kill指定name的pid"></a>kill指定name的pid</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># kill指定name的pid</span></span><br><span class="line"><span class="comment"># 示例："./kill_pidname.sh jhost"</span></span><br><span class="line"></span><br><span class="line">pid_name=<span class="variable">$1</span></span><br><span class="line">ps -ef | grep -v grep | grep <span class="variable">$pid_name</span> | <span class="keyword">while</span> <span class="built_in">read</span> username pid other</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">kill</span> -9 <span class="variable">$pid</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h5 id="adb截图导出并展示"><a href="#adb截图导出并展示" class="headerlink" title="adb截图导出并展示"></a>adb截图导出并展示</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调用安卓系统内部截图命令screencap截图保存</span></span><br><span class="line">adb shell /system/bin/screencap -p /sdcard/screenshot.jpg</span><br><span class="line"><span class="comment"># 导出图片到本地目录</span></span><br><span class="line">adb pull /sdcard/screenshot.jpg ~/shell-tools/ScreenShots/</span><br><span class="line"><span class="comment"># 打开图片</span></span><br><span class="line">open ~/shell-tools/ScreenShots/screenshot.jpg</span><br></pre></td></tr></table></figure>
+<h5 id="android打包并安装"><a href="#android打包并安装" class="headerlink" title="android打包并安装"></a>android打包并安装</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /Users/taoyi/git_projects/Gitlab/androidclientnative/</span><br><span class="line">git checkout develop</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line">rm -rf /Users/taoyi/git_projects/Gitlab/androidclientnative/app/build/</span><br><span class="line">rm -rf /Users/taoyi/shell-tools/APK/*.apk</span><br><span class="line"></span><br><span class="line">gradle clean assembleFengcheBeta</span><br><span class="line"><span class="comment"># gradle clean assembleFengchePreview</span></span><br><span class="line"><span class="comment"># gradle clean assembleFengcheRelease</span></span><br><span class="line"></span><br><span class="line">cp -rf /Users/taoyi/git_projects/Gitlab/androidclientnative/app/build/outputs/apk/beta/*.apk /Users/taoyi/shell-tools/APK/</span><br><span class="line">adb uninstall com.souche.fengche</span><br><span class="line">adb install /Users/taoyi/shell-tools/APK/*.apk</span><br></pre></td></tr></table></figure>
+<h5 id="Shell脚本解析xml文件字段"><a href="#Shell脚本解析xml文件字段" class="headerlink" title="Shell脚本解析xml文件字段"></a>Shell脚本解析xml文件字段</h5><p>示例文件内容<code>build.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parameters</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hudson.model.StringParameterValue</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>SCHEME<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>scheme configuration of this project StoreCI<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>Coding_iOS<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">hudson.model.StringParameterValue</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hudson.model.StringParameterValue</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>CONFIGURATION<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>configuration of packing, Release/Debug<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>Release<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">hudson.model.StringParameterValue</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hudson.model.StringParameterValue</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>OUTPUT_FOLDER<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>output folder for build artifacts, it is located in workspace/project root dir.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>build_outputs<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">hudson.model.StringParameterValue</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">hudson.model.StringParameterValue</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>BRANCH<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>git repository branch<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>master<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">hudson.model.StringParameterValue</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parameters</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">causeBag</span> <span class="attr">class</span>=<span class="string">"linked-hash-map"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">entry</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hudson.model.Cause_-UserIdCause</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">userId</span>&gt;</span>shadow<span class="tag">&lt;/<span class="name">userId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">hudson.model.Cause_-UserIdCause</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">int</span>&gt;</span>1<span class="tag">&lt;/<span class="name">int</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">entry</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">causeBag</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取&lt;userId&gt;shadow&lt;/userId&gt;中的shadow</span></span><br><span class="line">sed -n <span class="string">'s/.*&gt;\(.*\)&lt;\/userId&gt;/\1/p'</span> <span class="variable">$JENKINS_HOME</span>/<span class="built_in">jobs</span>/<span class="variable">$JOB_NAME</span>/builds/<span class="variable">$BUILD_NUMBER</span>/build.xml</span><br><span class="line"><span class="comment"># 获取&lt;userId&gt;shadow&lt;/userId&gt;中的shadow，赋值给userId</span></span><br><span class="line"><span class="comment"># 使用位置：Jenkins获取构建人</span></span><br><span class="line">userId=(`sed -n <span class="string">'s/.*&gt;\(.*\)&lt;\/userId&gt;/\1/p'</span> <span class="variable">$JENKINS_HOME</span>/<span class="built_in">jobs</span>/<span class="variable">$JOB_NAME</span>/builds/<span class="variable">$BUILD_NUMBER</span>/build.xml`)</span><br></pre></td></tr></table></figure>
+<h5 id="Shell脚本获取文本特定字段"><a href="#Shell脚本获取文本特定字段" class="headerlink" title="Shell脚本获取文本特定字段"></a>Shell脚本获取文本特定字段</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取log文件第一行中，``[0m``字符后面的所有字符</span></span><br><span class="line">head -1 <span class="variable">$JENKINS_HOME</span>/<span class="built_in">jobs</span>/<span class="variable">$JOB_NAME</span>/builds/<span class="variable">$BUILD_NUMBER</span>/<span class="built_in">log</span> | awk -F <span class="string">'\\[0m'</span> <span class="string">'&#123;print $NF&#125;'</span></span><br></pre></td></tr></table></figure>
+<h5 id="Jenkins获取构建人，并赋值到变量并使用"><a href="#Jenkins获取构建人，并赋值到变量并使用" class="headerlink" title="Jenkins获取构建人，并赋值到变量并使用"></a>Jenkins获取构建人，并赋值到变量并使用</h5><p>取值<code>shell</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">head -1 <span class="variable">$JENKINS_HOME</span>/<span class="built_in">jobs</span>/<span class="variable">$JOB_NAME</span>/builds/<span class="variable">$BUILD_NUMBER</span>/<span class="built_in">log</span> | awk -F <span class="string">'\\[0m'</span> <span class="string">'&#123;print $NF&#125;'</span> &gt; userId</span><br><span class="line"><span class="built_in">read</span> userId &lt; userId</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"userId=<span class="variable">$&#123;userId&#125;</span>"</span> &gt; userId.txt</span><br></pre></td></tr></table></figure></p>
+<p><code>set Build Name</code>中加入构建人<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROPFILE,file="userId.txt",property="userId"&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="Jenkins获取安卓APP版本号并赋值给变量并使用"><a href="#Jenkins获取安卓APP版本号并赋值给变量并使用" class="headerlink" title="Jenkins获取安卓APP版本号并赋值给变量并使用"></a>Jenkins获取安卓APP版本号并赋值给变量并使用</h5><p>取值<code>shell</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">versionName=`cat app/gradle.properties | grep <span class="string">'VERSION_NAME'</span> | cut -d <span class="string">'='</span> -f 2 `</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"versionName=<span class="variable">$&#123;versionName&#125;</span>"</span> &gt; versionName.txt</span><br></pre></td></tr></table></figure></p>
+<p><code>set Build Name</code>中加入安卓APP版本号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;PROPFILE,file="versionName.txt",property="versionName"&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="获取目录的所有csv文件并合并为一个csv文件"><a href="#获取目录的所有csv文件并合并为一个csv文件" class="headerlink" title="获取目录的所有csv文件并合并为一个csv文件"></a>获取目录的所有csv文件并合并为一个csv文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">interface=<span class="variable">$1</span></span><br><span class="line"><span class="comment"># 进入脚本所在的位置</span></span><br><span class="line"><span class="built_in">cd</span> /Users/taoyi/git_projects/Gitlab/RF_InterfaceTest/Library/处理接口文档</span><br><span class="line"><span class="comment"># 获取./output/api-docs/souche/*/*.csv文件并移动到./CSV目录下</span></span><br><span class="line">mv -f ./*/*/*/*/*.csv ./CSV/</span><br><span class="line"><span class="comment"># 把所有的csv文件合并为一个together.csv文件</span></span><br><span class="line">cat ./CSV/*.csv &gt; ./<span class="variable">$interface</span>.csv</span><br><span class="line"><span class="comment"># 删除中间的处理文件</span></span><br><span class="line">rm -rf ./output</span><br><span class="line">rm -rf ./CSV/*.csv</span><br><span class="line"><span class="comment"># 在第一行下加入表头行</span></span><br><span class="line"><span class="comment">#sed -ig "" '1i\属于哪个服务,属于哪个suite,对应RF接口名称\n' ./together.csv</span></span><br></pre></td></tr></table></figure>
+<h5 id="Json中的字典转化成Robot-Framework的参数格式"><a href="#Json中的字典转化成Robot-Framework的参数格式" class="headerlink" title="Json中的字典转化成Robot-Framework的参数格式"></a><code>Json</code>中的字典转化成<code>Robot-Framework</code>的参数格式</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ``Json``中的字典转化成``Robot-Framework``的参数格式</span></span><br><span class="line"><span class="comment"># 先把需要修改的json文本写入文件，再对该文件进行操作</span></span><br><span class="line"><span class="comment"># 示例："./change_Dict.sh pice"</span></span><br><span class="line"></span><br><span class="line">file_name=<span class="variable">$1</span></span><br><span class="line">sed -ig <span class="string">'s/":/=/g'</span> <span class="variable">$file_name</span></span><br><span class="line">sed -ig <span class="string">'s/"//g'</span> <span class="variable">$file_name</span></span><br><span class="line">sed -ig <span class="string">'s/,/    /g'</span> <span class="variable">$file_name</span></span><br></pre></td></tr></table></figure>
+<h5 id="简单的服务器部署脚本"><a href="#简单的服务器部署脚本" class="headerlink" title="简单的服务器部署脚本"></a>简单的服务器部署脚本</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -o errexit</span><br><span class="line"><span class="built_in">set</span> -o xtrace</span><br><span class="line"></span><br><span class="line">dir_project_home=<span class="string">"/home/souche/projects/topgear"</span></span><br><span class="line">dir_tomcat_home=<span class="string">"/home/souche/tomcats/12001_topgear-test"</span></span><br><span class="line">file_war=<span class="string">"*.war"</span></span><br><span class="line">file_catalina_out=<span class="variable">$&#123;dir_tomcat_home&#125;</span><span class="string">"/logs/catalina.out"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"----update code from git begin"</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;dir_project_home&#125;</span></span><br><span class="line">git reset --hard</span><br><span class="line">git pull</span><br><span class="line">branch=<span class="variable">$1</span></span><br><span class="line"><span class="keyword">if</span> [ ! -n <span class="string">"<span class="variable">$branch</span>"</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    git checkout master</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    git checkout <span class="variable">$branch</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"----update code from git end"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"----build project begin"</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;dir_project_home&#125;</span></span><br><span class="line"><span class="comment"># mvn config:load -Denv=DEV-STABLE -Dtoken=O6eq7WSKlC</span></span><br><span class="line">mvn clean install  -DskipTests=<span class="literal">true</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"----build project end"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"----shutdown tomcat"</span></span><br><span class="line">ps auxwww | grep java | grep <span class="variable">$&#123;dir_tomcat_home&#125;</span> | awk <span class="string">'&#123;print $2&#125;'</span> | xargs <span class="built_in">kill</span> -9 2&gt;/dev/null;</span><br><span class="line">sleep 1s</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"----reset war file"</span></span><br><span class="line">rm -rf <span class="variable">$&#123;dir_tomcat_home&#125;</span>/webapps/ROOT;</span><br><span class="line">rm -rf <span class="variable">$&#123;dir_tomcat_home&#125;</span>/webapps/ROOT.war;</span><br><span class="line">cp -r <span class="variable">$&#123;dir_project_home&#125;</span>/topgear-web/target/<span class="variable">$file_war</span> <span class="variable">$&#123;dir_tomcat_home&#125;</span>/webapps/ROOT.war</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"----start tomcat"</span></span><br><span class="line">sh <span class="variable">$&#123;dir_tomcat_home&#125;</span>/bin/startup.sh;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;dir_tomcat_home&#125;</span>/logs</span><br><span class="line">tail -f catalina.out</span><br></pre></td></tr></table></figure>
+<h5 id="自动部署服务器应用"><a href="#自动部署服务器应用" class="headerlink" title="自动部署服务器应用"></a><strong>自动部署服务器应用</strong></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行脚本：</span></span><br><span class="line"><span class="comment"># ./new_server.sh server_tomcat git_repo nu</span></span><br><span class="line"></span><br><span class="line">server_tomcat=<span class="variable">$1</span>    <span class="comment"># server_tomcat 比如：12001_topgear-test</span></span><br><span class="line">git_repo=<span class="variable">$2</span>         <span class="comment"># git_repo 比如：topgear</span></span><br><span class="line">nu=<span class="variable">$3</span>               <span class="comment"># nu 比如：01</span></span><br><span class="line"></span><br><span class="line">tar -xvf apache-tomcat-9.0.4.tar.gz</span><br><span class="line">mv apache-tomcat-9.0.4 <span class="variable">$&#123;server_tomcat&#125;</span></span><br><span class="line">cp 12001_topgear-test/deploy.sh <span class="variable">$&#123;server_tomcat&#125;</span></span><br><span class="line">cp 12001_topgear-test/conf/server.xml <span class="variable">$&#123;server_tomcat&#125;</span>/conf/server.xml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用sed命令时，如果</span></span><br><span class="line">sed -ig <span class="string">"s/11001/110<span class="variable">$&#123;nu&#125;</span>/g"</span> ./<span class="variable">$&#123;server_tomcat&#125;</span>/conf/server.xml</span><br><span class="line">sed -ig <span class="string">"s/12001/120<span class="variable">$&#123;nu&#125;</span>/g"</span> ./<span class="variable">$&#123;server_tomcat&#125;</span>/conf/server.xml</span><br><span class="line">sed -ig <span class="string">"s/13001/130<span class="variable">$&#123;nu&#125;</span>/g"</span> ./<span class="variable">$&#123;server_tomcat&#125;</span>/conf/server.xml</span><br><span class="line">sed -ig <span class="string">"s/14001/140<span class="variable">$&#123;nu&#125;</span>/g"</span> ./<span class="variable">$&#123;server_tomcat&#125;</span>/conf/server.xml</span><br><span class="line">sed -ig <span class="string">"s/15001/150<span class="variable">$&#123;nu&#125;</span>/g"</span> ./<span class="variable">$&#123;server_tomcat&#125;</span>/conf/server.xml</span><br><span class="line"></span><br><span class="line">sed -ig <span class="string">"s/topgear\"/<span class="variable">$&#123;git_repo&#125;</span>\"/g"</span> ./<span class="variable">$&#123;server_tomcat&#125;</span>/deploy.sh</span><br><span class="line">sed -ig <span class="string">"s/12001_topgear-test/<span class="variable">$&#123;server_tomcat&#125;</span>/g"</span> ./<span class="variable">$&#123;server_tomcat&#125;</span>/deploy.sh</span><br><span class="line">sed -ig <span class="string">"s/topgear-web/<span class="variable">$&#123;git_repo&#125;</span>-web/g"</span> ./<span class="variable">$&#123;server_tomcat&#125;</span>/deploy.sh</span><br><span class="line">sed -ig <span class="string">'s/mvn config:load/# mvn config:load/g'</span> ./<span class="variable">$&#123;server_tomcat&#125;</span>/deploy.sh</span><br></pre></td></tr></table></figure>
+<p>Sed后面的表达式一般用单引号引起来<code>&#39;</code>，当需要使用<strong>变量</strong>时就换用双引号<code>&quot;</code>。</p>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>shadow</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://shadow000902.space/2017/11/04/Shell小脚本/" title="Shell小脚本">http://shadow000902.space/2017/11/04/Shell小脚本/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/Robot-Framework框架系统关键字之断言/" rel="next" title="Robot-Framework框架系统关键字之断言">
+                <i class="fa fa-chevron-left"></i> Robot-Framework框架系统关键字之断言
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/04/安卓无线ADB连接/" rel="prev" title="安卓无线ADB连接">
+                安卓无线ADB连接 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591af85feb91bba8" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+            
+              <p class="site-author-name" itemprop="name">shadow</p>
+              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#删除目录下的除今天外的所有文件夹"><span class="nav-number">1.</span> <span class="nav-text">删除目录下的除今天外的所有文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kill指定name的pid"><span class="nav-number">2.</span> <span class="nav-text">kill指定name的pid</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#adb截图导出并展示"><span class="nav-number">3.</span> <span class="nav-text">adb截图导出并展示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#android打包并安装"><span class="nav-number">4.</span> <span class="nav-text">android打包并安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Shell脚本解析xml文件字段"><span class="nav-number">5.</span> <span class="nav-text">Shell脚本解析xml文件字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Shell脚本获取文本特定字段"><span class="nav-number">6.</span> <span class="nav-text">Shell脚本获取文本特定字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Jenkins获取构建人，并赋值到变量并使用"><span class="nav-number">7.</span> <span class="nav-text">Jenkins获取构建人，并赋值到变量并使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Jenkins获取安卓APP版本号并赋值给变量并使用"><span class="nav-number">8.</span> <span class="nav-text">Jenkins获取安卓APP版本号并赋值给变量并使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取目录的所有csv文件并合并为一个csv文件"><span class="nav-number">9.</span> <span class="nav-text">获取目录的所有csv文件并合并为一个csv文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Json中的字典转化成Robot-Framework的参数格式"><span class="nav-number">10.</span> <span class="nav-text">Json中的字典转化成Robot-Framework的参数格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简单的服务器部署脚本"><span class="nav-number">11.</span> <span class="nav-text">简单的服务器部署脚本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自动部署服务器应用"><span class="nav-number">12.</span> <span class="nav-text">自动部署服务器应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 90954, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 90954, xid: "2017/11/04/Shell小脚本/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/90954/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz", "4rSep9EijQDvdmVi5cPCzgxz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

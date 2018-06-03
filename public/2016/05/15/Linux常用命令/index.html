@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '0HPI7IYB5V',
+      apiKey: 'c41b4c8f05b63867c231cd2ef194a34f',
+      indexName: 'Hexo_search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="mv1.1 Moving files1mv test0001.txt /opt/   1.2 Moving multiple files12mv test0001.txt test0002.txt /opt/mv *.txt /opt/ 1.3 Moving directory1mv /tmp/test0001 /opt/">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令">
+<meta property="og:url" content="http://shadow000902.space/2016/05/15/Linux常用命令/index.html">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="mv1.1 Moving files1mv test0001.txt /opt/   1.2 Moving multiple files12mv test0001.txt test0002.txt /opt/mv *.txt /opt/ 1.3 Moving directory1mv /tmp/test0001 /opt/">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-02-09T10:38:11.165Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux常用命令">
+<meta name="twitter:description" content="mv1.1 Moving files1mv test0001.txt /opt/   1.2 Moving multiple files12mv test0001.txt test0002.txt /opt/mv *.txt /opt/ 1.3 Moving directory1mv /tmp/test0001 /opt/">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shadow'S Site" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://shadow000902.space/2016/05/15/Linux常用命令/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux常用命令 | Shadow'S Site</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18711495-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-18711495-2');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b2e7edb34a402c6fa45e71e2a2456518";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shadow'S Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/05/15/Linux常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux常用命令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-05-15 16:31:42" itemprop="dateCreated datePublished" datetime="2016-05-15T16:31:42+08:00">2016-05-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-02-09 18:38:11" itemprop="dateModified" datetime="2018-02-09T18:38:11+08:00">2018-02-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/05/15/Linux常用命令/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count hc-comment-count" data-xid="2016/05/15/Linux常用命令/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/05/15/Linux常用命令/" class="leancloud_visitors" data-flag-title="Linux常用命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>mv<br>1.1 Moving files<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv test0001.txt /opt/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>1.2 Moving multiple files<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv test0001.txt test0002.txt /opt/</span><br><span class="line">mv *.txt /opt/</span><br></pre></td></tr></table></figure></p>
+<p>1.3 Moving directory<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /tmp/test0001 /opt/</span><br></pre></td></tr></table></figure></p>
+  <a id="more"></a>
+<p>1.4 Renaming files or directory<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv test0001.txt test0002.txt</span><br></pre></td></tr></table></figure></p>
+<p>1.5 Renaming directory<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv test0001 test0002</span><br></pre></td></tr></table></figure></p>
+<p>1.6 Print what happen<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv -v *.txt /opt/</span><br></pre></td></tr></table></figure></p>
+<p>1.7 Using interactive mode<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv -i *.txt /opt/</span><br></pre></td></tr></table></figure></p>
+<p>1.8 Using update option<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv -uv *.txt /opt/</span><br></pre></td></tr></table></figure></p>
+<p>1.9 Do not overwrite any existing file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv -vn *.txt /opt/</span><br></pre></td></tr></table></figure></p>
+<p>1.10 Create backup when copying<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv -bv *.txt /opt/</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://linoxide.com/linux-command/mv-command-linux/" target="_blank" rel="noopener">10 Practical mv Command Examples</a></p>
+<ol start="2">
+<li><p>cp(copy)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r /opt/android/tools /opt/      <span class="comment"># -r 复制文件夹</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ps(process status)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep tomcat</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>kill</p>
+</li>
+<li><p>shutdown</p>
+</li>
+<li><p>swatch(simple watcher)</p>
+</li>
+<li><p>top</p>
+</li>
+<li><p>grep<br>8.1 在文件中查找单词</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep shadow /etc/hosts</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>8.2 在多个文件中查找单词<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep shadow /etc/hosts /etc/hosts1</span><br></pre></td></tr></table></figure></p>
+<p>8.3 列出包含指定单词的文件的文件名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -l shadow /etc/hosts /etc/hosts1 /etc/hosts2 /etc/hosts3</span><br></pre></td></tr></table></figure></p>
+<p>8.4 在文件中查找指定单词并显示匹配行的行号<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n shadow /etc/hosts /etc/hosts1</span><br></pre></td></tr></table></figure></p>
+<p>8.5 输出不包含指定单词的行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -v shadow /etc/hosts</span><br></pre></td></tr></table></figure></p>
+<p>8.6 输出所有以指定单词开头的行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep ^ shadow /etc/hosts</span><br></pre></td></tr></table></figure></p>
+<p>8.7 输出所有以指定单词结尾的行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep shadow$ /etc/hosts</span><br></pre></td></tr></table></figure></p>
+<p>8.8 参数递归地查找指定单词<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -r shadow /etc/hosts</span><br></pre></td></tr></table></figure></p>
+<p>8.9 查找文件中所有的空行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep ^$ /etc/hosts</span><br></pre></td></tr></table></figure></p>
+<p>8.10 同时查找多个单词<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -e shadow -e shadows /etc/hosts</span><br></pre></td></tr></table></figure></p>
+<p>8.11 计算匹配到的单词的数量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -c -f shadow /etc/hosts</span><br></pre></td></tr></table></figure></p>
+<p>8.12<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -irn <span class="string">"SyncWriteStream"</span> ./node_modules/hexo-deployer-git/</span><br></pre></td></tr></table></figure></p>
+<ol start="9">
+<li><p>unzip</p>
+</li>
+<li><p>tar(tape archive)</p>
+</li>
+<li><p>diff</p>
+</li>
+<li><p>git</p>
+</li>
+<li><p>cat</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一次显示整个文件:cat filename</span><br><span class="line">从键盘创建一个文件:cat &gt; filename 只能创建新文件,不能编辑已有文件.</span><br><span class="line">将几个文件合并为一个文件:cat file1 file2 &gt; file</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>13.1 <em>合并文件</em><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat *.csv &gt; all-in-one.csv														<span class="comment"># 合并多个CSV文件，不考虑顺序</span></span><br><span class="line">cat file1.csv file2.csv file3.csv ... file[n].csv &gt; all-in-one.csv				<span class="comment"># 合并多个CSV文件，考虑顺序</span></span><br></pre></td></tr></table></figure></p>
+<ol start="14">
+<li><p>chmod(change mode)    # 更改文件／文件夹权限</p>
+</li>
+<li><p>chown(change owner)   # 更改文件／文件夹所有者</p>
+</li>
+<li><p>cd(change directory)  # 进入某目录</p>
+</li>
+<li><p>df(disk free)</p>
+</li>
+<li><p>dirs</p>
+</li>
+<li><p>du(disk usage)</p>
+</li>
+<li><p>ls(list)</p>
+</li>
+<li><p>mkdir(make directories)</p>
+</li>
+<li><p>rm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm -f 					<span class="comment"># 直接删除文件，无需确认</span></span><br><span class="line">rm -r 					<span class="comment"># 删除文件夹，需要确认</span></span><br><span class="line">rm -rf 					<span class="comment"># 直接删除目录及其中的全部文件，无需确认</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>fdisk</p>
+</li>
+<li><p>telnet</p>
+</li>
+<li><p>ifconfig</p>
+</li>
+<li><p>tail</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f catalina.out | grep request      <span class="comment"># 查看Linux服务器实时日志，catalina.out为服务器实时记录日志的文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>scp     # 本地文件与服务器文件交互</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从服务器下载文件</span></span><br><span class="line">scp username@servername:/remote_path/filename ~/local_destination</span><br><span class="line"><span class="comment"># 上传本地文件到服务器</span></span><br><span class="line">scp ~/local_path/local_filename username@servername:/remote_path</span><br><span class="line"><span class="comment"># 从服务器下载整个目录</span></span><br><span class="line">scp -r username@servername:/remote_path/remote_dir/ ~/local_destination</span><br><span class="line"><span class="comment"># 上传目录到服务器</span></span><br><span class="line">scp  -r ~/local_dir username@servername:/remote_path/remote_dir</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sed     #</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]# sed [-nefr] [动作]</span><br><span class="line">选项与参数：</span><br><span class="line">-n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。</span><br><span class="line">-e ：直接在命令列模式上进行 sed 的动作编辑；</span><br><span class="line">-f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；</span><br><span class="line">-r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)</span><br><span class="line">-i ：直接修改读取的文件内容，而不是输出到终端。</span><br><span class="line"></span><br><span class="line">动作说明： [n1[,n2]]function</span><br><span class="line">n1, n2 ：不见得会存在，一般代表『选择进行动作的行数』，举例来说，如果我的动作是需要在 10 到 20 行之间进行的，则『 10,20[动作行为] 』</span><br><span class="line"></span><br><span class="line">function：</span><br><span class="line">a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～</span><br><span class="line">c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</span><br><span class="line">d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</span><br><span class="line">i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</span><br><span class="line">p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～</span><br><span class="line">s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>28.1 以行为单位删除<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nl ~/test.txt | sed <span class="string">'2,5d'</span>                         <span class="comment"># 删除2～5行</span></span><br><span class="line">nl ~/test.txt | sed <span class="string">'2d'</span>                           <span class="comment"># 删除第2行</span></span><br><span class="line">nl ~/test.txt | sed <span class="string">'3,$d'</span>                         <span class="comment"># 删除3到最后一行</span></span><br></pre></td></tr></table></figure></p>
+<p>28.2 以行为单位新增<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nl ~/test.txt | sed <span class="string">'2a drink tea'</span>                 <span class="comment"># 在第二行后即第三行加上“drink tea”</span></span><br><span class="line">nl ~/test.txt | sed <span class="string">'2i drink tea'</span>                 <span class="comment"># 在第二行前即第二行加上“drink tea”</span></span><br><span class="line">nl ~/test.txt | sed <span class="string">'2a drink tea or ......\'</span>      <span class="comment"># 在第二行后加上两行，每一行之间都必须要以反斜杠『 \ 』来进行新行的添加</span></span><br></pre></td></tr></table></figure></p>
+<p>28.3 以行为单位替换<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nl ~/test.txt | sed <span class="string">'2,5c No 2-5 number'</span>           <span class="comment"># 将第2-5行的内容取代成为『No 2-5 number</span></span><br><span class="line">nl ~/test.txt | sed -n <span class="string">'5,7p'</span>                      <span class="comment"># 列出 ~/test.txt 文件内的第 5-7 行</span></span><br></pre></td></tr></table></figure></p>
+<p>28.4 数据的搜索并显示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nl ~/test.txt | sed <span class="string">'/root/p'</span>                      <span class="comment"># 如果root找到，除了输出所有行，还会输出匹配行</span></span><br><span class="line">nl ~/test.txt | sed -n <span class="string">'/root/p'</span>                   <span class="comment"># 只打印包含root的行</span></span><br></pre></td></tr></table></figure></p>
+<p>28.5 数据的搜索并删除<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nl ~/test.txt | sed <span class="string">'/root/d'</span>                      <span class="comment"># 删除包含root的行，其他行输出</span></span><br></pre></td></tr></table></figure></p>
+<p>28.6 数据的搜索并执行命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nl ~/test.txt | sed -n <span class="string">'/root/&#123;s/bash/blueshell/;p&#125;'</span>       <span class="comment"># 找到root对应的行，执行后面花括号中的一组命令，每个命令之间用分号分隔，这里把bash替换为blueshell，再输出这行</span></span><br><span class="line">nl ~/test.txt | sed -n <span class="string">'/root/&#123;s/bash/blueshell/;p;q&#125;'</span>     <span class="comment"># 最后的q是退出</span></span><br></pre></td></tr></table></figure></p>
+<p>28.7 <strong>数据的搜索并替换</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">'s/要被取代的字串/新的字串/g'</span></span><br></pre></td></tr></table></figure></p>
+<p>28.8 多点编辑<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nl ~/test.txt | sed -e <span class="string">'3,$d'</span> -e <span class="string">'s/bash/blueshell/'</span>       <span class="comment"># -e表示多点编辑，一条sed命令，删除/etc/passwd第三行到末尾的数据，并把bash替换为blueshell</span></span><br></pre></td></tr></table></figure></p>
+<p>28.9 <strong>直接修改文件内容</strong><br><code>sed</code>可以直接修改文件的内容，不必使用管道命令或数据流重导向<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'s/\.$/\!/g'</span> test.txt                               <span class="comment"># 将 test.txt 内每一行结尾若为 . 则换成 ! sed 的『 -i 』选项可以直接修改文件内容</span></span><br><span class="line"><span class="comment"># 如果 -i 参数不生效的话，需要使用 -ig 参数</span></span><br><span class="line">sed -ig<span class="string">'s/要被取代的字串/新的字串/g'</span> test.txt</span><br><span class="line">sed -i <span class="string">'$a # This is a test'</span> test.txt                      <span class="comment"># 在 test.txt 最后一行加入『# This is a test』 $代表的是最后一行，而a的动作是新增</span></span><br></pre></td></tr></table></figure></p>
+<ol start="29">
+<li>touch           # 创建文件（夹）命令</li>
+</ol>
+<p>29.1 使用文件名作为参数，可以同时创建多个文件。当目标文件已经存在时，将更新该文件的时间标记，否则将创建指定名称的空文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch file1 file2</span><br></pre></td></tr></table></figure></p>
+<p>29.2 创建新的目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost home]<span class="comment"># mkdir dir1</span></span><br><span class="line">[root@localhost home]<span class="comment"># mkdir dir2/dir</span></span><br><span class="line">mkdir: 无法创建目录<span class="string">"dir2/dir"</span>: 没有那个文件或目录</span><br><span class="line">[root@localhost home]<span class="comment"># mkdir -p dir2/dir                    # -p 确保目录名称存在，不存在的就建一个</span></span><br><span class="line">[root@localhost home]<span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+<p>29.3 同时创建多级目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost home]<span class="comment"># ls</span></span><br><span class="line">justin lost+found t</span><br><span class="line">[root@localhost home]<span class="comment"># mkdir -p &#123;dir1,dir2/&#123;dir3,dir4&#125;&#125;</span></span><br><span class="line">[root@localhost home]<span class="comment"># ls</span></span><br><span class="line">dir1 dir2 justin lost+found t</span><br><span class="line">[root@localhost home]<span class="comment"># ls dir2</span></span><br><span class="line">dir3 dir4</span><br><span class="line">[root@localhost home]<span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+<ol start="30">
+<li><p>rmdir            # 删除文件（夹）命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost home]<span class="comment"># mkdir -p &#123;dir1,dir2/dir3&#125;            # -p 当子目录被删除后也成为空目录的话，则顺便一并删除</span></span><br><span class="line">[root@localhost home]<span class="comment"># ls</span></span><br><span class="line">dir1 dir2 justin lost+found t</span><br><span class="line">[root@localhost home]<span class="comment"># rmdir dir1</span></span><br><span class="line">[root@localhost home]<span class="comment"># rmdir dir2</span></span><br><span class="line">rmdir: 删除 <span class="string">"dir2"</span>失败: 目录非空</span><br><span class="line">[root@localhost home]<span class="comment"># rmdir -p dir2/dir3/</span></span><br><span class="line">[root@localhost home]<span class="comment"># ls</span></span><br><span class="line">justin lost+found t</span><br><span class="line">[root@localhost home]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改文件（夹）权限<br>31.1 更改所有者权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 600 ××× <span class="comment">#（只有所有者有读和写的权限）</span></span><br><span class="line">sudo chmod 644 ××× <span class="comment">#（所有者有读和写的权限，组用户只有读的权限）</span></span><br><span class="line">sudo chmod 700 ××× <span class="comment">#（只有所有者有读和写以及执行的权限）</span></span><br><span class="line">sudo chmod 666 ××× <span class="comment">#（每个人都有读和写的权限）</span></span><br><span class="line">sudo chmod 777 ××× <span class="comment">#（每个人都有读和写以及执行的权限）</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -（代表类型）[×××（所有者）×××（组用户）×××（其他用户）]           # xxx为一个二进制组合</span><br></pre></td></tr></table></figure>
+<p>其中×××指文件名（也可以是文件夹名，不过要在chmod后加-ld）。<br>三位数的每一位都表示一个用户类型的权限设置。取值是0～7，即二进制的[000]~[111]。<br>这个三位的二进制数的每一位分别表示读、写、执行权限。<br>如000表示三项权限均无，而100表示只读。这样，我们就有了下面的对应：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 [000] 无任何权限</span><br><span class="line">4 [100] 只读权限</span><br><span class="line">6 [110] 读写权限</span><br><span class="line">7 [111] 读写执行权限</span><br></pre></td></tr></table></figure></p>
+<p>31.2 更改文件（夹）权限<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod [-cfvR] [--<span class="built_in">help</span>] [--version] mode file...</span><br><span class="line">mode : 权限设定字串, 格式如下 : [ugoa...][[+-=][rwxX]...][,...]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">u 表示该档案的拥有者，</span><br><span class="line">g 表示与该档案的拥有者属于同一个群体(group)者，</span><br><span class="line">o 表示其他以外的人，</span><br><span class="line">a 表示这三者皆是。 </span><br><span class="line"><span class="bullet">+ </span>表示增加权限、- 表示取消权限、= 表示唯一设定权限。 </span><br><span class="line">r 表示可读取，w 表示可写入，x 表示可执行，X 表示只有当该档案是个子目录或者该档案已经被设定过为可执行。 </span><br><span class="line">-c : 若该档案权限确实已经更改，才显示其更改动作 </span><br><span class="line">-f : 若该档案权限无法被更改也不要显示错误讯息 </span><br><span class="line">-v : 显示权限变更的详细资料 </span><br><span class="line">-R : 对目前目录下的所有档案与子目录进行相同的权限变更(即以递回的方式逐个变更) </span><br><span class="line">--help : 显示辅助说明 </span><br><span class="line">--version : 显示版本</span><br></pre></td></tr></table></figure>
+<p>31.3 文件（夹）的权限<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-rw------- (600) -- 只有属主有读写权限。 </span><br><span class="line">-rw-r--r-- (644) -- 只有属主有读写权限；而属组用户和其他用户只有读权限。 </span><br><span class="line">-rwx------ (700) -- 只有属主有读、写、执行权限。 </span><br><span class="line">-rwxr-xr-x (755) -- 属主有读、写、执行权限；而属组用户和其他用户只有读、执行权限。 </span><br><span class="line">-rwx--x--x (711) -- 属主有读、写、执行权限；而属组用户和其他用户只有执行权限。 </span><br><span class="line">-rw-rw-rw- (666) -- 所有用户都有文件读、写权限。这种做法不可取。 </span><br><span class="line">-rwxrwxrwx (777) -- 所有用户都有读、写、执行权限。更不可取的做法。</span><br></pre></td></tr></table></figure></p>
+<p>以下是对目录的两个普通设定:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drwx------ (700) - 只有属主可在目录中读、写。 </span><br><span class="line">drwxr-xr-x (755) - 所有用户可读该目录，但只有属主才能改变目录中的内容。</span><br></pre></td></tr></table></figure></p>
+<ol start="32">
+<li>查看目录剩余空间大小<br>32.1 df -hl             # 查看磁盘剩余空间<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件系统       容量    已用   可用                      已用%          挂载点</span><br><span class="line">Filesystem   Size   Used  Avail Capacity iused      ifree %iused  Mounted on</span><br><span class="line">/dev/disk1  112Gi   91Gi   21Gi    82% 1900939 4293066340    0%   /</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>32.2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df -h              <span class="comment"># 查看每个根路径的分区大小</span></span><br><span class="line">du -sh [目录名]     <span class="comment"># 返回该目录的大小</span></span><br><span class="line">du -sm [文件夹]     <span class="comment"># 返回该文件夹总M数</span></span><br><span class="line">df --<span class="built_in">help</span>          <span class="comment"># 查看更多功能</span></span><br><span class="line">du --<span class="built_in">help</span>          <span class="comment"># 查看更多功能</span></span><br></pre></td></tr></table></figure></p>
+<p>32.3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">du -sh xmldb/</span><br><span class="line">du -sm * | sort -n      <span class="comment"># 统计当前目录大小并按大小排序</span></span><br><span class="line">du -sk * | grep taoyi   <span class="comment"># 查看一个人的大小</span></span><br><span class="line">du -m | cut <span class="string">"/"</span> -f 2    <span class="comment"># 查看第二个/字符前的文字</span></span><br><span class="line">wc [-lmw]               <span class="comment"># -l: 多少行；-m: 多少字符；-w: 多少字</span></span><br></pre></td></tr></table></figure></p>
+<p>32.4 查看当前目录下各文件夹的大小<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h --max-depth=1</span><br></pre></td></tr></table></figure></p>
+<p><code>--max-depth=n</code>表示深入到第<code>n</code>层目录，此处设置为<code>1</code>，即表示深入<code>1</code>层，即查看当前目录下各个文件夹的大小；如果设置为<code>0</code>，表示不深入到子目录，那得出的就是当前目录的总大小。</p>
+<p>32.5 du命令参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du [-abcDhHklmsSx] [-L &lt;符号连接&gt;][-X &lt;文件&gt;][--block-size][--exclude=&lt;目录或文件&gt;] [--max-depth=&lt;目录层数&gt;][--<span class="built_in">help</span>][--version][目录或文件]</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>-a或-all</code>：为每个指定文件显示磁盘使用情况，或者为目录中每个文件显示各自磁盘使用情况。</li>
+<li><code>-b或-bytes</code>：显示目录或文件大小时，以byte为单位。</li>
+<li><code>-c或–total</code>：除了显示目录或文件的大小外，同时也显示所有目录或文件的总和。</li>
+<li><code>-D或–dereference-args</code>：显示指定符号连接的源文件大小。</li>
+<li><code>-h或–human-readable</code>：以K，M，G为单位，提高信息的可读性。</li>
+<li><code>-H或–si</code>：与-h参数相同，但是K，M，G是以1000为换算单位,而不是以1024为换算单位。</li>
+<li><code>-k或–kilobytes</code>：以1024 bytes为单位。</li>
+<li><code>-l或–count-links</code>：重复计算硬件连接的文件。</li>
+<li><code>-L&lt;符号连接&gt;或–dereference&lt;符号连接&gt;</code>：显示选项中所指定符号连接的源文件大小。</li>
+<li><code>-m或–megabytes</code>：以1MB为单位。</li>
+<li><code>-s或–summarize</code>：仅显示总计，即当前目录的大小。</li>
+<li><code>-S或–separate-dirs</code>：显示每个目录的大小时，并不含其子目录的大小。</li>
+<li><code>-x或–one-file-xystem</code>：以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。</li>
+<li><code>-X&lt;文件&gt;或–exclude-from=&lt;文件&gt;</code>：在&lt;文件&gt;指定目录或文件。</li>
+<li><code>–exclude=&lt;目录或文件&gt;</code>：略过指定的目录或文件。</li>
+<li><code>–max-depth=&lt;目录层数&gt;</code>：超过指定层数的目录后，予以忽略。</li>
+<li><code>–help</code>：显示帮助。</li>
+<li><code>–version</code>：显示版本信息。</li>
+<li><code>-0</code>：（杠零）表示每列出一个目录的信息，不换行，而是直接输出下一个目录的信息。</li>
+</ul>
+<ol start="33">
+<li>修改root密码<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@shadow000902 /]<span class="comment"># passwd								# 修改密码命令</span></span><br><span class="line">Changing password <span class="keyword">for</span> user root.</span><br><span class="line">New password: 												<span class="comment"># 输入新的密码</span></span><br><span class="line">Retype new password: 										<span class="comment"># 确认新的密码</span></span><br><span class="line">passwd: all authentication tokens updated successfully.		<span class="comment"># 成功修改密码提示</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>shadow</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://shadow000902.space/2016/05/15/Linux常用命令/" title="Linux常用命令">http://shadow000902.space/2016/05/15/Linux常用命令/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/08/Robot-Framework移动自动化测试初识/" rel="next" title="Robot-Framework移动自动化测试初识">
+                <i class="fa fa-chevron-left"></i> Robot-Framework移动自动化测试初识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/19/git放弃本地修改直接拉取服务器更新/" rel="prev" title="git放弃本地修改直接拉取服务器更新">
+                git放弃本地修改直接拉取服务器更新 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591af85feb91bba8" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+            
+              <p class="site-author-name" itemprop="name">shadow</p>
+              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 90954, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 90954, xid: "2016/05/15/Linux常用命令/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/90954/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz", "4rSep9EijQDvdmVi5cPCzgxz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

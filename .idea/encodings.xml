@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/themes/next/layout/_macro/post.swig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/themes/next/layout/_partials/head.swig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/themes/next/layout/archive.swig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/themes/next/layout/page.swig" charset="UTF-8" />
+  </component>
+</project>

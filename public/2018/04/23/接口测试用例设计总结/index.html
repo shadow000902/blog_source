@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '0HPI7IYB5V',
+      apiKey: 'c41b4c8f05b63867c231cd2ef194a34f',
+      indexName: 'Hexo_search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="接口测试定义接口测试主要验证点 针对输入，可按照参数类型进行设计； 针对接口处理，可按照逻辑进行设计； 针对输出，可根据结果进行分析设计。">
+<meta name="keywords" content="接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="接口测试用例设计总结">
+<meta property="og:url" content="http://shadow000902.space/2018/04/23/接口测试用例设计总结/index.html">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="接口测试定义接口测试主要验证点 针对输入，可按照参数类型进行设计； 针对接口处理，可按照逻辑进行设计； 针对输出，可根据结果进行分析设计。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-03T10:08:15.317Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="接口测试用例设计总结">
+<meta name="twitter:description" content="接口测试定义接口测试主要验证点 针对输入，可按照参数类型进行设计； 针对接口处理，可按照逻辑进行设计； 针对输出，可根据结果进行分析设计。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shadow'S Site" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://shadow000902.space/2018/04/23/接口测试用例设计总结/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>接口测试用例设计总结 | Shadow'S Site</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18711495-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-18711495-2');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b2e7edb34a402c6fa45e71e2a2456518";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shadow'S Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2018/04/23/接口测试用例设计总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">接口测试用例设计总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-04-23 20:09:10" itemprop="dateCreated datePublished" datetime="2018-04-23T20:09:10+08:00">2018-04-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-05-03 18:08:15" itemprop="dateModified" datetime="2018-05-03T18:08:15+08:00">2018-05-03</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/TestTheory/" itemprop="url" rel="index"><span itemprop="name">TestTheory</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/23/接口测试用例设计总结/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count hc-comment-count" data-xid="2018/04/23/接口测试用例设计总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2018/04/23/接口测试用例设计总结/" class="leancloud_visitors" data-flag-title="接口测试用例设计总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="接口测试定义"><a href="#接口测试定义" class="headerlink" title="接口测试定义"></a>接口测试定义</h4><h4 id="接口测试主要验证点"><a href="#接口测试主要验证点" class="headerlink" title="接口测试主要验证点"></a>接口测试主要验证点</h4><ul>
+<li>针对输入，可按照参数类型进行设计；</li>
+<li>针对接口处理，可按照逻辑进行设计；</li>
+<li><p>针对输出，可根据结果进行分析设计。</p>
+<a id="more"></a>
+</li>
+</ul>
+<h4 id="接口测试用例设计"><a href="#接口测试用例设计" class="headerlink" title="接口测试用例设计"></a>接口测试用例设计</h4><h5 id="针对输入设计"><a href="#针对输入设计" class="headerlink" title="针对输入设计"></a>针对输入设计</h5><ol>
+<li>数值型（int, long, float, double等）<ul>
+<li>如果参数规定了值的范围，则需要考虑等价类取值范围内、取值范围外，取值的边界，如有需要，可能会遍历取值范围内的各个值。</li>
+<li>参数数据类型限制；<ul>
+<li>逆向用例：针对每个参数都设计1条参数值类型不符的逆向用例</li>
+</ul>
+</li>
+<li>参数数据类型自身的数据范围值限制<ul>
+<li>正向用例：针对所有参数，设计1条每个参数的参数值在数据范围内为最大值的正向用例</li>
+<li>逆向用例：针对每个参数(假设n个)，设计n条每个参数的参数值都超出数据范围最大值的逆向用例</li>
+<li>逆向用例：针对每个参数(假设n个)，设计n条每个参数的参数值都小于数据范围最小值的逆向用例<br>常见问题和风险：</li>
+</ul>
+</li>
+<li>特殊值处理不当导致程序异常退出；</li>
+<li>类型边界溢出；</li>
+<li>取值范围外值未返回正确的错误信息等</li>
+</ul>
+</li>
+<li>字符串类型<ul>
+<li>边界值：string的最大长度；</li>
+<li>特殊值：空字符；</li>
+<li>字符串内容可考虑类型：数字，非数字；</li>
+<li>特殊字符</li>
+<li>如果是用户输入且其他用户不可见的内容，则还需要考虑敏感字是否被正常过滤<br>可能出现的问题和风险：</li>
+<li>传入非特定类型程序异常退出；</li>
+<li>超长字符未进行处理，导致存储、显示等异常；</li>
+<li>其他用户可见设置的敏感字</li>
+</ul>
+</li>
+<li>数组或链表<ul>
+<li>正常取值、范围外；</li>
+<li>边界值；</li>
+<li>特殊值：0个；</li>
+<li>合法ID和不合法的；</li>
+<li>重复的ID等<br>可能存在的问题和风险：</li>
+<li>0个item时程序异常退出；</li>
+<li>重复的item处理时未去重导致结果异常等</li>
+</ul>
+</li>
+<li><p>结构体</p>
+<ul>
+<li>结构体(struct)是一些元素的结合，元素实际也是数值型，字符串型，数组或链表。</li>
+</ul>
+</li>
+<li><p>是否满足前提条件</p>
+<ul>
+<li>有些接口需要满足前置条件，才可成功获取数据。常见的，需要登陆Token。<br>逆向用例：</li>
+<li>针对是否满足前置条件(假设为n个条件)，设计0~n条用例</li>
+</ul>
+</li>
+<li>是否携带默认值参数<ul>
+<li>带默认值的参数都不填写、不传参，必填参数都填写正确且存在的“常规”值，其它不填写，设计1条用例；</li>
+</ul>
+</li>
+<li>业务规则、功能需求<ul>
+<li>这里根据实际情况，结合接口参数说明，可能需要设计n条正向用例和逆向用例</li>
+</ul>
+</li>
+<li>参数是否必填<br>逆向用例：<ul>
+<li>针对每个必填参数，都设计1条参数值为空的逆向用例</li>
+</ul>
+</li>
+<li>参数之间是否存在关联<ul>
+<li>有些参数彼此之间存在相互制约的关系<br>逆向用例：</li>
+<li>根据实际情况，可能需要设计0~n条用例</li>
+</ul>
+</li>
+</ol>
+<p>以上几个方面考虑全的话，基本可以做到如下几个方面的覆盖：</p>
+<ul>
+<li>主流程测试用例：正常的主流程功能校验；</li>
+<li>分支流测试用例：正常的分支流功能校验；</li>
+<li>异常流测试用例：异常容错校验</li>
+</ul>
+<h5 id="针对逻辑设计"><a href="#针对逻辑设计" class="headerlink" title="针对逻辑设计"></a>针对逻辑设计</h5><ol>
+<li>约束条件分析<ul>
+<li>数值限制：</li>
+<li>状态限制：登录状态等</li>
+<li>关系限制：绑定的关系，好友关系等。<ul>
+<li>例如，应该只能查询有关联关系的账号的信息。</li>
+</ul>
+</li>
+<li>权限限制：需要对应权限才能操作对应的功能<br>用户进行操作时，在该操作的前端可以已经进行了约束条件的限制，故用户无法直接触发请求该接口。但是实际上，如果有其他手段：例如UI有bug或者通过技术手段直接调用接口，那么接口是否针对这些条件进行了限制就尤为重要。<br>常见的问题和风险：</li>
+<li>约束条件判断不足，导致用户可通过特殊手段获取利益</li>
+</ul>
+</li>
+<li>操作对象分析<ul>
+<li>对象之间存在隔离，不能串<br>常见的问题和风险：</li>
+<li>用户可访问非权限内的其他用户信息、敏感信息，从而利用这些信息谋取利益。</li>
+</ul>
+</li>
+<li>状态转换分析<ul>
+<li>状态之间转换存在严格定义，不能随意变换<br>常见的问题和风险：</li>
+<li>可通过特殊手段达到原本不能的状态，从而谋取利益。</li>
+</ul>
+</li>
+<li>时序分析<ul>
+<li>客户端与服务端的交互用户可见的只有一次，期间存在着用户不可见的内部多次按顺序执行的调用逻辑，实际就是发起了一个有序的动作流，只有按照正确的顺序，才能得到正确的结果。<br>常见的问题和风险：</li>
+<li>非顺序执行后，数据出现异常，可能还会出现程序其他异常</li>
+<li>通过打乱顺序获取利益</li>
+</ul>
+</li>
+</ol>
+<h5 id="针对输出设计"><a href="#针对输出设计" class="headerlink" title="针对输出设计"></a>针对输出设计</h5><ol>
+<li>针对输出结果<br>接口处理正确的结果可能只有一个，但是错误异常返回结果有很多情况很多值。如果知道返回结果有很多种，就可以针对不同结果设计用例。例如提交积分任务的时候我们通常能想到的是返回正确和错误，错误可能想到：无效任务，无效登录态，但是不一定能否完全覆盖所有错误码，而接口返回定义的返回码可以设计更多用例。<br>覆盖返回码也是用例设计的一种思路。<br>常见问题和风险：<ul>
+<li>错误前端处理不足，导致前端异常；</li>
+<li>错误提示处理不当，导致用户看到晦涩的错误码；</li>
+<li>错误提示不当，导致用户不知道哪里出了问题，如何解决。</li>
+</ul>
+</li>
+<li>接口超时<br>接口正常情况下是有返回的，那么如果接口不返回呢？也就是说接口超时后的处理也是测试需要考虑的部分。<br>常见的问题及风险：<ul>
+<li>未进行超时处理，导致整个流程阻塞</li>
+<li>超时后又收到接口返回，导致逻辑出现错乱</li>
+</ul>
+</li>
+</ol>
+<h4 id="其他测试设计"><a href="#其他测试设计" class="headerlink" title="其他测试设计"></a>其他测试设计</h4><h5 id="已废弃接口处理"><a href="#已废弃接口处理" class="headerlink" title="已废弃接口处理"></a>已废弃接口处理</h5><p>  已废弃协议，是指之前有定义，但是因为需求变更或其他原因，目前版本不用。这些接口虽然不再使用，但有可能代码并没有及时删除。如果利用技术手段调用这些接口，可能获取额外利益。<br>  新版本在考虑兼容旧版本的同时，还应做好相关废弃接口的检查，避免用户获得额外利益。</p>
+<h5 id="接口设计合理性分析"><a href="#接口设计合理性分析" class="headerlink" title="接口设计合理性分析"></a>接口设计合理性分析</h5><ul>
+<li>接口字段是否冗余；</li>
+<li>接口是否冗余；</li>
+<li>接口是否返回了调用方期望得到的信息；</li>
+<li>接口定义是否可满足所有调用需求；</li>
+<li>接口定义调用是否方便。</li>
+</ul>
+<h4 id="接口用例设计精简和优化"><a href="#接口用例设计精简和优化" class="headerlink" title="接口用例设计精简和优化"></a>接口用例设计精简和优化</h4><p>  在接口参数较多的情况下，如果每个参数都进行完整校验，将会是非常大的工作量，所以需要对接口用例进行精简和优化：</p>
+<pre><code>① 根据接口的使用对象(外部，系统内部)，有选择的去、留部分用例
+  - 如果开发于系统内部调用的，开发过程中，开发者肯定需要调用这些接口，如果类型错了，他们也就获取不到预期的数据，这些错误，他们肯定可以发现，所以，他们传递的参数值一般能保证类型正确。
+  - 内部调用，参数值不是外部手动输入的，输入数据长度、值大小可控，当然如果数据一直增长，那再大的类型可能都无法保证不超出，比如自动增长的商铺id
+② 根据接口的是否核心接口，有选择的去、留部分用例
+  - 核心接口，每个字段都需要验证
+  - 非核心接口，接口核心字段验证完成就可以
+③ 根据参数说明，及实际情况，有选择的去、留部分用例
+  - 部分参数的参数值是自定义的，比如 订单时间类型，就那几种，除非传错了，不然不可能超出范围
+④ 尽量在一个用例中验证尽量多的参数形式，但又得想办法尽量让验证范围最大化
+</code></pre><p>转载与：<a href="https://cloud.tencent.com/developer/article/1022322" target="_blank" rel="noopener">接口测试用例设计</a></p>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>shadow</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://shadow000902.space/2018/04/23/接口测试用例设计总结/" title="接口测试用例设计总结">http://shadow000902.space/2018/04/23/接口测试用例设计总结/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/接口/" rel="tag"># 接口</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/10/Python版本管理工具pyenv使用小结/" rel="next" title="Python版本管理工具pyenv使用小结">
+                <i class="fa fa-chevron-left"></i> Python版本管理工具pyenv使用小结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/29/测试用例设计思路总结/" rel="prev" title="测试用例设计思路总结">
+                测试用例设计思路总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591af85feb91bba8" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+            
+              <p class="site-author-name" itemprop="name">shadow</p>
+              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口测试定义"><span class="nav-number">1.</span> <span class="nav-text">接口测试定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口测试主要验证点"><span class="nav-number">2.</span> <span class="nav-text">接口测试主要验证点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口测试用例设计"><span class="nav-number">3.</span> <span class="nav-text">接口测试用例设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#针对输入设计"><span class="nav-number">3.1.</span> <span class="nav-text">针对输入设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#针对逻辑设计"><span class="nav-number">3.2.</span> <span class="nav-text">针对逻辑设计</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#针对输出设计"><span class="nav-number">3.3.</span> <span class="nav-text">针对输出设计</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他测试设计"><span class="nav-number">4.</span> <span class="nav-text">其他测试设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#已废弃接口处理"><span class="nav-number">4.1.</span> <span class="nav-text">已废弃接口处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口设计合理性分析"><span class="nav-number">4.2.</span> <span class="nav-text">接口设计合理性分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口用例设计精简和优化"><span class="nav-number">5.</span> <span class="nav-text">接口用例设计精简和优化</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 90954, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 90954, xid: "2018/04/23/接口测试用例设计总结/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/90954/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz", "4rSep9EijQDvdmVi5cPCzgxz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

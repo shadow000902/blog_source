@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '0HPI7IYB5V',
+      apiKey: 'c41b4c8f05b63867c231cd2ef194a34f',
+      indexName: 'Hexo_search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="正则表达式入门 名称：正则表达式[regular expression，简称RegEx] 使用正则表达式 搜索或者替换。匹配一些文本（进行一次搜索）。匹配并替换一些文本（进行一次替换）。 定义：正则表达式是一些用来匹配和处理文本的字符串。 语法：语法是正则表达式最容易掌握的部分，真正的挑战是学会如何运用那些语法把实际问题分解为一系列正则表达式并最终解决。">
+<meta name="keywords" content="正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://shadow000902.space/2016/04/09/正则表达式/index.html">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="正则表达式入门 名称：正则表达式[regular expression，简称RegEx] 使用正则表达式 搜索或者替换。匹配一些文本（进行一次搜索）。匹配并替换一些文本（进行一次替换）。 定义：正则表达式是一些用来匹配和处理文本的字符串。 语法：语法是正则表达式最容易掌握的部分，真正的挑战是学会如何运用那些语法把实际问题分解为一系列正则表达式并最终解决。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-01-29T07:48:43.116Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="正则表达式入门 名称：正则表达式[regular expression，简称RegEx] 使用正则表达式 搜索或者替换。匹配一些文本（进行一次搜索）。匹配并替换一些文本（进行一次替换）。 定义：正则表达式是一些用来匹配和处理文本的字符串。 语法：语法是正则表达式最容易掌握的部分，真正的挑战是学会如何运用那些语法把实际问题分解为一系列正则表达式并最终解决。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shadow'S Site" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://shadow000902.space/2016/04/09/正则表达式/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>正则表达式 | Shadow'S Site</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18711495-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-18711495-2');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b2e7edb34a402c6fa45e71e2a2456518";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shadow'S Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/04/09/正则表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-04-09 18:55:14" itemprop="dateCreated datePublished" datetime="2016-04-09T18:55:14+08:00">2016-04-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-01-29 15:48:43" itemprop="dateModified" datetime="2018-01-29T15:48:43+08:00">2018-01-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/09/正则表达式/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count hc-comment-count" data-xid="2016/04/09/正则表达式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/04/09/正则表达式/" class="leancloud_visitors" data-flag-title="正则表达式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="正则表达式入门"><a href="#正则表达式入门" class="headerlink" title="正则表达式入门"></a>正则表达式入门</h4><ol>
+<li>名称：正则表达式[regular expression，简称RegEx]</li>
+<li>使用正则表达式<br> 搜索或者替换。匹配一些文本（进行一次搜索）。匹配并替换一些文本（进行一次替换）。</li>
+<li>定义：正则表达式是一些用来匹配和处理文本的字符串。</li>
+<li><p>语法：语法是正则表达式最容易掌握的部分，真正的挑战是学会如何运用那些语法把实际问题分解为一系列正则表达式并最终解决。</p>
+<a id="more"></a>
+</li>
+</ol>
+<h4 id="匹配单个字符"><a href="#匹配单个字符" class="headerlink" title="匹配单个字符"></a>匹配单个字符</h4><ol>
+<li>匹配纯文本<br> 匹配内容与正则表达式内容一致：只能匹配一个结果<br> 正则表达式是区分字母大小写的。</li>
+<li>匹配任意字符<br> <code>.</code>字符（英文句号）可以匹配任何一个单个的字符；可以匹配任何单个的字符、字母、数字甚至是<code>.</code>字符本身。</li>
+<li>匹配特殊字符<br> <code>.</code>字符在正则表达式里有着特殊的含义。<br> 如果想要匹配<code>.</code>本身，必须在<code>.</code>的前面加上一个<code>\</code>（反斜杠）字符来对它进行转义。<br> <code>\</code>是一个元字符（metacharacter，表示“这个字符有特殊含义，而不是字符本身含义”）。<br> 在绝大多数的正则表达式实现里，<code>.</code>只能匹配除换行符以外的任何单个字符。</li>
+</ol>
+<h4 id="匹配一组字符"><a href="#匹配一组字符" class="headerlink" title="匹配一组字符"></a>匹配一组字符</h4><ol>
+<li>匹配多个字符中的某一个<br> 使用元字符<code>[</code>和<code>]</code>来定义一个字符集合。<br> 这两个字符之间的所有字符都是该集合的组成部分，字符集合的匹配结果是能够与该集合里的任意一个成员相匹配的文本。<br> 字符集合在不需要区分字母大小写（或者是只需匹配某个特定部分）的操作里比较常见。例如：<code>[Rr]eg[Ee]x</code></li>
+<li>利用字符集合区间<br> 匹配任意一个数字：<code>[0123456789]</code><br> 字符区间可以用<code>-</code>（连字符）来定义，模式<code>[0-9]</code>的功能和<code>[0123456789]</code>完全等价<br> <code>[A-Z]</code>匹配从A到Z的所有大写字母<br> <code>[a-z]</code>匹配从a到z的所有小写字母<br> <code>[A-F]</code>匹配从A到F的所有大写字母<br> <code>[A-z]</code>匹配从ASCII字母A到ASCII字母z的所有字母。其中还包含<code>[</code>和<code>^</code>等在ASCII字符表里排序在Z和a之间的字符。<br> 字符区间的首、尾字符可以是ASCII字符表里的任意字符。<br> 在定义一个字符区间的时候，一定要避免让这个区间的尾字符小于它的首字符。<br> 在字符集合以外的地方，<code>-</code>只是一个普通字符，只能与<code>-</code>本身相匹配。<br> 匹配任何一个字母或数字：<code>[A-Za-z0-9]</code>，完整的模式：<code>[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789]</code><br> 匹配RGB色值：<code>#[A-Fa-f0-9][A-Fa-f0-9][A-Fa-f0-9][A-Fa-f0-9][A-Fa-f0-9][A-Fa-f0-9]</code></li>
+<li>取非匹配<br> 除了那个字符集里的字符，其他字符都可以匹配。<br> 元字符<code>^</code>表示对一个字符集合进行取非匹配。<br> <code>[^0-9]</code>表示任何一个不是数字的字符。<br> <code>^</code>的效果将作用于给定字符集合里的所有字符或字符区间。</li>
+</ol>
+<h4 id="使用元字符"><a href="#使用元字符" class="headerlink" title="使用元字符"></a>使用元字符</h4><ol>
+<li><p>对特殊字符进行转义</p>
+<p> 匹配<code>myArray[0]</code>：<code>myArray\[0\]</code>。<code>\[</code>匹配<code>[</code>，<code>\]</code>匹配<code>]</code><br> 匹配<code>myArray[0]</code>，数字从0到9：<code>myArray\[[0-9]\]</code><br> 匹配<code>\</code>本身：需要对本身转义<code>\\</code><br> 在一个完整的正则表达式里，字符<code>\</code>后面永远跟着另一个字符</p>
+</li>
+<li>匹配空白字符<br> 元字符大致分为两种：一种是用来匹配文本的（比如<code>.</code>），另一种是正则表达式的语法要求的（比如<code>[</code>和<code>]</code>）。<br> 空白元字符表：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[\b]</code></td>
+<td>回退（并删除）一个字符（<code>Backspace</code>键）</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>换页符</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>换行符</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>回车符</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>制表符（<code>Tab</code>键）</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>垂直制表符</td>
+</tr>
+</tbody>
+</table>
+<pre><code>``\r\n``匹配一个“回车+换行”组合
+``\r\n\r\n``匹配两个连续的行尾标签，即可匹配两条记录之间的空白行。
+</code></pre><ol start="3">
+<li>匹配数字（与非数字）<br> 数字元字符：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\d</code></td>
+<td>任何一个数字字符（等价于<code>[0-9]</code>）</td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>任何一个非数字字符（等价于<code>[^0-9]</code>）</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>匹配字母和数字（与非字母和数字）<br> 字母数字元字符：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\w</code></td>
+<td>任何一个字母数字字符（大小写均可）或下划线字符（等价于<code>[a-zA-Z0-9_]</code>）</td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td>任何一个非字母数字或非下划线字符（等价于<code>[^a-zA-Z0-9_]</code>）</td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>匹配空白字符（与非空白字符）<br> 空白字符元字符：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\s</code></td>
+<td>任何一个空白字符（等价于<code>[\f\n\r\t\v]</code>）</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>任何一个非空白字符（等价于<code>[^\f\n\r\t\v]</code>）</td>
+</tr>
+</tbody>
+</table>
+<ol start="5">
+<li>匹配十六进制或八进制数值<br> 十六进制（逢16进1）数值要用前缀<code>\x</code>来给出。<br> <code>\x0A</code>对应于ASCII字符10（换行符），其效果等价于<code>\n</code>。<br> 八进制（逢8进1）数值要用前缀<code>\0</code>来给出。<br> <code>\011</code>对应于ASCII字符9（制表符），其效果等价于<code>\t</code>。</li>
+<li>使用<code>POSIX</code>字符类</li>
+</ol>
+<h4 id="重复匹配"><a href="#重复匹配" class="headerlink" title="重复匹配"></a>重复匹配</h4><ol>
+<li>匹配一个或多个字符<br> 匹配同一个字符（或字符集合）的多次重复<br> <code>+</code>匹配一个或多个字符（至少一个；不匹配零个字符的情况）<br> <code>\w+</code>匹配一个或多个字母数字字符<br> <code>[\w.]</code>匹配一个或多个（字母、数字、下划线和<code>.</code>）字符</li>
+<li>匹配零个或多个字符<br> <code>*</code>的用法和<code>+</code>完全一样，用来匹配连续出现零次或多次的情况<br> 匹配<code>*</code>本身：<code>\*</code></li>
+<li>匹配零个或一个字符<br> <code>?</code>只能匹配<code>?</code>前一个字符（或字符集合）的零次或一次出现</li>
+<li>匹配的重复次数<br> 重复次数（interval）要用<code>{</code>和<code>}</code>字符来给出，把重复次数数值写在它们之间。<br> 为重复次数设定一个精确的值：<code>#[a-fA-F0-9]{6}</code><br> 为重复匹配次数设定一个区间：<code>[\d]{2, 4}</code>，连续出现最少2个最多4个数字<br> 重复次数可以是0：<code>[\d]{0, 3}</code>，表示重复次数可以是0、1、2、3<br> <code>[\d]{3, }</code>：表示必须重复3次或者更多次</li>
+<li>防止过度匹配<br> <code>*</code>和<code>+</code>都是所谓的“贪婪型”元字符<br> 懒惰性元字符：只要给贪婪型元字符加上一个<code>?</code>后缀即可<br> 匹配图片地址链接：<code>http.+?\.jpg|png</code><br> 常用的贪婪型元字符和它们的懒惰性版本：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>贪婪新元字符</th>
+<th>懒惰性元字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td><code>*?</code></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td><code>+?</code></td>
+</tr>
+<tr>
+<td><code>{n, }</code></td>
+<td><code>{n, }?</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code>懒惰性元字符：就近原则
+</code></pre><h4 id="位置匹配"><a href="#位置匹配" class="headerlink" title="位置匹配"></a>位置匹配</h4><ol>
+<li>单词边界<br> <code>\b</code>：单词边界的限定符，用来匹配一个单词的开头或结尾。<br> 位置：一个能够用来构成单词的字符（字母、数字和下划线，也就是与<code>\w</code>相匹配的字符）和一个不能用来构成单词的字符（也就是与<code>\W</code>相匹配的字符）之间。<br> <code>\B</code>：表明不匹配一个单词边界。<br> 匹配前后多余空格的连字符：<code>\B-\B</code>：<code>color - coded</code>其中的<code>-</code></li>
+<li>字符串边界<br> 用来定义字符串边界的元字符有两个：一个用来定义字符串开头的<code>^</code>，一个用来定义字符串结尾的<code>$</code>。<br> 匹配合法的<code>XML</code>文档：<code>^\s*&lt;?xml.*\?&gt;</code><br> 匹配一份<code>Web</code>页面的末尾：<code>&lt;[Hh][Tt][Mm][Ll]&gt;\s*$</code></li>
+<li>分行匹配模式<br> <code>(?m)</code>：分行匹配模式（multiline mode），使用时，必须出现在整个模式的最前面。<br> 匹配一段<code>JavaScript</code>代码里的所有注释内容：<code>(?m)\s*//.*$</code></li>
+</ol>
+<h4 id="使用子表达式"><a href="#使用子表达式" class="headerlink" title="使用子表达式"></a>使用子表达式</h4><ol>
+<li>子表达式<br> <code>(&amp;nbsp;){2, }</code>：匹配两个以上“不是换行符的空格”。<br> 子表达式必须用<code>(</code>和<code>)</code>括起来。<br> <code>|</code>：或操作<br> <code>19|20</code>：匹配数字序列<code>19</code>或<code>20</code></li>
+<li>子表达式的嵌套<br> 子表达式允许嵌套<br> 有句话需要牢记：<em>把必须匹配的情况考虑周全并写出一个匹配结果符合预期的正则表达式很容易，但把不需要匹配的情况也考虑周全并确保它们被排除在匹配结果以外往往要困难得多。</em><br> 匹配IP：<code>(((\d{1,2})|(1\d{2})|(2[0-4]\d)|(23[0-5]))\.){3}(\d{1,2})|(1\d{2})|(2[0-4]\d)|(23[0-5]))</code></li>
+</ol>
+<h4 id="回溯引用：前后一致匹配"><a href="#回溯引用：前后一致匹配" class="headerlink" title="回溯引用：前后一致匹配"></a>回溯引用：前后一致匹配</h4><ol>
+<li>回溯引用匹配<br> 模式的后半部分引用在前半部分中定义的子表达式<br> <code>[ ]+(\w+)[ ]+\1</code>：<code>\1</code>代表模式里的第一个子表达式<br> <code>&lt;[Hh]([1-6])&gt;(.*?)&lt;/[Hh]\1&gt;</code>：匹配HTML文件中所有的标题<br> 回溯引用匹配通畅从1开始计数（<code>\1</code>、<code>\2</code>等）。在许多实现里，第0个匹配（<code>\0</code>）可以用来代表整个正则表达式。</li>
+<li><p>回溯引用在替换操作中的应用<br> 替换操作需要用到两个正则表达式：一个用来给出搜索模式，另一个用来给出匹配文本的替换模式。<br> 回溯引用可以跨模式使用，在第一个模式里被匹配的子表达式可以用在第二个模式里。<br> 把一段文本里的电子邮件地址全部转换为可点击：<code>Hello, shadow000902@gmail.com is my email address.</code></p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匹配出电子邮件地址</span></span><br><span class="line">(\w+[\w.]*@[\w\.]+\w+)</span><br><span class="line"><span class="comment"># 替换</span></span><br><span class="line">&lt;A HREF=<span class="string">"mailto:<span class="variable">$1</span>"</span>&gt;<span class="variable">$1</span>&lt;/A&gt;</span><br></pre></td></tr></table></figure>
+</code></pre><p> 结果：<code>Hello, &lt;A HREF=&quot;mailto:shadow000902@gmail.com&quot;&gt;shadow000902@gmail.com&lt;/A&gt; is my email address.</code><br> 回溯引用语法在不同的正则表达式实现里有很大差异：JavaScript用户需要用<code>$</code>来替换<code>\</code>；ColdFusion用户在查找和替换操作里都必须使用<code>\</code>。<br> 同一个子表达式可以被多次引用，只要在需要它的地方写出回溯引用就行了。<br> 在对文本进行重新排版的时候，把文本分解成多个子表达式的做法往往非常有用，这可以让我们对文本的排版效果做出更精确的控制。</p>
+</li>
+<li>大小写转换<br> 用来进行大小写转换的元字符</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\E</code></td>
+<td>结束<code>\L</code>或<code>\U</code>转换</td>
+</tr>
+<tr>
+<td><code>\l</code></td>
+<td>把下一个字符转换为小写</td>
+</tr>
+<tr>
+<td><code>\L</code></td>
+<td>把<code>\L</code>和<code>\E</code>之间的字符全部转换为小写</td>
+</tr>
+<tr>
+<td><code>\u</code></td>
+<td>把下一个字符转换为大写</td>
+</tr>
+<tr>
+<td><code>\U</code></td>
+<td>把<code>\U</code>和<code>\E</code>之间的字符全部转换为大写</td>
+</tr>
+</tbody>
+</table>
+<p>把HTML文件中的一级标题（<code>&lt;H1&gt;...&lt;/H&gt;</code>）的标题文字转换为大写：</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匹配出一级标题</span></span><br><span class="line">(&lt;[Hh]1&gt;)(.*?)(&lt;/[Hh]1&gt;)</span><br><span class="line"><span class="comment"># 替换</span></span><br><span class="line"><span class="variable">$1</span>\U<span class="variable">$2</span>\E<span class="variable">$3</span></span><br></pre></td></tr></table></figure>
+</code></pre><h4 id="前后查找"><a href="#前后查找" class="headerlink" title="前后查找"></a>前后查找</h4><ol>
+<li>向前查找<br> 向前查找指定了一个必须匹配但不在结果中返回的模式<br> 一个向前查找模式：其实就是一个以<code>?=</code>开头的子表达式，需要匹配的文本跟在<code>=</code>之后。<br> <code>.+(?=:)</code>：匹配出<code>http://www.baidu.com</code>中的<code>http</code>，匹配出了<code>:</code>，但是并没有展示出来<br> 向前查找（和向后查找）匹配本身其实是有返回结果的，只是这个结果的字节长度永远是<code>0</code>而已。因此，前后查找操作有时也被称为零宽度（<code>zero-width</code>）匹配操作。<br> 在同一个搜索模式里，可以使用多个向前查找表达式。</li>
+<li>向后查找<br> <code>?&lt;=</code>：向后查找操作符。查找出现在被匹配文本之前的字符（但不消费它）。<br> <code>(?&lt;=\$)[0-9.]+</code>：匹配出<code>ABC01: $23.45</code>中的<code>23.45</code>，但不匹配出<code>01</code>。<code>(?&lt;=\$)</code>只匹配出来<code>$</code>，但不消费它。</li>
+<li>把向前查找和向后查找结合起来🔥<br> <code>(?&lt;=\&lt;[Tt][Ii][Tt][Ll][Ee]&gt;).*(?&lt;=&lt;/[Tt][Ii][Tt][Ll][Ee]&gt;)</code>：匹配出<code>&lt;TITLE&gt;I AM TAOYI.&lt;/TITLE&gt;</code>中的<code>I AM TAOYI.</code><br> <code>(?&lt;=    ).+?(?=\=)</code>：匹配出<code>spuId=    skuId=</code>中的<code>spuId</code>、<code>skuId</code><br> <code>(?&lt;=\=).+?(?&lt;=    )</code>：匹配出<code>spuId=${spuId}    skuId=${skuId}</code>中的<code>${spuId}</code>、<code>${skuId}</code>，当然，也可以使用<code>\$\{.+?\}</code>匹配出来相似的结果。</li>
+<li>对前后查找取非<br> 前后查找必须用<code>!</code>来取非（它将替换掉<code>=</code>）<br> 各种前后查找操作符</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(?=)</code></td>
+<td>正向前查找</td>
+</tr>
+<tr>
+<td><code>(?!)</code></td>
+<td>反向前查找</td>
+</tr>
+<tr>
+<td><code>(?&lt;=)</code></td>
+<td>正向后查找</td>
+</tr>
+<tr>
+<td><code>(?&lt;!)</code></td>
+<td>反向后查找</td>
+</tr>
+</tbody>
+</table>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>shadow</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://shadow000902.space/2016/04/09/正则表达式/" title="正则表达式">http://shadow000902.space/2016/04/09/正则表达式/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/正则表达式/" rel="tag"># 正则表达式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/09/Jmeter使用知识点/" rel="next" title="Jmeter使用知识点">
+                <i class="fa fa-chevron-left"></i> Jmeter使用知识点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/10/Appium命令参数说明/" rel="prev" title="Appium命令参数说明">
+                Appium命令参数说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591af85feb91bba8" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+            
+              <p class="site-author-name" itemprop="name">shadow</p>
+              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式入门"><span class="nav-number">1.</span> <span class="nav-text">正则表达式入门</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配单个字符"><span class="nav-number">2.</span> <span class="nav-text">匹配单个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配一组字符"><span class="nav-number">3.</span> <span class="nav-text">匹配一组字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用元字符"><span class="nav-number">4.</span> <span class="nav-text">使用元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复匹配"><span class="nav-number">5.</span> <span class="nav-text">重复匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位置匹配"><span class="nav-number">6.</span> <span class="nav-text">位置匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用子表达式"><span class="nav-number">7.</span> <span class="nav-text">使用子表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯引用：前后一致匹配"><span class="nav-number">8.</span> <span class="nav-text">回溯引用：前后一致匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前后查找"><span class="nav-number">9.</span> <span class="nav-text">前后查找</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 90954, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 90954, xid: "2016/04/09/正则表达式/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/90954/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz", "4rSep9EijQDvdmVi5cPCzgxz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

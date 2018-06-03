@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '0HPI7IYB5V',
+      apiKey: 'c41b4c8f05b63867c231cd2ef194a34f',
+      indexName: 'Hexo_search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="appium命令帮助">
+<meta name="keywords" content="appium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Appium命令参数说明">
+<meta property="og:url" content="http://shadow000902.space/2016/04/10/Appium命令参数说明/index.html">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="appium命令帮助">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-12-11T05:21:45.353Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Appium命令参数说明">
+<meta name="twitter:description" content="appium命令帮助">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shadow'S Site" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://shadow000902.space/2016/04/10/Appium命令参数说明/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Appium命令参数说明 | Shadow'S Site</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18711495-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-18711495-2');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b2e7edb34a402c6fa45e71e2a2456518";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shadow'S Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/04/10/Appium命令参数说明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Appium命令参数说明
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-04-10 22:56:03" itemprop="dateCreated datePublished" datetime="2016-04-10T22:56:03+08:00">2016-04-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2017-12-11 13:21:45" itemprop="dateModified" datetime="2017-12-11T13:21:45+08:00">2017-12-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Appium/" itemprop="url" rel="index"><span itemprop="name">Appium</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/10/Appium命令参数说明/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count hc-comment-count" data-xid="2016/04/10/Appium命令参数说明/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/04/10/Appium命令参数说明/" class="leancloud_visitors" data-flag-title="Appium命令参数说明">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>appium命令帮助</p>
+  <a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\shadow&gt;appium -h</span><br><span class="line">usage: main.js [-h] [-v] [--shell] [--ipa IPA] [-a ADDRESS] [-p PORT]</span><br><span class="line">               [-ca CALLBACKADDRESS] [-cp CALLBACKPORT] [-bp BOOTSTRAPPORT]</span><br><span class="line">               [-r BACKENDRETRIES] [--session-override] [-l] [-g LOG]</span><br><span class="line">               [--<span class="built_in">log</span>-level &#123;info,info:debug,info:info,info:warn,info:error,warn,warn:debug,warn:info,warn:warn,warn:error,error,error:debug,error:info,error:warn,error:error,debug,debug:debug,debug:info,debug:warn,debug:error&#125;]</span><br><span class="line">               [--<span class="built_in">log</span>-timestamp] [--<span class="built_in">local</span>-timezone] [--<span class="built_in">log</span>-no-colors]</span><br><span class="line">               [-G WEBHOOK] [--safari] [--default-device] [--force-iphone]</span><br><span class="line">               [--force-ipad] [--tracetemplate AUTOMATIONTRACETEMPLATEPATH]</span><br><span class="line">               [--instruments INSTRUMENTSPATH] [--nodeconfig NODECONFIG]</span><br><span class="line">               [-ra ROBOTADDRESS] [-rp ROBOTPORT]</span><br><span class="line">               [--selendroid-port SELENDROIDPORT]</span><br><span class="line">               [--chromedriver-port CHROMEDRIVERPORT]</span><br><span class="line">               [--chromedriver-executable CHROMEDRIVEREXECUTABLE]</span><br><span class="line">               [--show-config] [--no-perms-check]</span><br><span class="line">               [--<span class="built_in">command</span>-timeout DEFAULTCOMMANDTIMEOUT] [--strict-caps]</span><br><span class="line">               [--isolate-sim-device] [--tmp TMPDIR] [--trace-dir TRACEDIR]</span><br><span class="line">               [--debug-log-spacing] [--suppress-adb-kill-server]</span><br><span class="line">               [--async-trace]</span><br><span class="line">               [--webkit-debug-proxy-port WEBKITDEBUGPROXYPORT]</span><br><span class="line">               [--default-capabilities DEFAULTCAPABILITIES] [-k]</span><br><span class="line">               [--platform-name PLATFORMNAME]</span><br><span class="line">               [--platform-version PLATFORMVERSION]</span><br><span class="line">               [--automation-name AUTOMATIONNAME] [--device-name DEVICENAME]</span><br><span class="line">               [--browser-name BROWSERNAME] [--app APP] [-lt LAUNCHTIMEOUT]</span><br><span class="line">               [--language LANGUAGE] [--locale LOCALE] [-U UDID]</span><br><span class="line">               [--orientation ORIENTATION] [--no-reset] [--full-reset]</span><br><span class="line">               [--app-pkg APPPACKAGE] [--app-activity APPACTIVITY]</span><br><span class="line">               [--app-wait-package APPWAITPACKAGE]</span><br><span class="line">               [--app-wait-activity APPWAITACTIVITY]</span><br><span class="line">               [--device-ready-timeout DEVICEREADYTIMEOUT]</span><br><span class="line">               [--android-coverage ANDROIDCOVERAGE] [--avd AVD]</span><br><span class="line">               [--avd-args AVDARGS] [--use-keystore]</span><br><span class="line">               [--keystore-path KEYSTOREPATH]</span><br><span class="line">               [--keystore-password KEYSTOREPASSWORD] [--key-alias KEYALIAS]</span><br><span class="line">               [--key-password KEYPASSWORD] [--intent-action INTENTACTION]</span><br><span class="line">               [--intent-category INTENTCATEGORY] [--intent-flags INTENTFLAGS]</span><br><span class="line">               [--intent-args OPTIONALINTENTARGUMENTS]</span><br><span class="line">               [--dont-stop-app-on-reset] [--calendar-format CALENDARFORMAT]</span><br><span class="line">               [--native-instruments-lib] [--keep-keychains]</span><br><span class="line">               [--localizable-strings-dir LOCALIZABLESTRINGSDIR]</span><br><span class="line">               [--show-ios-log]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">A webdriver-compatible server <span class="keyword">for</span> use with native and hybrid iOS and Android applications.</span><br><span class="line"></span><br><span class="line">Optional arguments:</span><br><span class="line">  -h, --<span class="built_in">help</span>            Show this <span class="built_in">help</span> message and <span class="built_in">exit</span>.</span><br><span class="line">  -v, --version         Show program<span class="string">'s version number and exit.</span></span><br><span class="line"><span class="string">  --shell               Enter REPL mode</span></span><br><span class="line"><span class="string">  --ipa IPA             (IOS-only) abs path to compiled .ipa file</span></span><br><span class="line"><span class="string">  -a ADDRESS, --address ADDRESS IP Address to listen on</span></span><br><span class="line"><span class="string">  -p PORT, --port PORT  port to listen on</span></span><br><span class="line"><span class="string">  -ca CALLBACKADDRESS, --callback-address CALLBACKADDRESS callback IP Address (default: same as --address)</span></span><br><span class="line"><span class="string">  -cp CALLBACKPORT, --callback-port CALLBACKPORT callback port (default: same as port)</span></span><br><span class="line"><span class="string">  -bp BOOTSTRAPPORT, --bootstrap-port BOOTSTRAPPORT</span></span><br><span class="line"><span class="string">                        (Android-only) port to use on device to talk to Appium</span></span><br><span class="line"><span class="string">  -r BACKENDRETRIES, --backend-retries BACKENDRETRIES</span></span><br><span class="line"><span class="string">                        (iOS-only) How many times to retry launching Instruments before saying it crashed or timed out</span></span><br><span class="line"><span class="string">  --session-override    Enables session override (clobbering)</span></span><br><span class="line"><span class="string">  -l, --pre-launch      Pre-launch the application before allowing the first session (Requires --app and, for Android, --app-pkg and --app-activity)</span></span><br><span class="line"><span class="string">  -g LOG, --log LOG     Also send log output to this file</span></span><br><span class="line"><span class="string">  --log-level &#123;info,info:debug,info:info,info:warn,info:error,warn,warn:debug,warn:info,warn:warn,warn:error,error,error:debug,error:info,error:warn,error:error,debug,debug:debug,debug:info,debug:warn,debug:error&#125; log level; default (console[:file]): debug[:debug]</span></span><br><span class="line"><span class="string">  --log-timestamp       Show timestamps in console output</span></span><br><span class="line"><span class="string">  --local-timezone      Use local timezone for timestamps</span></span><br><span class="line"><span class="string">  --log-no-colors       Do not use colors in console output</span></span><br><span class="line"><span class="string">  -G WEBHOOK, --webhook WEBHOOK</span></span><br><span class="line"><span class="string">                        Also send log output to this HTTP listener</span></span><br><span class="line"><span class="string">  --safari              (IOS-Only) Use the safari app</span></span><br><span class="line"><span class="string">  --default-device, -dd</span></span><br><span class="line"><span class="string">                        (IOS-Simulator-only) use the default simulator that instruments launches on its own</span></span><br><span class="line"><span class="string">  --force-iphone        (IOS-only) Use the iPhone Simulator no matter what the app wants</span></span><br><span class="line"><span class="string">  --force-ipad          (IOS-only) Use the iPad Simulator no matter what the app wants</span></span><br><span class="line"><span class="string">  --tracetemplate AUTOMATIONTRACETEMPLATEPATH</span></span><br><span class="line"><span class="string">                        (IOS-only) .tracetemplate file to use with Instruments</span></span><br><span class="line"><span class="string">  --instruments INSTRUMENTSPATH</span></span><br><span class="line"><span class="string">                        (IOS-only) path to instruments binary</span></span><br><span class="line"><span class="string">  --nodeconfig NODECONFIG</span></span><br><span class="line"><span class="string">                        Configuration JSON file to register appium with selenium grid</span></span><br><span class="line"><span class="string">  -ra ROBOTADDRESS, --robot-address ROBOTADDRESS</span></span><br><span class="line"><span class="string">                        IP Address of robot</span></span><br><span class="line"><span class="string">  -rp ROBOTPORT, --robot-port ROBOTPORT</span></span><br><span class="line"><span class="string">                        port for robot</span></span><br><span class="line"><span class="string">  --selendroid-port SELENDROIDPORT</span></span><br><span class="line"><span class="string">                        Local port used for communication with Selendroid</span></span><br><span class="line"><span class="string">  --chromedriver-port CHROMEDRIVERPORT</span></span><br><span class="line"><span class="string">                        Port upon which ChromeDriver will run</span></span><br><span class="line"><span class="string">  --chromedriver-executable CHROMEDRIVEREXECUTABLE</span></span><br><span class="line"><span class="string">                        ChromeDriver executable full path</span></span><br><span class="line"><span class="string">  --show-config         Show info about the appium server configuration and exit</span></span><br><span class="line"><span class="string">  --no-perms-check      Bypass Appium'</span>s checks to ensure we can <span class="built_in">read</span>/write necessary files</span><br><span class="line">  --<span class="built_in">command</span>-timeout DEFAULTCOMMANDTIMEOUT</span><br><span class="line">                        The default <span class="built_in">command</span> timeout <span class="keyword">for</span> the server to use <span class="keyword">for</span> all sessions (<span class="keyword">in</span> seconds and should be less than 2147483). Will still be overridden by newCommandTimeout <span class="built_in">cap</span></span><br><span class="line">  --strict-caps         Cause sessions to fail <span class="keyword">if</span> desired caps are sent <span class="keyword">in</span> that Appium does not recognize as valid <span class="keyword">for</span> the selected device</span><br><span class="line">  --isolate-sim-device  Xcode 6 has a bug on some platforms <span class="built_in">where</span> a certain simulator can only be launched without error <span class="keyword">if</span> all other simulator devices are first deleted. This option causes Appium to delete all devices other than the one being used by Appium. Note that this is a permanent deletion, and you are responsible <span class="keyword">for</span> using simctl or xcode to manage the categories of devices used with Appium.</span><br><span class="line">  --tmp TMPDIR          Absolute path to directory Appium can use to manage temporary files, like built-in iOS apps it needs to move around. On *nix/Mac defaults to /tmp, on Windows defaults to C:\Windows\Temp</span><br><span class="line">  --trace-dir TRACEDIR  Absolute path to directory Appium use to save ios instruments traces, defaults to &lt;tmp dir&gt;/appium-instruments</span><br><span class="line">  --debug-log-spacing   Add exaggerated spacing <span class="keyword">in</span> logs to <span class="built_in">help</span> with visual inspection</span><br><span class="line">  --suppress-adb-kill-server</span><br><span class="line">                        (Android-only) If <span class="built_in">set</span>, prevents Appium from killing the adb server instance</span><br><span class="line">  --async-trace         Add long stack traces to <span class="built_in">log</span> entries. Recommended <span class="keyword">for</span> debugging only.</span><br><span class="line">  --webkit-debug-proxy-port WEBKITDEBUGPROXYPORT</span><br><span class="line">                        (IOS-only) Local port used <span class="keyword">for</span> communication with ios-webkit-debug-proxy</span><br><span class="line">  --default-capabilities DEFAULTCAPABILITIES</span><br><span class="line">                        Set the default desired capabilities, <span class="built_in">which</span> will be <span class="built_in">set</span> on each session unless overridden by received capabilities.</span><br><span class="line">  -k, --keep-artifacts  [DEPRECATED] - no effect, trace is now <span class="keyword">in</span> tmp dir by default and is cleared before each run. Please also refer to the --trace-dir flag.</span><br><span class="line">  --platform-name PLATFORMNAME</span><br><span class="line">                        [DEPRECATED] - Name of the mobile platform: iOS, Android, or FirefoxOS</span><br><span class="line">  --platform-version PLATFORMVERSION</span><br><span class="line">                        [DEPRECATED] - Version of the mobile platform</span><br><span class="line">  --automation-name AUTOMATIONNAME</span><br><span class="line">                        [DEPRECATED] - Name of the automation tool: Appium or Selendroid</span><br><span class="line">  --device-name DEVICENAME</span><br><span class="line">                        [DEPRECATED] - Name of the mobile device to use</span><br><span class="line">  --browser-name BROWSERNAME</span><br><span class="line">                        [DEPRECATED] - Name of the mobile browser: Safari or Chrome</span><br><span class="line">  --app APP             [DEPRECATED] - IOS: abs path to simulator-compiled . app file or the bundle_id of the desired target on device; Android: abs path to .apk file</span><br><span class="line">  -lt LAUNCHTIMEOUT, --launch-timeout LAUNCHTIMEOUT</span><br><span class="line">                        [DEPRECATED] - (iOS-only) how long <span class="keyword">in</span> ms to <span class="built_in">wait</span> <span class="keyword">for</span> Instruments to launch</span><br><span class="line">  --language LANGUAGE   [DEPRECATED] - Language <span class="keyword">for</span> the iOS simulator / Android Emulator</span><br><span class="line">  --locale LOCALE       [DEPRECATED] - Locale <span class="keyword">for</span> the iOS simulator / Android Emulator</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 指定设备UDID运行</span></span><br><span class="line">  -U UDID, --udid UDID  [DEPRECATED] - Unique device identifier of the connected physical device</span><br><span class="line">  --orientation ORIENTATION</span><br><span class="line">                        [DEPRECATED] - (IOS-only) use LANDSCAPE or PORTRAIT to initialize all requests to this orientation</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 在appium的各个session之间不重置app</span></span><br><span class="line">  --no-reset            [DEPRECATED] - Do not reset app state between sessions (IOS: <span class="keyword">do</span> not delete app plist files; Android: <span class="keyword">do</span> not uninstall app before new session)</span><br><span class="line">  --full-reset          [DEPRECATED] - (iOS) Delete the entire simulator folder. (Android) Reset app state by uninstalling app instead of clearing app data. On Android, this will also remove the app after the session is complete.</span><br><span class="line">  --app-pkg APPPACKAGE  [DEPRECATED] - (Android-only) Java package of the Android app you want to run (e.g., com.example. android.myApp)</span><br><span class="line">  --app-activity APPACTIVITY</span><br><span class="line">                        [DEPRECATED] - (Android-only) Activity name <span class="keyword">for</span> the Android activity you want to launch from your package (e.g., MainActivity)</span><br><span class="line">  --app-wait-package APPWAITPACKAGE</span><br><span class="line">                        [DEPRECATED] - (Android-only) Package name <span class="keyword">for</span> the Android activity you want to <span class="built_in">wait</span> <span class="keyword">for</span> (e.g., com. example.android.myApp)</span><br><span class="line">  --app-wait-activity APPWAITACTIVITY</span><br><span class="line">                        [DEPRECATED] - (Android-only) Activity name <span class="keyword">for</span> the Android activity you want to <span class="built_in">wait</span> <span class="keyword">for</span> (e.g., SplashActivity)</span><br><span class="line">  --device-ready-timeout DEVICEREADYTIMEOUT</span><br><span class="line">                        [DEPRECATED] - (Android-only) Timeout <span class="keyword">in</span> seconds <span class="keyword">while</span> waiting <span class="keyword">for</span> device to become ready</span><br><span class="line">  --android-coverage ANDROIDCOVERAGE</span><br><span class="line">                        [DEPRECATED] - (Android-only) Fully qualified instrumentation class. Passed to -w <span class="keyword">in</span> adb shell am instrument -e coverage <span class="literal">true</span> -w</span><br><span class="line">  --avd AVD             [DEPRECATED] - (Android-only) Name of the avd to launch</span><br><span class="line">  --avd-args AVDARGS    [DEPRECATED] - (Android-only) Additional emulator arguments to launch the avd</span><br><span class="line">  --use-keystore        [DEPRECATED] - (Android-only) When <span class="built_in">set</span> the keystore will be used to sign apks.</span><br><span class="line">  --keystore-path KEYSTOREPATH</span><br><span class="line">                        [DEPRECATED] - (Android-only) Path to keystore</span><br><span class="line">  --keystore-password KEYSTOREPASSWORD</span><br><span class="line">                        [DEPRECATED] - (Android-only) Password to keystore</span><br><span class="line">  --key-alias KEYALIAS  [DEPRECATED] - (Android-only) Key <span class="built_in">alias</span></span><br><span class="line">  --key-password KEYPASSWORD</span><br><span class="line">                        [DEPRECATED] - (Android-only) Key password</span><br><span class="line">  --intent-action INTENTACTION</span><br><span class="line">                        [DEPRECATED] - (Android-only) Intent action <span class="built_in">which</span> will be used to start activity</span><br><span class="line">  --intent-category INTENTCATEGORY</span><br><span class="line">                        [DEPRECATED] - (Android-only) Intent category <span class="built_in">which</span> will be used to start activity</span><br><span class="line">  --intent-flags INTENTFLAGS</span><br><span class="line">                        [DEPRECATED] - (Android-only) Flags that will be used to start activity</span><br><span class="line">  --intent-args OPTIONALINTENTARGUMENTS</span><br><span class="line">                        [DEPRECATED] - (Android-only) Additional intent arguments that will be used to start activity</span><br><span class="line">  --dont-stop-app-on-reset</span><br><span class="line">                        [DEPRECATED] - (Android-only) When included, refrains from stopping the app before restart</span><br><span class="line">  --calendar-format CALENDARFORMAT</span><br><span class="line">                        [DEPRECATED] - (IOS-only) calendar format <span class="keyword">for</span> the iOS simulator</span><br><span class="line">  --native-instruments-lib</span><br><span class="line">                        [DEPRECATED] - (IOS-only) IOS has a weird built-in unavoidable delay. We patch this <span class="keyword">in</span> appium. If you <span class="keyword">do</span> not want it patched, pass <span class="keyword">in</span> this flag.</span><br><span class="line">  --keep-keychains      [DEPRECATED] - (iOS-only) Whether to keep keychains (Library/Keychains) when reset app between sessions</span><br><span class="line">  --localizable-strings-dir LOCALIZABLESTRINGSDIR</span><br><span class="line">                        [DEPRECATED] - (IOS-only) the relative path of the dir <span class="built_in">where</span> Localizable.strings file resides</span><br><span class="line">  --show-ios-log        [DEPRECATED] - (IOS-only) <span class="keyword">if</span> <span class="built_in">set</span>, the iOS system <span class="built_in">log</span> will be written to the console</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>shadow</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://shadow000902.space/2016/04/10/Appium命令参数说明/" title="Appium命令参数说明">http://shadow000902.space/2016/04/10/Appium命令参数说明/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/appium/" rel="tag"># appium</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/09/正则表达式/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/18/Postman测试/" rel="prev" title="Postman测试">
+                Postman测试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591af85feb91bba8" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+            
+              <p class="site-author-name" itemprop="name">shadow</p>
+              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 90954, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 90954, xid: "2016/04/10/Appium命令参数说明/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/90954/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz", "4rSep9EijQDvdmVi5cPCzgxz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -454,6 +454,23 @@ html tags & content
 {% endraw %}
 ```
 
+#### ``Next``主题使用``Algolia``搜索
+Change dir to NexT directory, Install module to ``source/lib`` directory:
+```bash
+cd themes/next
+git clone https://github.com/theme-next/theme-next-algolia-instant-search source/lib/algolia-instant-search
+```
+Enable module in NexT _config.yml file:
+```bash
+algolia_search:
+  enable: true
+```
+Update:
+```bash
+cd themes/next/source/lib/algolia-instant-search
+git pull
+```
+
 #### ``npm``第三方模块升级
 局部模块管理
 ```bash

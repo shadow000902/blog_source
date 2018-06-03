@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '0HPI7IYB5V',
+      apiKey: 'c41b4c8f05b63867c231cd2ef194a34f',
+      indexName: 'Hexo_search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="Appium脚本/python代码     //android_simple.py">
+<meta name="keywords" content="appium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Appium运行日志解析">
+<meta property="og:url" content="http://shadow000902.space/2016/03/31/Appium运行日志解析/index.html">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="Appium脚本/python代码     //android_simple.py">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-12-11T05:21:45.311Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Appium运行日志解析">
+<meta name="twitter:description" content="Appium脚本/python代码     //android_simple.py">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shadow'S Site" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://shadow000902.space/2016/03/31/Appium运行日志解析/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Appium运行日志解析 | Shadow'S Site</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18711495-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-18711495-2');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b2e7edb34a402c6fa45e71e2a2456518";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shadow'S Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/03/31/Appium运行日志解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Appium运行日志解析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-03-31 11:10:40" itemprop="dateCreated datePublished" datetime="2016-03-31T11:10:40+08:00">2016-03-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2017-12-11 13:21:45" itemprop="dateModified" datetime="2017-12-11T13:21:45+08:00">2017-12-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Appium/" itemprop="url" rel="index"><span itemprop="name">Appium</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/31/Appium运行日志解析/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count hc-comment-count" data-xid="2016/03/31/Appium运行日志解析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/03/31/Appium运行日志解析/" class="leancloud_visitors" data-flag-title="Appium运行日志解析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Appium脚本-python代码-android-simple-py"><a href="#Appium脚本-python代码-android-simple-py" class="headerlink" title="Appium脚本/python代码     //android_simple.py"></a>Appium脚本/python代码     //android_simple.py</h4>  <a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="comment"># Returns abs path relative to this file and not cwd</span></span><br><span class="line">PATH = <span class="keyword">lambda</span> p: os.path.abspath(</span><br><span class="line">    os.path.join(os.path.dirname(__file__), p)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleAndroidTests</span><span class="params">(unittest.TestCase)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></span><br><span class="line">        desired_caps = &#123;&#125;</span><br><span class="line">        desired_caps[<span class="string">'platformName'</span>] = <span class="string">'Android'</span></span><br><span class="line">        desired_caps[<span class="string">'platformVersion'</span>] = <span class="string">'6.0'</span></span><br><span class="line">        desired_caps[<span class="string">'deviceName'</span>] = <span class="string">'Nexus 5'</span></span><br><span class="line">        desired_caps[<span class="string">'app'</span>] = PATH(</span><br><span class="line">            <span class="string">'../../../sample-code/apps/ApiDemos/bin/ApiDemos-debug.apk'</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        self.driver = webdriver.Remote(<span class="string">'http://localhost:4723/wd/hub'</span>, desired_caps)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tearDown</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># end the session</span></span><br><span class="line">        self.driver.quit()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_find_elements</span><span class="params">(self)</span>:</span></span><br><span class="line">        el = self.driver.find_element_by_accessibility_id(<span class="string">'Graphics'</span>)</span><br><span class="line">        el.click()</span><br><span class="line">        el = self.driver.find_element_by_accessibility_id(<span class="string">'Arcs'</span>)</span><br><span class="line">        self.assertIsNotNone(el)</span><br><span class="line"></span><br><span class="line">        self.driver.back()</span><br><span class="line"></span><br><span class="line">        el = self.driver.find_element_by_accessibility_id(<span class="string">"App"</span>)</span><br><span class="line">        self.assertIsNotNone(el)</span><br><span class="line"></span><br><span class="line">        els = self.driver.find_elements_by_android_uiautomator(<span class="string">"new UiSelector().clickable(true)"</span>)</span><br><span class="line">        self.assertGreaterEqual(<span class="number">12</span>, len(els))</span><br><span class="line"></span><br><span class="line">        self.driver.find_element_by_android_uiautomator(<span class="string">'text("API Demos")'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_simple_actions</span><span class="params">(self)</span>:</span></span><br><span class="line">        el = self.driver.find_element_by_accessibility_id(<span class="string">'Graphics'</span>)</span><br><span class="line">        el.click()</span><br><span class="line"></span><br><span class="line">        el = self.driver.find_element_by_accessibility_id(<span class="string">'Arcs'</span>)</span><br><span class="line">        el.click()</span><br><span class="line"></span><br><span class="line">        self.driver.find_element_by_android_uiautomator(<span class="string">'new UiSelector().text("Graphics/Arcs")'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    suite = unittest.TestLoader().loadTestsFromTestCase(SimpleAndroidTests)</span><br><span class="line">    unittest.TextTestRunner(verbosity=<span class="number">2</span>).run(suite)</span><br></pre></td></tr></table></figure>
+<h4 id="Appium运行日志解析"><a href="#Appium运行日志解析" class="headerlink" title="Appium运行日志解析"></a>Appium运行日志解析</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Tao Yi\AppData\Roaming\npm\node_modules\.bin&gt;appium</span><br><span class="line">info: Welcome to Appium v1.4.16 (REV ae6877eff263066b26328d457bd285c0cc62430d)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动REST http服务器，默认监听本地4723端口，用于接收客户端（Test Case+Selenium/Appium Driver)发过来的JSON格式的命令指示</span></span><br><span class="line">info: Appium REST http interface listener started on 0.0.0.0:4723</span><br><span class="line">info: Console LogLevel: debug</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据客户端提供的capabilities指示建立一个Android Sesision用于跟客户端保持后续通信</span></span><br><span class="line">info: --&gt; POST /wd/hub/session &#123;<span class="string">"desiredCapabilities"</span>:&#123;<span class="string">"platformVersion"</span>:<span class="string">"6.0"</span>,<span class="string">"app"</span>:<span class="string">"E:\\Appium\\sample-code\</span></span><br><span class="line"><span class="string">\apps\\ApiDemos\\bin\\ApiDemos-debug.apk"</span>,<span class="string">"platformName"</span>:<span class="string">"Android"</span>,<span class="string">"deviceName"</span>:<span class="string">"Nexus 5"</span>&#125;&#125;</span><br><span class="line">info: Client User-Agent string: Python-urllib/3.5</span><br><span class="line">info: [debug] No appActivity desired capability or server param. Parsing from apk.</span><br><span class="line">info: [debug] No appPackage desired capability or server param. Parsing from apk.</span><br><span class="line">info: [debug] Using <span class="built_in">local</span> app from desired caps: E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk</span><br><span class="line">info: [debug] Creating new appium session b3868a3e-3d5e-484a-8202-8b8612591e1b</span><br><span class="line">info: Starting android appium</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取jdk、adb信息</span></span><br><span class="line">info: [debug] Getting Java version</span><br><span class="line">info: Java version is: 1.8.0_45</span><br><span class="line">info: [debug] Checking whether adb is present</span><br><span class="line">info: [debug] Using adb from E:\android-sdk\platform-tools\adb.exe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用工具“aapt dump badging ApiDemos-debug.apk"来获得ApiDemos-debug的packageName和launchable activityName，注意示例代码中是没有指定这个两个capabilities的</span></span><br><span class="line">info: [debug] Parsing package and activity from app manifest</span><br><span class="line">info: [debug] Checking whether aapt is present</span><br><span class="line">info: [debug] Using aapt from E:\android-sdk\build-tools\android-4.4W\aapt.exe</span><br><span class="line">info: [debug] Extracting package and launch activity from manifest.</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\build-tools\android-4.4W\aapt.exe dump badging E:\Appium\sample-co</span><br><span class="line">de\apps\ApiDemos\bin\ApiDemos-debug.apk</span><br><span class="line">info: [debug] badging package: io.appium.android.apis</span><br><span class="line">info: [debug] badging act: io.appium.android.apis.ApiDemos</span><br><span class="line">info: [debug] Parsed package and activity are: io.appium.android.apis/io.appium.android.apis.ApiDemos</span><br><span class="line">info: [debug] Using fast reset? <span class="literal">true</span></span><br><span class="line">info: [debug] Preparing device <span class="keyword">for</span> session</span><br><span class="line">info: [debug] Checking whether app is actually present</span><br><span class="line">info: Retrieving device</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始调用adb，找到连接上的设备，设置设备id</span></span><br><span class="line">info: [debug] Trying to find a connected android device</span><br><span class="line">info: [debug] Getting connected devices...</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe devices</span><br><span class="line">info: [debug] 1 device(s) connected</span><br><span class="line">info: Found device 0721b62c00e1a31f</span><br><span class="line">info: [debug] Setting device id to 0721b62c00e1a31f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待设备准备好响应命令</span></span><br><span class="line">info: [debug] Waiting <span class="keyword">for</span> device to be ready and to respond to shell commands (timeout = 5)</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f <span class="built_in">wait</span>-for-device</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"echo 'ready'"</span></span><br><span class="line">info: [debug] Starting logcat capture</span><br><span class="line">info: [debug] Getting device API level</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"getprop ro.build</span></span><br><span class="line"><span class="string">.version.sdk"</span></span><br><span class="line">info: [debug] Device is at API Level 23</span><br><span class="line">info: Device API level is: 23</span><br><span class="line">info: [debug] Extracting strings <span class="keyword">for</span> language: default</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"getprop persist.</span></span><br><span class="line"><span class="string">sys.language"</span></span><br><span class="line">info: [debug] Current device persist.sys.language:</span><br><span class="line">info: [debug] java -jar <span class="string">"C:\Users\Tao Yi\AppData\Roaming\npm\node_modules\appium\node_modules\appium-adb\jars\</span></span><br><span class="line"><span class="string">appium_apk_tools.jar"</span> <span class="string">"stringsFromApk"</span> <span class="string">"E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk"</span> <span class="string">"C:\Users\</span></span><br><span class="line"><span class="string">Tao Yi\AppData\Local\Temp\io.appium.android.apis"</span></span><br><span class="line">info: [debug] Reading strings from converted strings.json</span><br><span class="line">info: [debug] Setting language to default</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将生成的apk属性信息文件strings.json存到了设备目录下</span></span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f push <span class="string">"C:\\Users\\Tao Yi</span></span><br><span class="line"><span class="string">\\AppData\\Local\\Temp\\io.appium.android.apis\\strings.json"</span> /data/<span class="built_in">local</span>/tmp</span><br><span class="line">info: [debug] Checking whether aapt is present</span><br><span class="line">info: [debug] Using aapt from E:\android-sdk\build-tools\android-4.4W\aapt.exe</span><br><span class="line">info: [debug] Retrieving process from manifest.</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\build-tools\android-4.4W\aapt.exe dump xmltree E:\Appium\sample-co</span><br><span class="line">de\apps\ApiDemos\bin\ApiDemos-debug.apk AndroidManifest.xml</span><br><span class="line">info: [debug] Set app process to: io.appium.android.apis</span><br><span class="line">info: [debug] Not uninstalling app since server not started with --full-reset</span><br><span class="line">info: [debug] Checking app cert <span class="keyword">for</span> E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk.</span><br><span class="line">info: [debug] executing cmd: java -jar <span class="string">"C:\Users\Tao Yi\AppData\Roaming\npm\node_modules\appium\node_modules\a</span></span><br><span class="line"><span class="string">ppium-adb\jars\verify.jar"</span> E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk</span><br><span class="line">info: [debug] App already signed.</span><br><span class="line">info: [debug] Zip-aligning E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk</span><br><span class="line">info: [debug] Checking whether zipalign is present</span><br><span class="line">info: [debug] Using zipalign from E:\android-sdk\build-tools\android-4.4W\zipalign.exe</span><br><span class="line">info: [debug] Zip-aligning apk.</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\build-tools\android-4.4W\zipalign.exe -f 4 E:\Appium\sample-code\a</span><br><span class="line">pps\ApiDemos\bin\ApiDemos-debug.apk <span class="string">"C:\Users\Tao Yi\AppData\Local\Temp\116231-12276-7u17bp\appium.tmp"</span></span><br><span class="line">info: [debug] MD5 <span class="keyword">for</span> app is 29649242b53e9a67ba855b067422713c</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"ls /data/local/t</span></span><br><span class="line"><span class="string">mp/29649242b53e9a67ba855b067422713c.apk"</span></span><br><span class="line">info: [debug] Getting install status <span class="keyword">for</span> io.appium.android.apis</span><br><span class="line">info: [debug] Getting device API level</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"getprop ro.build</span></span><br><span class="line"><span class="string">.version.sdk"</span></span><br><span class="line">info: [debug] Device is at API Level 23</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取这个apk安装情况</span></span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"pm list packages</span></span><br><span class="line"><span class="string"> -3 io.appium.android.apis"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取的结果，apk已经安装</span></span><br><span class="line">info: [debug] App is installed</span><br><span class="line">info: App is already installed, resetting app</span><br><span class="line">info: [debug] Running fast reset (stop and clear)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止并且重置应用</span></span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"am force-stop io</span></span><br><span class="line"><span class="string">.appium.android.apis"</span></span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"pm clear io.appi</span></span><br><span class="line"><span class="string">um.android.apis"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立Appium Server到目标机器上的端口转发</span></span><br><span class="line">info: [debug] Forwarding system:4724 to device:4724</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f forward tcp:4724 tcp:47</span><br><span class="line">24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 往设备上push一个AppiumBootstrap.jar文件，这是目标机器上通过uiautomator工具（框架）运行的服务端，用于接受处理client端发送过来的命令</span></span><br><span class="line">info: [debug] Pushing appium bootstrap to device...</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f push <span class="string">"C:\\Users\\Tao Yi</span></span><br><span class="line"><span class="string">\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\android_bootstrap\\AppiumBootstrap.jar"</span> /data/<span class="built_in">local</span>/tmp/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 往设备上安装一个settings_apk-debug.apk文件</span></span><br><span class="line">info: [debug] Pushing settings apk to device...</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f install <span class="string">"C:\Users\Tao Y</span></span><br><span class="line"><span class="string">i\AppData\Roaming\npm\node_modules\appium\build\settings_apk\settings_apk-debug.apk"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 往设备上安装一个unlock_apk-debug.apk文件</span></span><br><span class="line">info: [debug] Pushing unlock helper app to device...</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f install <span class="string">"C:\Users\Tao Y</span></span><br><span class="line"><span class="string">i\AppData\Roaming\npm\node_modules\appium\build\unlock_apk\unlock_apk-debug.apk"</span></span><br><span class="line">info: Starting App</span><br><span class="line"></span><br><span class="line"><span class="comment"># kill掉所有的uiautomator进程，保证uiautomator没有在跑</span></span><br><span class="line">info: [debug] Attempting to <span class="built_in">kill</span> all <span class="string">'uiautomator'</span> processes</span><br><span class="line">info: [debug] Getting all processes with <span class="string">'uiautomator'</span></span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"ps 'uiautomator'</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">info: [debug] No matching processes found</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过adb把目标机器上的AppiumBootStrap跑起来</span></span><br><span class="line">info: [debug] Running bootstrap</span><br><span class="line">info: [debug] spawning: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell uiautomator runtest Ap</span><br><span class="line">piumBootstrap.jar -c io.appium.android.bootstrap.Bootstrap -e pkg io.appium.android.apis -e disableAndroidWatc</span><br><span class="line">hers <span class="literal">false</span></span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: numtests=1</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] io.appium.android.bootstrap.Bootstrap:</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: <span class="built_in">test</span>=testRunServer</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: class=io.appium.android.bootstrap.Bootstrap</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: current=1</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: 1</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Socket opened on port 4724</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Appium Socket Server Ready</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Loading json...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 唤醒设备</span></span><br><span class="line">info: [debug] Waking up device <span class="keyword">if</span> it<span class="string">'s not alive</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["wake",&#123;&#125;]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] json loading complete.</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Registered crash watchers.</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Client connected</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"wake","params":&#123;&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: wake</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "dumpsys window"</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":true&#125;</span></span><br><span class="line"><span class="string">info: [debug] Screen already unlocked, continuing.</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["getDataDir",&#123;&#125;]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"getDataDir","params":&#123;&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: getDataDir</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":"\/data\/local\/tmp"&#125;</span></span><br><span class="line"><span class="string">info: [debug] dataDir set to: /data/local/tmp</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["compressedLayoutHierarchy",&#123;"compressLayout":false&#125;]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"compressedLayoutHierarchy","</span></span><br><span class="line"><span class="string">params":&#123;"compressLayout":false&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: compressedLayoutHierarchy</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 获取设备API版本</span></span><br><span class="line"><span class="string">info: [debug] Getting device API level</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "getprop ro.build</span></span><br><span class="line"><span class="string">.version.sdk"</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":false&#125;</span></span><br><span class="line"><span class="string">info: [debug] Device is at API Level 23</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 通过adb在目标机器上 Launch ApiDemos应用</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "am start -S -a a</span></span><br><span class="line"><span class="string">ndroid.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000 -n io.appium.android.apis/io.appiu</span></span><br><span class="line"><span class="string">m.android.apis.ApiDemos"</span></span><br><span class="line"><span class="string">info: [debug] Waiting for pkg "io.appium.android.apis" and activity "io.appium.android.apis.ApiDemos" to be fo</span></span><br><span class="line"><span class="string">cused</span></span><br><span class="line"><span class="string">info: [debug] Getting focused package and activity</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "dumpsys window w</span></span><br><span class="line"><span class="string">indows"</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "getprop ro.build</span></span><br><span class="line"><span class="string">.version.release"</span></span><br><span class="line"><span class="string">info: [debug] Device is at release version 6.0</span></span><br><span class="line"><span class="string">info: [debug] Device launched! Ready for commands</span></span><br><span class="line"><span class="string">info: [debug] Setting command timeout to the default of 60 secs</span></span><br><span class="line"><span class="string">info: [debug] Appium session started with sessionId b3868a3e-3d5e-484a-8202-8b8612591e1b</span></span><br><span class="line"><span class="string">info: &lt;-- POST /wd/hub/session 303 30932.362 ms - 74</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 通知PC端目标应用已经在目标机器启动成功</span></span><br><span class="line"><span class="string">info: --&gt; GET /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b &#123;&#125;</span></span><br><span class="line"><span class="string">info: [debug] Responding to client with success: &#123;"status":0,"value":&#123;"platform":"LINUX","browserName":"Androi</span></span><br><span class="line"><span class="string">d","platformVersion":"6.0","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"database</span></span><br><span class="line"><span class="string">Enabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":&#123;&#125;,"desired":&#123;"platfo</span></span><br><span class="line"><span class="string">rmVersion":"6.0","app":"E:\\Appium\\sample-code\\apps\\ApiDemos\\bin\\ApiDemos-debug.apk","platformName":"Andr</span></span><br><span class="line"><span class="string">oid","deviceName":"Nexus 5"&#125;,"app":"E:\\Appium\\sample-code\\apps\\ApiDemos\\bin\\ApiDemos-debug.apk","platfor</span></span><br><span class="line"><span class="string">mName":"Android","deviceName":"0721b62c00e1a31f"&#125;,"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: &lt;-- GET /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b 200 9.267 ms - 602 &#123;"status":0,"value":&#123;"pl</span></span><br><span class="line"><span class="string">atform":"LINUX","browserName":"Android","platformVersion":"6.0","webStorageEnabled":false,"takesScreenshot":tr</span></span><br><span class="line"><span class="string">ue,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":f</span></span><br><span class="line"><span class="string">alse,"warnings":&#123;&#125;,"desired":&#123;"platformVersion":"6.0","app":"E:\\Appium\\sample-code\\apps\\ApiDemos\\bin\\Api</span></span><br><span class="line"><span class="string">Demos-debug.apk","platformName":"Android","deviceName":"Nexus 5"&#125;,"app":"E:\\Appium\\sample-code\\apps\\ApiDem</span></span><br><span class="line"><span class="string">os\\bin\\ApiDemos-debug.apk","platformName":"Android","deviceName":"0721b62c00e1a31f"&#125;,"sessionId":"b3868a3e-3</span></span><br><span class="line"><span class="string">d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 定位菜单按钮：Bootstrap通过的UIAutomator的UISelector类根据Text获得菜单按钮的ID并返回给客户端</span></span><br><span class="line"><span class="string">info: --&gt; POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element &#123;"using":"accessibility id","sessi</span></span><br><span class="line"><span class="string">onId":"b3868a3e-3d5e-484a-8202-8b8612591e1b","value":"Graphics"&#125;</span></span><br><span class="line"><span class="string">info: [debug] Waiting up to 0ms for condition</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["find",&#123;"strategy":"accessibility id","selector":"Graphic</span></span><br><span class="line"><span class="string">s","context":"","multiple":false&#125;]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"find","params":&#123;"strategy":"</span></span><br><span class="line"><span class="string">accessibility id","selector":"Graphics","context":"","multiple":false&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: find</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Finding Graphics using ACCESSIBILITY_ID with the contextId:  multiple: false</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Using: UiSelector[DESCRIPTION=Graphics, INSTANCE=0]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":&#123;"ELEMENT":"1"&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] Responding to client with success: &#123;"status":0,"value":&#123;"ELEMENT":"1"&#125;,"sessionId":"b3868a3e-3d5</span></span><br><span class="line"><span class="string">e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># BootStrap执行“点击”命令</span></span><br><span class="line"><span class="string">info: &lt;-- POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element 200 344.090 ms - 87 &#123;"status":0,"v</span></span><br><span class="line"><span class="string">alue":&#123;"ELEMENT":"1"&#125;,"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: --&gt; POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element/1/click &#123;"sessionId":"b3868a3e-3d5</span></span><br><span class="line"><span class="string">e-484a-8202-8b8612591e1b","id":"1"&#125;</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["element:click",&#123;"elementId":"1"&#125;]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"element:click","params":&#123;"el</span></span><br><span class="line"><span class="string">ementId":"1"&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: click</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":true&#125;</span></span><br><span class="line"><span class="string">info: [debug] Responding to client with success: &#123;"status":0,"value":true,"sessionId":"b3868a3e-3d5e-484a-8202</span></span><br><span class="line"><span class="string">-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: &lt;-- POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element/1/click 200 139.311 ms - 76 &#123;"stat</span></span><br><span class="line"><span class="string">us":0,"value":true,"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: --&gt; POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element &#123;"using":"accessibility id","sessi</span></span><br><span class="line"><span class="string">onId":"b3868a3e-3d5e-484a-8202-8b8612591e1b","value":"Arcs"&#125;</span></span><br><span class="line"><span class="string">info: [debug] Waiting up to 0ms for condition</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["find",&#123;"strategy":"accessibility id","selector":"Arcs","</span></span><br><span class="line"><span class="string">context":"","multiple":false&#125;]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"find","params":&#123;"strategy":"</span></span><br><span class="line"><span class="string">accessibility id","selector":"Arcs","context":"","multiple":false&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: find</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Finding Arcs using ACCESSIBILITY_ID with the contextId:  multiple: false</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Using: UiSelector[DESCRIPTION=Arcs, INSTANCE=0]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":&#123;"ELEMENT":"2"&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] Responding to client with success: &#123;"status":0,"value":&#123;"ELEMENT":"2"&#125;,"sessionId":"b3868a3e-3d5</span></span><br><span class="line"><span class="string">e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: &lt;-- POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element 200 766.030 ms - 87 &#123;"status":0,"v</span></span><br><span class="line"><span class="string">alue":&#123;"ELEMENT":"2"&#125;,"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: --&gt; POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/back &#123;"sessionId":"b3868a3e-3d5e-484a-8202</span></span><br><span class="line"><span class="string">-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["pressBack"]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"pressBack","params":&#123;&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: pressBack</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":true&#125;</span></span><br><span class="line"><span class="string">info: [debug] Responding to client with success: &#123;"status":0,"value":true,"sessionId":"b3868a3e-3d5e-484a-8202</span></span><br><span class="line"><span class="string">-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: &lt;-- POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/back 200 1045.398 ms - 76 &#123;"status":0,"val</span></span><br><span class="line"><span class="string">ue":true,"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: --&gt; POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element &#123;"using":"accessibility id","sessi</span></span><br><span class="line"><span class="string">onId":"b3868a3e-3d5e-484a-8202-8b8612591e1b","value":"App"&#125;</span></span><br><span class="line"><span class="string">info: [debug] Waiting up to 0ms for condition</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["find",&#123;"strategy":"accessibility id","selector":"App","c</span></span><br><span class="line"><span class="string">ontext":"","multiple":false&#125;]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"find","params":&#123;"strategy":"</span></span><br><span class="line"><span class="string">accessibility id","selector":"App","context":"","multiple":false&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: find</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Finding App using ACCESSIBILITY_ID with the contextId:  multiple: false</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Using: UiSelector[DESCRIPTION=App, INSTANCE=0]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":&#123;"ELEMENT":"3"&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] Responding to client with success: &#123;"status":0,"value":&#123;"ELEMENT":"3"&#125;,"sessionId":"b3868a3e-3d5</span></span><br><span class="line"><span class="string">e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: &lt;-- POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element 200 39.881 ms - 87 &#123;"status":0,"va</span></span><br><span class="line"><span class="string">lue":&#123;"ELEMENT":"3"&#125;,"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: --&gt; POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/elements &#123;"using":"-android uiautomator","</span></span><br><span class="line"><span class="string">sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b","value":"new UiSelector().clickable(true)"&#125;</span></span><br><span class="line"><span class="string">info: [debug] Waiting up to 0ms for condition</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["find",&#123;"strategy":"-android uiautomator","selector":"new</span></span><br><span class="line"><span class="string"> UiSelector().clickable(true)","context":"","multiple":true&#125;]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"find","params":&#123;"strategy":"</span></span><br><span class="line"><span class="string">-android uiautomator","selector":"new UiSelector().clickable(true)","context":"","multiple":true&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: find</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().clickable(true) using ANDROID_UIAUTOMATOR with the</span></span><br><span class="line"><span class="string">contextId:  multiple: true</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().clickable(true)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: boolean arg: true</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Using: UiSelector[CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements selector:UiSelector[CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (0)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=0, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (1)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=1, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (2)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=2, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (3)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=3, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (4)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=4, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (5)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=5, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (6)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=6, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (7)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=7, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (8)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=8, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (9)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=9, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (10)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=10, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (11)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=11, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Element[] is null: (12)</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] getElements tmp selector:UiSelector[INSTANCE=12, CLICKABLE=true]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":[&#123;"ELEMENT":"4"&#125;,&#123;"ELEMENT":"5"&#125;,&#123;"ELE</span></span><br><span class="line"><span class="string">MENT":"6"&#125;,&#123;"ELEMENT":"7"&#125;,&#123;"ELEMENT":"8"&#125;,&#123;"ELEMENT":"9"&#125;,&#123;"ELEMENT":"10"&#125;,&#123;"ELEMENT":"11"&#125;,&#123;"ELEMENT":"12"&#125;,</span></span><br><span class="line"><span class="string">&#123;"ELEMENT":"13"&#125;,&#123;"ELEMENT":"14"&#125;,&#123;"ELEMENT":"15"&#125;]&#125;</span></span><br><span class="line"><span class="string">info: [debug] Responding to client with success: &#123;"status":0,"value":[&#123;"ELEMENT":"4"&#125;,&#123;"ELEMENT":"5"&#125;,&#123;"ELEMEN</span></span><br><span class="line"><span class="string">T":"6"&#125;,&#123;"ELEMENT":"7"&#125;,&#123;"ELEMENT":"8"&#125;,&#123;"ELEMENT":"9"&#125;,&#123;"ELEMENT":"10"&#125;,&#123;"ELEMENT":"11"&#125;,&#123;"ELEMENT":"12"&#125;,&#123;"E</span></span><br><span class="line"><span class="string">LEMENT":"13"&#125;,&#123;"ELEMENT":"14"&#125;,&#123;"ELEMENT":"15"&#125;],"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: &lt;-- POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/elements 200 267.317 ms - 271 &#123;"status":0,</span></span><br><span class="line"><span class="string">"value":[&#123;"ELEMENT":"4"&#125;,&#123;"ELEMENT":"5"&#125;,&#123;"ELEMENT":"6"&#125;,&#123;"ELEMENT":"7"&#125;,&#123;"ELEMENT":"8"&#125;,&#123;"ELEMENT":"9"&#125;,&#123;"ELE</span></span><br><span class="line"><span class="string">MENT":"10"&#125;,&#123;"ELEMENT":"11"&#125;,&#123;"ELEMENT":"12"&#125;,&#123;"ELEMENT":"13"&#125;,&#123;"ELEMENT":"14"&#125;,&#123;"ELEMENT":"15"&#125;],"sessionId":</span></span><br><span class="line"><span class="string">"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: --&gt; POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element &#123;"using":"-android uiautomator","s</span></span><br><span class="line"><span class="string">essionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b","value":"text(\"API Demos\")"&#125;</span></span><br><span class="line"><span class="string">info: [debug] Waiting up to 0ms for condition</span></span><br><span class="line"><span class="string">info: [debug] Pushing command to appium work queue: ["find",&#123;"strategy":"-android uiautomator","selector":"tex</span></span><br><span class="line"><span class="string">t(\"API Demos\")","context":"","multiple":false&#125;]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"action","action":"find","params":&#123;"strategy":"</span></span><br><span class="line"><span class="string">-android uiautomator","selector":"text(\"API Demos\")","context":"","multiple":false&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command action: find</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Finding text("API Demos") using ANDROID_UIAUTOMATOR with the contextId:  mul</span></span><br><span class="line"><span class="string">tiple: false</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Parsing selector: text("API Demos")</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] UiSelector coerce type: class java.lang.String arg: "API Demos"</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=API Demos]</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":&#123;"ELEMENT":"16"&#125;&#125;</span></span><br><span class="line"><span class="string">info: [debug] Responding to client with success: &#123;"status":0,"value":&#123;"ELEMENT":"16"&#125;,"sessionId":"b3868a3e-3d</span></span><br><span class="line"><span class="string">5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: &lt;-- POST /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b/element 200 21.357 ms - 88 &#123;"status":0,"va</span></span><br><span class="line"><span class="string">lue":&#123;"ELEMENT":"16"&#125;,"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 测试完成，删除session，目标机器模拟点击Home按钮把目标应用放在后台</span></span><br><span class="line"><span class="string">info: --&gt; DELETE /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b &#123;&#125;</span></span><br><span class="line"><span class="string">info: Shutting down appium session</span></span><br><span class="line"><span class="string">info: [debug] Pressing the HOME button</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "input keyevent 3"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 关闭logcat</span></span><br><span class="line"><span class="string">info: [debug] Stopping logcat capture</span></span><br><span class="line"><span class="string">info: [debug] Logcat terminated with code null, signal SIGTERM</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;"cmd":"shutdown"&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Got command of type SHUTDOWN</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;"status":0,"value":"OK, shutting down"&#125;</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Closed client connection</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: numtests=1</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=.</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: test=testRunServer</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: class=io.appium.android.bootstrap.Bootstrap</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: current=1</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: 0</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] Test results for WatcherResultPrinter=.</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] Time: 5.738</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] OK (1 test)</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: -1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 关闭Uiautomator进程</span></span><br><span class="line"><span class="string">info: [debug] Sent shutdown command, waiting for UiAutomator to stop...</span></span><br><span class="line"><span class="string">info: [debug] UiAutomator shut down normally</span></span><br><span class="line"><span class="string">info: [debug] Cleaning up android objects</span></span><br><span class="line"><span class="string">info: [debug] Cleaning up appium session</span></span><br><span class="line"><span class="string">info: [debug] Responding to client with success: &#123;"status":0,"value":null,"sessionId":"b3868a3e-3d5e-484a-8202</span></span><br><span class="line"><span class="string">-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string">info: &lt;-- DELETE /wd/hub/session/b3868a3e-3d5e-484a-8202-8b8612591e1b 200 1101.263 ms - 76 &#123;"status":0,"value"</span></span><br><span class="line"><span class="string">:null,"sessionId":"b3868a3e-3d5e-484a-8202-8b8612591e1b"&#125;</span></span><br><span class="line"><span class="string"># 第一个test执行完毕，结束工作完毕</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">新的test开始执行</span></span><br><span class="line"><span class="string">info: --&gt; POST /wd/hub/session &#123;"desiredCapabilities":&#123;"platformVersion":"6.0","app":"E:\\Appium\\sample-code\</span></span><br><span class="line"><span class="string">\apps\\ApiDemos\\bin\\ApiDemos-debug.apk","platformName":"Android","deviceName":"Nexus 5"&#125;&#125;</span></span><br><span class="line"><span class="string">info: Client User-Agent string: Python-urllib/3.5</span></span><br><span class="line"><span class="string">info: [debug] No appActivity desired capability or server param. Parsing from apk.</span></span><br><span class="line"><span class="string">info: [debug] No appPackage desired capability or server param. Parsing from apk.</span></span><br><span class="line"><span class="string">info: [debug] Using local app from desired caps: E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk</span></span><br><span class="line"><span class="string">info: [debug] Creating new appium session 7da33fde-d7a2-4c56-89ad-21d3564cd8d4</span></span><br><span class="line"><span class="string">info: Starting android appium</span></span><br><span class="line"><span class="string">info: [debug] Getting Java version</span></span><br><span class="line"><span class="string">info: Java version is: 1.8.0_45</span></span><br><span class="line"><span class="string">info: [debug] Checking whether adb is present</span></span><br><span class="line"><span class="string">info: [debug] Using adb from E:\android-sdk\platform-tools\adb.exe</span></span><br><span class="line"><span class="string">info: [debug] Parsing package and activity from app manifest</span></span><br><span class="line"><span class="string">info: [debug] Checking whether aapt is present</span></span><br><span class="line"><span class="string">info: [debug] Using aapt from E:\android-sdk\build-tools\android-4.4W\aapt.exe</span></span><br><span class="line"><span class="string">info: [debug] Extracting package and launch activity from manifest.</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\build-tools\android-4.4W\aapt.exe dump badging E:\Appium\sample-co</span></span><br><span class="line"><span class="string">de\apps\ApiDemos\bin\ApiDemos-debug.apk</span></span><br><span class="line"><span class="string">info: [debug] badging package: io.appium.android.apis</span></span><br><span class="line"><span class="string">info: [debug] badging act: io.appium.android.apis.ApiDemos</span></span><br><span class="line"><span class="string">info: [debug] Parsed package and activity are: io.appium.android.apis/io.appium.android.apis.ApiDemos</span></span><br><span class="line"><span class="string">info: [debug] Using fast reset? true</span></span><br><span class="line"><span class="string">info: [debug] Preparing device for session</span></span><br><span class="line"><span class="string">info: [debug] Checking whether app is actually present</span></span><br><span class="line"><span class="string">info: Retrieving device</span></span><br><span class="line"><span class="string">info: [debug] Trying to find a connected android device</span></span><br><span class="line"><span class="string">info: [debug] Getting connected devices...</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe devices</span></span><br><span class="line"><span class="string">info: [debug] 1 device(s) connected</span></span><br><span class="line"><span class="string">info: Found device 0721b62c00e1a31f</span></span><br><span class="line"><span class="string">info: [debug] Setting device id to 0721b62c00e1a31f</span></span><br><span class="line"><span class="string">info: [debug] Waiting for device to be ready and to respond to shell commands (timeout = 5)</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f wait-for-device</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "echo '</span>ready<span class="string">'"</span></span><br><span class="line"><span class="string">info: [debug] Starting logcat capture</span></span><br><span class="line"><span class="string">info: [debug] Getting device API level</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "getprop ro.build</span></span><br><span class="line"><span class="string">.version.sdk"</span></span><br><span class="line"><span class="string">info: [debug] Device is at API Level 23</span></span><br><span class="line"><span class="string">info: Device API level is: 23</span></span><br><span class="line"><span class="string">info: [debug] Extracting strings for language: default</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "getprop persist.</span></span><br><span class="line"><span class="string">sys.language"</span></span><br><span class="line"><span class="string">info: [debug] Current device persist.sys.language:</span></span><br><span class="line"><span class="string">info: [debug] java -jar "C:\Users\Tao Yi\AppData\Roaming\npm\node_modules\appium\node_modules\appium-adb\jars\</span></span><br><span class="line"><span class="string">appium_apk_tools.jar" "stringsFromApk" "E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk" "C:\Users\</span></span><br><span class="line"><span class="string">Tao Yi\AppData\Local\Temp\io.appium.android.apis"</span></span><br><span class="line"><span class="string">info: [debug] Reading strings from converted strings.json</span></span><br><span class="line"><span class="string">info: [debug] Setting language to default</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f push "C:\\Users\\Tao Yi</span></span><br><span class="line"><span class="string">\\AppData\\Local\\Temp\\io.appium.android.apis\\strings.json" /data/local/tmp</span></span><br><span class="line"><span class="string">info: [debug] Checking whether aapt is present</span></span><br><span class="line"><span class="string">info: [debug] Using aapt from E:\android-sdk\build-tools\android-4.4W\aapt.exe</span></span><br><span class="line"><span class="string">info: [debug] Retrieving process from manifest.</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\build-tools\android-4.4W\aapt.exe dump xmltree E:\Appium\sample-co</span></span><br><span class="line"><span class="string">de\apps\ApiDemos\bin\ApiDemos-debug.apk AndroidManifest.xml</span></span><br><span class="line"><span class="string">info: [debug] Set app process to: io.appium.android.apis</span></span><br><span class="line"><span class="string">info: [debug] Not uninstalling app since server not started with --full-reset</span></span><br><span class="line"><span class="string">info: [debug] Checking app cert for E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk.</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: java -jar "C:\Users\Tao Yi\AppData\Roaming\npm\node_modules\appium\node_modules\a</span></span><br><span class="line"><span class="string">ppium-adb\jars\verify.jar" E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk</span></span><br><span class="line"><span class="string">info: [debug] App already signed.</span></span><br><span class="line"><span class="string">info: [debug] Zip-aligning E:\Appium\sample-code\apps\ApiDemos\bin\ApiDemos-debug.apk</span></span><br><span class="line"><span class="string">info: [debug] Checking whether zipalign is present</span></span><br><span class="line"><span class="string">info: [debug] Using zipalign from E:\android-sdk\build-tools\android-4.4W\zipalign.exe</span></span><br><span class="line"><span class="string">info: [debug] Zip-aligning apk.</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\build-tools\android-4.4W\zipalign.exe -f 4 E:\Appium\sample-code\a</span></span><br><span class="line"><span class="string">pps\ApiDemos\bin\ApiDemos-debug.apk "C:\Users\Tao Yi\AppData\Local\Temp\116231-12276-uqycx8\appium.tmp"</span></span><br><span class="line"><span class="string">info: [debug] MD5 for app is 29649242b53e9a67ba855b067422713c</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "ls /data/local/t</span></span><br><span class="line"><span class="string">mp/29649242b53e9a67ba855b067422713c.apk"</span></span><br><span class="line"><span class="string">info: [debug] Getting install status for io.appium.android.apis</span></span><br><span class="line"><span class="string">info: [debug] Getting device API level</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "getprop ro.build</span></span><br><span class="line"><span class="string">.version.sdk"</span></span><br><span class="line"><span class="string">info: [debug] Device is at API Level 23</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "pm list packages</span></span><br><span class="line"><span class="string"> -3 io.appium.android.apis"</span></span><br><span class="line"><span class="string">info: [debug] App is installed</span></span><br><span class="line"><span class="string">info: App is already installed, resetting app</span></span><br><span class="line"><span class="string">info: [debug] Running fast reset (stop and clear)</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "am force-stop io</span></span><br><span class="line"><span class="string">.appium.android.apis"</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "pm clear io.appi</span></span><br><span class="line"><span class="string">um.android.apis"</span></span><br><span class="line"><span class="string">info: [debug] Forwarding system:4724 to device:4724</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f forward tcp:4724 tcp:47</span></span><br><span class="line"><span class="string">24</span></span><br><span class="line"><span class="string">info: [debug] Pushing appium bootstrap to device...</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f push "C:\\Users\\Tao Yi</span></span><br><span class="line"><span class="string">\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\android_bootstrap\\AppiumBootstrap.jar" /data/local/tmp/</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">info: [debug] Pushing settings apk to device...</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f install "C:\Users\Tao Y</span></span><br><span class="line"><span class="string">i\AppData\Roaming\npm\node_modules\appium\build\settings_apk\settings_apk-debug.apk"</span></span><br><span class="line"><span class="string">info: [debug] Pushing unlock helper app to device...</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f install "C:\Users\Tao Y</span></span><br><span class="line"><span class="string">i\AppData\Roaming\npm\node_modules\appium\build\unlock_apk\unlock_apk-debug.apk"</span></span><br><span class="line"><span class="string">info: Starting App</span></span><br><span class="line"><span class="string">info: [debug] Attempting to kill all '</span>uiautomator<span class="string">' processes</span></span><br><span class="line"><span class="string">info: [debug] Getting all processes with '</span>uiautomator<span class="string">'</span></span><br><span class="line"><span class="string">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell "ps '</span>uiautomator<span class="string">'</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line"><span class="string">info: [debug] No matching processes found</span></span><br><span class="line"><span class="string">info: [debug] Running bootstrap</span></span><br><span class="line"><span class="string">info: [debug] spawning: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell uiautomator runtest Ap</span></span><br><span class="line"><span class="string">piumBootstrap.jar -c io.appium.android.bootstrap.Bootstrap -e pkg io.appium.android.apis -e disableAndroidWatc</span></span><br><span class="line"><span class="string">hers false</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: numtests=1</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] io.appium.android.bootstrap.Bootstrap:</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: test=testRunServer</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: class=io.appium.android.bootstrap.Bootstrap</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: current=1</span></span><br><span class="line"><span class="string">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: 1</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Socket opened on port 4724</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Appium Socket Server Ready</span></span><br><span class="line"><span class="string">info: [debug] [BOOTSTRAP] [debug] Loading json...</span></span><br><span class="line"><span class="string">info: [debug] Waking up device if it'</span>s not alive</span><br><span class="line">info: [debug] Pushing <span class="built_in">command</span> to appium work queue: [<span class="string">"wake"</span>,&#123;&#125;]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] json loading complete.</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Registered crash watchers.</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Client connected</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;<span class="string">"cmd"</span>:<span class="string">"action"</span>,<span class="string">"action"</span>:<span class="string">"wake"</span>,<span class="string">"params"</span>:&#123;&#125;&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> of <span class="built_in">type</span> ACTION</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> action: wake</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"dumpsys window"</span></span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:<span class="literal">true</span>&#125;</span><br><span class="line">info: [debug] Screen already unlocked, continuing.</span><br><span class="line">info: [debug] Pushing <span class="built_in">command</span> to appium work queue: [<span class="string">"getDataDir"</span>,&#123;&#125;]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;<span class="string">"cmd"</span>:<span class="string">"action"</span>,<span class="string">"action"</span>:<span class="string">"getDataDir"</span>,<span class="string">"params"</span>:&#123;&#125;&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> of <span class="built_in">type</span> ACTION</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> action: getDataDir</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:<span class="string">"\/data\/local\/tmp"</span>&#125;</span><br><span class="line">info: [debug] dataDir <span class="built_in">set</span> to: /data/<span class="built_in">local</span>/tmp</span><br><span class="line">info: [debug] Pushing <span class="built_in">command</span> to appium work queue: [<span class="string">"compressedLayoutHierarchy"</span>,&#123;<span class="string">"compressLayout"</span>:<span class="literal">false</span>&#125;]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;<span class="string">"cmd"</span>:<span class="string">"action"</span>,<span class="string">"action"</span>:<span class="string">"compressedLayoutHierarchy"</span>,<span class="string">"</span></span><br><span class="line"><span class="string">params"</span>:&#123;<span class="string">"compressLayout"</span>:<span class="literal">false</span>&#125;&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> of <span class="built_in">type</span> ACTION</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> action: compressedLayoutHierarchy</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:<span class="literal">false</span>&#125;</span><br><span class="line">info: [debug] Getting device API level</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"getprop ro.build</span></span><br><span class="line"><span class="string">.version.sdk"</span></span><br><span class="line">info: [debug] Device is at API Level 23</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"am start -S -a a</span></span><br><span class="line"><span class="string">ndroid.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000 -n io.appium.android.apis/io.appiu</span></span><br><span class="line"><span class="string">m.android.apis.ApiDemos"</span></span><br><span class="line">info: [debug] Waiting <span class="keyword">for</span> pkg <span class="string">"io.appium.android.apis"</span> and activity <span class="string">"io.appium.android.apis.ApiDemos"</span> to be fo</span><br><span class="line">cused</span><br><span class="line">info: [debug] Getting focused package and activity</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"dumpsys window w</span></span><br><span class="line"><span class="string">indows"</span></span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"getprop ro.build</span></span><br><span class="line"><span class="string">.version.release"</span></span><br><span class="line">info: [debug] Device is at release version 6.0</span><br><span class="line">info: [debug] Device launched! Ready <span class="keyword">for</span> commands</span><br><span class="line">info: [debug] Setting <span class="built_in">command</span> timeout to the default of 60 secs</span><br><span class="line">info: [debug] Appium session started with sessionId 7da33fde-d7a2-4c56-89ad-21d3564cd8d4</span><br><span class="line">info: &lt;-- POST /wd/hub/session 303 30301.492 ms - 74</span><br><span class="line">info: --&gt; GET /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4 &#123;&#125;</span><br><span class="line">info: [debug] Responding to client with success: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:&#123;<span class="string">"platform"</span>:<span class="string">"LINUX"</span>,<span class="string">"browserName"</span>:<span class="string">"Androi</span></span><br><span class="line"><span class="string">d"</span>,<span class="string">"platformVersion"</span>:<span class="string">"6.0"</span>,<span class="string">"webStorageEnabled"</span>:<span class="literal">false</span>,<span class="string">"takesScreenshot"</span>:<span class="literal">true</span>,<span class="string">"javascriptEnabled"</span>:<span class="literal">true</span>,<span class="string">"database</span></span><br><span class="line"><span class="string">Enabled"</span>:<span class="literal">false</span>,<span class="string">"networkConnectionEnabled"</span>:<span class="literal">true</span>,<span class="string">"locationContextEnabled"</span>:<span class="literal">false</span>,<span class="string">"warnings"</span>:&#123;&#125;,<span class="string">"desired"</span>:&#123;<span class="string">"platfo</span></span><br><span class="line"><span class="string">rmVersion"</span>:<span class="string">"6.0"</span>,<span class="string">"app"</span>:<span class="string">"E:\\Appium\\sample-code\\apps\\ApiDemos\\bin\\ApiDemos-debug.apk"</span>,<span class="string">"platformName"</span>:<span class="string">"Andr</span></span><br><span class="line"><span class="string">oid"</span>,<span class="string">"deviceName"</span>:<span class="string">"Nexus 5"</span>&#125;,<span class="string">"app"</span>:<span class="string">"E:\\Appium\\sample-code\\apps\\ApiDemos\\bin\\ApiDemos-debug.apk"</span>,<span class="string">"platfor</span></span><br><span class="line"><span class="string">mName"</span>:<span class="string">"Android"</span>,<span class="string">"deviceName"</span>:<span class="string">"0721b62c00e1a31f"</span>&#125;,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: &lt;-- GET /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4 200 4.489 ms - 602 &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:&#123;<span class="string">"pl</span></span><br><span class="line"><span class="string">atform"</span>:<span class="string">"LINUX"</span>,<span class="string">"browserName"</span>:<span class="string">"Android"</span>,<span class="string">"platformVersion"</span>:<span class="string">"6.0"</span>,<span class="string">"webStorageEnabled"</span>:<span class="literal">false</span>,<span class="string">"takesScreenshot"</span>:tr</span><br><span class="line">ue,<span class="string">"javascriptEnabled"</span>:<span class="literal">true</span>,<span class="string">"databaseEnabled"</span>:<span class="literal">false</span>,<span class="string">"networkConnectionEnabled"</span>:<span class="literal">true</span>,<span class="string">"locationContextEnabled"</span>:f</span><br><span class="line">alse,<span class="string">"warnings"</span>:&#123;&#125;,<span class="string">"desired"</span>:&#123;<span class="string">"platformVersion"</span>:<span class="string">"6.0"</span>,<span class="string">"app"</span>:<span class="string">"E:\\Appium\\sample-code\\apps\\ApiDemos\\bin\\Api</span></span><br><span class="line"><span class="string">Demos-debug.apk"</span>,<span class="string">"platformName"</span>:<span class="string">"Android"</span>,<span class="string">"deviceName"</span>:<span class="string">"Nexus 5"</span>&#125;,<span class="string">"app"</span>:<span class="string">"E:\\Appium\\sample-code\\apps\\ApiDem</span></span><br><span class="line"><span class="string">os\\bin\\ApiDemos-debug.apk"</span>,<span class="string">"platformName"</span>:<span class="string">"Android"</span>,<span class="string">"deviceName"</span>:<span class="string">"0721b62c00e1a31f"</span>&#125;,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d</span></span><br><span class="line"><span class="string">7a2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: --&gt; POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element &#123;<span class="string">"using"</span>:<span class="string">"accessibility id"</span>,<span class="string">"sessi</span></span><br><span class="line"><span class="string">onId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>,<span class="string">"value"</span>:<span class="string">"Graphics"</span>&#125;</span><br><span class="line">info: [debug] Waiting up to 0ms <span class="keyword">for</span> condition</span><br><span class="line">info: [debug] Pushing <span class="built_in">command</span> to appium work queue: [<span class="string">"find"</span>,&#123;<span class="string">"strategy"</span>:<span class="string">"accessibility id"</span>,<span class="string">"selector"</span>:<span class="string">"Graphic</span></span><br><span class="line"><span class="string">s"</span>,<span class="string">"context"</span>:<span class="string">""</span>,<span class="string">"multiple"</span>:<span class="literal">false</span>&#125;]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;<span class="string">"cmd"</span>:<span class="string">"action"</span>,<span class="string">"action"</span>:<span class="string">"find"</span>,<span class="string">"params"</span>:&#123;<span class="string">"strategy"</span>:<span class="string">"</span></span><br><span class="line"><span class="string">accessibility id"</span>,<span class="string">"selector"</span>:<span class="string">"Graphics"</span>,<span class="string">"context"</span>:<span class="string">""</span>,<span class="string">"multiple"</span>:<span class="literal">false</span>&#125;&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> of <span class="built_in">type</span> ACTION</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> action: find</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Finding Graphics using ACCESSIBILITY_ID with the contextId:  multiple: <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Using: UiSelector[DESCRIPTION=Graphics, INSTANCE=0]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:&#123;<span class="string">"ELEMENT"</span>:<span class="string">"1"</span>&#125;&#125;</span><br><span class="line">info: [debug] Responding to client with success: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:&#123;<span class="string">"ELEMENT"</span>:<span class="string">"1"</span>&#125;,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a</span></span><br><span class="line"><span class="string">2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: &lt;-- POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element 200 624.523 ms - 87 &#123;<span class="string">"status"</span>:0,<span class="string">"v</span></span><br><span class="line"><span class="string">alue"</span>:&#123;<span class="string">"ELEMENT"</span>:<span class="string">"1"</span>&#125;,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: --&gt; POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element/1/click &#123;<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a</span></span><br><span class="line"><span class="string">2-4c56-89ad-21d3564cd8d4"</span>,<span class="string">"id"</span>:<span class="string">"1"</span>&#125;</span><br><span class="line">info: [debug] Pushing <span class="built_in">command</span> to appium work queue: [<span class="string">"element:click"</span>,&#123;<span class="string">"elementId"</span>:<span class="string">"1"</span>&#125;]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;<span class="string">"cmd"</span>:<span class="string">"action"</span>,<span class="string">"action"</span>:<span class="string">"element:click"</span>,<span class="string">"params"</span>:&#123;<span class="string">"el</span></span><br><span class="line"><span class="string">ementId"</span>:<span class="string">"1"</span>&#125;&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> of <span class="built_in">type</span> ACTION</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> action: click</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:<span class="literal">true</span>&#125;</span><br><span class="line">info: [debug] Responding to client with success: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:<span class="literal">true</span>,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad</span></span><br><span class="line"><span class="string">-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: &lt;-- POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element/1/click 200 139.135 ms - 76 &#123;<span class="string">"stat</span></span><br><span class="line"><span class="string">us"</span>:0,<span class="string">"value"</span>:<span class="literal">true</span>,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: --&gt; POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element &#123;<span class="string">"using"</span>:<span class="string">"accessibility id"</span>,<span class="string">"sessi</span></span><br><span class="line"><span class="string">onId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>,<span class="string">"value"</span>:<span class="string">"Arcs"</span>&#125;</span><br><span class="line">info: [debug] Waiting up to 0ms <span class="keyword">for</span> condition</span><br><span class="line">info: [debug] Pushing <span class="built_in">command</span> to appium work queue: [<span class="string">"find"</span>,&#123;<span class="string">"strategy"</span>:<span class="string">"accessibility id"</span>,<span class="string">"selector"</span>:<span class="string">"Arcs"</span>,<span class="string">"</span></span><br><span class="line"><span class="string">context"</span>:<span class="string">""</span>,<span class="string">"multiple"</span>:<span class="literal">false</span>&#125;]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;<span class="string">"cmd"</span>:<span class="string">"action"</span>,<span class="string">"action"</span>:<span class="string">"find"</span>,<span class="string">"params"</span>:&#123;<span class="string">"strategy"</span>:<span class="string">"</span></span><br><span class="line"><span class="string">accessibility id"</span>,<span class="string">"selector"</span>:<span class="string">"Arcs"</span>,<span class="string">"context"</span>:<span class="string">""</span>,<span class="string">"multiple"</span>:<span class="literal">false</span>&#125;&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> of <span class="built_in">type</span> ACTION</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> action: find</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Finding Arcs using ACCESSIBILITY_ID with the contextId:  multiple: <span class="literal">false</span></span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Using: UiSelector[DESCRIPTION=Arcs, INSTANCE=0]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:&#123;<span class="string">"ELEMENT"</span>:<span class="string">"2"</span>&#125;&#125;</span><br><span class="line">info: [debug] Responding to client with success: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:&#123;<span class="string">"ELEMENT"</span>:<span class="string">"2"</span>&#125;,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a</span></span><br><span class="line"><span class="string">2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: &lt;-- POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element 200 740.757 ms - 87 &#123;<span class="string">"status"</span>:0,<span class="string">"v</span></span><br><span class="line"><span class="string">alue"</span>:&#123;<span class="string">"ELEMENT"</span>:<span class="string">"2"</span>&#125;,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: --&gt; POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element/2/click &#123;<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a</span></span><br><span class="line"><span class="string">2-4c56-89ad-21d3564cd8d4"</span>,<span class="string">"id"</span>:<span class="string">"2"</span>&#125;</span><br><span class="line">info: [debug] Pushing <span class="built_in">command</span> to appium work queue: [<span class="string">"element:click"</span>,&#123;<span class="string">"elementId"</span>:<span class="string">"2"</span>&#125;]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;<span class="string">"cmd"</span>:<span class="string">"action"</span>,<span class="string">"action"</span>:<span class="string">"element:click"</span>,<span class="string">"params"</span>:&#123;<span class="string">"el</span></span><br><span class="line"><span class="string">ementId"</span>:<span class="string">"2"</span>&#125;&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> of <span class="built_in">type</span> ACTION</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> action: click</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:<span class="literal">true</span>&#125;</span><br><span class="line">info: [debug] Responding to client with success: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:<span class="literal">true</span>,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad</span></span><br><span class="line"><span class="string">-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: &lt;-- POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element/2/click 200 130.684 ms - 76 &#123;<span class="string">"stat</span></span><br><span class="line"><span class="string">us"</span>:0,<span class="string">"value"</span>:<span class="literal">true</span>,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: --&gt; POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element &#123;<span class="string">"using"</span>:<span class="string">"-android uiautomator"</span>,<span class="string">"s</span></span><br><span class="line"><span class="string">essionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>,<span class="string">"value"</span>:<span class="string">"new UiSelector().text(\"Graphics/Arcs\")"</span>&#125;</span><br><span class="line">info: [debug] Waiting up to 0ms <span class="keyword">for</span> condition</span><br><span class="line">info: [debug] Pushing <span class="built_in">command</span> to appium work queue: [<span class="string">"find"</span>,&#123;<span class="string">"strategy"</span>:<span class="string">"-android uiautomator"</span>,<span class="string">"selector"</span>:<span class="string">"new</span></span><br><span class="line"><span class="string"> UiSelector().text(\"Graphics/Arcs\")"</span>,<span class="string">"context"</span>:<span class="string">""</span>,<span class="string">"multiple"</span>:<span class="literal">false</span>&#125;]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;<span class="string">"cmd"</span>:<span class="string">"action"</span>,<span class="string">"action"</span>:<span class="string">"find"</span>,<span class="string">"params"</span>:&#123;<span class="string">"strategy"</span>:<span class="string">"</span></span><br><span class="line"><span class="string">-android uiautomator"</span>,<span class="string">"selector"</span>:<span class="string">"new UiSelector().text(\"Graphics/Arcs\")"</span>,<span class="string">"context"</span>:<span class="string">""</span>,<span class="string">"multiple"</span>:<span class="literal">false</span>&#125;&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> of <span class="built_in">type</span> ACTION</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> action: find</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Finding new UiSelector().text(<span class="string">"Graphics/Arcs"</span>) using ANDROID_UIAUTOMATOR wit</span><br><span class="line">h the contextId:  multiple: <span class="literal">false</span></span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Parsing selector: new UiSelector().text(<span class="string">"Graphics/Arcs"</span>)</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] UiSelector coerce <span class="built_in">type</span>: class java.lang.String arg: <span class="string">"Graphics/Arcs"</span></span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Using: UiSelector[TEXT=Graphics/Arcs]</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:&#123;<span class="string">"ELEMENT"</span>:<span class="string">"3"</span>&#125;&#125;</span><br><span class="line">info: [debug] Responding to client with success: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:&#123;<span class="string">"ELEMENT"</span>:<span class="string">"3"</span>&#125;,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a</span></span><br><span class="line"><span class="string">2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: &lt;-- POST /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4/element 200 851.825 ms - 87 &#123;<span class="string">"status"</span>:0,<span class="string">"v</span></span><br><span class="line"><span class="string">alue"</span>:&#123;<span class="string">"ELEMENT"</span>:<span class="string">"3"</span>&#125;,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: --&gt; DELETE /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4 &#123;&#125;</span><br><span class="line">info: Shutting down appium session</span><br><span class="line">info: [debug] Pressing the HOME button</span><br><span class="line">info: [debug] executing cmd: E:\android-sdk\platform-tools\adb.exe -s 0721b62c00e1a31f shell <span class="string">"input keyevent 3</span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">info: [debug] Stopping logcat capture</span><br><span class="line">info: [debug] Logcat terminated with code null, signal SIGTERM</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got data from client: &#123;<span class="string">"cmd"</span>:<span class="string">"shutdown"</span>&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Got <span class="built_in">command</span> of <span class="built_in">type</span> SHUTDOWN</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Returning result: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:<span class="string">"OK, shutting down"</span>&#125;</span><br><span class="line">info: [debug] [BOOTSTRAP] [debug] Closed client connection</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: numtests=1</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=.</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: <span class="built_in">test</span>=testRunServer</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: class=io.appium.android.bootstrap.Bootstrap</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: current=1</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: 0</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] Test results <span class="keyword">for</span> WatcherResultPrinter=.</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] Time: 5.576</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] OK (1 <span class="built_in">test</span>)</span><br><span class="line">info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: -1</span><br><span class="line">info: [debug] Sent shutdown <span class="built_in">command</span>, waiting <span class="keyword">for</span> UiAutomator to stop...</span><br><span class="line">info: [debug] UiAutomator shut down normally</span><br><span class="line">info: [debug] Cleaning up android objects</span><br><span class="line">info: [debug] Cleaning up appium session</span><br><span class="line">info: [debug] Responding to client with success: &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span>:null,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad</span></span><br><span class="line"><span class="string">-21d3564cd8d4"</span>&#125;</span><br><span class="line">info: &lt;-- DELETE /wd/hub/session/7da33fde-d7a2-4c56-89ad-21d3564cd8d4 200 1152.228 ms - 76 &#123;<span class="string">"status"</span>:0,<span class="string">"value"</span></span><br><span class="line">:null,<span class="string">"sessionId"</span>:<span class="string">"7da33fde-d7a2-4c56-89ad-21d3564cd8d4"</span>&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>shadow</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://shadow000902.space/2016/03/31/Appium运行日志解析/" title="Appium运行日志解析">http://shadow000902.space/2016/03/31/Appium运行日志解析/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/appium/" rel="tag"># appium</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/27/Appium各种元素定位及操作方法解析/" rel="next" title="Appium-Python各种元素定位及操作方法解析">
+                <i class="fa fa-chevron-left"></i> Appium-Python各种元素定位及操作方法解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/31/Appium安装/" rel="prev" title="Appium安装">
+                Appium安装 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591af85feb91bba8" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+            
+              <p class="site-author-name" itemprop="name">shadow</p>
+              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Appium脚本-python代码-android-simple-py"><span class="nav-number">1.</span> <span class="nav-text">Appium脚本/python代码     //android_simple.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Appium运行日志解析"><span class="nav-number">2.</span> <span class="nav-text">Appium运行日志解析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 90954, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 90954, xid: "2016/03/31/Appium运行日志解析/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/90954/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz", "4rSep9EijQDvdmVi5cPCzgxz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

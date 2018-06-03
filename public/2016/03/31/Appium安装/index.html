@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '0HPI7IYB5V',
+      apiKey: 'c41b4c8f05b63867c231cd2ef194a34f',
+      indexName: 'Hexo_search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="命令行正常安装Appium安装node.js123456XXX@XXX:~$ node -v                                              # 安装[0.10.46](https://nodejs.org/dist/v0.10.46/node-v0.10.46.tar.gz)版本的nodev0.10.46XXX@XXX:~$ npm -v">
+<meta name="keywords" content="appium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Appium安装">
+<meta property="og:url" content="http://shadow000902.space/2016/03/31/Appium安装/index.html">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="命令行正常安装Appium安装node.js123456XXX@XXX:~$ node -v                                              # 安装[0.10.46](https://nodejs.org/dist/v0.10.46/node-v0.10.46.tar.gz)版本的nodev0.10.46XXX@XXX:~$ npm -v">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://shadow000902.space/2016/03/31/Appium安装/Appium安装目录结构.png">
+<meta property="og:image" content="http://shadow000902.space/2016/03/31/Appium安装/node_modules目录结构.png">
+<meta property="og:image" content="http://shadow000902.space/2016/03/31/Appium安装/Appium运行批处理文件.png">
+<meta property="og:image" content="http://shadow000902.space/2016/03/31/Appium安装/Appium正常运行.png">
+<meta property="og:updated_time" content="2017-12-11T05:21:45.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Appium安装">
+<meta name="twitter:description" content="命令行正常安装Appium安装node.js123456XXX@XXX:~$ node -v                                              # 安装[0.10.46](https://nodejs.org/dist/v0.10.46/node-v0.10.46.tar.gz)版本的nodev0.10.46XXX@XXX:~$ npm -v">
+<meta name="twitter:image" content="http://shadow000902.space/2016/03/31/Appium安装/Appium安装目录结构.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shadow'S Site" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://shadow000902.space/2016/03/31/Appium安装/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Appium安装 | Shadow'S Site</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18711495-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-18711495-2');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b2e7edb34a402c6fa45e71e2a2456518";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shadow'S Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/03/31/Appium安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Appium安装
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-03-31 18:19:45" itemprop="dateCreated datePublished" datetime="2016-03-31T18:19:45+08:00">2016-03-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2017-12-11 13:21:45" itemprop="dateModified" datetime="2017-12-11T13:21:45+08:00">2017-12-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Appium/" itemprop="url" rel="index"><span itemprop="name">Appium</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/31/Appium安装/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count hc-comment-count" data-xid="2016/03/31/Appium安装/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/03/31/Appium安装/" class="leancloud_visitors" data-flag-title="Appium安装">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="命令行正常安装Appium"><a href="#命令行正常安装Appium" class="headerlink" title="命令行正常安装Appium"></a>命令行正常安装Appium</h4><h5 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">XXX@XXX:~$ node -v                                              # 安装[0.10.46](https://nodejs.org/dist/v0.10.46/node-v0.10.46.tar.gz)版本的node</span><br><span class="line">v0.10.46</span><br><span class="line">XXX@XXX:~$ npm -v                                               # 安装node的时候同时安装了[2.15.1]版本的npm</span><br><span class="line">2.15.1</span><br><span class="line">XXX@XXX:~$ appium -v</span><br><span class="line">1.4.16</span><br></pre></td></tr></table></figure>
+<h5 id="使用node-js安装Appium"><a href="#使用node-js安装Appium" class="headerlink" title="使用node.js安装Appium"></a>使用node.js安装Appium</h5>  <a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g appium                                           # -g 全局参数</span><br><span class="line">或者</span><br><span class="line">npm --registry http://registry.cnpmjs.org install -g appium     # 推荐这种,npm的国内镜像</span><br></pre></td></tr></table></figure>
+<h5 id="修改Appium安装源方法"><a href="#修改Appium安装源方法" class="headerlink" title="修改Appium安装源方法"></a>修改Appium安装源方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry                                         # 查看当前npm的镜像源地址</span><br><span class="line">npm config set registry=https://registry.npm.taobao.org/        # 替换npm源为淘宝的npm镜像源</span><br><span class="line">npm config get registry                                         # 查看镜像源是否替换成功</span><br></pre></td></tr></table></figure>
+<h4 id="异常安装Appium方法（windows下）"><a href="#异常安装Appium方法（windows下）" class="headerlink" title="异常安装Appium方法（windows下）"></a>异常安装Appium方法（windows下）</h4><ol>
+<li>下载<a href="http://appium.io/" target="_blank" rel="noopener">Appium客户端</a></li>
+<li>安装Appium客户端到电脑，查看目录如图：<img src="/2016/03/31/Appium安装/Appium安装目录结构.png" title="Appium安装目录结构"></li>
+<li>完整解压其中的node_modules.7z文件，如图所示：<img src="/2016/03/31/Appium安装/node_modules目录结构.png" title="node_modules目录结构"></li>
+<li>在node_modules/.bin文件夹中就有可以在CMD中运行的appium批处理文件：<img src="/2016/03/31/Appium安装/Appium运行批处理文件.png" title="Appium运行批处理文件"></li>
+<li>在sdk、jdk、python、环境变量设置好的情况下，CMD进入node_modules/.bin下，就可以直接命令行运行appium：<img src="/2016/03/31/Appium安装/Appium正常运行.png" title="Appium正常运行">
+</li>
+</ol>
+<h4 id="⭐️源码安装"><a href="#⭐️源码安装" class="headerlink" title="⭐️源码安装"></a>⭐️源码安装</h4><h5 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">npm WARN deprecated has-color@0.1.7: Renamed to supports-color. If you&apos;re using chalk, upgrade to the latest version. https://github.com/chalk/supports-color</span><br><span class="line">/usr/local/bin/cnpm -&gt; /usr/local/lib/node_modules/cnpm/bin/cnpm</span><br><span class="line">/usr/local/bin/cnpm-check -&gt; /usr/local/lib/node_modules/cnpm/bin/cnpm-check</span><br><span class="line">/usr/local/bin/cnpm-sync -&gt; /usr/local/lib/node_modules/cnpm/bin/cnpm-sync</span><br><span class="line">/usr/local/bin/cnpm-user -&gt; /usr/local/lib/node_modules/cnpm/bin/cnpm-user</span><br><span class="line">/usr/local/bin/cnpm-doc -&gt; /usr/local/lib/node_modules/cnpm/bin/cnpm-doc</span><br><span class="line">/usr/local/bin/cnpm-web -&gt; /usr/local/lib/node_modules/cnpm/bin/cnpm-web</span><br><span class="line">/usr/local/bin/cnpm-search -&gt; /usr/local/lib/node_modules/cnpm/bin/cnpm-search</span><br><span class="line">/usr/local/lib</span><br><span class="line">├── abbrev@1.0.9</span><br><span class="line">├── aproba@1.0.4</span><br><span class="line">├─┬ cnpm@4.3.2</span><br><span class="line">│ ├── auto-correct@1.0.0</span><br><span class="line">│ ├── bagpipe@0.3.5</span><br><span class="line">│ ├── colors@1.1.2</span><br><span class="line">│ ├─┬ commander@2.9.0</span><br><span class="line">│ │ └── graceful-readlink@1.0.1</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h5 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/appium/appium.git</span><br><span class="line"></span><br><span class="line">➜  ~ git clone https://github.com/appium/appium.git</span><br><span class="line"></span><br><span class="line">Cloning into &apos;appium&apos;...</span><br><span class="line">remote: Counting objects: 38266, done.</span><br><span class="line">remote: Compressing objects: 100% (5/5), done.</span><br><span class="line">remote: Total 38266 (delta 0), reused 0 (delta 0), pack-reused 38261</span><br><span class="line">Receiving objects: 100% (38266/38266), 34.97 MiB | 150.00 KiB/s, done.</span><br><span class="line">Resolving deltas: 100% (24501/24501), done.</span><br><span class="line">Checking connectivity... done.</span><br></pre></td></tr></table></figure>
+<h5 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">cd appium               # 进入appium源码目录</span><br><span class="line">cnpm install            # 执行安装</span><br><span class="line"></span><br><span class="line">➜  appium git:(master) cnpm install</span><br><span class="line">appium-logger@^2.1.0 installed at node_modules/.2.1.0@appium-logger</span><br><span class="line">appium-windows-driver@^0.x installed at node_modules/.0.2.0@appium-windows-driver</span><br><span class="line">argparse@^1.0.7 installed at node_modules/.1.0.9@argparse</span><br><span class="line">asyncbox@^2.3.1 existed at node_modules/.2.3.1@asyncbox</span><br><span class="line">babel-runtime@=5.8.24 existed at node_modules/.5.8.24@babel-runtime</span><br><span class="line">bluebird@^2.10.2 existed at node_modules/.2.11.0@bluebird</span><br><span class="line">continuation-local-storage@^3.1.7 existed at node_modules/.3.2.0@continuation-local-storage</span><br><span class="line">appium-base-driver@^2.0.19 installed at node_modules/.2.0.19@appium-base-driver</span><br><span class="line">lodash@^4.13.1 existed at node_modules/.4.16.4@lodash</span><br><span class="line">npmlog@^2.0.4 existed at node_modules/.2.0.4@npmlog</span><br><span class="line">request-promise@^1.0.2 existed at node_modules/.1.0.2@request-promise</span><br><span class="line">source-map-support@^0.4.0 existed at node_modules/.0.4.3@source-map-support</span><br><span class="line">teen_process@^1.7.1 existed at node_modules/.1.7.1@teen_process</span><br><span class="line">date-utils@^1.2.21 existed at node_modules/.1.2.21@date-utils</span><br><span class="line">appium-xcuitest-driver@^2.0.25 installed at node_modules/.2.0.27@appium-xcuitest-driver</span><br><span class="line">install gulp-jshint from remote https://github.com/appium/gulp-jshint/archive/master.tar.gz, may be very slow, please keep patience</span><br><span class="line">appium-support@^2.3.3 installed at node_modules/.2.3.3@appium-support</span><br><span class="line">winston@^2.2.0 installed at node_modules/.2.2.0@winston</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h5 id="用cnpm-link命令将appium-link到系统，可以忽略warn"><a href="#用cnpm-link命令将appium-link到系统，可以忽略warn" class="headerlink" title="用cnpm link命令将appium link到系统，可以忽略warn"></a>用<code>cnpm link</code>命令将<code>appium link</code>到系统，可以忽略<code>warn</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">cnpm link</span><br><span class="line"></span><br><span class="line">➜  appium git:(master) cnpm link</span><br><span class="line">npm WARN deprecated tough-cookie@2.2.2: ReDoS vulnerability parsing Set-Cookie https://nodesecurity.io/advisories/130</span><br><span class="line">npm WARN deprecated minimatch@3.0.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue</span><br><span class="line">npm WARN deprecated minimatch@1.0.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue</span><br><span class="line">npm WARN deprecated lodash@2.4.2: lodash@&lt;3.0.0 is no longer maintained. Upgrade to lodash@^4.0.0.</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running add isarray@0.0.1 node_modules/appium-gulp-plugins/node_modules/gulp-jshint/node_modules/isarray</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running update lodash@2.4.2 node_modules/appium-gulp-plugins/node_modules/gulp-jshint/node_modules/lodash</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running add readable-stream@1.0.34 node_modules/appium-gulp-plugins/node_modules/gulp-jshint/node_modules/readable-stream</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running update through2@0.6.5 node_modules/appium-gulp-plugins/node_modules/gulp-jshint/node_modules/through2</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running add array-uniq@1.0.2 node_modules/gulp-nsp/node_modules/gulp-util/node_modules/array-uniq</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running add ansi-styles@2.2.1 node_modules/appium-gulp-plugins/node_modules/gulp-nsp/node_modules/nsp/node_modules/chalk/node_modules/ansi-styles</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running add inherits@2.0.1 node_modules/through2/node_modules/readable-stream/node_modules/inherits</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running add process-nextick-args@1.0.6 node_modules/through2/node_modules/readable-stream/node_modules/process-nextick-args</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running remove hoek@2.16.3 node_modules/topo/node_modules/hoek</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running remove replace-ext@0.0.1 node_modules/vinyl/node_modules/replace-ext</span><br><span class="line">npm WARN skippingAction Module is inside a symlinked module: not running remove jshint@2.5.10 node_modules/gulp-jshint/node_modules/jshint</span><br><span class="line"></span><br><span class="line">&gt; appium@1.6.0-beta3 prepublish /Users/taoyi/appium</span><br><span class="line">&gt; gulp prepublish</span><br><span class="line"></span><br><span class="line">[00:30:52] Using gulpfile ~/appium/gulpfile.js</span><br><span class="line">[00:30:52] Starting &apos;prepublish&apos;...</span><br><span class="line">[00:30:52] Starting &apos;clean&apos;...</span><br><span class="line">[00:30:52] Finished &apos;clean&apos; after 26 ms</span><br><span class="line">[00:30:52] Starting &apos;transpile&apos;...</span><br><span class="line">[00:30:54] Finished &apos;transpile&apos; after 2.13 s</span><br><span class="line">[00:30:54] Starting &apos;fixShrinkwrap&apos;...</span><br><span class="line">Could not find shrinkwrap; skipping fixing shrinkwrap. (Original error: Cannot find module &apos;./npm-shrinkwrap.json&apos;)</span><br><span class="line">/usr/local/bin/appium -&gt; /usr/local/lib/node_modules/appium/build/lib/main.js</span><br><span class="line">/usr/local/lib/node_modules/appium -&gt; /Users/taoyi/appium</span><br></pre></td></tr></table></figure>
+<h5 id="查看安装结果"><a href="#查看安装结果" class="headerlink" title="查看安装结果"></a>查看安装结果</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">appium -v</span><br><span class="line"></span><br><span class="line">➜  appium git:(master) appium -v</span><br><span class="line">1.6.0-beta3</span><br></pre></td></tr></table></figure>
+<h4 id="安装指定版本的appium"><a href="#安装指定版本的appium" class="headerlink" title="安装指定版本的appium"></a>安装指定版本的appium</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g appium@1.4.16</span><br></pre></td></tr></table></figure>
+<p>该方法应对ubuntu系统无法安装上<a href="mailto:appium@1.5.3" target="_blank" rel="noopener">appium@1.5.3</a>的问题，问题原因未知</p>
+<h4 id="Appium应用所附加需要的"><a href="#Appium应用所附加需要的" class="headerlink" title="Appium应用所附加需要的"></a>Appium应用所附加需要的</h4><ol>
+<li>JDK</li>
+<li>SDK</li>
+<li>python</li>
+<li><p>selenium</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install selenium -i http://pypi.douban.com/simple       # 使用国内地址</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Appium-Python-Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Appium-Python-Client</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="安装和使用appium遇到的问题解决"><a href="#安装和使用appium遇到的问题解决" class="headerlink" title="安装和使用appium遇到的问题解决"></a>安装和使用<code>appium</code>遇到的问题解决</h4><h5 id="安装后无法使用"><a href="#安装后无法使用" class="headerlink" title="安装后无法使用"></a>安装后无法使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Appium will not work if used or installed with sudo</span><br><span class="line">error: Appium will not work if used or installed with sudo. Please rerun/install as a non-root user. If you had to install Appium using `sudo npm install -g appium`, the solution is to reinstall Node using a method (Homebrew, for example) that doesn&apos;t require sudo to install global npm packages.</span><br><span class="line"></span><br><span class="line">[1]+  Exit 1                  appium</span><br></pre></td></tr></table></figure>
+<p>该问题显示appium不能使用root用户来安装，不然无法运行，所以需要卸载用root用户安装的appium，该用一般用户来安装<br><strong>解决方案</strong><br>1、改变<code>node</code>的所有者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/lib</span><br><span class="line">sudo chown -R taoyi node_modules</span><br></pre></td></tr></table></figure></p>
+<p>2、卸载<code>appium</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -g uninstall appium</span><br></pre></td></tr></table></figure></p>
+<p>3、重新安装<code>appium</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -g install appium</span><br></pre></td></tr></table></figure></p>
+<p>4、启动<code>appium</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">appium &amp;</span><br></pre></td></tr></table></figure></p>
+<h5 id="安装中遇到权限问题无法安装"><a href="#安装中遇到权限问题无法安装" class="headerlink" title="安装中遇到权限问题无法安装"></a>安装中遇到权限问题无法安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm ERR!  &#123; [Error: EACCES, symlink &apos;/lib/node_modules/appium/bin/appium.js&apos;]</span><br><span class="line">npm ERR!   errno: 3,</span><br><span class="line">npm ERR!   code: &apos;EACCES&apos;,</span><br><span class="line">npm ERR!   path: &apos;/lib/node_modules/appium/bin/appium.js&apos; &#125;</span><br><span class="line">npm ERR!</span><br><span class="line">npm ERR! Please try running this command again as root/Administrator.</span><br></pre></td></tr></table></figure>
+<p><strong>解决方案</strong><br>1、修改目录权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /usr/local/lib/node_modules</span><br></pre></td></tr></table></figure></p>
+<p>2、安装依旧有相同的问题<br>查看/lib/node_modules目录，我们发现并没有/lib/node_modules/appium/bin/appium.js文件。显然，该文件是安装时生成的，因此问题应该出在安装起npm上，查看npm相关文档我们发现日志中提到的符号链接的路径是可以修改的，因此，解决权限问题可以将该符号链接修改到用户有权限的目录中。<br>3、<strong>解决方案</strong><br>执行以下命令修改符号链接路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &apos;~/.npm-packages&apos;</span><br></pre></td></tr></table></figure></p>
+<p>将新路径添加到环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc  </span><br><span class="line"># 在文件中添加以下内容</span><br><span class="line">export PATH=&quot;$PATH:$HOME/.npm-packages/bin&quot;</span><br></pre></td></tr></table></figure></p>
+<p>使环境变量生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h5 id="appium启动问题"><a href="#appium启动问题" class="headerlink" title="appium启动问题"></a><code>appium</code>启动问题</h5><p><code>appium</code>启动时可能会遇到下列问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">XXX@XXX:~$ appium</span><br><span class="line">error: uncaughtException: fn must be a function</span><br><span class="line">See http://goo.gl/916lJJ</span><br><span class="line">date=Sat Nov 21 2015 10:37:25 GMT+0800 (HKT), pid=2504, uid=501, gid=20, cwd=/usr/local/lib/node_modules/appium, execPath=/usr/local/bin/node, version=v0.10.34, argv=[node, /usr/local/bin/appium], rss=103559168, heapTotal=86062080, heapUsed=56309664, loadavg=[1.6328125, 1.86767578125, 1.81103515625], uptime=39552, trace=[column=15, file=/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/node_modules/bluebird/js/main/promisify.js, function=Function.Promise.promisify, line=268, method=Promise.promisify, native=false, column=13, file=lib/fs.js, function=, line=46, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=11, file=/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/build/lib/tempdir.js, function=, line=12, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=19, file=/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/build/index.js, function=, line=11, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=42, file=lib/proxy.js, function=, line=2, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=17, file=/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/build/index.js, function=, line=9, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=17, file=module.js, function=Module.require, line=364, method=require, native=false, column=17, file=module.js, function=require, line=380, method=null, native=false, column=28, file=lib/chromedriver.js, function=, line=3, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false], stack=[TypeError: fn must be a function, , See http://goo.gl/916lJJ, , at Function.Promise.promisify (/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/node_modules/bluebird/js/main/promisify.js:268:15), at Object.&lt;anonymous&gt; (lib/fs.js:46:13), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/build/lib/tempdir.js:12:11), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/node_modules/appium-support/build/index.js:11:19), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.&lt;anonymous&gt; (lib/proxy.js:2:42), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/node_modules/appium-jsonwp-proxy/build/index.js:9:17), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32), at Function.Module._load (module.js:312:12), at Module.require (module.js:364:17), at require (module.js:380:17), at Object.&lt;anonymous&gt; (lib/chromedriver.js:3:28), at Module._compile (module.js:456:26), at Object.Module._extensions..js (module.js:474:10), at Module.load (module.js:356:32)]</span><br></pre></td></tr></table></figure></p>
+<p>google我们发现问题是<code>node.js</code>版本太低导致。<br>使用<code>apt-get</code>安装的node版本还是<code>0.10.46</code><br>所以需要以源码方式安装，下载<code>0.12.15</code>的源码包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget XXX/node-v0.12.15.tar.gz</span><br><span class="line">tar xvf node-v0.12.15.tar.gz</span><br><span class="line">cd node-v0.12.15</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
+<p>之后再运行<code>appium</code>就可以正常启动了</p>
+<ol>
+<li><p>注意点<br><strong>安装appium需要首先安装相匹配的<code>node</code>和<code>npm</code>，如第一点中所述</strong><br>这一点至关重要，否则总是会遇到各种各样乱七八糟的问题。</p>
+</li>
+<li><p><code>appium1.4.16</code>版本安装成功日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line">XXX@XXX:~$ npm -g install appium@1.4.16</span><br><span class="line">npm WARN optional dep failed, continuing udidetect@1.0.7</span><br><span class="line"></span><br><span class="line">&gt; utf-8-validate@1.1.0 install /usr/local/lib/node_modules/appium/node_modules/ws/node_modules/utf-8-validate</span><br><span class="line">&gt; node-gyp rebuild</span><br><span class="line"></span><br><span class="line">make: Entering directory `/usr/local/lib/node_modules/appium/node_modules/ws/node_modules/utf-8-validate/build&apos;</span><br><span class="line">  CXX(target) Release/obj.target/validation/src/validation.o</span><br><span class="line">  SOLINK_MODULE(target) Release/obj.target/validation.node</span><br><span class="line">  COPY Release/validation.node</span><br><span class="line">make: Leaving directory `/usr/local/lib/node_modules/appium/node_modules/ws/node_modules/utf-8-validate/build&apos;</span><br><span class="line"></span><br><span class="line">&gt; bufferutil@1.1.0 install /usr/local/lib/node_modules/appium/node_modules/ws/node_modules/bufferutil</span><br><span class="line">&gt; node-gyp rebuild</span><br><span class="line"></span><br><span class="line">make: Entering directory `/usr/local/lib/node_modules/appium/node_modules/ws/node_modules/bufferutil/build&apos;</span><br><span class="line">  CXX(target) Release/obj.target/bufferutil/src/bufferutil.o</span><br><span class="line">  SOLINK_MODULE(target) Release/obj.target/bufferutil.node</span><br><span class="line">  COPY Release/bufferutil.node</span><br><span class="line">make: Leaving directory `/usr/local/lib/node_modules/appium/node_modules/ws/node_modules/bufferutil/build&apos;</span><br><span class="line">npm WARN peerDependencies The peer dependency continuation-local-storage@~3 included from cls-bluebird will no</span><br><span class="line">npm WARN peerDependencies longer be automatically installed to fulfill the peerDependency</span><br><span class="line">npm WARN peerDependencies in npm 3+. Your application will need to depend on it explicitly.</span><br><span class="line">npm WARN peerDependencies The peer dependency bluebird@&gt;=1.0.3 included from cls-bluebird will no</span><br><span class="line">npm WARN peerDependencies longer be automatically installed to fulfill the peerDependency</span><br><span class="line">npm WARN peerDependencies in npm 3+. Your application will need to depend on it explicitly.</span><br><span class="line"></span><br><span class="line">&gt; utf-8-validate@1.2.1 install /usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/engine.io/node_modules/ws/node_modules/utf-8-validate</span><br><span class="line">&gt; node-gyp rebuild</span><br><span class="line"></span><br><span class="line">make: Entering directory `/usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/engine.io/node_modules/ws/node_modules/utf-8-validate/build&apos;</span><br><span class="line">  CXX(target) Release/obj.target/validation/src/validation.o</span><br><span class="line">  SOLINK_MODULE(target) Release/obj.target/validation.node</span><br><span class="line">  COPY Release/validation.node</span><br><span class="line">make: Leaving directory `/usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/engine.io/node_modules/ws/node_modules/utf-8-validate/build&apos;</span><br><span class="line"></span><br><span class="line">&gt; bufferutil@1.2.1 install /usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/engine.io/node_modules/ws/node_modules/bufferutil</span><br><span class="line">&gt; node-gyp rebuild</span><br><span class="line"></span><br><span class="line">make: Entering directory `/usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/engine.io/node_modules/ws/node_modules/bufferutil/build&apos;</span><br><span class="line">  CXX(target) Release/obj.target/bufferutil/src/bufferutil.o</span><br><span class="line">  SOLINK_MODULE(target) Release/obj.target/bufferutil.node</span><br><span class="line">  COPY Release/bufferutil.node</span><br><span class="line">make: Leaving directory `/usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/engine.io/node_modules/ws/node_modules/bufferutil/build&apos;</span><br><span class="line"></span><br><span class="line">&gt; utf-8-validate@1.2.1 install /usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/node_modules/utf-8-validate</span><br><span class="line">&gt; node-gyp rebuild</span><br><span class="line"></span><br><span class="line">make: Entering directory `/usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/node_modules/utf-8-validate/build&apos;</span><br><span class="line">  CXX(target) Release/obj.target/validation/src/validation.o</span><br><span class="line">  SOLINK_MODULE(target) Release/obj.target/validation.node</span><br><span class="line">  COPY Release/validation.node</span><br><span class="line">make: Leaving directory `/usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/node_modules/utf-8-validate/build&apos;</span><br><span class="line"></span><br><span class="line">&gt; bufferutil@1.2.1 install /usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/node_modules/bufferutil</span><br><span class="line">&gt; node-gyp rebuild</span><br><span class="line"></span><br><span class="line">make: Entering directory `/usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/node_modules/bufferutil/build&apos;</span><br><span class="line">  CXX(target) Release/obj.target/bufferutil/src/bufferutil.o</span><br><span class="line">  SOLINK_MODULE(target) Release/obj.target/bufferutil.node</span><br><span class="line">  COPY Release/bufferutil.node</span><br><span class="line">make: Leaving directory `/usr/local/lib/node_modules/appium/node_modules/socket.io/node_modules/socket.io-client/node_modules/engine.io-client/node_modules/ws/node_modules/bufferutil/build&apos;</span><br><span class="line"></span><br><span class="line">&gt; appium-chromedriver@2.3.2 install /usr/local/lib/node_modules/appium/node_modules/appium-chromedriver</span><br><span class="line">&gt; node install-npm.js</span><br><span class="line"></span><br><span class="line">info Chromedriver Install Opening temp file to write chromedriver_linux64 to...</span><br><span class="line">info Chromedriver Install Downloading http://chromedriver.storage.googleapis.com/2.18/chromedriver_linux64.zip...</span><br><span class="line">info Chromedriver Install Writing binary content to /tmp/11678-532-16jz6cz/chromedriver_linux64.zip...</span><br><span class="line">info Chromedriver Install Extracting /tmp/11678-532-16jz6cz/chromedriver_linux64.zip to /tmp/11678-532-16jz6cz/chromedriver_linux64</span><br><span class="line">info Chromedriver Install Creating /usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/chromedriver/linux...</span><br><span class="line">info Chromedriver Install Copying unzipped binary, reading from /tmp/11678-532-16jz6cz/chromedriver_linux64/chromedriver...</span><br><span class="line">info Chromedriver Install Writing to /usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/chromedriver/linux/chromedriver_64...</span><br><span class="line">info Chromedriver Install /usr/local/lib/node_modules/appium/node_modules/appium-chromedriver/chromedriver/linux/chromedriver_64 successfully put in place</span><br><span class="line">npm WARN engine hawk@0.10.2: wanted: &#123;&quot;node&quot;:&quot;0.8.x&quot;&#125; (current: &#123;&quot;node&quot;:&quot;0.10.46&quot;,&quot;npm&quot;:&quot;2.15.1&quot;&#125;)</span><br><span class="line">npm WARN engine cryptiles@0.1.3: wanted: &#123;&quot;node&quot;:&quot;0.8.x&quot;&#125; (current: &#123;&quot;node&quot;:&quot;0.10.46&quot;,&quot;npm&quot;:&quot;2.15.1&quot;&#125;)</span><br><span class="line">npm WARN engine sntp@0.1.4: wanted: &#123;&quot;node&quot;:&quot;0.8.x&quot;&#125; (current: &#123;&quot;node&quot;:&quot;0.10.46&quot;,&quot;npm&quot;:&quot;2.15.1&quot;&#125;)</span><br><span class="line">npm WARN engine boom@0.3.8: wanted: &#123;&quot;node&quot;:&quot;0.8.x&quot;&#125; (current: &#123;&quot;node&quot;:&quot;0.10.46&quot;,&quot;npm&quot;:&quot;2.15.1&quot;&#125;)</span><br><span class="line">npm WARN engine hoek@0.7.6: wanted: &#123;&quot;node&quot;:&quot;0.8.x&quot;&#125; (current: &#123;&quot;node&quot;:&quot;0.10.46&quot;,&quot;npm&quot;:&quot;2.15.1&quot;&#125;)</span><br><span class="line">/usr/local/bin/appium -&gt; /usr/local/lib/node_modules/appium/bin/appium.js</span><br><span class="line">/usr/local/bin/appium-doctor -&gt; /usr/local/lib/node_modules/appium/bin/appium-doctor.js</span><br><span class="line">/usr/local/bin/authorize_ios -&gt; /usr/local/lib/node_modules/appium/bin/authorize-ios.js</span><br><span class="line">appium@1.4.16 /usr/local/lib/node_modules/appium</span><br><span class="line">├── camel-back-promise@1.0.0</span><br><span class="line">├── vargs@0.1.0</span><br><span class="line">├── win-spawn@2.0.0</span><br><span class="line">├── bytes@1.0.0</span><br><span class="line">├── path@0.11.14</span><br><span class="line">├── stack-trace@0.0.9</span><br><span class="line">├── bufferpack@0.0.6</span><br><span class="line">├── utf7@1.0.0</span><br><span class="line">├── uuid-js@0.7.5</span><br><span class="line">├── rimraf@2.2.8</span><br><span class="line">├── through@2.3.8</span><br><span class="line">├── node-idevice@0.1.5</span><br><span class="line">├── bplist-parser@0.1.0</span><br><span class="line">├── xmldom@0.1.19</span><br><span class="line">├── node-uuid@1.4.3</span><br><span class="line">├── q@1.1.2</span><br><span class="line">├── js2xmlparser2@0.2.0</span><br><span class="line">├── ncp@2.0.0</span><br><span class="line">├── async@0.9.2</span><br><span class="line">├── underscore@1.8.3</span><br><span class="line">├── xpath@0.0.9</span><br><span class="line">├── colors@1.0.3</span><br><span class="line">├── adm-zip@0.4.7</span><br><span class="line">├── safari-launcher@2.0.5</span><br><span class="line">├── temp@0.8.3 (os-tmpdir@1.0.1)</span><br><span class="line">├── sandboxed-module@2.0.3 (require-like@0.1.2)</span><br><span class="line">├── which@1.2.0 (is-absolute@0.1.7)</span><br><span class="line">├── mv@2.0.3 (ncp@0.6.0)</span><br><span class="line">├── underscore.string@3.0.3</span><br><span class="line">├── mkdirp@0.5.1 (minimist@0.0.8)</span><br><span class="line">├── touch@0.0.3 (nopt@1.0.10)</span><br><span class="line">├── difflib@0.2.4 (heap@0.2.6)</span><br><span class="line">├── morgan@1.5.3 (basic-auth@1.0.3, depd@1.0.1, on-finished@2.2.1, debug@2.2.0)</span><br><span class="line">├── method-override@2.3.5 (methods@1.1.1, vary@1.0.1, parseurl@1.3.0, debug@2.2.0)</span><br><span class="line">├── serve-favicon@2.2.1 (fresh@0.2.4, ms@0.7.1, parseurl@1.3.0, etag@1.6.0)</span><br><span class="line">├── bplist-creator@0.0.6 (stream-buffers@2.2.0)</span><br><span class="line">├── es6-promise@2.3.0</span><br><span class="line">├── glob@4.4.2 (inherits@2.0.1, once@1.3.2, inflight@1.0.4, minimatch@2.0.10)</span><br><span class="line">├── winston@0.9.0 (cycle@1.0.3, eyes@0.1.8, isstream@0.1.2, pkginfo@0.3.1)</span><br><span class="line">├── npmlog@1.1.0 (ansi@0.3.0, are-we-there-yet@1.0.4, gauge@1.1.0)</span><br><span class="line">├── appium-atoms@0.0.5</span><br><span class="line">├── body-parser@1.12.4 (content-type@1.0.1, depd@1.0.1, qs@2.4.2, on-finished@2.2.1, raw-body@2.0.2, debug@2.2.0, iconv-lite@0.4.8, type-is@1.6.9)</span><br><span class="line">├── express@4.11.2 (utils-merge@1.0.0, merge-descriptors@0.0.2, methods@1.1.1, fresh@0.2.4, cookie@0.1.2, escape-html@1.0.1, range-parser@1.0.3, vary@1.0.1, cookie-signature@1.0.5, finalhandler@0.3.3, media-typer@0.3.0, parseurl@1.3.0, serve-static@1.8.1, content-disposition@0.5.0, path-to-regexp@0.1.3, depd@1.0.1, qs@2.3.3, etag@1.5.1, debug@2.1.3, on-finished@2.2.1, send@0.11.1, proxy-addr@1.0.8, type-is@1.5.7, accepts@1.2.13)</span><br><span class="line">├── unzip@0.1.11 (setimmediate@1.0.4, match-stream@0.0.2, readable-stream@1.0.33, pullstream@0.4.1, fstream@0.1.31, binary@0.3.0)</span><br><span class="line">├── prompt@0.2.14 (revalidator@0.1.8, pkginfo@0.3.1, read@1.0.7, utile@0.2.1, winston@0.8.3)</span><br><span class="line">├── longjohn@0.2.9 (source-map-support@0.3.2)</span><br><span class="line">├── request@2.53.0 (caseless@0.9.0, aws-sign2@0.5.0, forever-agent@0.5.2, form-data@0.2.0, stringstream@0.0.5, oauth-sign@0.6.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, qs@2.3.3, tough-cookie@2.2.0, combined-stream@0.0.7, mime-types@2.0.14, http-signature@0.10.1, bl@0.9.4, hawk@2.3.1)</span><br><span class="line">├── md5calculator@0.0.3 (crypto@0.0.3, unzip@0.1.8, elementtree@0.1.3)</span><br><span class="line">├── ws@0.7.2 (options@0.0.6, ultron@1.0.2, utf-8-validate@1.1.0, bufferutil@1.1.0)</span><br><span class="line">├── date-utils@1.2.17</span><br><span class="line">├── grunt-cli@0.1.13 (resolve@0.3.1, nopt@1.0.10, findup-sync@0.1.3)</span><br><span class="line">├── binary-cookies@0.1.1 (path@0.4.10, colors@0.6.2, async@0.2.10, underscore@1.4.4, argparse@0.1.16, winston@0.6.2)</span><br><span class="line">├── swig@1.4.2 (optimist@0.6.1, uglify-js@2.4.24)</span><br><span class="line">├── grunt@0.4.5 (dateformat@1.0.2-1.2.3, which@1.0.9, eventemitter2@0.4.14, getobject@0.1.0, colors@0.6.2, async@0.1.22, grunt-legacy-util@0.2.0, hooker@0.2.3, exit@0.1.2, nopt@1.0.10, lodash@0.9.2, minimatch@0.2.14, glob@3.1.21, coffee-script@1.3.3, underscore.string@2.2.1, iconv-lite@0.2.11, grunt-legacy-log@0.1.2, findup-sync@0.1.3, js-yaml@2.0.5)</span><br><span class="line">├── namp@0.2.25 (highlight.js@8.9.1)</span><br><span class="line">├── appium-support@1.1.2 (bluebird@2.10.2, lodash@3.10.1)</span><br><span class="line">├── argparse@1.0.3 (sprintf-js@1.0.3, lodash@3.10.1)</span><br><span class="line">├── xml2js@0.4.15 (sax@1.1.4, xmlbuilder@4.0.0)</span><br><span class="line">├── plist@1.1.0 (util-deprecate@1.0.0, base64-js@0.0.6, xmlbuilder@2.2.1)</span><br><span class="line">├── appium-xcode@2.0.5 (denodeify@1.2.1, q@1.4.1, npmlog@1.2.1, source-map-support@0.2.10, lodash@3.10.1, babel-runtime@5.5.5, asyncbox@2.3.1)</span><br><span class="line">├── appium-uiauto@1.10.10 (argparse@0.1.16, winston@0.8.3)</span><br><span class="line">├── node-simctl@2.1.0 (source-map-support@0.2.10, npmlog@1.2.1, appium-logger@1.1.7, asyncbox@2.3.1, es6-mapify@1.0.0, babel-runtime@5.5.5, teen_process@1.5.1)</span><br><span class="line">├── socket.io@1.3.7 (debug@2.1.0, has-binary-data@0.1.3, socket.io-parser@2.2.4, socket.io-adapter@0.3.1, engine.io@1.5.4, socket.io-client@1.3.7)</span><br><span class="line">├── appium-instruments@2.0.6 (underscore@1.7.0, winston@0.8.3, appium-support@1.0.3)</span><br><span class="line">├── appium-adb@1.7.5 (underscore@1.6.0, ncp@0.5.1, q@1.0.1, appium-support@0.0.3, winston@0.7.3)</span><br><span class="line">└── appium-chromedriver@2.3.2 (is-os@1.0.0, q@1.4.1, ps-node@0.0.4, source-map-support@0.3.3, rimraf@2.4.3, request-promise@0.4.3, appium-logger@1.1.7, lodash@3.10.1, request@2.65.0, babel-runtime@5.5.5, asyncbox@2.3.1, teen_process@1.5.1, appium-jsonwp-proxy@1.4.1)</span><br><span class="line">XXX@XXX:~$ appium -v</span><br><span class="line">1.4.16</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="Mac成功安装Appium1-5-3版本［我有翻墙，不知道不翻墙行不行］"><a href="#Mac成功安装Appium1-5-3版本［我有翻墙，不知道不翻墙行不行］" class="headerlink" title="Mac成功安装Appium1.5.3版本［我有翻墙，不知道不翻墙行不行］"></a><code>Mac</code>成功安装<code>Appium1.5.3</code>版本［我有翻墙，不知道不翻墙行不行］</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">Last login: Mon Aug 15 14:28:23 on ttys003</span><br><span class="line">➜  ~ appium -v</span><br><span class="line">1.5.3</span><br><span class="line">➜  ~ npm -v</span><br><span class="line">3.9.3</span><br><span class="line">➜  ~ node -v</span><br><span class="line">v6.2.1</span><br><span class="line">➜  ~ npm -g install appium</span><br><span class="line">loadRequestedDeps → netwo ▀ ╢████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╟</span><br><span class="line">^C</span><br><span class="line">➜  ~ npm -g install appium --registry=http://registry.npm.taobao.org</span><br><span class="line">/usr/local/bin/appium -&gt; /usr/local/lib/node_modules/appium/build/lib/main.js</span><br><span class="line">/usr/local/bin/authorize-ios -&gt; /usr/local/lib/node_modules/appium/node_modules/.bin/authorize-ios</span><br><span class="line"></span><br><span class="line">&gt; fsevents@1.0.14 install /usr/local/lib/node_modules/appium/node_modules/fsevents</span><br><span class="line">&gt; node-pre-gyp install --fallback-to-build</span><br><span class="line"></span><br><span class="line">[fsevents] Success: &quot;/usr/local/lib/node_modules/appium/node_modules/fsevents/lib/binding/Release/node-v48-darwin-x64/fse.node&quot; is installed via remote</span><br><span class="line">- ansi@0.3.1 node_modules/appium/node_modules/fsevents/node_modules/ansi</span><br><span class="line">- pseudomap@1.0.2 node_modules/appium/node_modules/fsevents/node_modules/aws4/node_modules/lru-cache/node_modules/pseudomap</span><br><span class="line">- yallist@2.0.0 node_modules/appium/node_modules/fsevents/node_modules/aws4/node_modules/lru-cache/node_modules/yallist</span><br><span class="line">- lru-cache@4.0.1 node_modules/appium/node_modules/fsevents/node_modules/aws4/node_modules/lru-cache</span><br><span class="line">- balanced-match@0.3.0 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match</span><br><span class="line">- concat-map@0.0.1 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map</span><br><span class="line">- brace-expansion@1.1.3 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion</span><br><span class="line">- minimatch@3.0.0 node_modules/appium/node_modules/fsevents/node_modules/fstream-ignore/node_modules/minimatch</span><br><span class="line">- lodash.tostring@4.1.2 node_modules/appium/node_modules/fsevents/node_modules/lodash.tostring</span><br><span class="line">- lodash.repeat@4.0.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.repeat</span><br><span class="line">- lodash.padstart@4.2.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.padstart</span><br><span class="line">- lodash.padend@4.2.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.padend</span><br><span class="line">- lodash.pad@4.1.0 node_modules/appium/node_modules/fsevents/node_modules/lodash.pad</span><br><span class="line">- abbrev@1.0.7 node_modules/appium/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/nopt/node_modules/abbrev</span><br><span class="line">- nopt@3.0.6 node_modules/appium/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/nopt</span><br><span class="line">- wrappy@1.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/inflight/node_modules/wrappy</span><br><span class="line">- inherits@2.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/inherits</span><br><span class="line">- balanced-match@0.3.0 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match</span><br><span class="line">- concat-map@0.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map</span><br><span class="line">- brace-expansion@1.1.3 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion</span><br><span class="line">- minimatch@3.0.0 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/minimatch</span><br><span class="line">- wrappy@1.0.1 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/once/node_modules/wrappy</span><br><span class="line">- once@1.3.3 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/once</span><br><span class="line">- inflight@1.0.4 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/inflight</span><br><span class="line">- path-is-absolute@1.0.0 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob/node_modules/path-is-absolute</span><br><span class="line">- glob@7.0.3 node_modules/appium/node_modules/fsevents/node_modules/rimraf/node_modules/glob</span><br><span class="line">/usr/local/lib</span><br><span class="line">└─┬ appium@1.5.3</span><br><span class="line">  └─┬ fsevents@1.0.14</span><br><span class="line">    ├── nan@2.4.0</span><br><span class="line">    └─┬ node-pre-gyp@0.6.29</span><br><span class="line">      ├─┬ nopt@3.0.6</span><br><span class="line">      │ └── abbrev@1.0.9</span><br><span class="line">      ├─┬ npmlog@3.1.2</span><br><span class="line">      │ ├── console-control-strings@1.1.0</span><br><span class="line">      │ ├─┬ gauge@2.6.0</span><br><span class="line">      │ │ ├── aproba@1.0.4</span><br><span class="line">      │ │ ├── has-color@0.1.7</span><br><span class="line">      │ │ ├── has-unicode@2.0.1</span><br><span class="line">      │ │ ├── object-assign@4.1.0</span><br><span class="line">      │ │ ├── signal-exit@3.0.0</span><br><span class="line">      │ │ ├─┬ string-width@1.0.1</span><br><span class="line">      │ │ │ ├─┬ code-point-at@1.0.0</span><br><span class="line">      │ │ │ │ └── number-is-nan@1.0.0</span><br><span class="line">      │ │ │ └── is-fullwidth-code-point@1.0.0</span><br><span class="line">      │ │ └── wide-align@1.1.0</span><br><span class="line">      │ └── set-blocking@2.0.0</span><br><span class="line">      ├─┬ request@2.73.0</span><br><span class="line">      │ ├── aws4@1.4.1</span><br><span class="line">      │ ├─┬ bl@1.1.2</span><br><span class="line">      │ │ └── readable-stream@2.0.6</span><br><span class="line">      │ ├─┬ har-validator@2.0.6</span><br><span class="line">      │ │ └── pinkie-promise@2.0.1</span><br><span class="line">      │ ├─┬ http-signature@1.1.1</span><br><span class="line">      │ │ ├── jsprim@1.3.0</span><br><span class="line">      │ │ └─┬ sshpk@1.8.3</span><br><span class="line">      │ │   ├── assert-plus@1.0.0</span><br><span class="line">      │ │   ├── dashdash@1.14.0</span><br><span class="line">      │ │   ├─┬ getpass@0.1.6</span><br><span class="line">      │ │   │ └── assert-plus@1.0.0</span><br><span class="line">      │ │   └── tweetnacl@0.13.3</span><br><span class="line">      │ ├─┬ mime-types@2.1.11</span><br><span class="line">      │ │ └── mime-db@1.23.0</span><br><span class="line">      │ ├── oauth-sign@0.8.2</span><br><span class="line">      │ ├── qs@6.2.0</span><br><span class="line">      │ └── tunnel-agent@0.4.3</span><br><span class="line">      ├─┬ rimraf@2.5.3</span><br><span class="line">      │ └─┬ glob@7.0.5</span><br><span class="line">      │   ├── fs.realpath@1.0.0</span><br><span class="line">      │   ├── inflight@1.0.5</span><br><span class="line">      │   ├─┬ minimatch@3.0.2</span><br><span class="line">      │   │ └─┬ brace-expansion@1.1.5</span><br><span class="line">      │   │   ├── balanced-match@0.4.2</span><br><span class="line">      │   │   └── concat-map@0.0.1</span><br><span class="line">      │   └── path-is-absolute@1.0.0</span><br><span class="line">      ├── semver@5.2.0</span><br><span class="line">      ├─┬ tar@2.2.1</span><br><span class="line">      │ ├── block-stream@0.0.9</span><br><span class="line">      │ └─┬ fstream@1.0.10</span><br><span class="line">      │   └── graceful-fs@4.1.4</span><br><span class="line">      └─┬ tar-pack@3.1.4</span><br><span class="line">        ├── fstream-ignore@1.0.5</span><br><span class="line">        ├─┬ once@1.3.3</span><br><span class="line">        │ └── wrappy@1.0.2</span><br><span class="line">        └─┬ readable-stream@2.1.4</span><br><span class="line">          ├── buffer-shims@1.0.0</span><br><span class="line">          └── process-nextick-args@1.0.7</span><br><span class="line"></span><br><span class="line">➜  ~</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>shadow</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://shadow000902.space/2016/03/31/Appium安装/" title="Appium安装">http://shadow000902.space/2016/03/31/Appium安装/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/appium/" rel="tag"># appium</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/31/Appium运行日志解析/" rel="next" title="Appium运行日志解析">
+                <i class="fa fa-chevron-left"></i> Appium运行日志解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/31/Appium根据xpath获取控件/" rel="prev" title="Appium根据xpath获取控件">
+                Appium根据xpath获取控件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591af85feb91bba8" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+            
+              <p class="site-author-name" itemprop="name">shadow</p>
+              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行正常安装Appium"><span class="nav-number">1.</span> <span class="nav-text">命令行正常安装Appium</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装node-js"><span class="nav-number">1.1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用node-js安装Appium"><span class="nav-number">1.2.</span> <span class="nav-text">使用node.js安装Appium</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改Appium安装源方法"><span class="nav-number">1.3.</span> <span class="nav-text">修改Appium安装源方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常安装Appium方法（windows下）"><span class="nav-number">2.</span> <span class="nav-text">异常安装Appium方法（windows下）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#⭐️源码安装"><span class="nav-number">3.</span> <span class="nav-text">⭐️源码安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装cnpm"><span class="nav-number">3.1.</span> <span class="nav-text">安装cnpm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下载源代码"><span class="nav-number">3.2.</span> <span class="nav-text">下载源代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编译安装"><span class="nav-number">3.3.</span> <span class="nav-text">编译安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用cnpm-link命令将appium-link到系统，可以忽略warn"><span class="nav-number">3.4.</span> <span class="nav-text">用cnpm link命令将appium link到系统，可以忽略warn</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查看安装结果"><span class="nav-number">3.5.</span> <span class="nav-text">查看安装结果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装指定版本的appium"><span class="nav-number">4.</span> <span class="nav-text">安装指定版本的appium</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Appium应用所附加需要的"><span class="nav-number">5.</span> <span class="nav-text">Appium应用所附加需要的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装和使用appium遇到的问题解决"><span class="nav-number">6.</span> <span class="nav-text">安装和使用appium遇到的问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装后无法使用"><span class="nav-number">6.1.</span> <span class="nav-text">安装后无法使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装中遇到权限问题无法安装"><span class="nav-number">6.2.</span> <span class="nav-text">安装中遇到权限问题无法安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#appium启动问题"><span class="nav-number">6.3.</span> <span class="nav-text">appium启动问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mac成功安装Appium1-5-3版本［我有翻墙，不知道不翻墙行不行］"><span class="nav-number">7.</span> <span class="nav-text">Mac成功安装Appium1.5.3版本［我有翻墙，不知道不翻墙行不行］</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 90954, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 90954, xid: "2016/03/31/Appium安装/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/90954/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz", "4rSep9EijQDvdmVi5cPCzgxz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

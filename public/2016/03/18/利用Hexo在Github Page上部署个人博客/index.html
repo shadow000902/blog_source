@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Monaco:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '0HPI7IYB5V',
+      apiKey: 'c41b4c8f05b63867c231cd2ef194a34f',
+      indexName: 'Hexo_search',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="准备工作 安装node.js 安装git客户端 安装github for windows客户端 安装hexo框架">
+<meta name="keywords" content="hexo,github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Hexo在Github Page上部署个人博客">
+<meta property="og:url" content="http://shadow000902.space/2016/03/18/利用Hexo在Github Page上部署个人博客/index.html">
+<meta property="og:site_name" content="Shadow&#39;S Site">
+<meta property="og:description" content="准备工作 安装node.js 安装git客户端 安装github for windows客户端 安装hexo框架">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://shadow000902.space/2016/03/18/利用Hexo在Github%20Page上部署个人博客/默认模板效果.jpg">
+<meta property="og:image" content="http://shadow000902.space/2016/03/18/利用Hexo在Github%20Page上部署个人博客/设置域名解析.png">
+<meta property="og:image" content="http://shadow000902.space/2016/03/18/利用Hexo在Github%20Page上部署个人博客/修改域名提供商下的域名DNS服务器.jpg">
+<meta property="og:updated_time" content="2018-06-03T16:31:32.316Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Hexo在Github Page上部署个人博客">
+<meta name="twitter:description" content="准备工作 安装node.js 安装git客户端 安装github for windows客户端 安装hexo框架">
+<meta name="twitter:image" content="http://shadow000902.space/2016/03/18/利用Hexo在Github%20Page上部署个人博客/默认模板效果.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Shadow'S Site" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://shadow000902.space/2016/03/18/利用Hexo在Github Page上部署个人博客/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>利用Hexo在Github Page上部署个人博客 | Shadow'S Site</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18711495-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-18711495-2');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b2e7edb34a402c6fa45e71e2a2456518";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shadow'S Site</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://shadow000902.space/2016/03/18/利用Hexo在Github Page上部署个人博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadow">
+      <meta itemprop="description" content="谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shadow'S Site">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">利用Hexo在Github Page上部署个人博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-03-18 00:06:40" itemprop="dateCreated datePublished" datetime="2016-03-18T00:06:40+08:00">2016-03-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-06-04 00:31:32" itemprop="dateModified" datetime="2018-06-04T00:31:32+08:00">2018-06-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/18/利用Hexo在Github Page上部署个人博客/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count hc-comment-count" data-xid="2016/03/18/利用Hexo在Github Page上部署个人博客/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/03/18/利用Hexo在Github Page上部署个人博客/" class="leancloud_visitors" data-flag-title="利用Hexo在Github Page上部署个人博客">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>安装node.js</li>
+<li>安装git客户端</li>
+<li>安装github for windows客户端</li>
+<li><p>安装hexo框架</p>
+<a id="more"></a>
+</li>
+</ol>
+<h4 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h4><h5 id="创建一个hexo安装目录，比如：E-hexo"><a href="#创建一个hexo安装目录，比如：E-hexo" class="headerlink" title="创建一个hexo安装目录，比如：E:/hexo"></a>创建一个hexo安装目录，比如：E:/hexo</h5><h5 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br><span class="line"><span class="built_in">cd</span> E:/hexo</span><br><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h5 id="在本地查看博客"><a href="#在本地查看博客" class="headerlink" title="在本地查看博客"></a>在本地查看博客</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>现在用浏览器访问：<a href="http://localhost:4000/，效果如下图" target="_blank" rel="noopener">http://localhost:4000/，效果如下图</a></p>
+<img src="/2016/03/18/利用Hexo在Github%20Page上部署个人博客/默认模板效果.jpg" title="默认模板效果">
+<p>如果要停止 hexo 服务：在 Git Bash 下按 Ctrl + C 即可</p>
+<h5 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h5><p>在E:/hexo下，打开git bash，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/MOxFIVE/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure></p>
+<h5 id="应用next主题"><a href="#应用next主题" class="headerlink" title="应用next主题"></a>应用next主题</h5><p>在E:/hexo下，打开_config.yml，修改：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">theme: landscape    -&gt;</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure></p>
+<h5 id="重新生成静态网页"><a href="#重新生成静态网页" class="headerlink" title="重新生成静态网页"></a>重新生成静态网页</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+<h4 id="创建-Github-pages-并-SSH-授权"><a href="#创建-Github-pages-并-SSH-授权" class="headerlink" title="创建 Github pages 并 SSH 授权"></a>创建 Github pages 并 SSH 授权</h4><ol>
+<li>创建名为 <strong>shadow000902</strong>.github.io的新的仓库（repository），<strong>shadow000902</strong> 必须为自己的用户名</li>
+<li><p>在本地生成SSH密钥，用于提交本地代码到github上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"shadow000902@gmail.com"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认密钥生成后,存放于C:/Users/shadow/.ssh/中，打开id_rsa.pub文件，复制其中的所有内容</p>
+</li>
+<li>在自己创建的shadow000902.github.io仓库的setting中，打开Deploy keys, 点击add deploy key，把刚才复制的内容黏贴进去保存，Title任意取</li>
+</ol>
+<h4 id="上传本地博客内容到github上"><a href="#上传本地博客内容到github上" class="headerlink" title="上传本地博客内容到github上"></a>上传本地博客内容到github上</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h4 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean          <span class="comment"># 清楚本地静态网页public文件夹</span></span><br><span class="line">hexo generate       <span class="comment"># 重新生成静态网页</span></span><br><span class="line">hexo deploy         <span class="comment"># 部署本地静态网页到github上，以便在shadow000902.github.io域名下访问</span></span><br></pre></td></tr></table></figure>
+<h4 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h4><ol>
+<li>在E:/hexo/source下新建一个CNAME文件，把自己申请的域名（比如我申请的：shadow000902.space）填写在该文件里保存</li>
+<li>在<a href="https://www.dnspod.cn/" target="_blank" rel="noopener">DNSPOD</a>网站里，设置域名解析：<img src="/2016/03/18/利用Hexo在Github%20Page上部署个人博客/设置域名解析.png" title="设置域名解析"></li>
+<li>修改域名提供商下的域名DNS服务器为github提供的DNS：<img src="/2016/03/18/利用Hexo在Github%20Page上部署个人博客/修改域名提供商下的域名DNS服务器.jpg" title="修改域名提供商下的域名DNS服务器">
+</li>
+</ol>
+<h4 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h4><h5 id="插件基本命令"><a href="#插件基本命令" class="headerlink" title="插件基本命令"></a>插件基本命令</h5><p>1.1 安装插件：                                   npm install 插件名 –save<br>1.2 卸载插件：                                   npm uninstall 插件名 –save<br>1.3 更新插件和博客框架（需要在 E:\hexo 目录下）：     npm update<br>它实质上是通过项目根目录下 package.json 文件更新各大组件</p>
+<h5 id="必备插件"><a href="#必备插件" class="headerlink" title="必备插件"></a>必备插件</h5><p>2.1 支持RSS：            npm install hexo-generator-feed –save<br>2.2 生成站点地图：        npm install hexo-generator-sitemap –save<br>2.3 生成百度站点地图：        npm install hexo-generator-baidu-sitemap –save<br><del>2.4 HTML 压缩：        npm install hexo-html-minifier –save</del><br><del>2.5 JavaScript 压缩：    npm install hexo-uglify –save</del><br><del>2.6 CSS 压缩插件：        npm install hexo-clean-css –save</del><br>2.7 SEO优化：            npm install hexo-generator-seo-friendly-sitemap –save<br>2.8 文章字数统计            npm install hexo-wordcount –save</p>
+<h4 id="统计功能"><a href="#统计功能" class="headerlink" title="统计功能"></a>统计功能</h4><p><a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener">为hexo博客添加访问次数统计功能</a></p>
+<h4 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h4><p><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="noopener">Hexo你的博客</a></p>
+<h4 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h4><h5 id="执行任何一条含hexo的命令都会报以下错误："><a href="#执行任何一条含hexo的命令都会报以下错误：" class="headerlink" title="执行任何一条含hexo的命令都会报以下错误："></a>执行任何一条含<code>hexo</code>的命令都会报以下错误：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;</span><br><span class="line">    ...</span><br><span class="line">    at Module.load (module.js:458:32) code: &apos;MODULE_NOT_FOUND&apos; &#125;</span><br></pre></td></tr></table></figure>
+<p>解决办法：<br>Try to install <code>hexo</code> with <code>--no-optional</code> option.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo --no-optional --registry=https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">➜  blog_source git:(master) hexo -v</span><br><span class="line">hexo: 3.2.2</span><br><span class="line">hexo-cli: 1.0.2</span><br><span class="line">os: Darwin 16.3.0 darwin x64</span><br><span class="line">http_parser: 2.7.0</span><br><span class="line">node: 6.9.0</span><br><span class="line">v8: 5.1.281.84</span><br><span class="line">uv: 1.9.1</span><br><span class="line">zlib: 1.2.8</span><br><span class="line">ares: 1.10.1-DEV</span><br><span class="line">icu: 57.1</span><br><span class="line">modules: 48</span><br><span class="line">openssl: 1.0.2j</span><br><span class="line">➜  blog_source git:(master)</span><br></pre></td></tr></table></figure>
+<h5 id="执行每条命令都会报以下错误："><a href="#执行每条命令都会报以下错误：" class="headerlink" title="执行每条命令都会报以下错误："></a>执行每条命令都会报以下错误：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">➜  blog_source git:(master) ✗ hexo -v</span><br><span class="line">ERROR Plugin load failed: hexo-generator-baidu-sitemap</span><br><span class="line">ReferenceError: hexo is not defined</span><br><span class="line">    at Object.&lt;anonymous&gt; (/usr/local/git_projects/blog_source/node_modules/hexo-generator-baidu-sitemap/baidusitemap.js:4:10)</span><br><span class="line">    at Module._compile (module.js:541:32)</span><br><span class="line">    at Object.Module._extensions..js (module.js:550:10)</span><br><span class="line">    at Module.load (module.js:458:32)</span><br><span class="line">    at tryModuleLoad (module.js:417:12)</span><br><span class="line">    at Function.Module._load (module.js:409:3)</span><br><span class="line">    at Module.require (module.js:468:17)</span><br><span class="line">    at require (/usr/local/git_projects/blog_source/node_modules/hexo/lib/hexo/index.js:213:21)</span><br><span class="line">    at /usr/local/git_projects/blog_source/node_modules/hexo-generator-baidu-sitemap/index.js:6:38</span><br><span class="line">    at /usr/local/git_projects/blog_source/node_modules/hexo/lib/hexo/index.js:229:12</span><br><span class="line">    at tryCatcher (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:502:31)</span><br><span class="line">    at Promise._settlePromise (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:559:18)</span><br><span class="line">    at Promise._settlePromise0 (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:604:10)</span><br><span class="line">    at Promise._settlePromises (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:683:18)</span><br><span class="line">    at Promise._fulfill (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:628:18)</span><br><span class="line">    at Promise._resolveCallback (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:423:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:514:17)</span><br><span class="line">    at Promise._settlePromise (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:559:18)</span><br><span class="line">    at Promise._settlePromise0 (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:604:10)</span><br><span class="line">    at Promise._settlePromises (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:683:18)</span><br><span class="line">    at Promise._fulfill (/usr/local/git_projects/blog_source/node_modules/bluebird/js/release/promise.js:628:18)</span><br></pre></td></tr></table></figure>
+<p>解决方法：<br><code>if your hexo version is 2.x.x, you should install as follow:</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-baidu-sitemap@0.0.8 --save</span><br></pre></td></tr></table></figure></p>
+<p><code>if your hexo version is 3.x.x, you should install as follow:</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-baidu-sitemap@0.1.1 --save</span><br></pre></td></tr></table></figure></p>
+<p><code>Maybe response is &quot;hexo is not definded&quot;,then you should:</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd node_modules/hexo-generator-baidu-sitemap/</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<h5 id="hexo-generate报错处理"><a href="#hexo-generate报错处理" class="headerlink" title="hexo generate报错处理"></a><code>hexo generate</code>报错处理</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># taoyi @ taoyi-mac in ~/git_projects/GitHub/blog_source on git:master x [18:11:36] </span></span><br><span class="line">$ hexo generate</span><br><span class="line">(node:51431) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</span><br><span class="line">INFO  Start processing</span><br><span class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Cannot find module '</span>highlight.js/lib/languages/shell<span class="string">'</span></span><br><span class="line"><span class="string">    at Function.Module._resolveFilename (module.js:555:15)</span></span><br><span class="line"><span class="string">    at Function.Module._load (module.js:482:25)</span></span><br><span class="line"><span class="string">    at Module.require (module.js:604:17)</span></span><br><span class="line"><span class="string">    at require (internal/module.js:11:18)</span></span><br><span class="line"><span class="string">    at loadLanguage (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/node_modules/hexo-util/lib/highlight.js:93:31)</span></span><br><span class="line"><span class="string">    at tryLanguage (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/node_modules/hexo-util/lib/highlight.js:100:3)</span></span><br><span class="line"><span class="string">    at highlight (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/node_modules/hexo-util/lib/highlight.js:136:8)</span></span><br><span class="line"><span class="string">    at highlightUtil (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/node_modules/hexo-util/lib/highlight.js:22:14)</span></span><br><span class="line"><span class="string">    at /Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/lib/plugins/filter/before_post_render/backtick_code_block.js:62:15</span></span><br><span class="line"><span class="string">    at String.replace (&lt;anonymous&gt;)</span></span><br><span class="line"><span class="string">    at Hexo.backtickCodeBlock (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/lib/plugins/filter/before_post_render/backtick_code_block.js:15:31)</span></span><br><span class="line"><span class="string">    at Hexo.tryCatcher (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/util.js:16:23)</span></span><br><span class="line"><span class="string">    at Hexo.&lt;anonymous&gt; (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/method.js:15:34)</span></span><br><span class="line"><span class="string">    at /Users/taoyi/git_projects/GitHub/blog_source/node_modules/hexo/lib/extend/filter.js:68:35</span></span><br><span class="line"><span class="string">    at tryCatcher (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/util.js:16:23)</span></span><br><span class="line"><span class="string">    at Object.gotValue (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/reduce.js:145:18)</span></span><br><span class="line"><span class="string">    at Object.gotAccum (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/reduce.js:134:25)</span></span><br><span class="line"><span class="string">    at Object.tryCatcher (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/util.js:16:23)</span></span><br><span class="line"><span class="string">    at Promise._settlePromiseFromHandler (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/promise.js:502:31)</span></span><br><span class="line"><span class="string">    at Promise._settlePromise (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/promise.js:559:18)</span></span><br><span class="line"><span class="string">    at Promise._settlePromiseCtx (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/promise.js:596:10)</span></span><br><span class="line"><span class="string">    at Async._drainQueue (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/async.js:143:12)</span></span><br><span class="line"><span class="string">    at Async._drainQueues (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/async.js:148:10)</span></span><br><span class="line"><span class="string">    at Immediate.Async.drainQueues [as _onImmediate] (/Users/taoyi/git_projects/GitHub/blog_source/node_modules/bluebird/js/release/async.js:17:14)</span></span><br><span class="line"><span class="string">    at runCallback (timers.js:773:18)</span></span><br><span class="line"><span class="string">    at tryOnImmediate (timers.js:734:5)</span></span><br><span class="line"><span class="string">    at processImmediate [as _immediateCallback] (timers.js:711:5)</span></span><br></pre></td></tr></table></figure>
+<p>解决方法：安装<code>highlight.js</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install highlight.js</span><br></pre></td></tr></table></figure></p>
+<h5 id="解决fs-SyncWriteStream报错问题"><a href="#解决fs-SyncWriteStream报错问题" class="headerlink" title="解决fs.SyncWriteStream报错问题"></a>解决<code>fs.SyncWriteStream</code>报错问题</h5><p>调试找出问题出现点<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># taoyi @ taoyi-mac in ~/git_projects/GitHub/blog_source on git:master x [18:57:19] </span></span><br><span class="line">$ hexo clean --debug                  </span><br><span class="line">10:57:38.353 DEBUG Hexo version: 3.4.4</span><br><span class="line">10:57:38.356 DEBUG Working directory: ~/git_projects/GitHub/blog_source/</span><br><span class="line">10:57:38.577 DEBUG Config loaded: ~/git_projects/GitHub/blog_source/_config.yml</span><br><span class="line">10:57:38.642 DEBUG Plugin loaded: hexo-algolia</span><br><span class="line">10:57:38.644 DEBUG Plugin loaded: hexo-algoliasearch</span><br><span class="line">10:57:38.779 DEBUG Plugin loaded: hexo-clean-css</span><br><span class="line">10:57:38.792 DEBUG Plugin loaded: hexo-deployer-git</span><br><span class="line">(node:55696) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</span><br><span class="line">10:57:38.796 DEBUG Plugin loaded: hexo-fs</span><br><span class="line">10:57:38.816 DEBUG Plugin loaded: hexo-cli</span><br><span class="line">10:57:38.824 DEBUG Plugin loaded: hexo-generator-baidu-sitemap</span><br><span class="line">10:57:38.829 DEBUG Plugin loaded: hexo-generator-archive</span><br><span class="line">10:57:38.831 DEBUG Plugin loaded: hexo-generator-category</span><br><span class="line">10:57:38.879 DEBUG Plugin loaded: hexo-generator-feed</span><br><span class="line">10:57:38.881 DEBUG Plugin loaded: hexo-generator-index</span><br><span class="line">10:57:38.882 DEBUG Plugin loaded: hexo-generator-tag</span><br><span class="line">10:57:38.910 DEBUG Plugin loaded: hexo-generator-seo-friendly-sitemap</span><br><span class="line">10:57:38.919 DEBUG Plugin loaded: hexo-html-minifier</span><br><span class="line">10:57:38.922 DEBUG Plugin loaded: hexo-generator-sitemap</span><br><span class="line">10:57:38.924 DEBUG Plugin loaded: hexo-renderer-ejs</span><br><span class="line">10:57:38.948 DEBUG Plugin loaded: hexo-renderer-marked</span><br><span class="line">10:57:38.976 DEBUG Plugin loaded: hexo-renderer-stylus</span><br><span class="line">10:57:39.078 DEBUG Plugin loaded: hexo-server</span><br><span class="line">10:57:39.170 DEBUG Plugin loaded: hexo-wordcount</span><br><span class="line">10:57:39.177 DEBUG Script loaded: themes/next-5/scripts/tags/button.js</span><br><span class="line">10:57:39.180 DEBUG Script loaded: themes/next-5/scripts/merge-configs.js</span><br><span class="line">10:57:39.180 DEBUG Script loaded: themes/next-5/scripts/tags/center-quote.js</span><br><span class="line">10:57:39.183 DEBUG Script loaded: themes/next-5/scripts/merge.js</span><br><span class="line">10:57:39.183 DEBUG Script loaded: themes/next-5/scripts/tags/full-image.js</span><br><span class="line">10:57:39.183 DEBUG Script loaded: themes/next-5/scripts/tags/label.js</span><br><span class="line">10:57:39.184 DEBUG Script loaded: themes/next-5/scripts/tags/lazy-image.js</span><br><span class="line">10:57:39.184 DEBUG Script loaded: themes/next-5/scripts/tags/note.js</span><br><span class="line">10:57:39.185 DEBUG Script loaded: themes/next-5/scripts/tags/group-pictures.js</span><br><span class="line">10:57:39.200 DEBUG Script loaded: themes/next-5/scripts/tags/exturl.js</span><br><span class="line">10:57:39.201 DEBUG Script loaded: themes/next-5/scripts/tags/tabs.js</span><br><span class="line">10:57:39.203 INFO  Deleted database.</span><br><span class="line">10:57:39.205 DEBUG Database saved</span><br></pre></td></tr></table></figure></p>
+<p>由此可以看出，问题出现在<code>hexo-deployer-git</code>中，在其中搜索：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># taoyi @ taoyi-mac in ~/git_projects/GitHub/blog_source on git:master x [19:01:51] </span></span><br><span class="line">$ grep -irn <span class="string">"SyncWriteStream"</span> ./node_modules/hexo-deployer-git/  </span><br><span class="line">./node_modules/hexo-deployer-git//node_modules/hexo-fs/lib/fs.js:718:// exports.SyncWriteStream = fs.SyncWriteStream;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到是<code>./node_modules/hexo-deployer-git//node_modules/hexo-fs/lib/fs.js</code>文件的第718行用到，直接编辑文件注释掉该行就可以解决问题，不会再报错了。<br>hexo命令中，可以通过<code>--debug</code>参数看下详细的运行记录，从而定位问题。</p>
+<h5 id="ERROR-Asset-render-failed-lib-canvas-ribbon-canvas-ribbon-js"><a href="#ERROR-Asset-render-failed-lib-canvas-ribbon-canvas-ribbon-js" class="headerlink" title="ERROR Asset render failed: lib/canvas-ribbon/canvas-ribbon.js"></a>ERROR Asset render failed: lib/canvas-ribbon/canvas-ribbon.js</h5><p>这个错主要是安装了 JS 压缩的插件引起的<br>所以要做的就是卸载所有相关的插件。</p>
+<h5 id="博客部署很慢的问题解决"><a href="#博客部署很慢的问题解决" class="headerlink" title="博客部署很慢的问题解决"></a>博客部署很慢的问题解决</h5><p>这个还是 JS 压缩引起的。<br>所以主要做的还是卸载所有相关的插件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-uglify</span><br><span class="line">npm uninstall uglify</span><br><span class="line">npm uninstall uglify-js</span><br></pre></td></tr></table></figure></p>
+<p>卸载该插件后，60篇博客，部署时间大概在30s左右，generate时间在10~20s，比之前的5~6min好了不知道多少。</p>
+<h4 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">if</span>(<span class="string">"123456"</span>==prompt(<span class="string">"Please input password"</span>))</span><br><span class="line">	&#123;</span><br><span class="line">		alert(<span class="string">"Right"</span>); </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		alert(<span class="string">"Wrong"</span>); </span><br><span class="line">		location=<span class="string">"http://shadow000902.space"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="文章字数统计"><a href="#文章字数统计" class="headerlink" title="文章字数统计"></a>文章字数统计</h4><p>主要代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字数统计</span></span><br><span class="line">&lt;span class=<span class="string">"post-count"</span>&gt;&#123;&#123; wordcount(post.content) &#125;&#125;&lt;/span&gt;</span><br><span class="line"><span class="comment"># 阅读时长预计</span></span><br><span class="line">&lt;span class=<span class="string">"post-count"</span>&gt;&#123;&#123; min2read(post.content) &#125;&#125;&lt;/span&gt;</span><br><span class="line"><span class="comment"># 总字数统计</span></span><br><span class="line">&lt;span class=<span class="string">"post-count"</span>&gt;&#123;&#123; totalcount(site, <span class="string">'0,0.0a'</span>) &#125;&#125;&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="增加文章的宽度"><a href="#增加文章的宽度" class="headerlink" title="增加文章的宽度"></a>增加文章的宽度</h4><p>编辑<code>blog_source/themes/next/source/css/_variables/custom.styl</code>文件，加入如下代码：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">修改成你期望的宽度</span></span><br><span class="line"><span class="string">$content-desktop</span> <span class="string">=</span> <span class="number">800</span><span class="string">px</span></span><br><span class="line"><span class="string">//</span> <span class="string">当视窗超过</span> <span class="number">1600</span><span class="string">px</span> <span class="string">后的宽度</span></span><br><span class="line"><span class="string">$content-desktop-large</span> <span class="string">=</span> <span class="number">1000</span><span class="string">px</span></span><br></pre></td></tr></table></figure>
+<h4 id="文本内容上色"><a href="#文本内容上色" class="headerlink" title="文本内容上色"></a>文本内容上色</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;span</span> <span class="string">class="inline-span</span> <span class="string">red"&gt;red&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;span</span> <span class="string">class="inline-span</span> <span class="string">blue"&gt;blue&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;span</span> <span class="string">class="inline-span</span> <span class="string">yellow"&gt;yellow&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;span</span> <span class="string">class="inline-span</span> <span class="string">green"&gt;green&lt;/span&gt;</span></span><br><span class="line"><span class="string">&lt;span</span> <span class="string">class="inline-span</span> <span class="string">purple"&gt;purple&lt;/span&gt;</span></span><br></pre></td></tr></table></figure>
+<p>示例：<span class="inline-span red">red</span>、<span class="inline-span blue">blue</span>、<span class="inline-span yellow">yellow</span>、<span class="inline-span green">green</span>、<span class="inline-span purple">purple</span></p>
+<h4 id="文本段落上色"><a href="#文本段落上色" class="headerlink" title="文本段落上色"></a>文本段落上色</h4><p>编辑<code>blog_source/themes/next/source/css/_custom/custom.styl</code>文件，加入如下代码即可：</p>
+<figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span><span class="selector-class">.inline-span</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:inline;</span><br><span class="line">    padding:.3em .4em;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>:bold;</span><br><span class="line">    <span class="attribute">line-height</span>:<span class="number">1</span>;</span><br><span class="line">    <span class="attribute">color</span>:<span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">text-align</span>:center;</span><br><span class="line">    <span class="attribute">white-space</span>:nowrap;</span><br><span class="line">    <span class="attribute">vertical-align</span>:baseline;</span><br><span class="line">    border-radius:.2em;</span><br><span class="line">    margin: auto .5em;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span><span class="selector-class">.yellow</span> &#123; </span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#f0ad4e</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span><span class="selector-class">.green</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#5cb85c</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span><span class="selector-class">.blue</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#2780e3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span><span class="selector-class">.purple</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#9954bb</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span><span class="selector-class">.red</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#df3e3e</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.div-border</span> &#123;   </span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.left-red</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#df3e3e</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.left-yellow</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#f0ad4e</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.left-green</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#5cb85c</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.left-blue</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#2780e3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.left-purple</span> &#123;</span><br><span class="line">    <span class="attribute">border-left-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-left-color</span>: <span class="number">#9954bb</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.right-red</span> &#123;</span><br><span class="line">    <span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-right-color</span>: <span class="number">#df3e3e</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.right-yellow</span> &#123;</span><br><span class="line">    <span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-right-color</span>: <span class="number">#f0ad4e</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.right-green</span> &#123;</span><br><span class="line">    <span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-right-color</span>: <span class="number">#5cb85c</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.right-blue</span> &#123;</span><br><span class="line">    <span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-right-color</span>: <span class="number">#2780e3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.right-purple</span> &#123;</span><br><span class="line">    <span class="attribute">border-right-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-right-color</span>: <span class="number">#9954bb</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.top-red</span> &#123;</span><br><span class="line">    <span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-top-color</span>: <span class="number">#df3e3e</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.top-yellow</span> &#123;</span><br><span class="line">    <span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-top-color</span>: <span class="number">#f0ad4e</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.top-green</span> &#123;</span><br><span class="line">    <span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-top-color</span>: <span class="number">#5cb85c</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.top-blue</span> &#123;</span><br><span class="line">    <span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-top-color</span>: <span class="number">#2780e3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.top-purple</span> &#123;</span><br><span class="line">    <span class="attribute">border-top-width</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-top-color</span>: <span class="number">#9954bb</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<div class="div-border left-red"><br>这是边框带颜色的文本段落<br>位置可选: left | right | top<br>颜色可选: red | blue | yellow | green | purple<br></div>
+
+<p>实现代码：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div-border left-red"</span>&gt;</span></span></span><br><span class="line">这是边框带颜色的文本段落</span><br><span class="line">位置可选: left | right | top</span><br><span class="line">颜色可选: red | blue | yellow | green | purple</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<h4 id="解决Hexo中的markdown文档使用HTML标签多出空行的问题"><a href="#解决Hexo中的markdown文档使用HTML标签多出空行的问题" class="headerlink" title="解决Hexo中的markdown文档使用HTML标签多出空行的问题"></a>解决<code>Hexo</code>中的<code>markdown</code>文档使用HTML标签多出空行的问题</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 表格开始前加</span></span><br><span class="line">&#123;% raw %&#125;</span><br><span class="line">html tags &amp; content</span><br><span class="line"><span class="section"># 表格结尾后加</span></span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Next主题使用Algolia搜索"><a href="#Next主题使用Algolia搜索" class="headerlink" title="Next主题使用Algolia搜索"></a><code>Next</code>主题使用<code>Algolia</code>搜索</h4><p>Change dir to NexT directory, Install module to <code>source/lib</code> directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/next</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-algolia-instant-search <span class="built_in">source</span>/lib/algolia-instant-search</span><br></pre></td></tr></table></figure></p>
+<p>Enable module in NexT _config.yml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">algolia_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>Update:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/next/<span class="built_in">source</span>/lib/algolia-instant-search</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></p>
+<h4 id="npm第三方模块升级"><a href="#npm第三方模块升级" class="headerlink" title="npm第三方模块升级"></a><code>npm</code>第三方模块升级</h4><p>局部模块管理<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm outdated        <span class="comment"># 列出当前目录下的第三方模块</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo            <span class="comment"># 升级当前目录下的hexo</span></span><br></pre></td></tr></table></figure>
+<p>该方法只能单个升级模块</p>
+<p><code>npm</code>高效升级插件<code>npm-check-updates</code>安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm-check-updates</span><br></pre></td></tr></table></figure></p>
+<p>使用：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ncu                         <span class="comment"># 同``npm-check-updates``命令</span></span><br></pre></td></tr></table></figure></p>
+<p>返回结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ ncu</span><br><span class="line">Using /Users/taoyi/git_projects/GitHub/blog_source/package.json</span><br><span class="line">⸨░░░░░░░░░░░░░░░░░░⸩ ⠴ :</span><br><span class="line"> hexo-algolia                          ^0.1.1  →  ^1.2.5</span><br><span class="line"> hexo-algoliasearch                    ^0.2.3  →  ^0.3.0</span><br><span class="line"> hexo-clean-css                         0.0.2  →   0.0.3</span><br><span class="line"> hexo-deployer-git                     ^0.1.0  →  ^0.3.1</span><br><span class="line"> hexo-generator-seo-friendly-sitemap   0.0.19  →  0.0.21</span><br><span class="line"> hexo-html-minifier                     0.0.1  →   0.0.2</span><br><span class="line"> hexo-renderer-ejs                     ^0.2.0  →  ^0.3.1</span><br><span class="line"> hexo-renderer-marked                 ^0.2.10  →  ^0.3.2</span><br><span class="line"> hexo-server                           ^0.2.2  →  ^0.3.2</span><br><span class="line"></span><br><span class="line">The following dependencies are satisfied by their declared version range, but the installed versions are behind. You can install the latest versions without modifying your package file by using npm update. If you want to update the dependencies <span class="keyword">in</span> your package file anyway, run ncu -a.</span><br><span class="line"></span><br><span class="line"> hexo-fs                       ^0.2.2  →  ^0.2.3</span><br><span class="line"> hexo-generator-baidu-sitemap  ^0.1.1  →  ^0.1.2</span><br><span class="line"></span><br><span class="line">Run ncu with -u to upgrade package.json</span><br></pre></td></tr></table></figure></p>
+<p>升级所有的包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ncu -a</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay.png" alt="shadow Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>shadow</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://shadow000902.space/2016/03/18/利用Hexo在Github Page上部署个人博客/" title="利用Hexo在Github Page上部署个人博客">http://shadow000902.space/2016/03/18/利用Hexo在Github Page上部署个人博客/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/16/常用Adb命令列表/" rel="next" title="常用Adb命令列表">
+                <i class="fa fa-chevron-left"></i> 常用Adb命令列表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/18/上传本地代码到Github/" rel="prev" title="上传本地代码到Github">
+                上传本地代码到Github <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591af85feb91bba8" async="async"></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="hypercomments_widget"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="shadow">
+            
+              <p class="site-author-name" itemprop="name">shadow</p>
+              <p class="site-description motion-element" itemprop="description">谁当声震人间，必长久深自缄默。谁当划破闪电，必长久如云漂泊。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">62</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始安装"><span class="nav-number">2.</span> <span class="nav-text">开始安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建一个hexo安装目录，比如：E-hexo"><span class="nav-number">2.1.</span> <span class="nav-text">创建一个hexo安装目录，比如：E:/hexo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装hexo框架"><span class="nav-number">2.2.</span> <span class="nav-text">安装hexo框架</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在本地查看博客"><span class="nav-number">2.3.</span> <span class="nav-text">在本地查看博客</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装next主题"><span class="nav-number">2.4.</span> <span class="nav-text">安装next主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用next主题"><span class="nav-number">2.5.</span> <span class="nav-text">应用next主题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重新生成静态网页"><span class="nav-number">2.6.</span> <span class="nav-text">重新生成静态网页</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建-Github-pages-并-SSH-授权"><span class="nav-number">3.</span> <span class="nav-text">创建 Github pages 并 SSH 授权</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上传本地博客内容到github上"><span class="nav-number">4.</span> <span class="nav-text">上传本地博客内容到github上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新博客"><span class="nav-number">5.</span> <span class="nav-text">更新博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定域名"><span class="nav-number">6.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件"><span class="nav-number">7.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#插件基本命令"><span class="nav-number">7.1.</span> <span class="nav-text">插件基本命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#必备插件"><span class="nav-number">7.2.</span> <span class="nav-text">必备插件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#统计功能"><span class="nav-number">8.</span> <span class="nav-text">统计功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附加"><span class="nav-number">9.</span> <span class="nav-text">附加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决"><span class="nav-number">10.</span> <span class="nav-text">问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#执行任何一条含hexo的命令都会报以下错误："><span class="nav-number">10.1.</span> <span class="nav-text">执行任何一条含hexo的命令都会报以下错误：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行每条命令都会报以下错误："><span class="nav-number">10.2.</span> <span class="nav-text">执行每条命令都会报以下错误：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo-generate报错处理"><span class="nav-number">10.3.</span> <span class="nav-text">hexo generate报错处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决fs-SyncWriteStream报错问题"><span class="nav-number">10.4.</span> <span class="nav-text">解决fs.SyncWriteStream报错问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ERROR-Asset-render-failed-lib-canvas-ribbon-canvas-ribbon-js"><span class="nav-number">10.5.</span> <span class="nav-text">ERROR Asset render failed: lib/canvas-ribbon/canvas-ribbon.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#博客部署很慢的问题解决"><span class="nav-number">10.6.</span> <span class="nav-text">博客部署很慢的问题解决</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章加密"><span class="nav-number">11.</span> <span class="nav-text">文章加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章字数统计"><span class="nav-number">12.</span> <span class="nav-text">文章字数统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增加文章的宽度"><span class="nav-number">13.</span> <span class="nav-text">增加文章的宽度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本内容上色"><span class="nav-number">14.</span> <span class="nav-text">文本内容上色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本段落上色"><span class="nav-number">15.</span> <span class="nav-text">文本段落上色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决Hexo中的markdown文档使用HTML标签多出空行的问题"><span class="nav-number">16.</span> <span class="nav-text">解决Hexo中的markdown文档使用HTML标签多出空行的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Next主题使用Algolia搜索"><span class="nav-number">17.</span> <span class="nav-text">Next主题使用Algolia搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm第三方模块升级"><span class="nav-number">18.</span> <span class="nav-text">npm第三方模块升级</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadow</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 90954, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 90954, xid: "2016/03/18/利用Hexo在Github Page上部署个人博客/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/90954/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("qjdKXm0RH80J6HWCj1X3DREC-gzGzoHsz", "4rSep9EijQDvdmVi5cPCzgxz");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
