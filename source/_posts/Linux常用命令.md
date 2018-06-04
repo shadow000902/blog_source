@@ -153,6 +153,11 @@ cat file1.csv file2.csv file3.csv ... file[n].csv > all-in-one.csv				# 合并�
 18. dirs
 
 19. du(disk usage)
+```bash
+du -d 1 -h          # 命令查看当前目录下所有文件夹的大小 -d 指深度，后面加一个数值
+```
+
+
 
 20. ls(list)
 
@@ -361,7 +366,7 @@ Filesystem   Size   Used  Avail Capacity iused      ifree %iused  Mounted on
 ```
 32.2 
 ```bash
-df -h              # 查看每个根路径的分区大小
+df -h              # 命令查看整个硬盘的大小 ，-h表示人可读的
 du -sh [目录名]     # 返回该目录的大小
 du -sm [文件夹]     # 返回该文件夹总M数
 df --help          # 查看更多功能
